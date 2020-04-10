@@ -1,0 +1,6 @@
+use_frameworks!
+target 'KurozoraKit_Tests' do
+  pod 'KurozoraKit', :path => '../'
+  
+  
+end
