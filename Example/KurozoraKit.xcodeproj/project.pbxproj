@@ -18,7 +18,7 @@
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		783D7C2EDDD4E9127F132F77 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		9087359D7F3A5130475E6035 /* KurozoraKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = KurozoraKit.podspec; path = ../KurozoraKit.podspec; sourceTree = "<group>"; };
+		9087359D7F3A5130475E6035 /* KurozoraKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = KurozoraKit.podspec; path = ../KurozoraKit.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A27A687A882632C33EAE814B /* Pods-KurozoraKit_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KurozoraKit_Tests.release.xcconfig"; path = "Target Support Files/Pods-KurozoraKit_Tests/Pods-KurozoraKit_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		B5F0654465D2FFF93694122B /* Pods_KurozoraKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KurozoraKit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */

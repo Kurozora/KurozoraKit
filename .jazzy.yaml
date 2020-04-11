@@ -1,0 +1,20 @@
+author: "Khoren Katklian"
+author_url: "https://kurozora.app"
+copyright: "Copyright © 2018-present Khoren Katklian. All rights reserved. See [license](https://github.com/kiritokatklian/kurozorakit/blob/master/LICENSE)."
+readme: README.md
+
+module: KurozoraKit
+module_version: 0.1.6
+
+github_url: "https://github.com/kiritokatklian/kurozorakit"
+github_file_prefix: "https://github.com/kiritokatklian/kurozorakit/tree/master"
+
+root_url: "https://kiritokatklian.github.io/kurozorakit/"
+docset_icon: ".github/Assets/KurozoraKit_icon.png"
+dash_url: "https://kiritokatklian.github.io/kurozorakit/docs/docsets/KurozoraKit.xml"
+
+clean: true
+min_acl: internal
+skip_undocumented: true
+
+podspec: "KurozoraKit.podspec"
