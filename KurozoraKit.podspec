@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'KurozoraKit'
-  s.version          = '0.1.6'
+  s.version          = '0.1.7'
   s.summary          = 'KurozoraKit is a simple to use framework for interacting with the Kurozora API.'
   s.description      = <<-DESC
 	KurozoraKit lets users manage their anime library and access many other serices from your app. When users provide permission to access their Kurozora account, they can use your app to share anime, add anime to their library, and discover any of the millions of anime in the Kurozora catalog. If your app detects that the user is not yet a Kurozora member, you can offer them to create an account within your app.
@@ -16,13 +16,7 @@ Pod::Spec.new do |s|
 
   s.source_files = 'KurozoraKit/Classes/**/*'
   s.swift_version = '5.1'
-  
-  # s.resource_bundles = {
-  #   'KurozoraKit' => ['KurozoraKit/Assets/*.png']
-  # }
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
   s.dependency 'KeychainAccess'
   s.dependency 'Kingfisher'
   s.dependency 'SCLAlertView', '~> 0.8'
