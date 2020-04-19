@@ -87,6 +87,7 @@
 		63BBE6AA80525531A57971C184A80673 /* TRON-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A72ED5EC485AD7FC3D426046EEEDA284 /* TRON-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		63C2BA763C69F183DDB32456D7201543 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056D49AFC9F45D49005E5F5BA3B82E1D /* Filter.swift */; };
 		645FBB132B3217EACEA3349D206ABE8C /* ForumOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5239E7C941B3097130E62C5FA860EC1C /* ForumOrder.swift */; };
+		666D3E8A244D1BC10068A103 /* ActivityStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666D3E88244D15CC0068A103 /* ActivityStatus.swift */; };
 		673948D5171FB328A5FC04883949BB7C /* ShowDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EAB4A2A5D844F40062CE986D9B991D3 /* ShowDetails.swift */; };
 		6804393EA55473086BC9AC4FE08F33F5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 427AC06713624D904E0A768EA9512871 /* Foundation.framework */; };
 		686FF933FB5A33BA7A11CF986A916A06 /* Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED4E1EC4F41A6B3A92BCC0F8D00B4E2 /* Placeholder.swift */; };
@@ -294,10 +295,10 @@
 /* Begin PBXFileReference section */
 		0107A8B294EC86E17F970342DD4BF1A5 /* DispatchQueue+Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DispatchQueue+Alamofire.swift"; path = "Source/DispatchQueue+Alamofire.swift"; sourceTree = "<group>"; };
 		0110D273F9A19538EAA00364108A6CD3 /* Kingfisher.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Kingfisher.release.xcconfig; sourceTree = "<group>"; };
-		01E1B61A1324FCA51832EDF32BA5F798 /* Enums.html */ = {isa = PBXFileReference; includeInIndex = 1; name = Enums.html; path = docs/docsets/KurozoraKit.docset/Contents/Resources/Documents/Enums.html; sourceTree = "<group>"; };
+		01E1B61A1324FCA51832EDF32BA5F798 /* Enums.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Enums.html; path = docs/docsets/KurozoraKit.docset/Contents/Resources/Documents/Enums.html; sourceTree = "<group>"; };
 		021511BA9380A877C769314D2EB58FE3 /* Request.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Request.swift; path = Source/Request.swift; sourceTree = "<group>"; };
 		02C8A76891E4F50CAFDBB88D685F8B25 /* TRON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TRON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		033E1EA8D4E861AB9EC5554F5831D4AB /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		033E1EA8D4E861AB9EC5554F5831D4AB /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		03BABDE6C41AA00A10C4ED4C170BE91E /* KurozoraKit+User.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "KurozoraKit+User.swift"; sourceTree = "<group>"; };
 		03EA2673B7B68D60947FACF39FB3417C /* UIButton+Kingfisher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIButton+Kingfisher.swift"; path = "Sources/Extensions/UIButton+Kingfisher.swift"; sourceTree = "<group>"; };
 		044EAE8BC067A4EA7D661927DF0B931F /* Pods-KurozoraKit_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-KurozoraKit_Tests-frameworks.sh"; sourceTree = "<group>"; };
@@ -307,8 +308,8 @@
 		06279D43C96076B9584BD189D7F3EAF0 /* FeedPosts.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FeedPosts.swift; sourceTree = "<group>"; };
 		076F433AE1465D4AE08244FE3C8B59B4 /* SCLAlertView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SCLAlertView.release.xcconfig; sourceTree = "<group>"; };
 		0778A06412A5372ABEB56EEB7011851E /* ImageView+Kingfisher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ImageView+Kingfisher.swift"; path = "Sources/Extensions/ImageView+Kingfisher.swift"; sourceTree = "<group>"; };
-		07B72D7FEE7BA4D13C749BAB2F82FA0B /* Enums.html */ = {isa = PBXFileReference; includeInIndex = 1; name = Enums.html; path = docs/Enums.html; sourceTree = "<group>"; };
-		080D83F61DCFA80AA7A40BF3DF5FC472 /* FollowList.html */ = {isa = PBXFileReference; includeInIndex = 1; name = FollowList.html; path = docs/Enums/FollowList.html; sourceTree = "<group>"; };
+		07B72D7FEE7BA4D13C749BAB2F82FA0B /* Enums.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Enums.html; path = docs/Enums.html; sourceTree = "<group>"; };
+		080D83F61DCFA80AA7A40BF3DF5FC472 /* FollowList.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = FollowList.html; path = docs/Enums/FollowList.html; sourceTree = "<group>"; };
 		08F3E8ECF3E8589AA8441A31C33FF843 /* KeychainAccess.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = KeychainAccess.modulemap; sourceTree = "<group>"; };
 		0A4108303506A78D92F63B08F15C8B55 /* VoteThread.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = VoteThread.swift; sourceTree = "<group>"; };
 		0A518E72D4A85A2997A0B300710BF551 /* KurozoraKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KurozoraKit-prefix.pch"; sourceTree = "<group>"; };
@@ -321,7 +322,7 @@
 		0EA46ABCAE56357EBF50011DEF61E16A /* ThreadReply.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ThreadReply.swift; sourceTree = "<group>"; };
 		0F07A5AE152047A45E191D6D1D17A68C /* NetworkLoggerPlugin.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NetworkLoggerPlugin.swift; path = Source/TRON/NetworkLoggerPlugin.swift; sourceTree = "<group>"; };
 		0F6087FC5336602CA1DBE3D31A049A60 /* KeychainAccess-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KeychainAccess-prefix.pch"; sourceTree = "<group>"; };
-		115AA954544E495D9C2D9BFE82462D9D /* highlight.css */ = {isa = PBXFileReference; includeInIndex = 1; name = highlight.css; path = docs/css/highlight.css; sourceTree = "<group>"; };
+		115AA954544E495D9C2D9BFE82462D9D /* highlight.css */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.css; name = highlight.css; path = docs/css/highlight.css; sourceTree = "<group>"; };
 		121B84B66AE9785A3DF2DDAB4752CF0E /* SCLAlertView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SCLAlertView.swift; path = SCLAlertView/SCLAlertView.swift; sourceTree = "<group>"; };
 		1288D52FAC6F25015699A8A38951978D /* ForumsThread.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ForumsThread.swift; sourceTree = "<group>"; };
 		139C186D9080A6B43A0E910480B09260 /* UploadAPIRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UploadAPIRequest.swift; path = Source/TRON/UploadAPIRequest.swift; sourceTree = "<group>"; };
@@ -331,23 +332,23 @@
 		1813A42E8D30854AD478F406DB9760E9 /* ImageDataProcessor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageDataProcessor.swift; path = Sources/Networking/ImageDataProcessor.swift; sourceTree = "<group>"; };
 		1877A0585F32FF71C193F56589BC010E /* ParameterEncoder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParameterEncoder.swift; path = Source/ParameterEncoder.swift; sourceTree = "<group>"; };
 		1AE4B56FC6BC383D9BB888245397110F /* SwiftyJSON-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyJSON-prefix.pch"; sourceTree = "<group>"; };
-		1B0D5C8409095B3CEAF86BDD8CF4AF20 /* KurozoraKit.tgz */ = {isa = PBXFileReference; includeInIndex = 1; name = KurozoraKit.tgz; path = docs/docsets/KurozoraKit.tgz; sourceTree = "<group>"; };
+		1B0D5C8409095B3CEAF86BDD8CF4AF20 /* KurozoraKit.tgz */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = KurozoraKit.tgz; path = docs/docsets/KurozoraKit.tgz; sourceTree = "<group>"; };
 		1B581C5F0B91B0D07F3708B3C3FF7952 /* Plugin.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Plugin.swift; path = Source/TRON/Plugin.swift; sourceTree = "<group>"; };
 		1C463B3F559C51FB283303F141731CD5 /* URLBuilder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = URLBuilder.swift; path = Source/TRON/URLBuilder.swift; sourceTree = "<group>"; };
 		1D09C867FE64932BB0C120CBA659DD22 /* Runtime.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Runtime.swift; path = Sources/Utility/Runtime.swift; sourceTree = "<group>"; };
 		1DAFA77FC369ADBFC4E9174211C6B07A /* StringEncoding+Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "StringEncoding+Alamofire.swift"; path = "Source/StringEncoding+Alamofire.swift"; sourceTree = "<group>"; };
 		1E4ED0BF0233EB1ABDCDA7566E9FD241 /* gh.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = gh.png; path = docs/img/gh.png; sourceTree = "<group>"; };
 		1F20D2743C74B6965FBCFD5453607450 /* Kingfisher-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Kingfisher-prefix.pch"; sourceTree = "<group>"; };
-		1FA0FDDC977DCF1F6A072134DA56DFEA /* String.html */ = {isa = PBXFileReference; includeInIndex = 1; name = String.html; path = docs/docsets/KurozoraKit.docset/Contents/Resources/Documents/Extensions/String.html; sourceTree = "<group>"; };
+		1FA0FDDC977DCF1F6A072134DA56DFEA /* String.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = String.html; path = docs/docsets/KurozoraKit.docset/Contents/Resources/Documents/Extensions/String.html; sourceTree = "<group>"; };
 		20505E41CD7E8AF3D63A680ABA76DB95 /* Storage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Storage.swift; path = Sources/Cache/Storage.swift; sourceTree = "<group>"; };
 		205CB620434C6C59A94F967020D1632E /* KurozoraKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = KurozoraKit.modulemap; sourceTree = "<group>"; };
 		20F1DBAC5C6E0C77DB90C07F4970D70A /* SCLAlertView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SCLAlertView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		22599D4002580195E6F69B1AA540AD50 /* KKServices.html */ = {isa = PBXFileReference; includeInIndex = 1; name = KKServices.html; path = docs/docsets/KurozoraKit.docset/Contents/Resources/Documents/Classes/KKServices.html; sourceTree = "<group>"; };
+		22599D4002580195E6F69B1AA540AD50 /* KKServices.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = KKServices.html; path = docs/docsets/KurozoraKit.docset/Contents/Resources/Documents/Classes/KKServices.html; sourceTree = "<group>"; };
 		25D23FB4A3BD4F102F8B942398957F4D /* MALImport.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MALImport.swift; sourceTree = "<group>"; };
 		26B78E2E919FB901431FB3A8D9DAB90B /* SwiftyJSON.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftyJSON.debug.xcconfig; sourceTree = "<group>"; };
 		27D93FA9A50A8C4FC06E8F325149D9CF /* carat.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = carat.png; path = docs/img/carat.png; sourceTree = "<group>"; };
 		27F2D954616D05B40879082F1A0536F4 /* AuthenticationChallengeResponsable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AuthenticationChallengeResponsable.swift; path = Sources/Networking/AuthenticationChallengeResponsable.swift; sourceTree = "<group>"; };
-		27FEA1C5D2B8608AEBCDF1704D18DBCE /* highlight.css */ = {isa = PBXFileReference; includeInIndex = 1; name = highlight.css; path = docs/docsets/KurozoraKit.docset/Contents/Resources/Documents/css/highlight.css; sourceTree = "<group>"; };
+		27FEA1C5D2B8608AEBCDF1704D18DBCE /* highlight.css */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.css; name = highlight.css; path = docs/docsets/KurozoraKit.docset/Contents/Resources/Documents/css/highlight.css; sourceTree = "<group>"; };
 		281FEA64528340EE94C31A317BCA4195 /* MultipartUpload.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultipartUpload.swift; path = Source/MultipartUpload.swift; sourceTree = "<group>"; };
 		2879E6680C9807CBBB40EEE6B3AAA7F3 /* CacheSerializer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CacheSerializer.swift; path = Sources/Cache/CacheSerializer.swift; sourceTree = "<group>"; };
 		28EC587615196C96881421164F687E27 /* Alamofire-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Alamofire-prefix.pch"; sourceTree = "<group>"; };
@@ -359,28 +360,28 @@
 		2E5B0BDDF9AA432A06C8B18B9D2D1F42 /* Keychain.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Keychain.swift; path = Lib/KeychainAccess/Keychain.swift; sourceTree = "<group>"; };
 		2E64084295A3BFAE73621BF344496CC9 /* Alamofire.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Alamofire.release.xcconfig; sourceTree = "<group>"; };
 		2F0ECBD02D58D1EB9DEA496164A5D127 /* KurozoraKit+Forums.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "KurozoraKit+Forums.swift"; sourceTree = "<group>"; };
-		2F2E85AD3B7B7D2D224CDCAA40AD77A0 /* Extensions.html */ = {isa = PBXFileReference; includeInIndex = 1; name = Extensions.html; path = docs/docsets/KurozoraKit.docset/Contents/Resources/Documents/Extensions.html; sourceTree = "<group>"; };
+		2F2E85AD3B7B7D2D224CDCAA40AD77A0 /* Extensions.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Extensions.html; path = docs/docsets/KurozoraKit.docset/Contents/Resources/Documents/Extensions.html; sourceTree = "<group>"; };
 		2FED3EA800B8E00CCADFD01652AADD04 /* ImageCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageCache.swift; path = Sources/Cache/ImageCache.swift; sourceTree = "<group>"; };
 		30245A7ADA8FF5665FFD331EF983D6A4 /* Kingfisher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Kingfisher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		325BB65DA96283FF0B1CE11D58107D8B /* KKError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = KKError.swift; sourceTree = "<group>"; };
-		3377BABE1394902CF07DD13A6F3AB324 /* Pods_KurozoraKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_KurozoraKit_Tests.framework; path = "Pods-KurozoraKit_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3377BABE1394902CF07DD13A6F3AB324 /* Pods_KurozoraKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KurozoraKit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		339F526874A90C8FB88350B96072450D /* APIRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = APIRequest.swift; path = Source/TRON/APIRequest.swift; sourceTree = "<group>"; };
 		35176D5BDB99CC647D9FF3CA6B96872F /* OperationQueue+Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "OperationQueue+Alamofire.swift"; path = "Source/OperationQueue+Alamofire.swift"; sourceTree = "<group>"; };
 		35E980810338F89D392A725510735326 /* SCLAlertView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SCLAlertView.modulemap; sourceTree = "<group>"; };
 		361015D0250C0D7C0B7CCD5629F1D8D5 /* SCLAlertView-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SCLAlertView-Info.plist"; sourceTree = "<group>"; };
 		363C2149432BC8A06CA9779C778D1BB2 /* NSButton+Kingfisher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSButton+Kingfisher.swift"; path = "Sources/Extensions/NSButton+Kingfisher.swift"; sourceTree = "<group>"; };
 		3645E4601761CE14D6E521B72F19DB8B /* PrivacyPolicy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PrivacyPolicy.swift; sourceTree = "<group>"; };
-		37F31736C25823275B713BD0781B11FA /* jazzy.js */ = {isa = PBXFileReference; includeInIndex = 1; name = jazzy.js; path = docs/js/jazzy.js; sourceTree = "<group>"; };
+		37F31736C25823275B713BD0781B11FA /* jazzy.js */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.javascript; name = jazzy.js; path = docs/js/jazzy.js; sourceTree = "<group>"; };
 		3A809CDBC7A5B5907F62704172285CD6 /* SwiftyJSONDecodable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftyJSONDecodable.swift; path = Source/TRONSwiftyJSON/SwiftyJSONDecodable.swift; sourceTree = "<group>"; };
 		3AE9D6845FF6857F38B7C31170ABB570 /* Delegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Delegate.swift; path = Sources/Utility/Delegate.swift; sourceTree = "<group>"; };
 		3DE708A003C67970F475205B9F7C41AC /* ImageDownloader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageDownloader.swift; path = Sources/Networking/ImageDownloader.swift; sourceTree = "<group>"; };
 		3E12693234038C72533FECDF7A664C23 /* Image.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Image.swift; path = Sources/Image/Image.swift; sourceTree = "<group>"; };
 		424C361A83C50ABDA06BA01DD8F43A9D /* Alamofire-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Alamofire-umbrella.h"; sourceTree = "<group>"; };
 		427AC06713624D904E0A768EA9512871 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		433BF078EFDDB0CBC428CAA44CAAE853 /* ReadStatus.html */ = {isa = PBXFileReference; includeInIndex = 1; name = ReadStatus.html; path = docs/Enums/ReadStatus.html; sourceTree = "<group>"; };
+		433BF078EFDDB0CBC428CAA44CAAE853 /* ReadStatus.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = ReadStatus.html; path = docs/Enums/ReadStatus.html; sourceTree = "<group>"; };
 		448AFF82688F621ABF0FCDEAFD5DB91A /* KurozoraKit+Thread.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "KurozoraKit+Thread.swift"; sourceTree = "<group>"; };
-		44F96A3FD43CF38744BB4DBB2D7117A2 /* FollowStatus.html */ = {isa = PBXFileReference; includeInIndex = 1; name = FollowStatus.html; path = docs/Enums/FollowStatus.html; sourceTree = "<group>"; };
-		45482D8FD58FAAE525289CF6A6FDBA87 /* jquery.min.js */ = {isa = PBXFileReference; includeInIndex = 1; name = jquery.min.js; path = docs/js/jquery.min.js; sourceTree = "<group>"; };
+		44F96A3FD43CF38744BB4DBB2D7117A2 /* FollowStatus.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = FollowStatus.html; path = docs/Enums/FollowStatus.html; sourceTree = "<group>"; };
+		45482D8FD58FAAE525289CF6A6FDBA87 /* jquery.min.js */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.javascript; name = jquery.min.js; path = docs/js/jquery.min.js; sourceTree = "<group>"; };
 		46EE2FBFF8542B68E55F92CE3DCFDEC0 /* ResponseSerialization.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ResponseSerialization.swift; path = Source/ResponseSerialization.swift; sourceTree = "<group>"; };
 		4877BCABF19EDF4AD06F602FAAC35FB4 /* FormatIndicatedCacheSerializer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FormatIndicatedCacheSerializer.swift; path = Sources/Cache/FormatIndicatedCacheSerializer.swift; sourceTree = "<group>"; };
 		4A9EDEB68FCDF3B9133B8014A8B04ADD /* SwiftyJSON-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SwiftyJSON-Info.plist"; sourceTree = "<group>"; };
@@ -390,46 +391,47 @@
 		4FE84A4988A94C8108007B55BDFEF0B3 /* Box.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Box.swift; path = Sources/Utility/Box.swift; sourceTree = "<group>"; };
 		502DFA271648B65479AA7E035B493D1E /* TRON-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "TRON-dummy.m"; sourceTree = "<group>"; };
 		5082072FE4B3914E5003404AB4733823 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
-		5096FC4A5EC5F846BBA701757A853649 /* WatchStatus.html */ = {isa = PBXFileReference; includeInIndex = 1; name = WatchStatus.html; path = docs/Enums/WatchStatus.html; sourceTree = "<group>"; };
-		51CEBABDAE330A5F274CFD326DE62ABE /* Classes.html */ = {isa = PBXFileReference; includeInIndex = 1; name = Classes.html; path = docs/docsets/KurozoraKit.docset/Contents/Resources/Documents/Classes.html; sourceTree = "<group>"; };
+		5096FC4A5EC5F846BBA701757A853649 /* WatchStatus.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = WatchStatus.html; path = docs/Enums/WatchStatus.html; sourceTree = "<group>"; };
+		51CEBABDAE330A5F274CFD326DE62ABE /* Classes.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = Classes.html; path = docs/docsets/KurozoraKit.docset/Contents/Resources/Documents/Classes.html; sourceTree = "<group>"; };
 		5239E7C941B3097130E62C5FA860EC1C /* ForumOrder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ForumOrder.swift; sourceTree = "<group>"; };
 		5249F476DF43D96191D1F03D9E4727E1 /* Global+Swift.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Global+Swift.swift"; sourceTree = "<group>"; };
-		5318FC30B18992CB7080CE6A7B120474 /* VoteStatus.html */ = {isa = PBXFileReference; includeInIndex = 1; name = VoteStatus.html; path = docs/docsets/KurozoraKit.docset/Contents/Resources/Documents/Enums/VoteStatus.html; sourceTree = "<group>"; };
+		5318FC30B18992CB7080CE6A7B120474 /* VoteStatus.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = VoteStatus.html; path = docs/docsets/KurozoraKit.docset/Contents/Resources/Documents/Enums/VoteStatus.html; sourceTree = "<group>"; };
 		53527C3BEB4CA0B3C14639194A346296 /* UserNotification.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UserNotification.swift; sourceTree = "<group>"; };
 		5368E6314D1F7AB89075932F0384929F /* KurozoraKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KurozoraKit-umbrella.h"; sourceTree = "<group>"; };
 		56C8B7BC9CAC58B39BF3124897C7E3DE /* Themes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Themes.swift; sourceTree = "<group>"; };
 		56D7670EEE353FFD4F25C23797034356 /* Kingfisher.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Kingfisher.modulemap; sourceTree = "<group>"; };
-		57A34DE2BA9E59C2C749C77BEBD740E4 /* String.html */ = {isa = PBXFileReference; includeInIndex = 1; name = String.html; path = docs/Extensions/String.html; sourceTree = "<group>"; };
+		57A34DE2BA9E59C2C749C77BEBD740E4 /* String.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = String.html; path = docs/Extensions/String.html; sourceTree = "<group>"; };
 		57E1ED324C3E5618D8F72E51A070F2CF /* Pods-KurozoraKit_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KurozoraKit_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		5909EB22AAF664DC431F080B6F5A9F4B /* URLConvertible+URLRequestConvertible.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "URLConvertible+URLRequestConvertible.swift"; path = "Source/URLConvertible+URLRequestConvertible.swift"; sourceTree = "<group>"; };
 		5A48B76E9E1C0262D924E67CE149F999 /* Kingfisher-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Kingfisher-dummy.m"; sourceTree = "<group>"; };
-		5BA1EFB1228F1E2285BC350B442C6150 /* LockStatus.html */ = {isa = PBXFileReference; includeInIndex = 1; name = LockStatus.html; path = docs/Enums/LockStatus.html; sourceTree = "<group>"; };
+		5BA1EFB1228F1E2285BC350B442C6150 /* LockStatus.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = LockStatus.html; path = docs/Enums/LockStatus.html; sourceTree = "<group>"; };
 		5C98154309F7D5EAB75FD3CF199CBA47 /* KurozoraKit+Theme.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "KurozoraKit+Theme.swift"; sourceTree = "<group>"; };
 		5CAD5D72514F9A09EF189BC024B9E58E /* BaseRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BaseRequest.swift; path = Source/TRON/BaseRequest.swift; sourceTree = "<group>"; };
 		5D1D5B49D8E694E39011740AA5FD2A34 /* KurozoraKit.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KurozoraKit.swift; path = KurozoraKit/Classes/KurozoraKit.swift; sourceTree = "<group>"; };
-		5D797E9A5C5782CE845840781FA1CC81 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Alamofire.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D797E9A5C5782CE845840781FA1CC81 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FCB155DFFCE8E8F125B372D0AB9A2BB /* DiskStorage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DiskStorage.swift; path = Sources/Cache/DiskStorage.swift; sourceTree = "<group>"; };
 		5FEF9A1DF56BD8B055E1E366D7D9C98E /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Accelerate.framework; sourceTree = DEVELOPER_DIR; };
-		60BFB767DADE81061302F95A5FFBA634 /* UIDevice.html */ = {isa = PBXFileReference; includeInIndex = 1; name = UIDevice.html; path = docs/Extensions/UIDevice.html; sourceTree = "<group>"; };
+		60BFB767DADE81061302F95A5FFBA634 /* UIDevice.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = UIDevice.html; path = docs/Extensions/UIDevice.html; sourceTree = "<group>"; };
 		61679F4C82E5364EFFF63B9F68371BBD /* URLEncodedFormEncoder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = URLEncodedFormEncoder.swift; path = Source/URLEncodedFormEncoder.swift; sourceTree = "<group>"; };
-		62491AFE5FE39D15ABF0D2C498221E3C /* KurozoraKit.html */ = {isa = PBXFileReference; includeInIndex = 1; name = KurozoraKit.html; path = docs/docsets/KurozoraKit.docset/Contents/Resources/Documents/Classes/KurozoraKit.html; sourceTree = "<group>"; };
+		62491AFE5FE39D15ABF0D2C498221E3C /* KurozoraKit.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = KurozoraKit.html; path = docs/docsets/KurozoraKit.docset/Contents/Resources/Documents/Classes/KurozoraKit.html; sourceTree = "<group>"; };
 		63CDF5733EAE88BC69616437A1348765 /* Kingfisher-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Kingfisher-umbrella.h"; sourceTree = "<group>"; };
 		63F4AF65727B0ACA48EF625FBB2A04BE /* EventMonitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EventMonitor.swift; path = Source/EventMonitor.swift; sourceTree = "<group>"; };
-		647D60FF3250B1126B49F77233D4F6B7 /* FavoriteStatus.html */ = {isa = PBXFileReference; includeInIndex = 1; name = FavoriteStatus.html; path = docs/Enums/FavoriteStatus.html; sourceTree = "<group>"; };
+		647D60FF3250B1126B49F77233D4F6B7 /* FavoriteStatus.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = FavoriteStatus.html; path = docs/Enums/FavoriteStatus.html; sourceTree = "<group>"; };
 		6548EE1DF4189B5FA8669FE45F2EC285 /* Deprecated.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Deprecated.swift; path = Sources/General/Deprecated.swift; sourceTree = "<group>"; };
 		66276D89874783524AF45C3C5A2AF9B3 /* TRON.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TRON.release.xcconfig; sourceTree = "<group>"; };
+		666D3E88244D15CC0068A103 /* ActivityStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityStatus.swift; sourceTree = "<group>"; };
 		6767B0BFFFD827D9C5E533FE25D921C7 /* CallbackQueue.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CallbackQueue.swift; path = Sources/Utility/CallbackQueue.swift; sourceTree = "<group>"; };
 		67724CF0A87E032882B568A2ED4FE204 /* Notifications.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Notifications.swift; path = Source/Notifications.swift; sourceTree = "<group>"; };
-		67EA345BE18BE667BC43D18A7CD33102 /* VoteStatus.html */ = {isa = PBXFileReference; includeInIndex = 1; name = VoteStatus.html; path = docs/Enums/VoteStatus.html; sourceTree = "<group>"; };
+		67EA345BE18BE667BC43D18A7CD33102 /* VoteStatus.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = VoteStatus.html; path = docs/Enums/VoteStatus.html; sourceTree = "<group>"; };
 		6900AC4A92D0D477565E5B701246567D /* ReadStatus.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ReadStatus.swift; sourceTree = "<group>"; };
 		6AB66EB7C3FD9460D6BB5BC0D79DF5F4 /* URLRequest+Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "URLRequest+Alamofire.swift"; path = "Source/URLRequest+Alamofire.swift"; sourceTree = "<group>"; };
 		6B25987E7157DC7801C42E2252E01B94 /* KurozoraKit+Reply.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "KurozoraKit+Reply.swift"; sourceTree = "<group>"; };
 		6BB5C960CE0CAD56DDB1EE4C70FEF2F8 /* Pods-KurozoraKit_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-KurozoraKit_Tests-umbrella.h"; sourceTree = "<group>"; };
 		6C9996CF81563126802421A65617572D /* Indicator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Indicator.swift; path = Sources/Views/Indicator.swift; sourceTree = "<group>"; };
-		6CAE581BF4CCAF2AE1B166C107DE509E /* ForumOrder.html */ = {isa = PBXFileReference; includeInIndex = 1; name = ForumOrder.html; path = docs/docsets/KurozoraKit.docset/Contents/Resources/Documents/Enums/ForumOrder.html; sourceTree = "<group>"; };
-		6D0A07E9ACAA61E7D3D9984B066A40F1 /* FavoriteStatus.html */ = {isa = PBXFileReference; includeInIndex = 1; name = FavoriteStatus.html; path = docs/docsets/KurozoraKit.docset/Contents/Resources/Documents/Enums/FavoriteStatus.html; sourceTree = "<group>"; };
+		6CAE581BF4CCAF2AE1B166C107DE509E /* ForumOrder.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = ForumOrder.html; path = docs/docsets/KurozoraKit.docset/Contents/Resources/Documents/Enums/ForumOrder.html; sourceTree = "<group>"; };
+		6D0A07E9ACAA61E7D3D9984B066A40F1 /* FavoriteStatus.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = FavoriteStatus.html; path = docs/docsets/KurozoraKit.docset/Contents/Resources/Documents/Enums/FavoriteStatus.html; sourceTree = "<group>"; };
 		6D4A1B3E55FA7FCCF0D3F33A87461832 /* ParameterEncoding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParameterEncoding.swift; path = Source/ParameterEncoding.swift; sourceTree = "<group>"; };
-		6D7B0866B89E376C39C3791E9E7F0FF6 /* search.json */ = {isa = PBXFileReference; includeInIndex = 1; name = search.json; path = docs/search.json; sourceTree = "<group>"; };
+		6D7B0866B89E376C39C3791E9E7F0FF6 /* search.json */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.json; name = search.json; path = docs/search.json; sourceTree = "<group>"; };
 		6E044D5E8ED94D8746B2A445268F933E /* SCLExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SCLExtensions.swift; path = SCLAlertView/SCLExtensions.swift; sourceTree = "<group>"; };
 		6F8CF39EEE0EDA452B2889F6535943AE /* Result.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Result.swift; path = Sources/Utility/Result.swift; sourceTree = "<group>"; };
 		6FF858E1BFB8B3362AC7F02000AC77F3 /* HTTPHeaders.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HTTPHeaders.swift; path = Source/HTTPHeaders.swift; sourceTree = "<group>"; };
@@ -437,11 +439,11 @@
 		71D2A446398A51F719B38698AA6FDB45 /* MemoryStorage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MemoryStorage.swift; path = Sources/Cache/MemoryStorage.swift; sourceTree = "<group>"; };
 		71EE85F7584461F7319D8ADC5344785B /* RequestModifier.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RequestModifier.swift; path = Sources/Networking/RequestModifier.swift; sourceTree = "<group>"; };
 		72C5967395D8293F04202E673440A139 /* KeychainAccess.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = KeychainAccess.debug.xcconfig; sourceTree = "<group>"; };
-		74E5D0965AC77FAC482FFC5261270E46 /* jazzy.css */ = {isa = PBXFileReference; includeInIndex = 1; name = jazzy.css; path = docs/css/jazzy.css; sourceTree = "<group>"; };
+		74E5D0965AC77FAC482FFC5261270E46 /* jazzy.css */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.css; name = jazzy.css; path = docs/css/jazzy.css; sourceTree = "<group>"; };
 		7828319F4E094F519250D830440C3E04 /* dash.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = dash.png; path = docs/img/dash.png; sourceTree = "<group>"; };
 		78C2008527C50F9146E2C5C91779B17E /* carat.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = carat.png; path = docs/docsets/KurozoraKit.docset/Contents/Resources/Documents/img/carat.png; sourceTree = "<group>"; };
 		7D3B476C3BB4FEDDC24AF5240C6461B6 /* TRON-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TRON-prefix.pch"; sourceTree = "<group>"; };
-		7DFDC989346F923E42F354B9CF613D54 /* FollowList.html */ = {isa = PBXFileReference; includeInIndex = 1; name = FollowList.html; path = docs/docsets/KurozoraKit.docset/Contents/Resources/Documents/Enums/FollowList.html; sourceTree = "<group>"; };
+		7DFDC989346F923E42F354B9CF613D54 /* FollowList.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = FollowList.html; path = docs/docsets/KurozoraKit.docset/Contents/Resources/Documents/Enums/FollowList.html; sourceTree = "<group>"; };
 		801418BBAE9AA8367EE1C31ED2FED9BB /* KeychainAccess-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "KeychainAccess-Info.plist"; sourceTree = "<group>"; };
 		8068DA36A6DA4A62F8BBFC7112C8A392 /* FavoriteShow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FavoriteShow.swift; sourceTree = "<group>"; };
 		83F4171F87C6E48AC130C440A39B275F /* SCLAlertView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SCLAlertView-prefix.pch"; sourceTree = "<group>"; };
@@ -453,46 +455,46 @@
 		87ECB581C7956213631EFF34164102D6 /* SwiftyJSON.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SwiftyJSON.modulemap; sourceTree = "<group>"; };
 		8898C2A440B7CFD68A0779C83F94B1DC /* SwiftyJSON.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftyJSON.release.xcconfig; sourceTree = "<group>"; };
 		88DA4AAFFAD7E604BF9C52AD9DA015D2 /* SCLAlertView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SCLAlertView-umbrella.h"; sourceTree = "<group>"; };
-		89A65ACF707D26298EBCC84E4478FA02 /* Extensions.html */ = {isa = PBXFileReference; includeInIndex = 1; name = Extensions.html; path = docs/Extensions.html; sourceTree = "<group>"; };
+		89A65ACF707D26298EBCC84E4478FA02 /* Extensions.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Extensions.html; path = docs/Extensions.html; sourceTree = "<group>"; };
 		8D40E55769FE6AF552215B9C2792EF17 /* FollowStatus.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FollowStatus.swift; sourceTree = "<group>"; };
 		8E3DAE5ED87B06CD5ACA51A1AA2214C3 /* KurozoraKit+Genre.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "KurozoraKit+Genre.swift"; sourceTree = "<group>"; };
 		8F8630C49FA91B23E6BA7FB686119DEA /* KurozoraKit+Notifications.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "KurozoraKit+Notifications.swift"; sourceTree = "<group>"; };
 		904894091F94B40227FFD31E33E45DD6 /* KurozoraKit+Feed.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "KurozoraKit+Feed.swift"; sourceTree = "<group>"; };
-		9073D12110238CB47D0A07BAAB044AB6 /* KurozoraKit.xml */ = {isa = PBXFileReference; includeInIndex = 1; name = KurozoraKit.xml; path = docs/docsets/KurozoraKit.xml; sourceTree = "<group>"; };
+		9073D12110238CB47D0A07BAAB044AB6 /* KurozoraKit.xml */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = KurozoraKit.xml; path = docs/docsets/KurozoraKit.xml; sourceTree = "<group>"; };
 		913236E67649C33313C762D4682102AE /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92647D7C0312EFB6238FE8BC9DBC756E /* KurozoraKit+Kurozora.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "KurozoraKit+Kurozora.swift"; sourceTree = "<group>"; };
 		9332357C0462AEF33C9B03CE88173913 /* KingfisherOptionsInfo.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KingfisherOptionsInfo.swift; path = Sources/General/KingfisherOptionsInfo.swift; sourceTree = "<group>"; };
-		934C9384F84C81874A5A4907BCCCA2C8 /* TRON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = TRON.framework; path = TRON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		934C9384F84C81874A5A4907BCCCA2C8 /* TRON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TRON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		957F35E0CA5B49770C605B6D3188BB8D /* Genres.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Genres.swift; sourceTree = "<group>"; };
 		95F38C420660C92C2B1C1C320C898C7F /* Alamofire-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Alamofire-dummy.m"; sourceTree = "<group>"; };
-		962A4B1F73A781D3BB906D0525BD2A8A /* SCLAlertView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SCLAlertView.framework; path = SCLAlertView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9651D777B2A170E4BE558500680287F0 /* UIDevice.html */ = {isa = PBXFileReference; includeInIndex = 1; name = UIDevice.html; path = docs/docsets/KurozoraKit.docset/Contents/Resources/Documents/Extensions/UIDevice.html; sourceTree = "<group>"; };
+		962A4B1F73A781D3BB906D0525BD2A8A /* SCLAlertView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SCLAlertView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9651D777B2A170E4BE558500680287F0 /* UIDevice.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = UIDevice.html; path = docs/docsets/KurozoraKit.docset/Contents/Resources/Documents/Extensions/UIDevice.html; sourceTree = "<group>"; };
 		96978274ABC03B35AD55A2897F20CA9A /* SwiftyJSON-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftyJSON-dummy.m"; sourceTree = "<group>"; };
 		9717CE853EF8AA6F0E8C271AA068358A /* KingfisherManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KingfisherManager.swift; path = Sources/General/KingfisherManager.swift; sourceTree = "<group>"; };
 		97853B0E14E12320D43E2EA23D813700 /* KeychainAccess.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KeychainAccess.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		997741E9DA84CFD17DA30216A60D8AFD /* DownloadAPIRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DownloadAPIRequest.swift; path = Source/TRON/DownloadAPIRequest.swift; sourceTree = "<group>"; };
 		9D267496D031E828E2A68AEC0AFE76E3 /* FollowList.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FollowList.swift; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9EAB4A2A5D844F40062CE986D9B991D3 /* ShowDetails.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ShowDetails.swift; sourceTree = "<group>"; };
 		9EF9705FF7741A250EB4C4410B039080 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		A0AA086E76A49230D4F5E62573EF9278 /* ForumOrder.html */ = {isa = PBXFileReference; includeInIndex = 1; name = ForumOrder.html; path = docs/Enums/ForumOrder.html; sourceTree = "<group>"; };
+		A0AA086E76A49230D4F5E62573EF9278 /* ForumOrder.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = ForumOrder.html; path = docs/Enums/ForumOrder.html; sourceTree = "<group>"; };
 		A16A37574CAC3047A150EF6739239C2F /* CachedResponseHandler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CachedResponseHandler.swift; path = Source/CachedResponseHandler.swift; sourceTree = "<group>"; };
 		A21EF7CACFEBE705240DB2A794BC8A6C /* FeedSections.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FeedSections.swift; sourceTree = "<group>"; };
 		A338BB079CB260185CADFC4ADD80FCBE /* TRONCodable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TRONCodable.swift; path = Source/TRON/TRONCodable.swift; sourceTree = "<group>"; };
 		A366129D69AC4809C22117D9EAA6881D /* Result+Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Result+Alamofire.swift"; path = "Source/Result+Alamofire.swift"; sourceTree = "<group>"; };
-		A3D48310E1DE9B69837510150BD45EA7 /* badge.svg */ = {isa = PBXFileReference; includeInIndex = 1; name = badge.svg; path = docs/badge.svg; sourceTree = "<group>"; };
+		A3D48310E1DE9B69837510150BD45EA7 /* badge.svg */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = badge.svg; path = docs/badge.svg; sourceTree = "<group>"; };
 		A6949CD9F07AE6DB0F7F6BB18A3FAF41 /* Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Alamofire.swift; path = Source/Alamofire.swift; sourceTree = "<group>"; };
 		A69F9ABFA5D27B7379E0CF122F5429BF /* RequestTaskMap.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RequestTaskMap.swift; path = Source/RequestTaskMap.swift; sourceTree = "<group>"; };
 		A72ED5EC485AD7FC3D426046EEEDA284 /* TRON-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TRON-umbrella.h"; sourceTree = "<group>"; };
 		A77B082C7F6B9E7BE9CA86A29928E23F /* KeychainAccess.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = KeychainAccess.release.xcconfig; sourceTree = "<group>"; };
-		A79313DD0FE54F3A929D1D3D10FE5D65 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		A79313DD0FE54F3A929D1D3D10FE5D65 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		A7D8E7A265A960ECC5EA56B02690E03B /* KurozoraKit+Season.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "KurozoraKit+Season.swift"; sourceTree = "<group>"; };
-		A8DD13FFB8C2BEC2E288393C4E225EBD /* jazzy.js */ = {isa = PBXFileReference; includeInIndex = 1; name = jazzy.js; path = docs/docsets/KurozoraKit.docset/Contents/Resources/Documents/js/jazzy.js; sourceTree = "<group>"; };
+		A8DD13FFB8C2BEC2E288393C4E225EBD /* jazzy.js */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.javascript; name = jazzy.js; path = docs/docsets/KurozoraKit.docset/Contents/Resources/Documents/js/jazzy.js; sourceTree = "<group>"; };
 		A9B14705F3627E0B45289AB1F8AB78A4 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9B93C4F379C260F29D3774FC727113A /* UIDevice+KurozoraKit.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIDevice+KurozoraKit.swift"; sourceTree = "<group>"; };
-		AA48D92AEA9E59BD815BC94F52ED3A3F /* LockStatus.html */ = {isa = PBXFileReference; includeInIndex = 1; name = LockStatus.html; path = docs/docsets/KurozoraKit.docset/Contents/Resources/Documents/Enums/LockStatus.html; sourceTree = "<group>"; };
+		AA48D92AEA9E59BD815BC94F52ED3A3F /* LockStatus.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = LockStatus.html; path = docs/docsets/KurozoraKit.docset/Contents/Resources/Documents/Enums/LockStatus.html; sourceTree = "<group>"; };
 		ABCE17AE42368C1E647E1C8B02F20D27 /* Resource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Resource.swift; path = Sources/General/ImageSource/Resource.swift; sourceTree = "<group>"; };
-		AC2A3489ECC2E416F2E6F4390DC7A21B /* WatchStatus.html */ = {isa = PBXFileReference; includeInIndex = 1; name = WatchStatus.html; path = docs/docsets/KurozoraKit.docset/Contents/Resources/Documents/Enums/WatchStatus.html; sourceTree = "<group>"; };
+		AC2A3489ECC2E416F2E6F4390DC7A21B /* WatchStatus.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = WatchStatus.html; path = docs/docsets/KurozoraKit.docset/Contents/Resources/Documents/Enums/WatchStatus.html; sourceTree = "<group>"; };
 		AD541857E034B407BF61AD49CF5F8FEB /* KurozoraKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = KurozoraKit.debug.xcconfig; sourceTree = "<group>"; };
 		AE5DCBCD72BBA941B016905876BC8B4F /* KurozoraKit+Session.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "KurozoraKit+Session.swift"; sourceTree = "<group>"; };
 		AF5405E78344AA868D81FAECDC5E2A54 /* SCLAlertView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SCLAlertView.debug.xcconfig; sourceTree = "<group>"; };
@@ -503,12 +505,12 @@
 		B0D2B1EC86E6C0BD49B88BB222C2B222 /* Pods-KurozoraKit_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-KurozoraKit_Tests.modulemap"; sourceTree = "<group>"; };
 		B1610900288B719E81C61EBB8223A8D8 /* FavoriteStatus.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FavoriteStatus.swift; sourceTree = "<group>"; };
 		B1841A020F3095A6C698FFC2441B9930 /* GIFAnimatedImage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GIFAnimatedImage.swift; path = Sources/Image/GIFAnimatedImage.swift; sourceTree = "<group>"; };
-		B1E5BB3DA43E5BF9FB4F5D5962D73B1E /* index.html */ = {isa = PBXFileReference; includeInIndex = 1; name = index.html; path = docs/docsets/KurozoraKit.docset/Contents/Resources/Documents/index.html; sourceTree = "<group>"; };
-		B1E73BF90504EFF48583CE38357CF08B /* ReadStatus.html */ = {isa = PBXFileReference; includeInIndex = 1; name = ReadStatus.html; path = docs/docsets/KurozoraKit.docset/Contents/Resources/Documents/Enums/ReadStatus.html; sourceTree = "<group>"; };
+		B1E5BB3DA43E5BF9FB4F5D5962D73B1E /* index.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = index.html; path = docs/docsets/KurozoraKit.docset/Contents/Resources/Documents/index.html; sourceTree = "<group>"; };
+		B1E73BF90504EFF48583CE38357CF08B /* ReadStatus.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = ReadStatus.html; path = docs/docsets/KurozoraKit.docset/Contents/Resources/Documents/Enums/ReadStatus.html; sourceTree = "<group>"; };
 		B2256FCD80DBD81913400573FEC7F79A /* RequestInterceptor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RequestInterceptor.swift; path = Source/RequestInterceptor.swift; sourceTree = "<group>"; };
 		B271E777698893878B3781E9B87BA017 /* URLSessionConfiguration+Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "URLSessionConfiguration+Alamofire.swift"; path = "Source/URLSessionConfiguration+Alamofire.swift"; sourceTree = "<group>"; };
 		B72345923B14DACDB85971DE9CC7A0A6 /* SessionDataTask.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SessionDataTask.swift; path = Sources/Networking/SessionDataTask.swift; sourceTree = "<group>"; };
-		B8125CFB156A6C8272B4FFFB54425756 /* jazzy.css */ = {isa = PBXFileReference; includeInIndex = 1; name = jazzy.css; path = docs/docsets/KurozoraKit.docset/Contents/Resources/Documents/css/jazzy.css; sourceTree = "<group>"; };
+		B8125CFB156A6C8272B4FFFB54425756 /* jazzy.css */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.css; name = jazzy.css; path = docs/docsets/KurozoraKit.docset/Contents/Resources/Documents/css/jazzy.css; sourceTree = "<group>"; };
 		B8ABEFC5672FAAC764AD8E19E794306B /* ImageTransition.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageTransition.swift; path = Sources/Image/ImageTransition.swift; sourceTree = "<group>"; };
 		B8BF832985504EE356CD609524B2EFE7 /* Response.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Response.swift; path = Source/Response.swift; sourceTree = "<group>"; };
 		B9E9DD9B8BDE12691A8D97359EA28830 /* APIError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = APIError.swift; path = Source/TRON/APIError.swift; sourceTree = "<group>"; };
@@ -518,13 +520,13 @@
 		C05FC51F8AB4F65D3F5C6CB3A23E2ECD /* KurozoraKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = KurozoraKit.release.xcconfig; sourceTree = "<group>"; };
 		C1E36B56F4517679367DD79F5A98915A /* ThreadReplies.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ThreadReplies.swift; sourceTree = "<group>"; };
 		C32256EFB6279C02BEB3439A915B8CB5 /* ImageModifier.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageModifier.swift; path = Sources/Networking/ImageModifier.swift; sourceTree = "<group>"; };
-		C3F44C782D64D7EB20B61CE3844EBFAD /* Kingfisher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Kingfisher.framework; path = Kingfisher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3F44C782D64D7EB20B61CE3844EBFAD /* Kingfisher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Kingfisher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4939F80955E4192E54B8E49C3EE27CB /* KurozoraKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "KurozoraKit-dummy.m"; sourceTree = "<group>"; };
 		C7A6C78745D62C0D80D269A66065F758 /* icon.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = icon.png; path = docs/docsets/KurozoraKit.docset/icon.png; sourceTree = "<group>"; };
 		C7D095E7D2A18B04D44C0D4202BD9306 /* WatchStatus.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WatchStatus.swift; sourceTree = "<group>"; };
-		C98B557ADAC2AA23A9E03629771C4F67 /* KurozoraKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = KurozoraKit.framework; path = KurozoraKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C98B557ADAC2AA23A9E03629771C4F67 /* KurozoraKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KurozoraKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA6E3C876E232555C752CE50796128EC /* MultipartFormData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultipartFormData.swift; path = Source/MultipartFormData.swift; sourceTree = "<group>"; };
-		CE74BFA06B5B0D8E78C101452FAC1D26 /* index.html */ = {isa = PBXFileReference; includeInIndex = 1; name = index.html; path = docs/index.html; sourceTree = "<group>"; };
+		CE74BFA06B5B0D8E78C101452FAC1D26 /* index.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = index.html; path = docs/index.html; sourceTree = "<group>"; };
 		CFA0B85486FE8BB85487B8CFE8355A56 /* Protected.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Protected.swift; path = Source/Protected.swift; sourceTree = "<group>"; };
 		D1743AB94561C6A079B88F6AF9D0C048 /* ForumsSections.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ForumsSections.swift; sourceTree = "<group>"; };
 		D21EA982304D450B407CC635456BEC37 /* KKLibrary.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = KKLibrary.swift; sourceTree = "<group>"; };
@@ -533,9 +535,9 @@
 		D81F55F0BD60D24B4AD2F5944D135FAF /* TRON.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TRON.swift; path = Source/TRON/TRON.swift; sourceTree = "<group>"; };
 		D84448C59F7134CAE5EE28F01852FFC2 /* RedirectHandler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RedirectHandler.swift; path = Source/RedirectHandler.swift; sourceTree = "<group>"; };
 		D89C78C77342456BCFD0412B7472D979 /* KurozoraKitEndpoints.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = KurozoraKitEndpoints.swift; sourceTree = "<group>"; };
-		D90C38E0A6FAEBA056ABE7695ADC6A28 /* KKServices.html */ = {isa = PBXFileReference; includeInIndex = 1; name = KKServices.html; path = docs/Classes/KKServices.html; sourceTree = "<group>"; };
+		D90C38E0A6FAEBA056ABE7695ADC6A28 /* KKServices.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = KKServices.html; path = docs/Classes/KKServices.html; sourceTree = "<group>"; };
 		D959612CE7F0559A88C46E3381EC4359 /* Pods-KurozoraKit_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-KurozoraKit_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		DA1AD3F8F6D560F3D0409AA3E319E7EB /* undocumented.json */ = {isa = PBXFileReference; includeInIndex = 1; name = undocumented.json; path = docs/undocumented.json; sourceTree = "<group>"; };
+		DA1AD3F8F6D560F3D0409AA3E319E7EB /* undocumented.json */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.json; name = undocumented.json; path = docs/undocumented.json; sourceTree = "<group>"; };
 		DB03243C41628757D2DBB6BDDE1CDA86 /* NetworkReachabilityManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NetworkReachabilityManager.swift; path = Source/NetworkReachabilityManager.swift; sourceTree = "<group>"; };
 		DB5D4D77CA983FF9C76CA954CB186DC5 /* Session.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Session.swift; path = Source/Session.swift; sourceTree = "<group>"; };
 		DBCEB7331A28E69DD6566C720A173192 /* ImageFormat.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageFormat.swift; path = Sources/Image/ImageFormat.swift; sourceTree = "<group>"; };
@@ -545,8 +547,8 @@
 		E0CB0A9A4A772943B64CB3A8D81925B0 /* Search.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		E0E47B0118B771DE6475D8D7F3694421 /* ImageProcessor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageProcessor.swift; path = Sources/Image/ImageProcessor.swift; sourceTree = "<group>"; };
 		E15A5CAFC0330941B841AA439E9185CF /* KurozoraKit+Episode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "KurozoraKit+Episode.swift"; sourceTree = "<group>"; };
-		E202E2FDBD812D14AAFFAF8507BBED21 /* FollowStatus.html */ = {isa = PBXFileReference; includeInIndex = 1; name = FollowStatus.html; path = docs/docsets/KurozoraKit.docset/Contents/Resources/Documents/Enums/FollowStatus.html; sourceTree = "<group>"; };
-		E23C076BA70925415F490FEDB215DA92 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftyJSON.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E202E2FDBD812D14AAFFAF8507BBED21 /* FollowStatus.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = FollowStatus.html; path = docs/docsets/KurozoraKit.docset/Contents/Resources/Documents/Enums/FollowStatus.html; sourceTree = "<group>"; };
+		E23C076BA70925415F490FEDB215DA92 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2986B4CB8C938718C2321BB2C316C59 /* Pods-KurozoraKit_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-KurozoraKit_Tests-dummy.m"; sourceTree = "<group>"; };
 		E35534A0F743FE82A19470EC1A69EC4D /* Kingfisher.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Kingfisher.debug.xcconfig; sourceTree = "<group>"; };
 		E37CEE56143DA3311623F6F00B60F097 /* KeychainAccess-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KeychainAccess-umbrella.h"; sourceTree = "<group>"; };
@@ -554,25 +556,25 @@
 		E4C010CFE6A8D60845ED34F6903AFCDA /* ImageDataProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageDataProvider.swift; path = Sources/General/ImageSource/ImageDataProvider.swift; sourceTree = "<group>"; };
 		E4DA0086C5436859B5ACA3E49633C7E8 /* UserFollow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UserFollow.swift; sourceTree = "<group>"; };
 		E52ACF58EF6895611DAFF74333946231 /* RetryPolicy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RetryPolicy.swift; path = Source/RetryPolicy.swift; sourceTree = "<group>"; };
-		E53CFD6E64DD6AB35CC8BA82D9E53625 /* KurozoraKit.html */ = {isa = PBXFileReference; includeInIndex = 1; name = KurozoraKit.html; path = docs/Classes/KurozoraKit.html; sourceTree = "<group>"; };
+		E53CFD6E64DD6AB35CC8BA82D9E53625 /* KurozoraKit.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = KurozoraKit.html; path = docs/Classes/KurozoraKit.html; sourceTree = "<group>"; };
 		E5DE0B6BBEFED71324DECB140F229341 /* ImageDownloaderDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageDownloaderDelegate.swift; path = Sources/Networking/ImageDownloaderDelegate.swift; sourceTree = "<group>"; };
-		E8EE7F078656FABB8F6821D10FF994BB /* KeychainAccess.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = KeychainAccess.framework; path = KeychainAccess.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E8EE7F078656FABB8F6821D10FF994BB /* KeychainAccess.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KeychainAccess.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA0D5F7AF0B38561EA87EF05EA65BE00 /* LockStatus.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LockStatus.swift; sourceTree = "<group>"; };
 		EA15A9DE6FF3F3EE04928CCCE83BE778 /* Kingfisher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Kingfisher.h; path = Sources/Kingfisher.h; sourceTree = "<group>"; };
 		ECD194E8F797AE6984383F48C8ADE936 /* BadgeElement.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BadgeElement.swift; sourceTree = "<group>"; };
 		ED02298C20F4D7BAB4B799AC491DE863 /* ImageProgressive.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageProgressive.swift; path = Sources/Image/ImageProgressive.swift; sourceTree = "<group>"; };
-		ED7493EAC68C4302EEF8C8715F7844BA /* search.json */ = {isa = PBXFileReference; includeInIndex = 1; name = search.json; path = docs/docsets/KurozoraKit.docset/Contents/Resources/Documents/search.json; sourceTree = "<group>"; };
+		ED7493EAC68C4302EEF8C8715F7844BA /* search.json */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.json; name = search.json; path = docs/docsets/KurozoraKit.docset/Contents/Resources/Documents/search.json; sourceTree = "<group>"; };
 		ED8C6A4AD002391A039F544BA08E35B9 /* ThreadPost.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ThreadPost.swift; sourceTree = "<group>"; };
 		EE0EEB019729A2C9E704BC27EF78A0BF /* AnimatedImageView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AnimatedImageView.swift; path = Sources/Views/AnimatedImageView.swift; sourceTree = "<group>"; };
-		EE29B3538DA2B1FD1065B08116EE6F78 /* KurozoraKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = KurozoraKit.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		EE29B3538DA2B1FD1065B08116EE6F78 /* KurozoraKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = KurozoraKit.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		EEE20ABDB0EAE069D7A8344029B3CF6E /* ImageDrawing.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageDrawing.swift; path = Sources/Image/ImageDrawing.swift; sourceTree = "<group>"; };
 		F140807EADD1A6E56A2F5642BC843394 /* Alamofire.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Alamofire.debug.xcconfig; sourceTree = "<group>"; };
 		F2AA8167CA7F7F98EE3B514E57E67D40 /* KKSuccess.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = KKSuccess.swift; sourceTree = "<group>"; };
 		F44700210146A04933BAA54ACBCB94E2 /* SCLAlertView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SCLAlertView-dummy.m"; sourceTree = "<group>"; };
-		F552756DE529AE65AC6E056CAF3E44C5 /* docSet.dsidx */ = {isa = PBXFileReference; includeInIndex = 1; name = docSet.dsidx; path = docs/docsets/KurozoraKit.docset/Contents/Resources/docSet.dsidx; sourceTree = "<group>"; };
-		F61A470B6A34672A7F0359D6195DDE4F /* jquery.min.js */ = {isa = PBXFileReference; includeInIndex = 1; name = jquery.min.js; path = docs/docsets/KurozoraKit.docset/Contents/Resources/Documents/js/jquery.min.js; sourceTree = "<group>"; };
+		F552756DE529AE65AC6E056CAF3E44C5 /* docSet.dsidx */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = docSet.dsidx; path = docs/docsets/KurozoraKit.docset/Contents/Resources/docSet.dsidx; sourceTree = "<group>"; };
+		F61A470B6A34672A7F0359D6195DDE4F /* jquery.min.js */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.javascript; name = jquery.min.js; path = docs/docsets/KurozoraKit.docset/Contents/Resources/Documents/js/jquery.min.js; sourceTree = "<group>"; };
 		F655AABA461735CB2B74735C9CA39C7E /* KKServices.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KKServices.swift; path = KurozoraKit/Classes/KKServices.swift; sourceTree = "<group>"; };
-		FA87DF1D84CB18F571B26AC6F9AF7BE6 /* Classes.html */ = {isa = PBXFileReference; includeInIndex = 1; name = Classes.html; path = docs/Classes.html; sourceTree = "<group>"; };
+		FA87DF1D84CB18F571B26AC6F9AF7BE6 /* Classes.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Classes.html; path = docs/Classes.html; sourceTree = "<group>"; };
 		FA9584363C6906A01CDF716D38DBA0FD /* Session.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		FC58F0E606B3F53E858EBA019B6B3D23 /* RedirectHandler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RedirectHandler.swift; path = Sources/Networking/RedirectHandler.swift; sourceTree = "<group>"; };
 		FD9BA15DE0961E608279E1CAC0901B2A /* String+MD5.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "String+MD5.swift"; path = "Sources/Utility/String+MD5.swift"; sourceTree = "<group>"; };
@@ -815,7 +817,6 @@
 				2E5B0BDDF9AA432A06C8B18B9D2D1F42 /* Keychain.swift */,
 				9726D79108EE2234627FF745802442CD /* Support Files */,
 			);
-			name = KeychainAccess;
 			path = KeychainAccess;
 			sourceTree = "<group>";
 		};
@@ -825,7 +826,6 @@
 				2A101FA6EC8A99BB37092978963B2F03 /* SwiftyJSON.swift */,
 				F53E1C4D988A68C478E510CA977B3CE1 /* Support Files */,
 			);
-			name = SwiftyJSON;
 			path = SwiftyJSON;
 			sourceTree = "<group>";
 		};
@@ -944,6 +944,7 @@
 		8323894082AB3975DF69854FB69932EE /* Enums */ = {
 			isa = PBXGroup;
 			children = (
+				666D3E88244D15CC0068A103 /* ActivityStatus.swift */,
 				B1610900288B719E81C61EBB8223A8D8 /* FavoriteStatus.swift */,
 				9D267496D031E828E2A68AEC0AFE76E3 /* FollowList.swift */,
 				8D40E55769FE6AF552215B9C2792EF17 /* FollowStatus.swift */,
@@ -965,7 +966,6 @@
 				6E044D5E8ED94D8746B2A445268F933E /* SCLExtensions.swift */,
 				A4D55F38CC6AF2C7BE8B06CED84058DC /* Support Files */,
 			);
-			name = SCLAlertView;
 			path = SCLAlertView;
 			sourceTree = "<group>";
 		};
@@ -999,7 +999,6 @@
 				37436E1AE69C79CADACEB111C0E96953 /* Support Files */,
 				87B192CB45B8D719AEEB3854617C55EF /* SwiftyJSON */,
 			);
-			name = TRON;
 			path = TRON;
 			sourceTree = "<group>";
 		};
@@ -1145,7 +1144,6 @@
 				061F94292CF4C04711C31CC96C4A2896 /* Validation.swift */,
 				0CAABED5C29AF716081806F2BC139C31 /* Support Files */,
 			);
-			name = Alamofire;
 			path = Alamofire;
 			sourceTree = "<group>";
 		};
@@ -1203,7 +1201,6 @@
 				180D3030CA74B0A92E03ECAC2D0C0C40 /* Core */,
 				66BFD92741BB5B927E14BD4C045B7C45 /* Support Files */,
 			);
-			name = Kingfisher;
 			path = Kingfisher;
 			sourceTree = "<group>";
 		};
@@ -1611,6 +1608,7 @@
 				27CEF74AA3A9C810671E51CDB0B19716 /* MALImport.swift in Sources */,
 				77B1CE23E4750FB109C887727F6587D7 /* Notification+KurozoraKit.swift in Sources */,
 				349E8E91BDC79CBF4BBDA28F4E3187A3 /* PrivacyPolicy.swift in Sources */,
+				666D3E8A244D1BC10068A103 /* ActivityStatus.swift in Sources */,
 				834778A0FD120CB8352305E3F4C7F246 /* ReadStatus.swift in Sources */,
 				81141E61D75C3D312DF9B02448C90936 /* Search.swift in Sources */,
 				CD5E218F676C64C7A896421770E23772 /* Seasons.swift in Sources */,
@@ -2448,8 +2446,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};
