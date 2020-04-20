@@ -19,13 +19,13 @@ import Foundation
 public enum ActivityStatus: String {
 	// MARK: - Cases
 	/// The user is currently online.
-	case online
+	case online = "Online"
 
 	/// The user was recently online.
-	case seenRecently
+	case seenRecently = "Seen Recently"
 
 	/// The user is offline.
-	case offline
+	case offline = "Offline"
 
 	// MARK: - Properties
 	/// The string value of an activity status type.
