@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>ActorsElement Class Reference</title>
+    <title>ActivityStatus Enumeration Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Class/ActorsElement" class="dashAnchor"></a>
-    <a title="ActorsElement Class Reference"></a>
+    <a name="//apple_ref/swift/Enum/ActivityStatus" class="dashAnchor"></a>
+    <a title="ActivityStatus Enumeration Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">KurozoraKit 0.1.7 Docs</a> (100% documented)</p>
@@ -23,7 +23,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">KurozoraKit Reference</a>
         <img id="carat" src="../img/carat.png" />
-        ActorsElement Class Reference
+        ActivityStatus Enumeration Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -266,17 +266,124 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>ActorsElement</h1>
+            <h1>ActivityStatus</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">ActorsElement</span> <span class="p">:</span> <span class="kt">JSONDecodable</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">ActivityStatus</span> <span class="p">:</span> <span class="kt">String</span></code></pre>
 
                 </div>
               </div>
-            <p>A mutable object that stores information about a single actor, such as the actor&rsquo;s name, role, and image.</p>
+            <p>The set of available activity status types.</p>
+<pre class="highlight swift"><code><span class="k">case</span> <span class="n">online</span>
+<span class="k">case</span> <span class="n">seenRecently</span>
+<span class="k">case</span> <span class="n">offline</span>
+</code></pre>
 
           </section>
           <section class="section task-group-section">
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Cases"></a>
+                <a name="//apple_ref/swift/Section/Cases" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Cases"></a>
+                  <h3 class="section-name"><p>Cases</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11KurozoraKit14ActivityStatusO6onlineyA2CmF"></a>
+                    <a name="//apple_ref/swift/Element/online" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11KurozoraKit14ActivityStatusO6onlineyA2CmF">online</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The user is currently online.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">online</span> <span class="o">=</span> <span class="s">"Online"</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/kiritokatklian/KurozoraKit/tree/master/KurozoraKit/Classes/Enums/ActivityStatus.swift#L22">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11KurozoraKit14ActivityStatusO12seenRecentlyyA2CmF"></a>
+                    <a name="//apple_ref/swift/Element/seenRecently" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11KurozoraKit14ActivityStatusO12seenRecentlyyA2CmF">seenRecently</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The user was recently online.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">seenRecently</span> <span class="o">=</span> <span class="s">"Seen Recently"</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/kiritokatklian/KurozoraKit/tree/master/KurozoraKit/Classes/Enums/ActivityStatus.swift#L25">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11KurozoraKit14ActivityStatusO7offlineyA2CmF"></a>
+                    <a name="//apple_ref/swift/Element/offline" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11KurozoraKit14ActivityStatusO7offlineyA2CmF">offline</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The user is offline.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">offline</span> <span class="o">=</span> <span class="s">"Offline"</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/kiritokatklian/KurozoraKit/tree/master/KurozoraKit/Classes/Enums/ActivityStatus.swift#L28">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
             <div class="task-group">
               <div class="task-name-container">
                 <a name="/Properties"></a>
@@ -291,9 +398,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:11KurozoraKit13ActorsElementC4nameSSSgvp"></a>
-                    <a name="//apple_ref/swift/Property/name" class="dashAnchor"></a>
-                    <a class="token" href="#/s:11KurozoraKit13ActorsElementC4nameSSSgvp">name</a>
+                    <a name="/s:11KurozoraKit14ActivityStatusO11stringValueSSvp"></a>
+                    <a name="//apple_ref/swift/Property/stringValue" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11KurozoraKit14ActivityStatusO11stringValueSSvp">stringValue</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -301,19 +408,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The name of the actor.</p>
+                        <p>The string value of an activity status type.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">stringValue</span><span class="p">:</span> <span class="kt">String</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/kiritokatklian/KurozoraKit/tree/master/KurozoraKit/Classes/Models/Cast.swift#L45">Show on GitHub</a>
+                        <a href="https://github.com/kiritokatklian/KurozoraKit/tree/master/KurozoraKit/Classes/Enums/ActivityStatus.swift#L32-L41">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -321,9 +428,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:11KurozoraKit13ActorsElementC4roleSSSgvp"></a>
-                    <a name="//apple_ref/swift/Property/role" class="dashAnchor"></a>
-                    <a class="token" href="#/s:11KurozoraKit13ActorsElementC4roleSSSgvp">role</a>
+                    <a name="/s:11KurozoraKit14ActivityStatusO11symbolValueSSvp"></a>
+                    <a name="//apple_ref/swift/Property/symbolValue" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11KurozoraKit14ActivityStatusO11symbolValueSSvp">symbolValue</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -331,19 +438,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The role of the actor in the show.</p>
+                        <p>The symbol value of an activity status type.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">role</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">symbolValue</span><span class="p">:</span> <span class="kt">String</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/kiritokatklian/KurozoraKit/tree/master/KurozoraKit/Classes/Models/Cast.swift#L48">Show on GitHub</a>
+                        <a href="https://github.com/kiritokatklian/KurozoraKit/tree/master/KurozoraKit/Classes/Enums/ActivityStatus.swift#L44-L53">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -351,9 +458,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:11KurozoraKit13ActorsElementC5imageSSSgvp"></a>
-                    <a name="//apple_ref/swift/Property/image" class="dashAnchor"></a>
-                    <a class="token" href="#/s:11KurozoraKit13ActorsElementC5imageSSSgvp">image</a>
+                    <a name="/s:11KurozoraKit14ActivityStatusO10colorValueSo7UIColorCvp"></a>
+                    <a name="//apple_ref/swift/Property/colorValue" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11KurozoraKit14ActivityStatusO10colorValueSo7UIColorCvp">colorValue</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -361,61 +468,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The link to an image of the actor.</p>
+                        <p>The color value of an activity status type.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">image</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">colorValue</span><span class="p">:</span> <span class="kt">UIColor</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/kiritokatklian/KurozoraKit/tree/master/KurozoraKit/Classes/Models/Cast.swift#L51">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-name-container">
-                <a name="/Initializers"></a>
-                <a name="//apple_ref/swift/Section/Initializers" class="dashAnchor"></a>
-                <div class="section-name-container">
-                  <a class="section-name-link" href="#/Initializers"></a>
-                  <h3 class="section-name"><p>Initializers</p>
-</h3>
-                </div>
-              </div>
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:4TRON13JSONDecodableP4jsonx10SwiftyJSON0E0V_tKcfc"></a>
-                    <a name="//apple_ref/swift/Method/init(json:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4TRON13JSONDecodableP4jsonx10SwiftyJSON0E0V_tKcfc">init(json:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">required</span> <span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">json</span><span class="p">:</span> <span class="kt">JSON</span><span class="p">)</span> <span class="k">throws</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/kiritokatklian/KurozoraKit/tree/master/KurozoraKit/Classes/Models/Cast.swift#L54-L58">Show on GitHub</a>
+                        <a href="https://github.com/kiritokatklian/KurozoraKit/tree/master/KurozoraKit/Classes/Enums/ActivityStatus.swift#L56-L65">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
