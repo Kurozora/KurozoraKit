@@ -371,7 +371,7 @@ extension KurozoraKit {
 		- Parameter result: A value that represents either a success or a failure, including an associated value in each case.
 	*/
 	public func search(inUserLibrary userID: Int,forShow show: String, completion completionHandler: @escaping (_ result: Result<[ShowDetailsElement], KKError>) -> Void) {
-		let animeSearchInLibrary = self.kurozoraKitEndpoints.animeSearch.replacingOccurrences(of: "?", with: "\(userID)")
+		let animeSearchInLibrary = self.kurozoraKitEndpoints.animeSearchInLibrary.replacingOccurrences(of: "?", with: "\(userID)")
 		let request: APIRequest<Search, KKError> = tron.swiftyJSON.request(animeSearchInLibrary)
 
 		request.headers = headers
