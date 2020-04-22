@@ -14,7 +14,7 @@
     <a title="KurozoraKit Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">KurozoraKit 0.2.2 Docs</a> (100% documented)</p>
+        <p><a href="../index.html">KurozoraKit 0.3.0 Docs</a> (100% documented)</p>
         <p class="header-right"><a href="https://github.com/kiritokatklian/KurozoraKit"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Fkiritokatklian%2Egithub%2Eio%2FKurozoraKit%2Fdocsets%2FKurozoraKit%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
       </div>
@@ -3902,6 +3902,79 @@ This notification can be observed to perform UI changes regarding the user&rsquo
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:11KurozoraKitAAC15searchInLibrary7forShow10completionySS_ys6ResultOySayAA0G14DetailsElementCGAA7KKErrorCGctF"></a>
+                    <a name="//apple_ref/swift/Method/searchInLibrary(forShow:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11KurozoraKitAAC15searchInLibrary7forShow10completionySS_ys6ResultOySayAA0G14DetailsElementCGAA7KKErrorCGctF">searchInLibrary(forShow:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Fetch a list of shows matching the search query in the user&rsquo;s library.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">searchInLibrary</span><span class="p">(</span><span class="n">forShow</span> <span class="nv">show</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">completion</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="n">_</span> <span class="nv">result</span><span class="p">:</span> <span class="kt">Result</span><span class="o">&lt;</span><span class="p">[</span><span class="kt"><a href="../Classes/ShowDetailsElement.html">ShowDetailsElement</a></span><span class="p">],</span> <span class="kt"><a href="../Classes/KKError.html">KKError</a></span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>show</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The search query by which the search list should be fetched.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A closure returning a value that represents either a success or a failure, including an associated value in each case.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>result</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A value that represents either a success or a failure, including an associated value in each case.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/kiritokatklian/KurozoraKit/tree/master/KurozoraKit/Classes/Extensions/KurozoraKit+User.swift#L372-L394">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:11KurozoraKitAAC13getFavourites9forUserID10completionySi_ys6ResultOySayAA18ShowDetailsElementCGAA7KKErrorCGctF"></a>
                     <a name="//apple_ref/swift/Method/getFavourites(forUserID:completion:)" class="dashAnchor"></a>
                     <a class="token" href="#/s:11KurozoraKitAAC13getFavourites9forUserID10completionySi_ys6ResultOySayAA18ShowDetailsElementCGAA7KKErrorCGctF">getFavourites(forUserID:completion:)</a>
@@ -3967,7 +4040,7 @@ This notification can be observed to perform UI changes regarding the user&rsquo
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/kiritokatklian/KurozoraKit/tree/master/KurozoraKit/Classes/Extensions/KurozoraKit+User.swift#L372-L391">Show on GitHub</a>
+                        <a href="https://github.com/kiritokatklian/KurozoraKit/tree/master/KurozoraKit/Classes/Extensions/KurozoraKit+User.swift#L403-L422">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4064,7 +4137,7 @@ This notification can be observed to perform UI changes regarding the user&rsquo
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/kiritokatklian/KurozoraKit/tree/master/KurozoraKit/Classes/Extensions/KurozoraKit+User.swift#L402-L425">Show on GitHub</a>
+                        <a href="https://github.com/kiritokatklian/KurozoraKit/tree/master/KurozoraKit/Classes/Extensions/KurozoraKit+User.swift#L433-L456">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4137,7 +4210,7 @@ This notification can be observed to perform UI changes regarding the user&rsquo
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/kiritokatklian/KurozoraKit/tree/master/KurozoraKit/Classes/Extensions/KurozoraKit+User.swift#L434-L453">Show on GitHub</a>
+                        <a href="https://github.com/kiritokatklian/KurozoraKit/tree/master/KurozoraKit/Classes/Extensions/KurozoraKit+User.swift#L465-L484">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4210,7 +4283,7 @@ This notification can be observed to perform UI changes regarding the user&rsquo
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/kiritokatklian/KurozoraKit/tree/master/KurozoraKit/Classes/Extensions/KurozoraKit+User.swift#L462-L481">Show on GitHub</a>
+                        <a href="https://github.com/kiritokatklian/KurozoraKit/tree/master/KurozoraKit/Classes/Extensions/KurozoraKit+User.swift#L493-L512">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4283,7 +4356,7 @@ This notification can be observed to perform UI changes regarding the user&rsquo
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/kiritokatklian/KurozoraKit/tree/master/KurozoraKit/Classes/Extensions/KurozoraKit+User.swift#L490-L512">Show on GitHub</a>
+                        <a href="https://github.com/kiritokatklian/KurozoraKit/tree/master/KurozoraKit/Classes/Extensions/KurozoraKit+User.swift#L521-L543">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4368,7 +4441,7 @@ This notification can be observed to perform UI changes regarding the user&rsquo
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/kiritokatklian/KurozoraKit/tree/master/KurozoraKit/Classes/Extensions/KurozoraKit+User.swift#L522-L544">Show on GitHub</a>
+                        <a href="https://github.com/kiritokatklian/KurozoraKit/tree/master/KurozoraKit/Classes/Extensions/KurozoraKit+User.swift#L553-L575">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4465,7 +4538,7 @@ This notification can be observed to perform UI changes regarding the user&rsquo
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/kiritokatklian/KurozoraKit/tree/master/KurozoraKit/Classes/Extensions/KurozoraKit+User.swift#L555-L579">Show on GitHub</a>
+                        <a href="https://github.com/kiritokatklian/KurozoraKit/tree/master/KurozoraKit/Classes/Extensions/KurozoraKit+User.swift#L586-L610">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
