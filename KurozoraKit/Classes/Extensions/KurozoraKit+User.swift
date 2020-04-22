@@ -365,12 +365,13 @@ extension KurozoraKit {
 	/**
 		Fetch a list of shows matching the search query in the user's library.
 
+		- Parameter userID: The id of the user in whose library the shows will searched.
 		- Parameter show: The search query by which the search list should be fetched.
 		- Parameter completionHandler: A closure returning a value that represents either a success or a failure, including an associated value in each case.
 		- Parameter result: A value that represents either a success or a failure, including an associated value in each case.
 	*/
-	public func searchInLibrary(forShow show: String, completion completionHandler: @escaping (_ result: Result<[ShowDetailsElement], KKError>) -> Void) {
-		let animeSearchInLibrary = self.kurozoraKitEndpoints.animeSearch
+	public func search(inUserLibrary userID: Int,forShow show: String, completion completionHandler: @escaping (_ result: Result<[ShowDetailsElement], KKError>) -> Void) {
+		let animeSearchInLibrary = self.kurozoraKitEndpoints.animeSearch.replacingOccurrences(of: "?", with: "\(userID)")
 		let request: APIRequest<Search, KKError> = tron.swiftyJSON.request(animeSearchInLibrary)
 
 		request.headers = headers
