@@ -35,8 +35,8 @@ extension KurozoraKit {
 		]
 
 		request.perform(withSuccess: { user in
-//			try? self.services._keychainDefaults.set(kurozoraID, key: "KurozoraID")
-			completionHandler(.success(user.kuroAuthToken ?? ""))
+			self.authenticationKey = user.kuroAuthToken ?? ""
+			completionHandler(.success(self._authenticationKey))
 		}, failure: { error in
 			if self.services.showAlerts {
 				SCLAlertView().showError("Can't sign in 😔", subTitle: error.message)
