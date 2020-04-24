@@ -457,6 +457,32 @@ extension KurozoraKit {
 	}
 
 	/**
+		Fetch the details for the current user.
+
+		- Parameter authenticationKey: The authentication key of the user whose details should be fetched.
+		- Parameter completionHandler: A closure returning a value that represents either a success or a failure, including an associated value in each case.
+		- Parameter result: A value that represents either a success or a failure, including an associated value in each case.
+	*/
+	public func getDetails(forUserWith authenticationKey: String, completion completionHandler: @escaping (_ result: Result<CurrentUser, KKError>) -> Void) {
+		let usersMe = self.kurozoraKitEndpoints.usersMe
+		let request: APIRequest<User, KKError> = tron.swiftyJSON.request(usersMe)
+
+		request.headers = headers
+		request.headers["kuro-auth"] = authenticationKey
+
+		request.method = .get
+		request.perform(withSuccess: { user in
+			completionHandler(.success(User.current!))
+		}, failure: { error in
+			if self.services.showAlerts {
+				SCLAlertView().showError("Can't get current user's details 😔", subTitle: error.message)
+			}
+			print("Received get details for current user error: \(error.message ?? "No message available")")
+			completionHandler(.failure(error))
+		})
+	}
+
+	/**
 		Fetch the profile details of the given user id.
 
 		- Parameter userID: The id of the user whose profile details should be fetched.

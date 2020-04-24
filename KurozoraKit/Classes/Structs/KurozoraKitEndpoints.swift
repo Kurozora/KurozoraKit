@@ -133,19 +133,16 @@ internal struct KurozoraKitEndpoints {
 
 	// MARK: - Users
 	/// The endpoint to register a user using email and password.
-	///
-	/// **Replace:** `?` with the id of the user.
 	let users = "users"
 
 	/// The endpoint to register a user using Sign in with Apple.
-	///
-	/// **Replace:** `?` with the id of the user.
 	let usersRegisterSIWA = "users/register-siwa"
 
 	/// The edpoint to reset a user's password.
-	///
-	/// **Replace:** `?` with the id of the user.
 	let usersResetPassword = "users/reset-password"
+
+	/// The endpoint to the user's own details.
+	let usersMe = "users/me"
 
 	/// The endpoint to the user's profile.
 	///
