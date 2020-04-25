@@ -1,17 +1,17 @@
 author: "Khoren Katklian"
 author_url: "https://kurozora.app"
-copyright: "Copyright © 2018-present Khoren Katklian. All rights reserved. See [license](https://github.com/kiritokatklian/KurozoraKit/blob/master/LICENSE)."
+copyright: "Copyright © 2018-present Khoren Katklian. All rights reserved. See [license](https://github.com/Kurozora/KurozoraKit/blob/master/LICENSE)."
 readme: README.md
 
 module: KurozoraKit
-module_version: 0.4.1
+module_version: 0.4.2
 
-github_url: "https://github.com/kiritokatklian/KurozoraKit"
-github_file_prefix: "https://github.com/kiritokatklian/KurozoraKit/tree/master"
+github_url: "https://github.com/Kurozora/KurozoraKit"
+github_file_prefix: "https://github.com/Kurozora/KurozoraKit/tree/master"
 
-root_url: "https://kiritokatklian.github.io/KurozoraKit/"
+root_url: "https://developer.kurozora.app/KurozoraKit/"
 docset_icon: ".github/Assets/KurozoraKit_icon.png"
-dash_url: "https://kiritokatklian.github.io/KurozoraKit/docsets/KurozoraKit.xml"
+dash_url: "https://developer.kurozora.app/KurozoraKit/docsets/KurozoraKit.xml"
 
 clean: true
 min_acl: internal
