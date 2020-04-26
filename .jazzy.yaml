@@ -9,12 +9,13 @@ module_version: 0.4.2
 github_url: "https://github.com/Kurozora/KurozoraKit"
 github_file_prefix: "https://github.com/Kurozora/KurozoraKit/tree/master"
 
-root_url: "https://developer.kurozora.app/KurozoraKit/"
+root_url: "https://developer.kurozora.app/kurozorakit/"
 docset_icon: ".github/Assets/KurozoraKit_icon.png"
-dash_url: "https://developer.kurozora.app/KurozoraKit/docsets/KurozoraKit.xml"
+dash_url: "https://developer.kurozora.app/kurozorakit/docsets/KurozoraKit.xml"
 
 clean: true
 min_acl: internal
 skip_undocumented: true
 
 podspec: "KurozoraKit.podspec"
+output: "~/Docs/developer/kurozorakit"
