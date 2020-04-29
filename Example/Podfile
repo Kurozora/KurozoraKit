@@ -9,10 +9,4 @@ use_frameworks!
 # MARK: - Targets
 target 'KurozoraKit_Tests' do
   pod 'KurozoraKit', :path => '../'
-
-  pod 'KeychainAccess'
-  pod 'Kingfisher'
-  pod 'SCLAlertView', '~> 0.8'
-  pod 'TRON'
-  pod 'TRON/SwiftyJSON'
 end
