@@ -1,23 +1,19 @@
 PODS:
   - Alamofire (5.1.0)
   - KeychainAccess (4.2.0)
-  - Kingfisher (5.13.4):
-    - Kingfisher/Core (= 5.13.4)
-  - Kingfisher/Core (5.13.4)
-  - KurozoraKit (0.5.1):
+  - KurozoraKit (0.5.9):
     - KeychainAccess
-    - Kingfisher
     - SCLAlertView (~> 0.8)
     - TRON
     - TRON/SwiftyJSON
-  - SCLAlertView (0.8.3)
+  - SCLAlertView (0.9.0)
   - SwiftyJSON (5.0.0)
-  - TRON (5.0.3):
+  - TRON (5.1.0):
     - Alamofire (~> 5.0)
-    - TRON/Core (= 5.0.3)
-  - TRON/Core (5.0.3):
+    - TRON/Core (= 5.1.0)
+  - TRON/Core (5.1.0):
     - Alamofire (~> 5.0)
-  - TRON/SwiftyJSON (5.0.3):
+  - TRON/SwiftyJSON (5.1.0):
     - Alamofire (~> 5.0)
     - SwiftyJSON (~> 5.0)
     - TRON/Core
@@ -29,7 +25,6 @@ SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Alamofire
     - KeychainAccess
-    - Kingfisher
     - SwiftyJSON
     - TRON
   https://github.com/kiritokatklian/Specs.git:
@@ -42,12 +37,11 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Alamofire: 9d5c5f602928e512395b30950c5984eca840093c
   KeychainAccess: 3f760109aa99b05d0f231e28b22642da7153e38a
-  Kingfisher: d2279a7abece3c7f25a80cd2b7f363ca5cf3f44c
-  KurozoraKit: d0e695ac928549be1aa2933a77868bad097db6e4
-  SCLAlertView: 1f7e3aeb080d7962d3f228e580456e992698bbe6
+  KurozoraKit: be193d00a7df23ba4373014daa1ded909b6224a5
+  SCLAlertView: 778e1b1dca4fa2cdfea4dc63f05d1780bd44db69
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
-  TRON: 3cb6a8c19230177c97225860d2ff38b618d51a53
+  TRON: 7f00c8199730b353714948ac8e624accf9d341d7
 
-PODFILE CHECKSUM: af4e6cc0ff4d985e8d2a9681ed5e59179ee42995
+PODFILE CHECKSUM: 4c92f4fe3a3ecd297a3f47996279f3b26796c610
 
 COCOAPODS: 1.9.1
