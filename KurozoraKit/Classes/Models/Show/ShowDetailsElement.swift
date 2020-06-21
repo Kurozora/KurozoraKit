@@ -73,17 +73,11 @@ public class ShowDetailsElement: JSONDecodable {
 	/// The average rating of the show.
 	public let averageRating: Double?
 
-	/// The network the show has aired on.
-	public let network: String?
-
 	/// Whether the show is Not Safe For Work.
 	public let nsfw: Bool?
 
 	/// The popularity rank of the show.
 	public let popularityRank: Int?
-
-	/// The name of the producers of the show.
-	public let producers: String?
 
 	/// The current rank of the show.
 	public let rank: Int?
@@ -93,6 +87,16 @@ public class ShowDetailsElement: JSONDecodable {
 
 	/// The rating count of the show.
 	public let ratingCount: Int?
+
+	// Network and Studio
+	/// The network the show has aired on.
+	public let network: String?
+
+	/// The studio that made the show.
+	public let studio: StudioElement?
+
+	/// The name of the producers of the show.
+	public let producers: String?
 
 	// Schedule
 	/// The date show has aired on.
@@ -154,13 +158,15 @@ public class ShowDetailsElement: JSONDecodable {
 		self.year = nil
 
 		self.averageRating = nil
-		self.network = nil
 		self.nsfw = nil
 		self.popularityRank = nil
-		self.producers = nil
 		self.rank = nil
 		self.age = nil
 		self.ratingCount = nil
+
+		self.network = nil
+		self.studio = nil
+		self.producers = nil
 
 		self.startDate = nil
 		self.endDate = nil
@@ -207,13 +213,16 @@ public class ShowDetailsElement: JSONDecodable {
 
 		// Ratings & ranks
 		self.averageRating = json["average_rating"].doubleValue
-		self.network = json["network"].stringValue
 		self.nsfw = json["nsfw"].boolValue
 		self.popularityRank = json["popularity_rank"].intValue
-		self.producers = json["producers"].stringValue
 		self.rank = json["rank"].intValue
 		self.age = json["age"].stringValue
 		self.ratingCount = json["rating_count"].intValue
+
+		// Network and Studio
+		self.network = json["network"].stringValue
+		self.studio = try? StudioElement(json: json["studio"])
+		self.producers = json["producers"].stringValue
 
 		// Schedule
 		self.startDate = json["first_aired"].stringValue
