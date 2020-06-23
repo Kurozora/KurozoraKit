@@ -1,12 +1,12 @@
 PODS:
-  - Alamofire (5.1.0)
+  - Alamofire (5.2.1)
   - KeychainAccess (4.2.0)
-  - KurozoraKit (0.5.9):
+  - KurozoraKit (0.7.0):
     - KeychainAccess
-    - SCLAlertView (~> 0.8)
+    - SCLAlertView (~> 0.10)
     - TRON
     - TRON/SwiftyJSON
-  - SCLAlertView (0.9.0)
+  - SCLAlertView (0.10.1)
   - SwiftyJSON (5.0.0)
   - TRON (5.1.0):
     - Alamofire (~> 5.0)
@@ -35,13 +35,13 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Alamofire: 9d5c5f602928e512395b30950c5984eca840093c
+  Alamofire: e911732990610fe89af59ac0077f923d72dc3dfd
   KeychainAccess: 3f760109aa99b05d0f231e28b22642da7153e38a
-  KurozoraKit: be193d00a7df23ba4373014daa1ded909b6224a5
-  SCLAlertView: 778e1b1dca4fa2cdfea4dc63f05d1780bd44db69
+  KurozoraKit: 8d482488ba4326e241b84a72c45d88d865a3f411
+  SCLAlertView: f5da99041e9857453de77a6e657c9e38a46e58b9
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
   TRON: 7f00c8199730b353714948ac8e624accf9d341d7
 
-PODFILE CHECKSUM: 4c92f4fe3a3ecd297a3f47996279f3b26796c610
+PODFILE CHECKSUM: a9d7d4392863716641eefbca5ebed7a221126a42
 
-COCOAPODS: 1.9.1
+COCOAPODS: 1.9.3
