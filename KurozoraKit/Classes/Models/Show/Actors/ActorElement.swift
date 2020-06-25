@@ -14,18 +14,31 @@ import TRON
 public class ActorElement: JSONDecodable {
 	// MARK: - Properties
 	/// The name of the actor.
-	public let name: String?
+	public let actorName: String?
 
-	/// The role of the actor in the show.
-	public let role: String?
+	/// The role of the actor.
+	public let actorRole: String?
 
 	/// The link to an image of the actor.
-	public let image: String?
+	public let actorImageString: String?
+
+	/// The name of the character in the show.
+	public let characterName: String?
+
+	/// The role of the character in the show.
+	public let characterRole: String?
+
+	/// The link to an image of the character.
+	public let characterImageString: String?
 
 	// MARK: - Initializers
 	required public init(json: JSON) throws {
-		self.name = json["name"].stringValue
-		self.role = json["role"].stringValue
-		self.image = json["image"].stringValue
+		self.actorName = json["actor_name"].stringValue
+		self.actorRole = json["actor_role"].stringValue
+		self.actorImageString = json["actor_image"].stringValue
+
+		self.characterName = json["character_name"].stringValue
+		self.characterRole = json["character_role"].stringValue
+		self.characterImageString = json["character_image"].stringValue
 	}
 }
