@@ -48,6 +48,15 @@ internal struct KKEndpoints {
 	/// **Replace:** `?` with the id of the season.
 	let animeSeasonsEpisodes = "anime-seasons/?/episodes"
 
+	// MARK: - Character
+	/// The endpoint to the details of a character.
+	///
+	/// **Replace:** `?` with the id of the character.
+	let character = "characters/?"
+
+	/// The endpoint to the characters.
+	let characters = "characters"
+
 	// MARK: - Explore
 	/// The endpoint to the explore page.
 	let explore = "explore"
