@@ -13,32 +13,41 @@ import TRON
 */
 public class ActorElement: JSONDecodable {
 	// MARK: - Properties
-	/// The name of the actor.
-	public let actorName: String?
+	/// The first name of the actor.
+	public let firstName: String?
 
-	/// The role of the actor.
-	public let actorRole: String?
+	/// The last name of the actor.
+	public let lastName: String?
+
+	/// The occupation of the actor.
+	public let occupation: String?
 
 	/// The link to an image of the actor.
-	public let actorImageString: String?
-
-	/// The name of the character in the show.
-	public let characterName: String?
-
-	/// The role of the character in the show.
-	public let characterRole: String?
-
-	/// The link to an image of the character.
-	public let characterImageString: String?
+	public let imageString: String?
 
 	// MARK: - Initializers
-	required public init(json: JSON) throws {
-		self.actorName = json["actor_name"].stringValue
-		self.actorRole = json["actor_role"].stringValue
-		self.actorImageString = json["actor_image"].stringValue
+	/// Initializes an empty instance of `ActorElement`.
+	internal init() {
+		self.firstName = nil
+		self.lastName = nil
+		self.occupation = nil
+		self.imageString = nil
+	}
 
-		self.characterName = json["character_name"].stringValue
-		self.characterRole = json["character_role"].stringValue
-		self.characterImageString = json["character_image"].stringValue
+	required public init(json: JSON) throws {
+		self.firstName = json["first_name"].stringValue
+		self.lastName = json["last_name"].stringValue
+		self.occupation = json["occupation"].stringValue
+		self.imageString = json["image"].stringValue
+	}
+}
+
+// MARK: - Helpers
+extension ActorElement {
+	/// The full name of the actor.
+	public var fullName: String? {
+		guard let lastName = self.lastName else { return nil }
+		guard let firstName = self.firstName else { return nil }
+		return lastName.isEmpty ? firstName : lastName + ", " + firstName
 	}
 }

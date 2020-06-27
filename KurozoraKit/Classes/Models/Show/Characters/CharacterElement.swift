@@ -13,21 +13,52 @@ import TRON
 */
 public class CharacterElement: JSONDecodable {
 	// MARK: - Properties
+	/// The id of the character.
 	let id: Int?
+
+	/// The name of the character.
 	let name: String?
+
+	/// The biogrpahy of the character.
 	let about: String?
-	let image: String?
+
+	/// The string to an image url of the chracter.
+	let imageString: String?
+
+	/// The debut information of the character,
 	let debut: String?
+
+	/// The status of the character.
 	let status: String?
+
+	/// The blood type of the character.
 	let bloodType: String?
+
+	/// The favorite food of the character.
 	let favoriteFood: String?
-	let bust: Double?
-	let waist: Double?
-	let hip: Double?
+
+	/// The bust size of the character.
+	let bustSize: Double?
+
+	/// The waist size of the character.
+	let waistSize: Double?
+
+	/// The hip size of the character.
+	let hipSize: Double?
+
+	/// The height of the character.
 	let height: String?
+
+	/// The age of the character.
 	let age: Int?
+
+	/// The day the character was born.
 	let birthDay: Int?
+
+	/// The month the character was born.
 	let birthMonth: Int?
+
+	/// The astronomical sign of the character.
 	let astrologicalSign: AstrologicalSign?
 
 	// MARK: - Initializers
@@ -36,14 +67,14 @@ public class CharacterElement: JSONDecodable {
 		self.id = nil
 		self.name = nil
 		self.about = nil
-		self.image = nil
+		self.imageString = nil
 		self.debut = nil
 		self.status = nil
 		self.bloodType = nil
 		self.favoriteFood = nil
-		self.bust = nil
-		self.waist = nil
-		self.hip = nil
+		self.bustSize = nil
+		self.waistSize = nil
+		self.hipSize = nil
 		self.height = nil
 		self.age = nil
 		self.birthDay = nil
@@ -55,14 +86,14 @@ public class CharacterElement: JSONDecodable {
 		self.id = json["id"].intValue
 		self.name = json["name"].stringValue
 		self.about = json["about"].stringValue
-		self.image = json["image"].stringValue
+		self.imageString = json["image"].stringValue
 		self.debut = json["debut"].stringValue
 		self.status = json["status"].stringValue
 		self.bloodType = json["blood_type"].stringValue
 		self.favoriteFood = json["favorite_food"].stringValue
-		self.bust = json["bust"].doubleValue
-		self.waist = json["waist"].doubleValue
-		self.hip = json["hip"].doubleValue
+		self.bustSize = json["bust"].doubleValue
+		self.waistSize = json["waist"].doubleValue
+		self.hipSize = json["hip"].doubleValue
 		self.height = json["height"].stringValue
 		self.age = json["age"].intValue
 		self.birthDay = json["birth_day"].intValue
