@@ -12,7 +12,7 @@ import Foundation
 
 	- Tag: AstrologicalSign
 */
-enum AstrologicalSign: Int, CaseIterable {
+public enum AstrologicalSign: Int, CaseIterable {
 	// MARK: - Cases
 	/// The character has the Aries sign.
 	case aries = 0
