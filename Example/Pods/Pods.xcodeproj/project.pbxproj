@@ -73,6 +73,9 @@
 		661F184C24A752BA00542AFB /* Characters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661F184A24A7500200542AFB /* Characters.swift */; };
 		661F184D24A752D100542AFB /* CharacterElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661F184B24A7500200542AFB /* CharacterElement.swift */; };
 		661F184F24A7551E00542AFB /* AstrologicalSign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661F184E24A7551E00542AFB /* AstrologicalSign.swift */; };
+		661F185524A8E93900542AFB /* Cast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661F185124A8DF6D00542AFB /* Cast.swift */; };
+		661F185624A8E93900542AFB /* CastElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661F185324A8DFCC00542AFB /* CastElement.swift */; };
+		661F185824A8FDFF00542AFB /* KurozoraKit+Actors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661F185724A8FDFF00542AFB /* KurozoraKit+Actors.swift */; };
 		666EC5C8356E6D4448A2FE7BEE77AD88 /* RedirectHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ABB84FEE3C4115D17019E2C78839C7 /* RedirectHandler.swift */; };
 		66B26C6CAE737EC21F4BA1F1851B69C5 /* Result+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7268C8DFA875FE160912E12D6DDF9FF7 /* Result+Alamofire.swift */; };
 		6782A5429F9611877D253BC3A2D213F3 /* TRON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54D7642723776A8D90E44ED3E3AA92E7 /* TRON.framework */; };
@@ -329,6 +332,9 @@
 		661F184A24A7500200542AFB /* Characters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Characters.swift; sourceTree = "<group>"; };
 		661F184B24A7500200542AFB /* CharacterElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterElement.swift; sourceTree = "<group>"; };
 		661F184E24A7551E00542AFB /* AstrologicalSign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstrologicalSign.swift; sourceTree = "<group>"; };
+		661F185124A8DF6D00542AFB /* Cast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cast.swift; sourceTree = "<group>"; };
+		661F185324A8DFCC00542AFB /* CastElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastElement.swift; sourceTree = "<group>"; };
+		661F185724A8FDFF00542AFB /* KurozoraKit+Actors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KurozoraKit+Actors.swift"; sourceTree = "<group>"; };
 		66219DF4D9B25766D30F21DBD37ECA0F /* APIRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = APIRequest.swift; path = Source/TRON/APIRequest.swift; sourceTree = "<group>"; };
 		665C0C9FB7BEA06FCB4241D4E9310E34 /* UIDevice+KurozoraKit.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIDevice+KurozoraKit.swift"; sourceTree = "<group>"; };
 		66BFE28E67DFD9E2A3589CA58863C7DA /* CurrentUser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
@@ -779,6 +785,15 @@
 			path = Characters;
 			sourceTree = "<group>";
 		};
+		661F185024A8DF5500542AFB /* Cast */ = {
+			isa = PBXGroup;
+			children = (
+				661F185124A8DF6D00542AFB /* Cast.swift */,
+				661F185324A8DFCC00542AFB /* CastElement.swift */,
+			);
+			path = Cast;
+			sourceTree = "<group>";
+		};
 		6864DCF52FC1C51FBB9E94CB5EFC6A60 /* SwiftyJSON */ = {
 			isa = PBXGroup;
 			children = (
@@ -927,6 +942,7 @@
 				5EE924E6E2DC7C62321FE6456E1AFC3D /* ShowDetails.swift */,
 				BAEA85559FE7ED21EEAD09DCBE6F6299 /* ShowDetailsElement.swift */,
 				5B687E3CFECF4414967DEA95CF36F9B3 /* Actors */,
+				661F185024A8DF5500542AFB /* Cast */,
 				661F184924A74FF600542AFB /* Characters */,
 				5863CA2BFCCD97E31EA7EAE2BB22E72F /* Episodes */,
 				FA2A77E56EB982772AC17720401B78B6 /* Genres */,
@@ -956,11 +972,12 @@
 		B961441F84F1358F87D1031607CD902E /* KurozoraKit */ = {
 			isa = PBXGroup;
 			children = (
+				661F185724A8FDFF00542AFB /* KurozoraKit+Actors.swift */,
+				661F184624A74F7B00542AFB /* KurozoraKit+Characters.swift */,
 				C2375AA4DCBD5C5225A67BCE4848892A /* KurozoraKit+Episode.swift */,
 				4D762A55F4CE43D0805478597F30532E /* KurozoraKit+Feed.swift */,
 				11295DA2CF3E289904B43C84060390DA /* KurozoraKit+Forums.swift */,
 				EFAA534C1340B3A0846F1C6AD008076C /* KurozoraKit+Genre.swift */,
-				661F184624A74F7B00542AFB /* KurozoraKit+Characters.swift */,
 				0E8901A0288536AF58F9EAB09472B97D /* KurozoraKit+Kurozora.swift */,
 				1CEB8A75F497015EFF0106EB30A1DBA3 /* KurozoraKit+Notifications.swift */,
 				85009F421F0EC1172DAC7F8FDB718713 /* KurozoraKit+Reply.swift */,
@@ -1511,6 +1528,7 @@
 				27DE96B048FD200BB19A1FE12AC8DF86 /* ExploreCategory.swift in Sources */,
 				661F184824A74FA000542AFB /* KurozoraKit+Characters.swift in Sources */,
 				251797472A2FDEE7AC8EC1BDF3147473 /* FavoriteShow.swift in Sources */,
+				661F185524A8E93900542AFB /* Cast.swift in Sources */,
 				BEDDB19A4F34F41DC0D3A175AF343F1A /* FavoriteStatus.swift in Sources */,
 				752FB7DA0E203968C850A567664454D7 /* FeedPostElement.swift in Sources */,
 				6043045C3A5B258158730EDBC70C24AF /* FeedPosts.swift in Sources */,
@@ -1554,6 +1572,7 @@
 				90ABA6B0E7195BC0EF3C2FDC8726D28D /* MALImport.swift in Sources */,
 				DD573252931077BA4203F3D9DB714584 /* Notification+KurozoraKit.swift in Sources */,
 				F244CCE56FB9A9FF8B1F40FA269BA9AF /* PlatformElement.swift in Sources */,
+				661F185624A8E93900542AFB /* CastElement.swift in Sources */,
 				661F184F24A7551E00542AFB /* AstrologicalSign.swift in Sources */,
 				7909266305DCE5A49D487CCEF9C721DC /* PrivacyPolicy.swift in Sources */,
 				30C444B4CFEEF3F0B21108B8BA655697 /* PrivacyPolicyElement.swift in Sources */,
@@ -1562,6 +1581,7 @@
 				661453163FF899BD77E21C1B3A3DF6B1 /* SeasonElement.swift in Sources */,
 				35AAEDF736D5EC7831D2C7A92F37E51A /* Seasons.swift in Sources */,
 				04073032E66FE1A7A93067D8D5248357 /* Session.swift in Sources */,
+				661F185824A8FDFF00542AFB /* KurozoraKit+Actors.swift in Sources */,
 				61C79EDA8CDA873BECCEC6D862ABBF50 /* ShowDetails.swift in Sources */,
 				985DDF77C2D7A9A367C9EE82539DC91E /* ShowDetailsElement.swift in Sources */,
 				CBA2C683300620E063E2257258495A7B /* String+Date.swift in Sources */,

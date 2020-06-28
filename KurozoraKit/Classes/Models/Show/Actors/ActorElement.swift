@@ -13,6 +13,9 @@ import TRON
 */
 public class ActorElement: JSONDecodable {
 	// MARK: - Properties
+	/// The id of the actor.
+	public let id: Int?
+
 	/// The first name of the actor.
 	public let firstName: String?
 
@@ -28,6 +31,7 @@ public class ActorElement: JSONDecodable {
 	// MARK: - Initializers
 	/// Initializes an empty instance of `ActorElement`.
 	internal init() {
+		self.id = nil
 		self.firstName = nil
 		self.lastName = nil
 		self.occupation = nil
@@ -35,6 +39,7 @@ public class ActorElement: JSONDecodable {
 	}
 
 	required public init(json: JSON) throws {
+		self.id = json["id"].intValue
 		self.firstName = json["first_name"].stringValue
 		self.lastName = json["last_name"].stringValue
 		self.occupation = json["occupation"].stringValue
