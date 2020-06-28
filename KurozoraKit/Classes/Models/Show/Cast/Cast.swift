@@ -23,7 +23,7 @@ public class Cast: JSONDecodable {
 		let castArray = json["cast"].arrayValue
 		for castItem in castArray {
 			if let castElement = try? CastElement(json: castItem) {
-				cast.append(CastElement)
+				cast.append(castElement)
 			}
 		}
 
