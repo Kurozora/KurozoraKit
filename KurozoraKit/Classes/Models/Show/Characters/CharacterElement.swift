@@ -14,52 +14,52 @@ import TRON
 public class CharacterElement: JSONDecodable {
 	// MARK: - Properties
 	/// The id of the character.
-	let id: Int?
+	public let id: Int?
 
 	/// The name of the character.
-	let name: String?
+	public let name: String?
 
 	/// The biogrpahy of the character.
-	let about: String?
+	public let about: String?
 
 	/// The string to an image url of the chracter.
-	let imageString: String?
+	public let imageString: String?
 
 	/// The debut information of the character,
-	let debut: String?
+	public let debut: String?
 
 	/// The status of the character.
-	let status: String?
+	public let status: String?
 
 	/// The blood type of the character.
-	let bloodType: String?
+	public let bloodType: String?
 
 	/// The favorite food of the character.
-	let favoriteFood: String?
+	public let favoriteFood: String?
 
 	/// The bust size of the character.
-	let bustSize: Double?
+	public let bustSize: Double?
 
 	/// The waist size of the character.
-	let waistSize: Double?
+	public let waistSize: Double?
 
 	/// The hip size of the character.
-	let hipSize: Double?
+	public let hipSize: Double?
 
 	/// The height of the character.
-	let height: String?
+	public let height: String?
 
 	/// The age of the character.
-	let age: Int?
+	public let age: Int?
 
 	/// The day the character was born.
-	let birthDay: Int?
+	public let birthDay: Int?
 
 	/// The month the character was born.
-	let birthMonth: Int?
+	public let birthMonth: Int?
 
 	/// The astronomical sign of the character.
-	let astrologicalSign: AstrologicalSign?
+	public let astrologicalSign: AstrologicalSign?
 
 	// MARK: - Initializers
 	/// Initializes an empty instance of `CharacterElement`.
