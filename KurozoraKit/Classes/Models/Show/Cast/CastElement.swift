@@ -20,12 +20,12 @@ public class CastElement: JSONDecodable {
 	public let character: CharacterElement?
 
 	/// The role of the cast.
-	public let role: String?
+	public let role: CastRole?
 
 	// MARK: - Initializers
 	required public init(json: JSON) throws {
 		self.actor = try? ActorElement(json: json["actor"])
 		self.character = try? CharacterElement(json: json["character"])
-		self.role = json["cast_role"].stringValue
+		self.role = CastRole(rawValue: json["cast_role"].intValue)
 	}
 }

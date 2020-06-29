@@ -76,6 +76,7 @@
 		661F185524A8E93900542AFB /* Cast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661F185124A8DF6D00542AFB /* Cast.swift */; };
 		661F185624A8E93900542AFB /* CastElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661F185324A8DFCC00542AFB /* CastElement.swift */; };
 		661F185824A8FDFF00542AFB /* KurozoraKit+Actors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661F185724A8FDFF00542AFB /* KurozoraKit+Actors.swift */; };
+		661F185B24AA5FE600542AFB /* CastRole.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661F185924AA525B00542AFB /* CastRole.swift */; };
 		666EC5C8356E6D4448A2FE7BEE77AD88 /* RedirectHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ABB84FEE3C4115D17019E2C78839C7 /* RedirectHandler.swift */; };
 		66B26C6CAE737EC21F4BA1F1851B69C5 /* Result+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7268C8DFA875FE160912E12D6DDF9FF7 /* Result+Alamofire.swift */; };
 		6782A5429F9611877D253BC3A2D213F3 /* TRON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54D7642723776A8D90E44ED3E3AA92E7 /* TRON.framework */; };
@@ -335,6 +336,7 @@
 		661F185124A8DF6D00542AFB /* Cast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cast.swift; sourceTree = "<group>"; };
 		661F185324A8DFCC00542AFB /* CastElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastElement.swift; sourceTree = "<group>"; };
 		661F185724A8FDFF00542AFB /* KurozoraKit+Actors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KurozoraKit+Actors.swift"; sourceTree = "<group>"; };
+		661F185924AA525B00542AFB /* CastRole.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastRole.swift; sourceTree = "<group>"; };
 		66219DF4D9B25766D30F21DBD37ECA0F /* APIRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = APIRequest.swift; path = Source/TRON/APIRequest.swift; sourceTree = "<group>"; };
 		665C0C9FB7BEA06FCB4241D4E9310E34 /* UIDevice+KurozoraKit.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIDevice+KurozoraKit.swift"; sourceTree = "<group>"; };
 		66BFE28E67DFD9E2A3589CA58863C7DA /* CurrentUser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
@@ -555,6 +557,7 @@
 			children = (
 				CD7DF6D2C2037CDF9BD8A1FEE9AC52B5 /* ActivityStatus.swift */,
 				661F184E24A7551E00542AFB /* AstrologicalSign.swift */,
+				661F185924AA525B00542AFB /* CastRole.swift */,
 				37397182F5F486C5ACC04C2D5AB1D5C2 /* FavoriteStatus.swift */,
 				C7EE261DBE4BA37AA95E61AD372B0FF3 /* FollowList.swift */,
 				9FEAE6E5FC84A8F3F401D1277F6ABAC4 /* FollowStatus.swift */,
@@ -1533,6 +1536,7 @@
 				752FB7DA0E203968C850A567664454D7 /* FeedPostElement.swift in Sources */,
 				6043045C3A5B258158730EDBC70C24AF /* FeedPosts.swift in Sources */,
 				E8ADF2F4FF711F7E04A3F6EDE84EED24 /* FeedSectionElement.swift in Sources */,
+				661F185B24AA5FE600542AFB /* CastRole.swift in Sources */,
 				2009CFE18E15EC1A607DED4289F1463E /* FeedSections.swift in Sources */,
 				ABD8822FC4C02DB94B7DC79EC5A906BE /* FollowList.swift in Sources */,
 				3DE286DC02F1381398DDDD9852B0764B /* FollowStatus.swift in Sources */,
