@@ -26,6 +26,6 @@ public class CastElement: JSONDecodable {
 	required public init(json: JSON) throws {
 		self.actor = try? ActorElement(json: json["actor"])
 		self.character = try? CharacterElement(json: json["character"])
-		self.role = json["role"].stringValue
+		self.role = json["cast_role"].stringValue
 	}
 }
