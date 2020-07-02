@@ -72,7 +72,6 @@
 		661F184824A74FA000542AFB /* KurozoraKit+Characters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661F184624A74F7B00542AFB /* KurozoraKit+Characters.swift */; };
 		661F184C24A752BA00542AFB /* Characters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661F184A24A7500200542AFB /* Characters.swift */; };
 		661F184D24A752D100542AFB /* CharacterElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661F184B24A7500200542AFB /* CharacterElement.swift */; };
-		661F184F24A7551E00542AFB /* AstrologicalSign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661F184E24A7551E00542AFB /* AstrologicalSign.swift */; };
 		661F185524A8E93900542AFB /* Cast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661F185124A8DF6D00542AFB /* Cast.swift */; };
 		661F185624A8E93900542AFB /* CastElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661F185324A8DFCC00542AFB /* CastElement.swift */; };
 		661F185824A8FDFF00542AFB /* KurozoraKit+Actors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661F185724A8FDFF00542AFB /* KurozoraKit+Actors.swift */; };
@@ -331,7 +330,6 @@
 		661F184624A74F7B00542AFB /* KurozoraKit+Characters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KurozoraKit+Characters.swift"; sourceTree = "<group>"; };
 		661F184A24A7500200542AFB /* Characters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Characters.swift; sourceTree = "<group>"; };
 		661F184B24A7500200542AFB /* CharacterElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterElement.swift; sourceTree = "<group>"; };
-		661F184E24A7551E00542AFB /* AstrologicalSign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstrologicalSign.swift; sourceTree = "<group>"; };
 		661F185124A8DF6D00542AFB /* Cast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cast.swift; sourceTree = "<group>"; };
 		661F185324A8DFCC00542AFB /* CastElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastElement.swift; sourceTree = "<group>"; };
 		661F185724A8FDFF00542AFB /* KurozoraKit+Actors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KurozoraKit+Actors.swift"; sourceTree = "<group>"; };
@@ -554,7 +552,6 @@
 			isa = PBXGroup;
 			children = (
 				CD7DF6D2C2037CDF9BD8A1FEE9AC52B5 /* ActivityStatus.swift */,
-				661F184E24A7551E00542AFB /* AstrologicalSign.swift */,
 				37397182F5F486C5ACC04C2D5AB1D5C2 /* FavoriteStatus.swift */,
 				C7EE261DBE4BA37AA95E61AD372B0FF3 /* FollowList.swift */,
 				9FEAE6E5FC84A8F3F401D1277F6ABAC4 /* FollowStatus.swift */,
@@ -1573,7 +1570,6 @@
 				DD573252931077BA4203F3D9DB714584 /* Notification+KurozoraKit.swift in Sources */,
 				F244CCE56FB9A9FF8B1F40FA269BA9AF /* PlatformElement.swift in Sources */,
 				661F185624A8E93900542AFB /* CastElement.swift in Sources */,
-				661F184F24A7551E00542AFB /* AstrologicalSign.swift in Sources */,
 				7909266305DCE5A49D487CCEF9C721DC /* PrivacyPolicy.swift in Sources */,
 				30C444B4CFEEF3F0B21108B8BA655697 /* PrivacyPolicyElement.swift in Sources */,
 				3FAB0F53ACE163BF8BA8101FCEF01613 /* ReadStatus.swift in Sources */,
