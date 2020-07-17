@@ -81,7 +81,7 @@ extension KurozoraKit {
 	*/
 	public func getReplies(forThread threadID: Int, orderedBy order: ForumOrder, next: String? = nil, completion completionHandler: @escaping (_ result: Result<ThreadReplies, KKError>) -> Void) {
 		let forumsThreadsReplies = next ?? self.kurozoraKitEndpoints.forumsThreadsReplies.replacingOccurrences(of: "?", with: "\(threadID)")
-		let request: APIRequest<ThreadReplies, KKError> = tron.swiftyJSON.request(forumsThreadsReplies)
+		let request: APIRequest<ThreadReplies, KKError> = tron.swiftyJSON.request(forumsThreadsReplies).buildURL(.relativeToBaseURL)
 
 		request.headers = headers
 		if User.isSignedIn {

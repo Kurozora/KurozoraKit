@@ -43,7 +43,7 @@ extension KurozoraKit {
 	*/
 	public func getForumsThreads(forSection sectionID: Int, orderedBy order: ForumOrder, next: String? = nil, completion completionHandler: @escaping (_ result: Result<ForumsThread, KKError>) -> Void) {
 		let forumsSectionsThreads = next ?? self.kurozoraKitEndpoints.forumsSectionsThreads.replacingOccurrences(of: "?", with: "\(sectionID)")
-		let request: APIRequest<ForumsThread, KKError> = tron.swiftyJSON.request(forumsSectionsThreads)
+		let request: APIRequest<ForumsThread, KKError> = tron.swiftyJSON.request(forumsSectionsThreads).buildURL(.relativeToBaseURL)
 
 		request.headers = headers
 		if User.isSignedIn {
