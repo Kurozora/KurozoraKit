@@ -75,12 +75,10 @@ extension KurozoraKit {
 		})
 	}
 
-	/**
-		Prompt the authenticated user to subscribe to their reminders.
-	*/
-	public func subscribeToReminder() {
+	/// The rmeinder subscription url of the authenticated user.
+	public var reminderSubscriptionURL: URL {
 		let meReminderShowDownload = KKEndpoint.Me.ReminderShow.download.endpointValue
 		let subscriptionURL = tron.urlBuilder.url(forPath: meReminderShowDownload)
-		UIApplication.shared.open(subscriptionURL, options: [:], completionHandler: nil)
+		return subscriptionURL
 	}
 }
