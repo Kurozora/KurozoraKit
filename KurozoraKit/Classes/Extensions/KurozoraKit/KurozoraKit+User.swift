@@ -206,10 +206,11 @@ extension KurozoraKit {
 		- Parameter userID: The id of the user whose follower or following list should be fetched.
 		- Parameter followList: The follow list value indicating whather to fetch the followers or following list.
 		- Parameter next: The URL string of the next page in the paginated response. Use `nil` to get first page.
+		- Parameter limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
 		- Parameter completionHandler: A closure returning a value that represents either a success or a failure, including an associated value in each case.
 		- Parameter result: A value that represents either a success or a failure, including an associated value in each case.
 	*/
-	public func getFollowList(forUserID userID: Int, _ followList: FollowList, next: String? = nil, completion completionHandler: @escaping (_ result: Result<UserFollow, KKAPIError>) -> Void) {
+	public func getFollowList(forUserID userID: Int, _ followList: FollowList, next: String? = nil, limit: Int = 25, completion completionHandler: @escaping (_ result: Result<UserFollow, KKAPIError>) -> Void) {
 		let usersFollowerOrFollowing = next ?? (followList == .following ? KKEndpoint.Users.following(userID).endpointValue : KKEndpoint.Users.followers(userID).endpointValue)
 		let request: APIRequest<UserFollow, KKAPIError> = tron.codable.request(usersFollowerOrFollowing).buildURL(.relativeToBaseURL)
 
@@ -217,6 +218,8 @@ extension KurozoraKit {
 		if User.isSignedIn {
 			request.headers["kuro-auth"] = self.authenticationKey
 		}
+
+		request.parameters["limit"] = limit
 
 		request.method = .get
 		request.perform(withSuccess: { userFollow in
@@ -264,21 +267,25 @@ extension KurozoraKit {
 		Fetch the favorite shows list for the given user.
 
 		- Parameter userID: The id of the user whose favorite list will be fetched.
+		- Parameter next: The URL string of the next page in the paginated response. Use `nil` to get first page.
+		- Parameter limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
 		- Parameter completionHandler: A closure returning a value that represents either a success or a failure, including an associated value in each case.
 		- Parameter result: A value that represents either a success or a failure, including an associated value in each case.
 	*/
-	public func getFavoriteShows(forUserID userID: Int, completion completionHandler: @escaping (_ result: Result<[Show], KKAPIError>) -> Void) {
-		let usersFavoriteShow = KKEndpoint.Users.favoriteShow(userID).endpointValue
-		let request: APIRequest<ShowResponse, KKAPIError> = tron.codable.request(usersFavoriteShow)
+	public func getFavoriteShows(forUserID userID: Int, next: String? = nil, limit: Int = 25, completion completionHandler: @escaping (_ result: Result<ShowResponse, KKAPIError>) -> Void) {
+		let usersFavoriteShow = next ?? KKEndpoint.Users.favoriteShow(userID).endpointValue
+		let request: APIRequest<ShowResponse, KKAPIError> = tron.codable.request(usersFavoriteShow).buildURL(.relativeToBaseURL)
 
 		request.headers = headers
 		if User.isSignedIn {
 			request.headers["kuro-auth"] = self.authenticationKey
 		}
 
+		request.parameters["limit"] = limit
+
 		request.method = .get
 		request.perform(withSuccess: { showResponse in
-			completionHandler(.success(showResponse.data))
+			completionHandler(.success(showResponse))
 		}, failure: { [weak self] error in
 			guard let self = self else { return }
 			if self.services.showAlerts {

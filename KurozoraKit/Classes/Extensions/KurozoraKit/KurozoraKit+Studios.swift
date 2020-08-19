@@ -14,7 +14,6 @@ extension KurozoraKit {
 
 		- Parameter studioID: The id of the studio for which the details should be fetched.
 		- Parameter relationships: The relationships to include in the response.
-		- Parameter limit: The number of resources in the relationship to get. Set to `nil` to get default amount.
 		- Parameter completionHandler: A closure returning a value that represents either a success or a failure, including an associated value in each case.
 		- Parameter result: A value that represents either a success or a failure, including an associated value in each case.
 	*/
@@ -29,9 +28,6 @@ extension KurozoraKit {
 
 		if !relationships.isEmpty {
 			request.parameters["include"] = relationships.joined(separator: ",")
-		}
-		if limit != nil, let limit = limit {
-			request.parameters["limit"] = limit
 		}
 
 		request.method = .get

@@ -12,19 +12,23 @@ extension KurozoraKit {
 	/**
 		Fetch the favorite shows list for the authenticated user.
 
+		- Parameter next: The URL string of the next page in the paginated response. Use `nil` to get first page.
+		- Parameter limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
 		- Parameter completionHandler: A closure returning a value that represents either a success or a failure, including an associated value in each case.
 		- Parameter result: A value that represents either a success or a failure, including an associated value in each case.
 	*/
-	public func getFavoriteShows(completion completionHandler: @escaping (_ result: Result<[Show], KKAPIError>) -> Void) {
-		let meFavoriteShowIndex = KKEndpoint.Me.FavoriteShow.index.endpointValue
-		let request: APIRequest<ShowResponse, KKAPIError> = tron.codable.request(meFavoriteShowIndex)
+	public func getFavoriteShows(next: String? = nil, limit: Int = 25, completion completionHandler: @escaping (_ result: Result<ShowResponse, KKAPIError>) -> Void) {
+		let meFavoriteShowIndex = next ?? KKEndpoint.Me.FavoriteShow.index.endpointValue
+		let request: APIRequest<ShowResponse, KKAPIError> = tron.codable.request(meFavoriteShowIndex).buildURL(.relativeToBaseURL)
 
 		request.headers = headers
 		request.headers["kuro-auth"] = self.authenticationKey
 
+		request.parameters["limit"] = limit
+
 		request.method = .get
 		request.perform(withSuccess: { showResponse in
-			completionHandler(.success(showResponse.data))
+			completionHandler(.success(showResponse))
 		}, failure: { [weak self] error in
 			guard let self = self else { return }
 			if self.services.showAlerts {

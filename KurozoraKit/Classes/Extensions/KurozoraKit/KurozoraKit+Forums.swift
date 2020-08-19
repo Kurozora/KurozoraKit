@@ -39,10 +39,11 @@ extension KurozoraKit {
 		- Parameter sectionID: The id of the forum section for which the forum threads should be fetched.
 		- Parameter orderedBy: The forum order value by which the threads should be ordered.
 		- Parameter next: The URL string of the next page in the paginated response. Use `nil` to get first page.
+		- Parameter limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
 		- Parameter completionHandler: A closure returning a value that represents either a success or a failure, including an associated value in each case.
 		- Parameter result: A value that represents either a success or a failure, including an associated value in each case.
 	*/
-	public func getForumsThreads(forSection sectionID: Int, orderedBy order: ForumOrder, next: String? = nil, completion completionHandler: @escaping (_ result: Result<ForumsThreadResponse, KKAPIError>) -> Void) {
+	public func getForumsThreads(forSection sectionID: Int, orderedBy order: ForumOrder, next: String? = nil, limit: Int = 25, completion completionHandler: @escaping (_ result: Result<ForumsThreadResponse, KKAPIError>) -> Void) {
 		let forumsThreads = next ?? KKEndpoint.Forums.threads(sectionID).endpointValue
 		let request: APIRequest<ForumsThreadResponse, KKAPIError> = tron.codable.request(forumsThreads).buildURL(.relativeToBaseURL)
 
@@ -53,7 +54,8 @@ extension KurozoraKit {
 
 		request.method = .get
 		request.parameters = [
-			"order": order.rawValue
+			"order": order.rawValue,
+			"limit": limit
 		]
 		request.perform(withSuccess: { forumsThreadResponse in
 			completionHandler(.success(forumsThreadResponse))

@@ -38,10 +38,11 @@ extension KurozoraKit {
 
 		- Parameter sectionID: The id of the feed section for which the posts should be fetched.
 		- Parameter next: The URL string of the next page in the paginated response. Use `nil` to get first page.
+		- Parameter limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
 		- Parameter completionHandler: A closure returning a value that represents either a success or a failure, including an associated value in each case.
 		- Parameter result: A value that represents either a success or a failure, including an associated value in each case.
 	*/
-	public func getFeedPosts(forSection sectionID: Int, next: String? = nil, completion completionHandler: @escaping (_ result: Result<FeedPostResponse, KKAPIError>) -> Void) {
+	public func getFeedPosts(forSection sectionID: Int, next: String? = nil, limit: Int = 25, completion completionHandler: @escaping (_ result: Result<FeedPostResponse, KKAPIError>) -> Void) {
 		let feedPosts = next ?? KKEndpoint.Feed.posts(sectionID).endpointValue
 		let request: APIRequest<FeedPostResponse, KKAPIError> = tron.codable.request(feedPosts).buildURL(.relativeToBaseURL)
 
@@ -49,6 +50,8 @@ extension KurozoraKit {
 		if User.isSignedIn {
 			request.headers["kuro-auth"] = self.authenticationKey
 		}
+
+		request.parameters["limit"] = limit
 
 		request.method = .get
 		request.perform(withSuccess: { feedPostResponse in

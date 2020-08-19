@@ -13,12 +13,11 @@ extension KurozoraKit {
 		Fetch the actor details for the given actor id.
 
 		- Parameter actorID: The id of the actor for which the details should be fetched.
-		- Parameter includesShows: Set to `true` to include show data.
-		- Parameter limit: The number of shows to get. Set to `nil` to get all shows.
+		- Parameter relationships: The relationships to include in the response.
 		- Parameter completionHandler: A closure returning a value that represents either a success or a failure, including an associated value in each case.
 		- Parameter result: A value that represents either a success or a failure, including an associated value in each case.
 	*/
-	public func getDetails(forActorID actorID: Int, includesShows: Bool? = nil, limit: Int? = nil, completion completionHandler: @escaping (_ result: Result<[Actor], KKAPIError>) -> Void) {
+	public func getDetails(forActorID actorID: Int, including relationships: [String] = [], completion completionHandler: @escaping (_ result: Result<[Actor], KKAPIError>) -> Void) {
 		let actorsDetails = KKEndpoint.Shows.Actors.details(actorID).endpointValue
 		let request: APIRequest<ActorResponse, KKAPIError> = tron.codable.request(actorsDetails)
 
@@ -27,11 +26,8 @@ extension KurozoraKit {
 			request.headers["kuro-auth"] = self.authenticationKey
 		}
 
-		if includesShows != nil, let includesShows = includesShows {
-			request.parameters["anime"] = includesShows ? 1 : 0
-		}
-		if limit != nil, let limit = limit {
-			request.parameters["limit"] = limit
+		if !relationships.isEmpty {
+			request.parameters["include"] = relationships.joined(separator: ",")
 		}
 
 		request.method = .get

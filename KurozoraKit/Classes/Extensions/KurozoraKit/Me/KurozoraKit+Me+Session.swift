@@ -13,19 +13,23 @@ extension KurozoraKit {
 	/**
 		Fetch the list of sessions for the authenticated user.
 
+		- Parameter next: The URL string of the next page in the paginated response. Use `nil` to get first page.
+		- Parameter limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
 		- Parameter completionHandler: A closure returning a value that represents either a success or a failure, including an associated value in each case.
 		- Parameter result: A value that represents either a success or a failure, including an associated value in each case.
 	*/
-	public func getSessions(completion completionHandler: @escaping (_ result: Result<[Session], KKAPIError>) -> Void) {
-		let meSessionsIndex = KKEndpoint.Me.Sessions.index.endpointValue
-		let request: APIRequest<SessionResponse, KKAPIError> = tron.codable.request(meSessionsIndex)
+	public func getSessions(next: String? = nil, limit: Int = 25, completion completionHandler: @escaping (_ result: Result<SessionResponse, KKAPIError>) -> Void) {
+		let meSessionsIndex = next ?? KKEndpoint.Me.Sessions.index.endpointValue
+		let request: APIRequest<SessionResponse, KKAPIError> = tron.codable.request(meSessionsIndex).buildURL(.relativeToBaseURL)
 
 		request.headers = headers
 		request.headers["kuro-auth"] = self.authenticationKey
 
+		request.parameters["limit"] = limit
+
 		request.method = .get
 		request.perform(withSuccess: { sessionResponse in
-			completionHandler(.success(sessionResponse.data))
+			completionHandler(.success(sessionResponse))
 		}, failure: { [weak self] error in
 			guard let self = self else { return }
 			if self.services.showAlerts {
