@@ -17,8 +17,8 @@ extension KurozoraKit {
 		- Parameter result: A value that represents either a success or a failure, including an associated value in each case.
 	*/
 	public func getFeedSections(completion completionHandler: @escaping (_ result: Result<[FeedSection], KKAPIError>) -> Void) {
-		let feedSection = self.kurozoraKitEndpoints.feedSection
-		let request: APIRequest<FeedSectionResponse, KKAPIError> = tron.codable.request(feedSection)
+		let feedSections = KKEndpoint.Feed.sections.endpointValue
+		let request: APIRequest<FeedSectionResponse, KKAPIError> = tron.codable.request(feedSections)
 		request.headers = headers
 		request.method = .get
 		request.perform(withSuccess: { feedSectionResponse in
@@ -42,8 +42,8 @@ extension KurozoraKit {
 		- Parameter result: A value that represents either a success or a failure, including an associated value in each case.
 	*/
 	public func getFeedPosts(forSection sectionID: Int, next: String? = nil, completion completionHandler: @escaping (_ result: Result<FeedPostResponse, KKAPIError>) -> Void) {
-		let feedSectionPost = next ?? self.kurozoraKitEndpoints.feedSectionPost.replacingOccurrences(of: "?", with: "\(sectionID)")
-		let request: APIRequest<FeedPostResponse, KKAPIError> = tron.codable.request(feedSectionPost).buildURL(.relativeToBaseURL)
+		let feedPosts = next ?? KKEndpoint.Feed.posts(sectionID).endpointValue
+		let request: APIRequest<FeedPostResponse, KKAPIError> = tron.codable.request(feedPosts).buildURL(.relativeToBaseURL)
 
 		request.headers = headers
 		if User.isSignedIn {

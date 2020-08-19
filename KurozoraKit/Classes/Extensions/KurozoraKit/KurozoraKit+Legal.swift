@@ -1,5 +1,5 @@
 //
-//  KurozoraKit+Kurozora.swift
+//  KurozoraKit+Legal.swift
 //  KurozoraKit
 //
 //  Created by Khoren Katklian on 29/09/2019.
@@ -17,8 +17,8 @@ extension KurozoraKit {
 		- Parameter result: A value that represents either a success or a failure, including an associated value in each case.
 	*/
 	public func getPrivacyPolicy(completion completionHandler: @escaping (_ result: Result<PrivacyPolicy, KKAPIError>) -> Void) {
-		let privacyPolicy = self.kurozoraKitEndpoints.privacyPolicy
-		let request: APIRequest<PrivacyPolicyResponse, KKAPIError> = tron.codable.request(privacyPolicy)
+		let legalPrivacyPolicy = KKEndpoint.Legal.privacyPolicy.endpointValue
+		let request: APIRequest<PrivacyPolicyResponse, KKAPIError> = tron.codable.request(legalPrivacyPolicy)
 		request.headers = headers
 		request.method = .get
 		request.perform(withSuccess: { privacyPolicyResponse in

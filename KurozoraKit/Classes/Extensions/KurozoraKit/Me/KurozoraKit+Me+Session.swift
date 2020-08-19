@@ -11,41 +11,51 @@ import SCLAlertView
 
 extension KurozoraKit {
 	/**
-		Create a new session with the given `kurozoraID` and `password`.
+		Fetch the list of sessions for the authenticated user.
 
-		This endpoint is used for signing in a user to their account. If the sign in was successful then a Kurozora authentication token is returned in the success closure.
-
-		- Parameter kurozoraID: The Kurozora id of the user to be signed in.
-		- Parameter password: The password of the user to be signed in.
 		- Parameter completionHandler: A closure returning a value that represents either a success or a failure, including an associated value in each case.
 		- Parameter result: A value that represents either a success or a failure, including an associated value in each case.
 	*/
-	public func signIn(_ kurozoraID: String, _ password: String, completion completionHandler: @escaping (_ result: Result<String, KKAPIError>) -> Void) {
-		let sessions = self.kurozoraKitEndpoints.sessions
-		let request: APIRequest<SignInResponse, KKAPIError> = tron.codable.request(sessions)
-		request.headers = headers
-		request.method = .post
-		request.parameters = [
-			"email": kurozoraID,
-			"password": password,
-			"platform": UIDevice.commonSystemName,
-			"platform_version": UIDevice.current.systemVersion,
-			"device_vendor": "Apple",
-			"device_model": UIDevice.modelName
-		]
+	public func getSessions(completion completionHandler: @escaping (_ result: Result<[Session], KKAPIError>) -> Void) {
+		let meSessionsIndex = KKEndpoint.Me.Sessions.index.endpointValue
+		let request: APIRequest<SessionResponse, KKAPIError> = tron.codable.request(meSessionsIndex)
 
-		request.perform(withSuccess: { [weak self] signInResponse in
-			guard let self = self else { return }
-			self.authenticationKey = signInResponse.authToken
-			User.current = signInResponse.data.first
-			completionHandler(.success(self.authenticationKey))
-			NotificationCenter.default.post(name: .KUserIsSignedInDidChange, object: nil)
+		request.headers = headers
+		request.headers["kuro-auth"] = self.authenticationKey
+
+		request.method = .get
+		request.perform(withSuccess: { sessionResponse in
+			completionHandler(.success(sessionResponse.data))
 		}, failure: { [weak self] error in
 			guard let self = self else { return }
 			if self.services.showAlerts {
-				SCLAlertView().showError("Can't sign in 😔", subTitle: error.message)
+				SCLAlertView().showError("Can't get session 😔", subTitle: error.message)
 			}
-			print("❌ Received sign in error:", error.errorDescription ?? "Unknown error")
+			print("Received get session error: \(error.message ?? "No message available")")
+			completionHandler(.failure(error))
+		})
+	}
+
+	/**
+		Fetch the session details for the given session id.
+
+		- Parameter sessionID: The id of the session for which the details should be fetched.
+		- Parameter completionHandler: A closure returning a value that represents either a success or a failure, including an associated value in each case.
+		- Parameter result: A value that represents either a success or a failure, including an associated value in each case.
+	*/
+	public func getDetails(forSessionID sessionID: Int, completion completionHandler: @escaping (_ result: Result<[Session], KKAPIError>) -> Void) {
+		let meSessionsDetail = KKEndpoint.Me.Sessions.details(sessionID).endpointValue
+		let request: APIRequest<SessionResponse, KKAPIError> = tron.codable.request(meSessionsDetail)
+		request.headers = headers
+		request.method = .get
+		request.perform(withSuccess: { sessionResponse in
+			completionHandler(.success(sessionResponse.data))
+		}, failure: { [weak self] error in
+			guard let self = self else { return }
+			if self.services.showAlerts {
+				SCLAlertView().showError("Can't get session details 😔", subTitle: error.message)
+			}
+			print("❌ Received get session details error:", error.errorDescription ?? "Unknown error")
 			print("┌ Server message:", error.message ?? "No message")
 			print("├ Recovery suggestion:", error.recoverySuggestion ?? "No suggestion available")
 			print("└ Failure reason:", error.failureReason ?? "No reason available")
@@ -62,13 +72,11 @@ extension KurozoraKit {
 		- Parameter result: A value that represents either a success or a failure, including an associated value in each case.
 	*/
 	public func updateSession(_ sessionID: Int, withToken apnDeviceToken: String, completion completionHandler: @escaping (_ result: Result<KKSuccess, KKAPIError>) -> Void) {
-		let sessionsUpdate = self.kurozoraKitEndpoints.sessionsUpdate.replacingOccurrences(of: "?", with: "\(sessionID)")
-		let request: APIRequest<KKSuccess, KKAPIError> = tron.codable.request(sessionsUpdate)
+		let meSessionsUpdate = KKEndpoint.Me.Sessions.update(sessionID).endpointValue
+		let request: APIRequest<KKSuccess, KKAPIError> = tron.codable.request(meSessionsUpdate)
 
 		request.headers = headers
-		if User.isSignedIn {
-			request.headers["kuro-auth"] = self.authenticationKey
-		}
+		request.headers["kuro-auth"] = self.authenticationKey
 
 		request.method = .post
 		request.parameters = [
@@ -96,13 +104,11 @@ extension KurozoraKit {
 		- Parameter result: A value that represents either a success or a failure, including an associated value in each case.
 	*/
 	public func deleteSession(_ sessionID: Int, completion completionHandler: @escaping (_ result: Result<KKSuccess, KKAPIError>) -> Void) {
-		let sessionsDelete = self.kurozoraKitEndpoints.sessionsDelete.replacingOccurrences(of: "?", with: "\(sessionID)")
-		let request: APIRequest<KKSuccess, KKAPIError> = tron.codable.request(sessionsDelete)
+		let meSessionsDelete = KKEndpoint.Me.Sessions.delete(sessionID).endpointValue
+		let request: APIRequest<KKSuccess, KKAPIError> = tron.codable.request(meSessionsDelete)
 
 		request.headers = headers
-		if User.isSignedIn {
-			request.headers["kuro-auth"] = self.authenticationKey
-		}
+		request.headers["kuro-auth"] = self.authenticationKey
 
 		request.method = .post
 		request.perform(withSuccess: { success in
@@ -126,18 +132,18 @@ extension KurozoraKit {
 		After the user has been signed out successfully, a notification with the `KUserIsSignedInDidChange` name is posted.
 		This notification can be observed to perform UI changes regarding the user's sign in status. For example you can remove buttons the user should not have access to if not signed in.
 
-		- Parameter sessionID: The session ID to be signed out of.
 		- Parameter completionHandler: A closure returning a value that represents either a success or a failure, including an associated value in each case.
 		- Parameter result: A value that represents either a success or a failure, including an associated value in each case.
 	*/
-	public func signOut(ofSessionID sessionID: Int, completion completionHandler: @escaping (_ result: Result<KKSuccess, KKAPIError>) -> Void) {
-		let sessionsDelete = self.kurozoraKitEndpoints.sessionsDelete.replacingOccurrences(of: "?", with: "\(sessionID)")
-		let request: APIRequest<KKSuccess, KKAPIError> = tron.codable.request(sessionsDelete)
+	public func signOut(completion completionHandler: @escaping (_ result: Result<KKSuccess, KKAPIError>) -> Void) {
+		guard let sessionID = User.current?.relationships?.sessions?.data.first?.id else {
+			fatalError("User must be signed in and have a session attached to call the signOut(completion:) method.")
+		}
+		let meSessionsDelete = KKEndpoint.Me.Sessions.delete(sessionID).endpointValue
+		let request: APIRequest<KKSuccess, KKAPIError> = tron.codable.request(meSessionsDelete)
 
 		request.headers = headers
-		if User.isSignedIn {
-			request.headers["kuro-auth"] = self.authenticationKey
-		}
+		request.headers["kuro-auth"] = self.authenticationKey
 
 		request.method = .post
 		request.perform(withSuccess: { success in

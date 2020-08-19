@@ -17,7 +17,7 @@ extension KurozoraKit {
 		- Parameter result: A value that represents either a success or a failure, including an associated value in each case.
 	*/
 	public func getForumSections(completion completionHandler: @escaping (_ result: Result<[ForumsSection], KKAPIError>) -> Void) {
-		let forumsSections = self.kurozoraKitEndpoints.forumsSections
+		let forumsSections = KKEndpoint.Forums.sections.endpointValue
 		let request: APIRequest<ForumsSectionResponse, KKAPIError> = tron.codable.request(forumsSections)
 		request.headers = headers
 		request.method = .get
@@ -43,8 +43,8 @@ extension KurozoraKit {
 		- Parameter result: A value that represents either a success or a failure, including an associated value in each case.
 	*/
 	public func getForumsThreads(forSection sectionID: Int, orderedBy order: ForumOrder, next: String? = nil, completion completionHandler: @escaping (_ result: Result<ForumsThreadResponse, KKAPIError>) -> Void) {
-		let forumsSectionsThreads = next ?? self.kurozoraKitEndpoints.forumsSectionsThreads.replacingOccurrences(of: "?", with: "\(sectionID)")
-		let request: APIRequest<ForumsThreadResponse, KKAPIError> = tron.codable.request(forumsSectionsThreads).buildURL(.relativeToBaseURL)
+		let forumsThreads = next ?? KKEndpoint.Forums.threads(sectionID).endpointValue
+		let request: APIRequest<ForumsThreadResponse, KKAPIError> = tron.codable.request(forumsThreads).buildURL(.relativeToBaseURL)
 
 		request.headers = headers
 		if User.isSignedIn {
@@ -77,8 +77,8 @@ extension KurozoraKit {
 		- Parameter result: A value that represents either a success or a failure, including an associated value in each case.
 	*/
 	public func postThread(inSection sectionID: Int, withTitle title: String, content: String, completion completionHandler: @escaping (_ result: Result<[ForumsThread], KKAPIError>) -> Void) {
-		let forumsSectionsThreads = self.kurozoraKitEndpoints.forumsSectionsThreads.replacingOccurrences(of: "?", with: "\(sectionID)")
-		let request: APIRequest<ForumsThreadResponse, KKAPIError> = tron.codable.request(forumsSectionsThreads)
+		let forumsThreads = KKEndpoint.Forums.threads(sectionID).endpointValue
+		let request: APIRequest<ForumsThreadResponse, KKAPIError> = tron.codable.request(forumsThreads)
 
 		request.headers = headers
 		if User.isSignedIn {
