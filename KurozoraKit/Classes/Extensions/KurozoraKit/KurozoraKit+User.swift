@@ -20,9 +20,9 @@ extension KurozoraKit {
 		- Parameter completionHandler: A closure returning a value that represents either a success or a failure, including an associated value in each case.
 		- Parameter result: A value that represents either a success or a failure, including an associated value in each case.
 	*/
-	public func signUp(withUsername username: String, emailAddress: String, password: String, profileImage: UIImage?, completion completionHandler: @escaping (_ result: Result<String, KKAPIError>) -> Void) {
+	public func signUp(withUsername username: String, emailAddress: String, password: String, profileImage: UIImage?, completion completionHandler: @escaping (_ result: Result<KKSuccess, KKAPIError>) -> Void) {
 		let usersSignUp = KKEndpoint.Users.signUp.endpointValue
-		let request: UploadAPIRequest<SignInResponse, KKAPIError> = tron.codable.uploadMultipart(usersSignUp) { (formData) in
+		let request: UploadAPIRequest<KKSuccess, KKAPIError> = tron.codable.uploadMultipart(usersSignUp) { (formData) in
 			if let profileImage = profileImage?.jpegData(compressionQuality: 0.1) {
 				formData.append(profileImage, withName: "profileImage", fileName: "ProfileImage.png", mimeType: "image/png")
 			}
@@ -36,12 +36,8 @@ extension KurozoraKit {
 			"email": emailAddress,
 			"password": password
 		]
-		request.perform(withSuccess: { [weak self] signInResponse in
-			guard let self = self else { return }
-			self.authenticationKey = signInResponse.authToken
-			User.current = signInResponse.data.first
-			completionHandler(.success(self.authenticationKey))
-			NotificationCenter.default.post(name: .KUserIsSignedInDidChange, object: nil)
+		request.perform(withSuccess: { kKSuccess in
+			completionHandler(.success(kKSuccess))
 		}, failure: { [weak self] error in
 			guard let self = self else { return }
 			if self.services.showAlerts {
@@ -78,7 +74,7 @@ extension KurozoraKit {
 
 		request.perform(withSuccess: { [weak self] signInResponse in
 			guard let self = self else { return }
-			self.authenticationKey = signInResponse.authToken
+			self.authenticationKey = signInResponse.authenticationToken
 			User.current = signInResponse.data.first
 			completionHandler(.success(self.authenticationKey))
 			NotificationCenter.default.post(name: .KUserIsSignedInDidChange, object: nil)
@@ -96,78 +92,46 @@ extension KurozoraKit {
 	}
 
 	/**
-		Sign up a new account and sign in using the details from Sign in with Apple.
+		Sign in or up an account using the details from Sign in with Apple.
 
-		After the new account has been created successfully the user is signed in immediately. A notification with the `KUserIsSignedInDidChange` name is posted.
+		If a new account is created, the response will ask for the user to provide a username.
+
+		If an account exists, the user is signed in and a notification with the `KUserIsSignedInDidChange` name is posted.
 		This notification can be observed to perform UI changes regarding the user's sign in status. For example you can remove buttons the user should not have access to if not signed in.
 
-		- Parameter userID: The user's id returned by Sign in with Apple.
-		- Parameter emailAddress: The user's email returned by Sign in with Apple.
+		- Parameter token: A JSON Web Token (JWT) that securely communicates information about the user to the server.
 		- Parameter completionHandler: A closure returning a value that represents either a success or a failure, including an associated value in each case.
 		- Parameter result: A value that represents either a success or a failure, including an associated value in each case.
 	*/
-	public func signUp(withAppleUserID userID: String, emailAddress: String, completion completionHandler: @escaping (_ result: Result<String, KKAPIError>) -> Void) {
-		let usersSignUpSIWA = KKEndpoint.Users.signUpSIWA.endpointValue
-		let request: APIRequest<SignInResponse, KKAPIError> = tron.codable.request(usersSignUpSIWA)
+	public func signIn(withAppleID token: String, completion completionHandler: @escaping (_ result: Result<OAuthResponse, KKAPIError>) -> Void) {
+		let usersSignUpSIWA = KKEndpoint.Users.signInSIWA.endpointValue
+		let request: APIRequest<OAuthResponse, KKAPIError> = tron.codable.request(usersSignUpSIWA)
 		request.headers = headers
 		request.method = .post
 		request.parameters = [
-			"email": emailAddress,
-			"siwa_id": userID
+			"token": token,
+			"platform": UIDevice.commonSystemName,
+			"platform_version": UIDevice.current.systemVersion,
+			"device_vendor": "Apple",
+			"device_model": UIDevice.modelName
 		]
-		request.perform(withSuccess: { [weak self] signInResponse in
+		request.perform(withSuccess: { [weak self] oAuthResponse in
 			guard let self = self else { return }
-//			try? self.services._keychainDefaults.set("\(userID)", key: "siwa_id")
-//			self.services.processUserData(fromSession: userSession)
-			self.authenticationKey = signInResponse.authToken
-			User.current = signInResponse.data.first
-			completionHandler(.success(self.authenticationKey))
-			NotificationCenter.default.post(name: .KUserIsSignedInDidChange, object: nil)
+			self.authenticationKey = oAuthResponse.authenticationToken
+			if let user = oAuthResponse.data?.first {
+				User.current = user
+			}
+			completionHandler(.success(oAuthResponse))
+			if oAuthResponse.data?.first != nil {
+				NotificationCenter.default.post(name: .KUserIsSignedInDidChange, object: nil)
+			}
 		}, failure: { [weak self] error in
 			guard let self = self else { return }
 			UIView().endEditing(true)
 			if self.services.showAlerts {
-				SCLAlertView().showError("Can't sign up account 😔", subTitle: error.message)
+				SCLAlertView().showError("Can't sign in 😔", subTitle: error.message)
 			}
-			print("Received sign up account with SIWA error: \(error.message ?? "No message available")")
-			completionHandler(.failure(error))
-		})
-	}
-
-	/**
-		Sign in users to their account using Sign in with Apple.
-
-		After the user is signed in successfully, a notification with the `KUserIsSignedInDidChange` name is posted.
-		This notification can be observed to perform UI changes regarding the user's sign in status. For example you can remove buttons the user should not have access to if not signed in.
-
-		- Parameter idToken: A JSON Web Token (JWT) that securely communicates information about the user to the server.
-		- Parameter authorizationCode: A short-lived token used by the app for proof of authorization when interacting with the server.
-		- Parameter completionHandler: A closure returning a value that represents either a success or a failure, including an associated value in each case.
-		- Parameter result: A value that represents either a success or a failure, including an associated value in each case.
-	*/
-	public func signInWithApple(usingIDToken idToken: String, authorizationCode: String, completion completionHandler: @escaping (_ result: Result<String, KKAPIError>) -> Void) {
-		let usersSigninSIWA = KKEndpoint.Users.signInSIWA.endpointValue
-		let request: APIRequest<SignInResponse, KKAPIError> = tron.codable.request(usersSigninSIWA)
-		request.headers = headers
-		request.method = .post
-		request.parameters = [
-			"identity_token": idToken,
-			"auth_code": authorizationCode
-		]
-		request.perform(withSuccess: { [weak self] signInResponse in
-			guard let self = self else { return }
-//			try? KKServices.shared.KeychainDefaults.set(idToken, key: "SIWA_id_token")
-//			KKServices.shared.processUserData(fromSession: userSession)
-			self.authenticationKey = signInResponse.authToken
-			User.current = signInResponse.data.first
-			completionHandler(.success(signInResponse.authToken))
-			NotificationCenter.default.post(name: .KUserIsSignedInDidChange, object: nil)
-		}, failure: { [weak self] error in
-			guard let self = self else { return }
-			if self.services.showAlerts {
-				SCLAlertView().showError("Can't sign in with Apple 😔", subTitle: error.message)
-			}
-			print("Received sign in with Apple error: \(error.message ?? "No message available")")
+			print("Received sign in with SIWA error: \(error.message ?? "No message available")")
 			completionHandler(.failure(error))
 		})
 	}

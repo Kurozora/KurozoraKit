@@ -10,6 +10,39 @@ import SCLAlertView
 
 extension KurozoraKit {
 	/**
+		Fetches the authenticated user's profile details.
+
+		- Parameter completionHandler: A closure returning a value that represents either a success or a failure, including an associated value in each case.
+		- Parameter result: A value that represents either a success or a failure, including an associated value in each case.
+	*/
+	public func getProfileDetails(completion completionHandler: @escaping (_ result: Result<String, KKAPIError>) -> Void) {
+		let meProfile = KKEndpoint.Me.profile.endpointValue
+		let request: APIRequest<SignInResponse, KKAPIError> = tron.codable.request(meProfile)
+
+		request.headers = headers
+		request.headers["kuro-auth"] = self.authenticationKey
+
+		request.method = .get
+		request.perform(withSuccess: { [weak self] signInResponse in
+			guard let self = self else { return }
+			self.authenticationKey = signInResponse.authenticationToken
+			User.current = signInResponse.data.first
+			completionHandler(.success(self.authenticationKey))
+			NotificationCenter.default.post(name: .KUserIsSignedInDidChange, object: nil)
+		}, failure: { [weak self] error in
+			guard let self = self else { return }
+			if self.services.showAlerts {
+				SCLAlertView().showError("Can't get profile details 😔", subTitle: error.message)
+			}
+			print("❌ Received get profile details error", error.errorDescription ?? "Unknown error")
+			print("┌ Server message:", error.message ?? "No message")
+			print("├ Recovery suggestion:", error.recoverySuggestion ?? "No suggestion available")
+			print("└ Failure reason:", error.failureReason ?? "No reason available")
+			completionHandler(.failure(error))
+		})
+	}
+
+	/**
 		Fetches and restores the details for the authenticated user.
 
 		- Parameter authenticationKey: The authentication key of the user whose details should be fetched.
@@ -26,7 +59,7 @@ extension KurozoraKit {
 		request.method = .get
 		request.perform(withSuccess: { [weak self] signInResponse in
 			guard let self = self else { return }
-			self.authenticationKey = signInResponse.authToken
+			self.authenticationKey = signInResponse.authenticationToken
 			User.current = signInResponse.data.first
 			completionHandler(.success(self.authenticationKey))
 			NotificationCenter.default.post(name: .KUserIsSignedInDidChange, object: nil)
@@ -44,15 +77,18 @@ extension KurozoraKit {
 	}
 
 	/**
-		Update the authenticated user's profile information.
+		Updates the authenticated user's profile information.
 
-		- Parameter biography: The new biography to set.
-		- Parameter profileImage: The new user's profile image.
-		- Parameter bannerImage: The new user's profile image.
+		Send `nil` if an infomration shouldn't be updated, otherwise send an empty instance to unset an information.
+
+		- Parameter biography: The user's new biography.
+		- Parameter profileImage: The user's new profile image.
+		- Parameter bannerImage: The user's new profile image.
+		- Parameter username: The user's new username.
 		- Parameter completionHandler: A closure returning a value that represents either a success or a failure, including an associated value in each case.
 		- Parameter result: A value that represents either a success or a failure, including an associated value in each case.
 	*/
-	public func updateInformation(biography: String? = nil, profileImage: UIImage? = nil, bannerImage: UIImage? = nil, completion completionHandler: @escaping (_ result: Result<UserUpdate, KKAPIError>) -> Void) {
+	public func updateInformation(biography: String? = nil, bannerImage: UIImage? = nil, profileImage: UIImage? = nil, username: String? = nil, completion completionHandler: @escaping (_ result: Result<UserUpdate, KKAPIError>) -> Void) {
 		let usersProfile = KKEndpoint.Me.update.endpointValue
 		let request: UploadAPIRequest<UserUpdateResponse, KKAPIError> = tron.codable.uploadMultipart(usersProfile) { formData in
 			if let profileImage = profileImage {
@@ -78,25 +114,19 @@ extension KurozoraKit {
 
 		request.method = .post
 		if let biography = biography {
-			if !biography.isEmpty {
-				request.parameters["biography"] = biography
-			}
-		} else {
-			request.parameters["biography"] = NSNull()
+			request.parameters["biography"] = biography.isEmpty ? NSNull() : biography
 		}
-		if profileImage == nil {
-			request.parameters["profileImage"] = NSNull()
-		}
-		if bannerImage == nil {
+		if bannerImage?.size.width == 0 {
 			request.parameters["bannerImage"] = NSNull()
 		}
+		if profileImage?.size.width == 0 {
+			request.parameters["profileImage"] = NSNull()
+		}
+		if let username = username {
+			request.parameters["username"] = username.isEmpty ? NSNull() : username
+		}
 
-		request.perform(withSuccess: { [weak self] userUpdateResponse in
-			guard let self = self else { return }
-			if self.services.showAlerts {
-				SCLAlertView().showSuccess("Settings updated ☺️", subTitle: userUpdateResponse.message)
-			}
-
+		request.perform(withSuccess: { userUpdateResponse in
 			User.current?.attributes.update(using: userUpdateResponse.data)
 			completionHandler(.success(userUpdateResponse.data))
 		}, failure: { [weak self] error in
