@@ -7,7 +7,7 @@
 
 import Foundation
 
-// MAKR: - Threads
+// MARK: - Threads
 extension KKEndpoint.Forums {
 	/// The set of available Threads API endpoints types.
 	internal enum Threads {

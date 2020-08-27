@@ -82,20 +82,26 @@ internal struct KKEndpoint {
 	// MARK: - Feed
 	/// The set of available Feed API endpoints types.
 	internal enum Feed {
-		/// The endpoint to the feed sections.
-		case sections
+		// MARK: - Cases
+		/// The endpoint to the explore feed.
+		case explore
 
-		/// The endpoint to the posts in a feed section.
-		case posts(_ sectionID: Int)
+		/// The endpoint to the user's home feed.
+		case home
+
+		/// The endpoint to the posts in the feed.
+		case post
 
 		// MARK: - Properties
 		/// The endpoint value of the Feed API type.
 		var endpointValue: String {
 			switch self {
-			case .sections:
-				return "feed-sections"
-			case .posts(let sectionID):
-				return "feed-sections/\(sectionID)/posts"
+			case .explore:
+				return "feed/explore"
+			case .home:
+				return "feed/home"
+			case .post:
+				return "feed"
 			}
 		}
 	}
