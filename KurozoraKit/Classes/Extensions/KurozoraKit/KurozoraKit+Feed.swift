@@ -88,8 +88,8 @@ extension KurozoraKit {
 		- Parameter completionHandler: A closure returning a value that represents either a success or a failure, including an associated value in each case.
 		- Parameter result: A value that represents either a success or a failure, including an associated value in each case.
 	*/
-	public func postFeedMessage(withBody body: String, relatedToParent messageID: Int?, isReply: Bool, isReShare: Bool, isNSFW: Bool, isSpoiler: Bool, completion completionHandler: @escaping (_ result: Result<[FeedMessage], KKAPIError>) -> Void) {
-		guard User.current != nil else { fatalError("User must be signed in and have a session attached to call the postFeedMessage(withBody:isReply:isReShare:isNSFW:isSpoiler:) method.") }
+	public func postFeedMessage(withBody body: String, relatedToParent messageID: Int?, isReply: Bool?, isReShare: Bool?, isNSFW: Bool, isSpoiler: Bool, completion completionHandler: @escaping (_ result: Result<[FeedMessage], KKAPIError>) -> Void) {
+		guard User.current != nil else { fatalError("User must be signed in and have a session attached to call the postFeedMessage(withBody:relatedToParent:isReply:isReShare:isNSFW:isSpoiler:completion:) method.") }
 		let feedPost = KKEndpoint.Feed.post.endpointValue
 		let request: APIRequest<FeedMessageResponse, KKAPIError> = tron.codable.request(feedPost)
 
@@ -98,18 +98,46 @@ extension KurozoraKit {
 
 		request.parameters = [
 			"body": body,
-			"is_reply": isReply,
-			"is_reshare": isReShare,
 			"is_nsfw": isNSFW,
 			"is_spoiler": isSpoiler
 		]
 		if let messageID = messageID {
 			request.parameters["parent_id"] = messageID
+			request.parameters["is_reply"] = isReply
+			request.parameters["is_reshare"] = isReShare
 		}
 
 		request.method = .post
 		request.perform(withSuccess: { feedMessageResponse in
 			completionHandler(.success(feedMessageResponse.data))
+		}, failure: { [weak self] error in
+			guard let self = self else { return }
+			if self.services.showAlerts {
+				SCLAlertView().showError("Can't submit your message 😔", subTitle: error.message)
+			}
+			print("Received post feed message error: \(error.message ?? "No message available")")
+			completionHandler(.failure(error))
+		})
+	}
+
+	/**
+		Heart or un-heart a feed message.
+
+		- Parameter messageID: The id of the message to heart or un-heart.
+		- Parameter completionHandler: A closure returning a value that represents either a success or a failure, including an associated value in each case.
+		- Parameter result: A value that represents either a success or a failure, including an associated value in each case.
+	*/
+	public func heartMessage(_ messageID: Int, completion completionHandler: @escaping (_ result: Result<FeedMessageHeart, KKAPIError>) -> Void) {
+		guard User.current != nil else { fatalError("User must be signed in and have a session attached to call the heartMessage(messageID:completion:) method.") }
+		let feedPost = KKEndpoint.Feed.Messages.heart(messageID).endpointValue
+		let request: APIRequest<FeedMessageHeartResponse, KKAPIError> = tron.codable.request(feedPost)
+
+		request.headers = headers
+		request.headers["kuro-auth"] = self.authenticationKey
+
+		request.method = .post
+		request.perform(withSuccess: { feedMessageHeartResponse in
+			completionHandler(.success(feedMessageHeartResponse.data))
 		}, failure: { [weak self] error in
 			guard let self = self else { return }
 			if self.services.showAlerts {

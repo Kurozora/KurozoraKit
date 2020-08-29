@@ -14,14 +14,11 @@ extension FeedMessage {
 		/// The body of the feed message.
 		public let body: String
 
-		/// The reply count of the feed message.
-		public let replyCount: Int
-
-		/// The re-share count of the feed message.
-		public let reShareCount: Int
-
 		/// The metrics of the feed message.
-		public let metrics: FeedMessage.Attributes.Metrics
+		public var metrics: FeedMessage.Attributes.Metrics
+
+		/// Whether the feed message is hearted by the authenticated user.
+		public var isHearted: Bool
 
 		/// Whether the feed message is a reply.
 		public let isReply: Bool
@@ -37,5 +34,24 @@ extension FeedMessage {
 
 		/// The date the feed message was created at.
 		public let createdAt: String
+	}
+}
+
+// MARK: - Helpers
+extension FeedMessage.Attributes {
+	// MARK: - Functions
+	/**
+		Updates the `isHearted` attribute with the given value.
+
+		- Parameter isHearted: The new bool value of the `isHearted` property.
+	*/
+	public mutating func update(heartStatus isHearted:Bool) {
+		self.isHearted = isHearted
+
+		if isHearted {
+			self.metrics.heartCount += 1
+		} else {
+			self.metrics.heartCount -= 1
+		}
 	}
 }
