@@ -23,8 +23,11 @@ extension FeedMessage {
 		/// Whether the feed message is a reply.
 		public let isReply: Bool
 
-		/// Whether the feed message is a re-share
+		/// Whether the feed message is a re-share.
 		public let isReShare: Bool
+
+		/// Whether the feed message is a re-shared by the authenticated user.
+		public let isReShared: Bool
 
 		/// Whether the feed message is locked.
 		public let isNSFW: Bool
