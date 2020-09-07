@@ -131,6 +131,7 @@
 		66DB11EC24E6E07D00C99754 /* UserUpdateResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DB11E924E6E01500C99754 /* UserUpdateResponse.swift */; };
 		66DB11EE24E6E7E600C99754 /* ExploreCategoryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DB11ED24E6E7E600C99754 /* ExploreCategoryResponse.swift */; };
 		66DB11F024E6E9AF00C99754 /* ExploreCategoryRelationships.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DB11EF24E6E9AF00C99754 /* ExploreCategoryRelationships.swift */; };
+		66E46E0325065A5E009938E1 /* KurozoraKit+Me+Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E46E0225065A5E009938E1 /* KurozoraKit+Me+Feed.swift */; };
 		673E66F897EC00FC473418FDAFF29268 /* KurozoraKit+Me+Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFBE502DD76342930BDDDD418F83A87 /* KurozoraKit+Me+Session.swift */; };
 		69F88232C2EBF00F17F15FB47E633C6E /* ActorAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE963ABD315A7F1A4ABB9C546EC5B257 /* ActorAttributes.swift */; };
 		6A19C4F6CF36386FAE8EF869870584AE /* VoteStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F92FDE6E64D30F45889004A6B47A86D /* VoteStatus.swift */; };
@@ -447,6 +448,7 @@
 		66DB11EA24E6E01600C99754 /* UserUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserUpdate.swift; sourceTree = "<group>"; };
 		66DB11ED24E6E7E600C99754 /* ExploreCategoryResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreCategoryResponse.swift; sourceTree = "<group>"; };
 		66DB11EF24E6E9AF00C99754 /* ExploreCategoryRelationships.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreCategoryRelationships.swift; sourceTree = "<group>"; };
+		66E46E0225065A5E009938E1 /* KurozoraKit+Me+Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KurozoraKit+Me+Feed.swift"; sourceTree = "<group>"; };
 		6B3A76A18BCCC4185D345A9A5935E1B9 /* BaseRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BaseRequest.swift; path = Source/TRON/BaseRequest.swift; sourceTree = "<group>"; };
 		6BB5C960CE0CAD56DDB1EE4C70FEF2F8 /* Pods-KurozoraKit_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-KurozoraKit_Tests-umbrella.h"; sourceTree = "<group>"; };
 		6BD741127C6D1BED604175EF0D486817 /* TRON.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = TRON.modulemap; sourceTree = "<group>"; };
@@ -905,6 +907,7 @@
 			isa = PBXGroup;
 			children = (
 				665BD9EF24EBFF570079F88E /* KurozoraKit+Me+FavoriteShow.swift */,
+				66E46E0225065A5E009938E1 /* KurozoraKit+Me+Feed.swift */,
 				665BD9EB24EBE2E50079F88E /* KurozoraKit+Me+Library.swift */,
 				5412E51674E455FC790E7B92051A1E10 /* KurozoraKit+Me+Notifications.swift */,
 				665BD9ED24EBE5500079F88E /* KurozoraKit+Me+ReminderShow.swift */,
@@ -1933,6 +1936,7 @@
 				6698D3B324E4A91E006B7A4C /* ReminderStatus.swift in Sources */,
 				4FDCC12C648020A9D6E0983D690670AA /* ThreadReplyRelationships.swift in Sources */,
 				30D53A90B43AE2ACFC614C8B28507D0D /* ThreadReplyResponse.swift in Sources */,
+				66E46E0325065A5E009938E1 /* KurozoraKit+Me+Feed.swift in Sources */,
 				7415581A52F09DADD36C5A1BF617CBA8 /* UIDevice+KurozoraKit.swift in Sources */,
 				B188D9ABEB265159005AA1CB1A132A9D /* User.swift in Sources */,
 				B02310CB19291FB4C16FA52D78A5FD99 /* UserAttributes.swift in Sources */,
