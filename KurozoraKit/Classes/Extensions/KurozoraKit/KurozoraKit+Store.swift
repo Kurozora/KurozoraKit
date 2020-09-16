@@ -31,7 +31,7 @@ extension KurozoraKit {
 		request.method = .post
 		request.perform(withSuccess: { kkSuccess in
 			completionHandler(.success(kkSuccess))
-		}, failure: { [weak self] error in
+		}, failure: { error in
 			print("Received validate receipt error: \(error.message ?? "No message available")")
 			completionHandler(.failure(error))
 		})
