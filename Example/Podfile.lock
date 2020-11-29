@@ -1,11 +1,9 @@
 PODS:
   - Alamofire (5.4.0)
   - KeychainAccess (4.2.1)
-  - KurozoraKit (0.14.5):
+  - KurozoraKit (0.15.5):
     - KeychainAccess
-    - SCLAlertView (~> 0.10)
     - TRON
-  - SCLAlertView (0.10.2)
   - TRON (5.3.0):
     - Alamofire (~> 5.0)
     - TRON/Core (= 5.3.0)
@@ -20,8 +18,6 @@ SPEC REPOS:
     - Alamofire
     - KeychainAccess
     - TRON
-  https://github.com/kiritokatklian/Specs.git:
-    - SCLAlertView
 
 EXTERNAL SOURCES:
   KurozoraKit:
@@ -30,10 +26,9 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Alamofire: 3b6a534a3df22db367e4dedeeca73d1ddfcf0e2f
   KeychainAccess: 9b07f665298d13c3a85881bd3171f6f49b8151c1
-  KurozoraKit: def279068a5d9f827f49f4b03b78503cf3e0d6f6
-  SCLAlertView: 7635567b49d0fecbe374778bcd946801db40caf3
+  KurozoraKit: b605c87adf3f27495ee50fbe23b744340f655914
   TRON: 146d78dbf9bbcaaa77b7cf398a0a63d5dda267a5
 
-PODFILE CHECKSUM: 96c231b69dd98b77a9e5586646e3f34732726d87
+PODFILE CHECKSUM: 2532b3588e6afb26954e02513aed925221e58641
 
 COCOAPODS: 1.10.0

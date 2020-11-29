@@ -43,7 +43,7 @@ import Foundation
 	- Parameter separator: A string to print between each item. The default is a single space (`" "`).
 	- Parameter terminator: The string to print after all items have been printed. The default is a newline (`"\n"`).
 */
-func print(_ items: Any..., separator: String = " ", terminator: String = "\n") {
+internal func print(_ items: Any..., separator: String = " ", terminator: String = "\n") {
 	#if DEBUG
 	var idx = items.startIndex
 	let endIdx = items.endIndex
