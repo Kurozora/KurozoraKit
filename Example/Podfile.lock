@@ -1,7 +1,7 @@
 PODS:
   - Alamofire (5.4.3)
   - KeychainAccess (4.2.2)
-  - KurozoraKit (0.16.0):
+  - KurozoraKit (0.16.2):
     - KeychainAccess
     - TRON
   - TRON (5.4.1):
@@ -26,7 +26,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
   KeychainAccess: c0c4f7f38f6fc7bbe58f5702e25f7bd2f65abf51
-  KurozoraKit: 6a29a505c48c85315bc64c96298d02de2b1de898
+  KurozoraKit: dd99abf7ef6c6284b06774ad67d21004e435d296
   TRON: 1d635dad9a55c9441cb2bcf0571a14a5ede59440
 
 PODFILE CHECKSUM: 2e24be716b50b5e1955547448ff38db17aa0a3b9
