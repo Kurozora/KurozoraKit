@@ -46,7 +46,7 @@ extension KurozoraKit {
 		- Parameter completionHandler: A closure returning a value that represents either a success or a failure, including an associated value in each case.
 		- Parameter result: A value that represents either a success or a failure, including an associated value in each case.
 	*/
-	public func getDetails(forSessionID sessionID: Int, completion completionHandler: @escaping (_ result: Result<[Session], KKAPIError>) -> Void) {
+	public func getDetails(forSessionID sessionID: String, completion completionHandler: @escaping (_ result: Result<[Session], KKAPIError>) -> Void) {
 		let meSessionsDetail = KKEndpoint.Me.Sessions.details(sessionID).endpointValue
 		let request: APIRequest<SessionResponse, KKAPIError> = tron.codable.request(meSessionsDetail)
 		request.headers = headers
@@ -74,7 +74,7 @@ extension KurozoraKit {
 		- Parameter completionHandler: A closure returning a value that represents either a success or a failure, including an associated value in each case.
 		- Parameter result: A value that represents either a success or a failure, including an associated value in each case.
 	*/
-	public func updateSession(_ sessionID: Int, withToken apnDeviceToken: String, completion completionHandler: @escaping (_ result: Result<KKSuccess, KKAPIError>) -> Void) {
+	public func updateSession(_ sessionID: String, withToken apnDeviceToken: String, completion completionHandler: @escaping (_ result: Result<KKSuccess, KKAPIError>) -> Void) {
 		let meSessionsUpdate = KKEndpoint.Me.Sessions.update(sessionID).endpointValue
 		let request: APIRequest<KKSuccess, KKAPIError> = tron.codable.request(meSessionsUpdate)
 
@@ -103,7 +103,7 @@ extension KurozoraKit {
 		- Parameter completionHandler: A closure returning a value that represents either a success or a failure, including an associated value in each case.
 		- Parameter result: A value that represents either a success or a failure, including an associated value in each case.
 	*/
-	public func deleteSession(_ sessionID: Int, completion completionHandler: @escaping (_ result: Result<KKSuccess, KKAPIError>) -> Void) {
+	public func deleteSession(_ sessionID: String, completion completionHandler: @escaping (_ result: Result<KKSuccess, KKAPIError>) -> Void) {
 		let meSessionsDelete = KKEndpoint.Me.Sessions.delete(sessionID).endpointValue
 		let request: APIRequest<KKSuccess, KKAPIError> = tron.codable.request(meSessionsDelete)
 

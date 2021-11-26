@@ -156,13 +156,13 @@ extension KKEndpoint.Me {
 		case index
 
 		/// The endpoint to the details of a session.
-		case details(_ sessionID: Int)
+		case details(_ sessionID: String)
 
 		/// The endpoint to delete a session.
-		case delete(_ sessionID: Int)
+		case delete(_ sessionID: String)
 
 		/// The endpoint to update a session.
-		case update(_ sessionID: Int)
+		case update(_ sessionID: String)
 
 		// MARK: - Properties
 		/// The endpoint value of the Sessions API type.
