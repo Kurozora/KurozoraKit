@@ -67,36 +67,6 @@ extension KurozoraKit {
 	}
 
 	/**
-		Update a session with the specified data.
-
-		- Parameter sessionID: The ID of the session whose data should be updated.
-		- Parameter apnDeviceToken: The updated APN Device Token.
-		- Parameter completionHandler: A closure returning a value that represents either a success or a failure, including an associated value in each case.
-		- Parameter result: A value that represents either a success or a failure, including an associated value in each case.
-	*/
-	public func updateSession(_ sessionID: String, withToken apnDeviceToken: String, completion completionHandler: @escaping (_ result: Result<KKSuccess, KKAPIError>) -> Void) {
-		let meSessionsUpdate = KKEndpoint.Me.Sessions.update(sessionID).endpointValue
-		let request: APIRequest<KKSuccess, KKAPIError> = tron.codable.request(meSessionsUpdate)
-
-		request.headers = headers
-		request.headers.add(.authorization(bearerToken: self.authenticationKey))
-
-		request.method = .post
-		request.parameters = [
-			"apn_device_token": apnDeviceToken
-		]
-		request.perform(withSuccess: { success in
-			completionHandler(.success(success))
-		}, failure: { error in
-			print("❌ Received update session error:", error.errorDescription ?? "Unknown error")
-			print("┌ Server message:", error.message ?? "No message")
-			print("├ Recovery suggestion:", error.recoverySuggestion ?? "No suggestion available")
-			print("└ Failure reason:", error.failureReason ?? "No reason available")
-			completionHandler(.failure(error))
-		})
-	}
-
-	/**
 		Delete the specified session ID from the user's active sessions.
 
 		- Parameter sessionID: The session ID to be deleted.
@@ -119,41 +89,6 @@ extension KurozoraKit {
 				UIApplication.topViewController?.presentAlertController(title: "Can't Delete Session 😔", message: error.message)
 			}
 			print("❌ Received delete session error:", error.errorDescription ?? "Unknown error")
-			print("┌ Server message:", error.message ?? "No message")
-			print("├ Recovery suggestion:", error.recoverySuggestion ?? "No suggestion available")
-			print("└ Failure reason:", error.failureReason ?? "No reason available")
-			completionHandler(.failure(error))
-		})
-	}
-
-	/**
-		Sign out the given user session.
-
-		After the user has been signed out successfully, a notification with the `KUserIsSignedInDidChange` name is posted.
-		This notification can be observed to perform UI changes regarding the user's sign in status. For example you can remove buttons the user should not have access to if not signed in.
-
-		- Parameter completionHandler: A closure returning a value that represents either a success or a failure, including an associated value in each case.
-		- Parameter result: A value that represents either a success or a failure, including an associated value in each case.
-	*/
-	public func signOut(completion completionHandler: @escaping (_ result: Result<KKSuccess, KKAPIError>) -> Void) {
-		let meSessionsDelete = KKEndpoint.Me.Sessions.delete(self.authenticationKey).endpointValue
-		let request: APIRequest<KKSuccess, KKAPIError> = tron.codable.request(meSessionsDelete)
-
-		request.headers = headers
-		request.headers.add(.authorization(bearerToken: self.authenticationKey))
-
-		request.method = .post
-		request.perform(withSuccess: { success in
-			User.current = nil
-			self.authenticationKey = ""
-			completionHandler(.success(success))
-			NotificationCenter.default.post(name: .KUserIsSignedInDidChange, object: nil)
-		}, failure: { [weak self] error in
-			guard let self = self else { return }
-			if self.services.showAlerts {
-				UIApplication.topViewController?.presentAlertController(title: "Can't Sign Out 😔", message: error.message)
-			}
-			print("❌ Received sign out error:", error.errorDescription ?? "Unknown error")
 			print("┌ Server message:", error.message ?? "No message")
 			print("├ Recovery suggestion:", error.recoverySuggestion ?? "No suggestion available")
 			print("└ Failure reason:", error.failureReason ?? "No reason available")
