@@ -23,7 +23,7 @@ extension KurozoraKit {
 		request.headers.add(.authorization(bearerToken: self.authenticationKey))
 
 		request.method = .get
-		request.perform(withSuccess: { [weak self] userResponse in
+		request.perform(withSuccess: { userResponse in
 			User.current = userResponse.data.first
 			completionHandler(.success(userResponse.data))
 		}, failure: { [weak self] error in
