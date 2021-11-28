@@ -22,7 +22,7 @@ extension KurozoraKit {
 		let request: APIRequest<SessionResponse, KKAPIError> = tron.codable.request(meSessionsIndex).buildURL(.relativeToBaseURL)
 
 		request.headers = headers
-		request.headers["kuro-auth"] = self.authenticationKey
+		request.headers.add(.authorization(bearerToken: self.authenticationKey))
 
 		request.parameters["limit"] = limit
 
@@ -79,7 +79,7 @@ extension KurozoraKit {
 		let request: APIRequest<KKSuccess, KKAPIError> = tron.codable.request(meSessionsUpdate)
 
 		request.headers = headers
-		request.headers["kuro-auth"] = self.authenticationKey
+		request.headers.add(.authorization(bearerToken: self.authenticationKey))
 
 		request.method = .post
 		request.parameters = [
@@ -108,7 +108,7 @@ extension KurozoraKit {
 		let request: APIRequest<KKSuccess, KKAPIError> = tron.codable.request(meSessionsDelete)
 
 		request.headers = headers
-		request.headers["kuro-auth"] = self.authenticationKey
+		request.headers.add(.authorization(bearerToken: self.authenticationKey))
 
 		request.method = .post
 		request.perform(withSuccess: { success in
@@ -136,18 +136,16 @@ extension KurozoraKit {
 		- Parameter result: A value that represents either a success or a failure, including an associated value in each case.
 	*/
 	public func signOut(completion completionHandler: @escaping (_ result: Result<KKSuccess, KKAPIError>) -> Void) {
-		guard let sessionID = User.current?.relationships?.sessions?.data.first?.id else {
-			fatalError("User must be signed in and have a session attached to call the signOut(completion:) method.")
-		}
-		let meSessionsDelete = KKEndpoint.Me.Sessions.delete(sessionID).endpointValue
+		let meSessionsDelete = KKEndpoint.Me.Sessions.delete(self.authenticationKey).endpointValue
 		let request: APIRequest<KKSuccess, KKAPIError> = tron.codable.request(meSessionsDelete)
 
 		request.headers = headers
-		request.headers["kuro-auth"] = self.authenticationKey
+		request.headers.add(.authorization(bearerToken: self.authenticationKey))
 
 		request.method = .post
 		request.perform(withSuccess: { success in
 			User.current = nil
+			self.authenticationKey = ""
 			completionHandler(.success(success))
 			NotificationCenter.default.post(name: .KUserIsSignedInDidChange, object: nil)
 		}, failure: { [weak self] error in
