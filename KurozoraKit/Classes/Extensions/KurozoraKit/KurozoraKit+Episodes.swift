@@ -98,9 +98,12 @@ extension KurozoraKit {
 
 		request.method = .post
 		request.parameters = [
-			"rating": score,
-			"description": description
+			"rating": score
 		]
+		if let description = description {
+			request.parameters["description"] = description
+		}
+
 		request.perform(withSuccess: { success in
 			completionHandler(.success(success))
 		}, failure: { [weak self] error in
