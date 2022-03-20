@@ -1,6 +1,6 @@
 {
   "name": "KurozoraKit",
-  "version": "0.16.4",
+  "version": "0.30.4",
   "summary": "KurozoraKit is a simple to use framework for interacting with the Kurozora API.",
   "description": "KurozoraKit lets users manage their anime library and access many other serices from your app. When users provide permission to access their Kurozora account, they can use your app to share anime, add anime to their library, and discover any of the millions of anime in the Kurozora catalog. If your app detects that the user is not yet a Kurozora member, you can offer them to create an account within your app.",
   "homepage": "https://github.com/Kurozora/KurozoraKit",
@@ -13,14 +13,14 @@
   },
   "source": {
     "git": "https://github.com/Kurozora/KurozoraKit.git",
-    "tag": "0.16.4"
+    "tag": "0.30.4"
   },
   "social_media_url": "https://twitter.com/katklian",
   "platforms": {
     "ios": "15.0"
   },
   "source_files": "KurozoraKit/Classes/**/*",
-  "swift_versions": "5.3",
+  "swift_versions": "5.0",
   "dependencies": {
     "KeychainAccess": [
 
@@ -29,5 +29,5 @@
 
     ]
   },
-  "swift_version": "5.3"
+  "swift_version": "5.0"
 }
