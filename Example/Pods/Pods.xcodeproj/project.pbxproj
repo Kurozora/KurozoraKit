@@ -122,6 +122,8 @@
 		66B853EE269EDF25006DD34E /* LanguageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B853EB269EDF25006DD34E /* LanguageResponse.swift */; };
 		66B8A5F0273609870076007B /* FeedMessageUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B8A5EF273608C30076007B /* FeedMessageUpdate.swift */; };
 		66B8A5F12736098B0076007B /* FeedMessageUpdateResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B8A5EE273608C30076007B /* FeedMessageUpdateResponse.swift */; };
+		66C0439B27DE2C7500B55525 /* EpisodeIdentity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C0439927DE2C7500B55525 /* EpisodeIdentity.swift */; };
+		66C0439C27DE2C7500B55525 /* EpisodeIdentityResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C0439A27DE2C7500B55525 /* EpisodeIdentityResponse.swift */; };
 		66E526AD2753DB1300F70BEC /* AccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E526AB2753DAE700F70BEC /* AccessToken.swift */; };
 		66E526B12753DB4700F70BEC /* AccessTokenRelationships.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E526B02753DB4700F70BEC /* AccessTokenRelationships.swift */; };
 		66E526B22753DB4700F70BEC /* AccessTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E526AE2753DB4700F70BEC /* AccessTokenResponse.swift */; };
@@ -446,6 +448,8 @@
 		66B853EB269EDF25006DD34E /* LanguageResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageResponse.swift; sourceTree = "<group>"; };
 		66B8A5EE273608C30076007B /* FeedMessageUpdateResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedMessageUpdateResponse.swift; sourceTree = "<group>"; };
 		66B8A5EF273608C30076007B /* FeedMessageUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedMessageUpdate.swift; sourceTree = "<group>"; };
+		66C0439927DE2C7500B55525 /* EpisodeIdentity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeIdentity.swift; sourceTree = "<group>"; };
+		66C0439A27DE2C7500B55525 /* EpisodeIdentityResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeIdentityResponse.swift; sourceTree = "<group>"; };
 		66E526AB2753DAE700F70BEC /* AccessToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessToken.swift; sourceTree = "<group>"; };
 		66E526AE2753DB4700F70BEC /* AccessTokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenResponse.swift; sourceTree = "<group>"; };
 		66E526AF2753DB4700F70BEC /* AccessTokenAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenAttributes.swift; sourceTree = "<group>"; };
@@ -1051,6 +1055,15 @@
 			path = Update;
 			sourceTree = "<group>";
 		};
+		66C0439827DE2C7500B55525 /* Identity */ = {
+			isa = PBXGroup;
+			children = (
+				66C0439927DE2C7500B55525 /* EpisodeIdentity.swift */,
+				66C0439A27DE2C7500B55525 /* EpisodeIdentityResponse.swift */,
+			);
+			path = Identity;
+			sourceTree = "<group>";
+		};
 		66E526AA2753DAD200F70BEC /* Access Tokens */ = {
 			isa = PBXGroup;
 			children = (
@@ -1554,6 +1567,7 @@
 		FC145DA44CFA0EF94B8BAD677B4281CA /* Episode */ = {
 			isa = PBXGroup;
 			children = (
+				66C0439827DE2C7500B55525 /* Identity */,
 				F932EB12A2DFB3E0ECC38C434AA5564B /* Episode.swift */,
 				51EA3E7A5FDE644780BD520FA8926F1F /* EpisodeAttributes.swift */,
 				9C7956BB734A50FB14BBE00C9280C5B3 /* EpisodeResponse.swift */,
@@ -1930,8 +1944,10 @@
 				AFBD0C6B2D70E0CEC0F36FC6E627CFD4 /* KurozoraKit+Episodes.swift in Sources */,
 				63B71631D4B6A0AFBFE23F43E0E5F593 /* KurozoraKit+Explore.swift in Sources */,
 				AD73E6F06FCD887454004F8D890CABED /* KurozoraKit+Feed.swift in Sources */,
+				66C0439C27DE2C7500B55525 /* EpisodeIdentityResponse.swift in Sources */,
 				E9187BEB859C3A584B95591492D1764E /* KurozoraKit+Genres.swift in Sources */,
 				2B5BE60567373793C6B68A710312701A /* KurozoraKit+Legal.swift in Sources */,
+				66C0439B27DE2C7500B55525 /* EpisodeIdentity.swift in Sources */,
 				8629C983173DC03CCBD9C71F6DE7FDB3 /* KurozoraKit+Me+FavoriteShow.swift in Sources */,
 				101061E6CBD943245D09754A5A6FBBA6 /* KurozoraKit+Me+Feed.swift in Sources */,
 				66319DBE27C96F4D0063DE7F /* PersonIdentity.swift in Sources */,
