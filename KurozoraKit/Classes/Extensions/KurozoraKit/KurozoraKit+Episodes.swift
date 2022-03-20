@@ -33,7 +33,7 @@ extension KurozoraKit {
 		request.method = .get
 		return request.perform(withSuccess: { episodeResponse in
 			completionHandler(.success(episodeResponse.data))
-		}, failure: { [weak self] error in
+		}, failure: {/** [weak self] */ error in
 //			guard let self = self else { return }
 //			if self.services.showAlerts {
 //				UIApplication.topViewController?.presentAlertController(title: "Can't Get Episode's Details 😔", message: error.message)
