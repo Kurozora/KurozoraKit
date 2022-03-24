@@ -26,6 +26,7 @@ extension KurozoraKit {
 		request.perform(withSuccess: { userResponse in
 			User.current = userResponse.data.first
 			completionHandler(.success(userResponse.data))
+			NotificationCenter.default.post(name: .KUserIsSignedInDidChange, object: nil)
 		}, failure: { [weak self] error in
 			guard let self = self else { return }
 			if self.services.showAlerts {

@@ -174,24 +174,24 @@ extension KurozoraKit {
 		})
 	}
 
-	///	Fetch the seasons for a the given show id.
+	///	Fetch the seasons for a the given show identity.
 	///
-	///	- Parameter showID: The show id for which the seasons should be fetched.
+	///	- Parameter showIdentity: The show identity object for which the seasons should be fetched.
 	///	- Parameter next: The URL string of the next page in the paginated response. Use `nil` to get first page.
 	/// - Parameter limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
 	///	- Parameter completionHandler: A closure returning a value that represents either a success or a failure, including an associated value in each case.
 	///	- Parameter result: A value that represents either a success or a failure, including an associated value in each case.
 	@discardableResult
-	public func getSeasons(forShowID showID: Int, next: String?, limit: Int = 25, completion completionHandler: @escaping (_ result: Result<SeasonResponse, KKAPIError>) -> Void) -> DataRequest {
-		let showsSeasons = next ?? KKEndpoint.Shows.seasons(showID).endpointValue
-		let request: APIRequest<SeasonResponse, KKAPIError> = tron.codable.request(showsSeasons).buildURL(.relativeToBaseURL)
+	public func getSeasons(forShowID showIdentity: ShowIdentity, next: String?, limit: Int = 25, completion completionHandler: @escaping (_ result: Result<SeasonIdentityResponse, KKAPIError>) -> Void) -> DataRequest {
+		let showsSeasons = next ?? KKEndpoint.Shows.seasons(showIdentity.id).endpointValue
+		let request: APIRequest<SeasonIdentityResponse, KKAPIError> = tron.codable.request(showsSeasons).buildURL(.relativeToBaseURL)
 		request.headers = headers
 
 		request.parameters["limit"] = limit
 
 		request.method = .get
-		return request.perform(withSuccess: { seasonResponse in
-			completionHandler(.success(seasonResponse))
+		return request.perform(withSuccess: { seasonIdentityResponse in
+			completionHandler(.success(seasonIdentityResponse))
 		}, failure: { [weak self] error in
 			guard let self = self else { return }
 			if self.services.showAlerts {

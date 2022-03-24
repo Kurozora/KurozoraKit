@@ -432,7 +432,7 @@
 		5AF4E41E11CEC0ADCF6CE0E023245D69 /* KurozoraKit+Episodes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "KurozoraKit+Episodes.swift"; sourceTree = "<group>"; };
 		5CAB3FB6237464118050D9849CD1B358 /* UIViewController+KurozoraKit.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIViewController+KurozoraKit.swift"; sourceTree = "<group>"; };
 		5CB19A6AC1A9C6B20A7B4E1873915D73 /* KKEndpoint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KKEndpoint.swift; path = KurozoraKit/Classes/KKEndpoint.swift; sourceTree = "<group>"; };
-		5D797E9A5C5782CE845840781FA1CC81 /* Alamofire */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Alamofire; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D797E9A5C5782CE845840781FA1CC81 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E20BAD2A5556B6A837465CD4881C115 /* FollowUpdate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FollowUpdate.swift; sourceTree = "<group>"; };
 		5E326EAECEC3509CEAE5B512131F83AB /* Theme.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		5EFF41002FEB89DF34852E6B3C94A6A8 /* Language.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
@@ -453,12 +453,12 @@
 		6EA24831FB830EF19BBF3DB2181BE786 /* MediaStat.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MediaStat.swift; sourceTree = "<group>"; };
 		6EEDE6D99761BF27C5EE04BF2F819E72 /* PlatformResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PlatformResponse.swift; sourceTree = "<group>"; };
 		6F00F850AC395800B14EE9EB6E527350 /* KKErrorResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = KKErrorResponse.swift; sourceTree = "<group>"; };
-		6FD25D1483EB94B8FECEA277219DA2DF /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		6FD25D1483EB94B8FECEA277219DA2DF /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		7093977E10597D0ED9383D38215D7450 /* UserNotificationAttributes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UserNotificationAttributes.swift; sourceTree = "<group>"; };
 		724C2BF9B37D31FC5A0D3E2AAB11BF9A /* UserNotificationUpdateResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UserNotificationUpdateResponse.swift; sourceTree = "<group>"; };
 		7265CBE522CBC21FDD2D94206A26FF03 /* APIError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = APIError.swift; path = Source/TRON/APIError.swift; sourceTree = "<group>"; };
 		741728F561FF468F3CE611BC7F126CBB /* Show.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Show.swift; sourceTree = "<group>"; };
-		753BCC9D6BC99DEBE7E4375ACEA9A4E3 /* KurozoraKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = KurozoraKit.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		753BCC9D6BC99DEBE7E4375ACEA9A4E3 /* KurozoraKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = KurozoraKit.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		75AD1793AE6B5212926891B9323FF523 /* ShowResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ShowResponse.swift; sourceTree = "<group>"; };
 		76ADEE37C2A8B8398C5A3CC969192F49 /* NetworkReachabilityManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NetworkReachabilityManager.swift; path = Source/NetworkReachabilityManager.swift; sourceTree = "<group>"; };
 		77D67A1525F09E4C0E84B408ADE68536 /* Serialization.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Serialization.swift; path = Source/TRON/Serialization.swift; sourceTree = "<group>"; };
@@ -495,11 +495,11 @@
 		9167F1FAB9C65443E9047D00AA8FB373 /* UserFollow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UserFollow.swift; sourceTree = "<group>"; };
 		919BE5C189537B100AE5E65A6B2F0FB1 /* SeasonIdentity.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SeasonIdentity.swift; sourceTree = "<group>"; };
 		91FA9A656C777DA5B0EF97EE9BD66BE8 /* SessionResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SessionResponse.swift; sourceTree = "<group>"; };
-		934C9384F84C81874A5A4907BCCCA2C8 /* TRON */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = TRON; path = TRON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		934C9384F84C81874A5A4907BCCCA2C8 /* TRON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TRON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		935944FDAC7808016C6AFFD3F85DC7B3 /* UserNotificationUpdate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UserNotificationUpdate.swift; sourceTree = "<group>"; };
 		943DBF85FE4BB30B4CEC4734D4998E6F /* PersonIdentityResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PersonIdentityResponse.swift; sourceTree = "<group>"; };
 		9D879BDB700EA54B2949C1A76D0415BB /* Legal.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Legal.swift; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9E2CDF33FC66C988A231CFAF649A8AD0 /* LegalResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LegalResponse.swift; sourceTree = "<group>"; };
 		9E3FE8A7D4D38C0518C5EC6E79C99570 /* KurozoraKit-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "KurozoraKit-Info.plist"; sourceTree = "<group>"; };
 		9FF41AA995D68DECAB7E29CB4EB8DDD8 /* UIDevice+KurozoraKit.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIDevice+KurozoraKit.swift"; sourceTree = "<group>"; };
@@ -530,7 +530,7 @@
 		B5B87DDEF449EA973DEC705E3490AAE2 /* FeedMessageUpdateResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FeedMessageUpdateResponse.swift; sourceTree = "<group>"; };
 		B6485389E25131251401A1B4256EABE1 /* TRON-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TRON-umbrella.h"; sourceTree = "<group>"; };
 		B68B79DA947D9436012E2B70117020D0 /* KurozoraKit+Cast.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "KurozoraKit+Cast.swift"; sourceTree = "<group>"; };
-		B8601A2382781D0C7B8902C6D7CDAEF3 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		B8601A2382781D0C7B8902C6D7CDAEF3 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		B8FBAE33CE401AA2E1D8F25EDBDC8ADC /* KurozoraKit+ThemeStore.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "KurozoraKit+ThemeStore.swift"; sourceTree = "<group>"; };
 		BA17B27B889DCF81EF1AF1850C18B07E /* APIRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = APIRequest.swift; path = Source/TRON/APIRequest.swift; sourceTree = "<group>"; };
 		BA6947EB06012FD74E2C895D7ADABDCC /* KeychainAccess.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = KeychainAccess.release.xcconfig; sourceTree = "<group>"; };
@@ -586,7 +586,7 @@
 		E73EEF4EEAED11ABDCB1B17B55A75355 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		E8D930E02CA3845664625EE801DF5487 /* KeychainAccess-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "KeychainAccess-Info.plist"; sourceTree = "<group>"; };
 		E8EC9899AFC0F7BD748DD9ED66E8E1AE /* Alamofire-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Alamofire-Info.plist"; sourceTree = "<group>"; };
-		E8EE7F078656FABB8F6821D10FF994BB /* KeychainAccess */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = KeychainAccess; path = KeychainAccess.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E8EE7F078656FABB8F6821D10FF994BB /* KeychainAccess.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KeychainAccess.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E909F3031A776979F904CB4C38282134 /* MultipartUpload.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultipartUpload.swift; path = Source/MultipartUpload.swift; sourceTree = "<group>"; };
 		EA5BCBA9702DA96D3B573DF6B828C469 /* SignInResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignInResponse.swift; sourceTree = "<group>"; };
 		EB54BABAEE67F878209852B531E2DC4E /* Alamofire-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Alamofire-umbrella.h"; sourceTree = "<group>"; };
@@ -690,7 +690,6 @@
 				B3F99EC280BAFE589BDEDE3C99A13361 /* LegalAttributes.swift */,
 				9E2CDF33FC66C988A231CFAF649A8AD0 /* LegalResponse.swift */,
 			);
-			name = Legal;
 			path = Legal;
 			sourceTree = "<group>";
 		};
@@ -714,7 +713,6 @@
 			children = (
 				391A15AA529B04CD83DFB1BDF63F20FB /* MediaRelation.swift */,
 			);
-			name = Attributes;
 			path = Attributes;
 			sourceTree = "<group>";
 		};
@@ -729,7 +727,6 @@
 				59207A212C6952F3678DB5E0F5B8E5B3 /* KurozoraKit+Me+ReminderShow.swift */,
 				19E408283CFBD284208CE969962C6D41 /* KurozoraKit+Me+Session.swift */,
 			);
-			name = Me;
 			path = Me;
 			sourceTree = "<group>";
 		};
@@ -750,7 +747,6 @@
 				64D9FCE2B0882B520CBFA15DACB3B1EA /* Identity */,
 				8543DD170949B09311CC7BC52D4C3B66 /* Watch Status */,
 			);
-			name = Episode;
 			path = Episode;
 			sourceTree = "<group>";
 		};
@@ -759,7 +755,6 @@
 			children = (
 				F60CFFA7BC4BD07A1F4D121032D5987B /* Message */,
 			);
-			name = Feed;
 			path = Feed;
 			sourceTree = "<group>";
 		};
@@ -770,7 +765,6 @@
 				9FF41AA995D68DECAB7E29CB4EB8DDD8 /* UIDevice+KurozoraKit.swift */,
 				5CAB3FB6237464118050D9849CD1B358 /* UIViewController+KurozoraKit.swift */,
 			);
-			name = UIKit;
 			path = UIKit;
 			sourceTree = "<group>";
 		};
@@ -782,7 +776,6 @@
 				AFF53BE4ACD94DC57750C4D2C401BA67 /* CharacterRelationships.swift */,
 				2D7958FABF5747F9214254F69B8C562F /* CharacterResponse.swift */,
 			);
-			name = Character;
 			path = Character;
 			sourceTree = "<group>";
 		};
@@ -793,7 +786,6 @@
 				F7F4D0534C53CA7FC4CE0FD677F8535E /* BadgeAttributes.swift */,
 				A5125ACDA9B0AAEA7E70997FFC60E8E5 /* BadgeResponse.swift */,
 			);
-			name = Badge;
 			path = Badge;
 			sourceTree = "<group>";
 		};
@@ -809,7 +801,6 @@
 				F85F245C55F9D6B110E07BC1EFFDAB2A /* Receipt */,
 				8EDC24E1D1ED0B9D2EF03934890FBCF4 /* Update */,
 			);
-			name = User;
 			path = User;
 			sourceTree = "<group>";
 		};
@@ -840,7 +831,6 @@
 				0189CE693E1AF4E150B058B1B5893473 /* StudioRelationships.swift */,
 				0A2A9943F92E504C96568367E75D491F /* StudioResponse.swift */,
 			);
-			name = Studio;
 			path = Studio;
 			sourceTree = "<group>";
 		};
@@ -850,7 +840,6 @@
 				D08E3A37E67CFA11BEB8FCB82C8AC42D /* ReminderShow.swift */,
 				F5429F8C20E73002EBD13DD6906DC296 /* ReminderShowResponse.swift */,
 			);
-			name = Reminder;
 			path = Reminder;
 			sourceTree = "<group>";
 		};
@@ -861,7 +850,6 @@
 				8FEB715B6DA174E46E85B1C252ED55AC /* ThemeAttributes.swift */,
 				11E7DCFA9015032ECD4FA058FA906EE8 /* ThemeResponse.swift */,
 			);
-			name = Themes;
 			path = Themes;
 			sourceTree = "<group>";
 		};
@@ -887,7 +875,6 @@
 				6972B8BBC9A6F5700A5C43F7CC953F84 /* KurozoraKit+User.swift */,
 				1395C29B35F8D6065E06639040CF8F21 /* Me */,
 			);
-			name = KurozoraKit;
 			path = KurozoraKit;
 			sourceTree = "<group>";
 		};
@@ -906,7 +893,6 @@
 			children = (
 				ECE7503AAE4468EE45A85781E61B063A /* StaffRole.swift */,
 			);
-			name = Attributes;
 			path = Attributes;
 			sourceTree = "<group>";
 		};
@@ -917,7 +903,6 @@
 				904CDD9F391B88D40C5BD491F5739A50 /* PlatformAttributes.swift */,
 				6EEDE6D99761BF27C5EE04BF2F819E72 /* PlatformResponse.swift */,
 			);
-			name = Platform;
 			path = Platform;
 			sourceTree = "<group>";
 		};
@@ -947,7 +932,6 @@
 				5988A1068C8114AD9D45548581C8443D /* ShowSongResponse.swift */,
 				5E0BB2B41639EA9F828C63B426FF80A1 /* Identity */,
 			);
-			name = "Show Songs";
 			path = "Show Songs";
 			sourceTree = "<group>";
 		};
@@ -963,7 +947,6 @@
 				E5E7562031DD8BB39F724E2EE5004CA3 /* Error */,
 				067420140E959AC450F1123D212A8F3B /* Legal */,
 			);
-			name = Miscellaneous;
 			path = Miscellaneous;
 			sourceTree = "<group>";
 		};
@@ -973,7 +956,6 @@
 				7C2FA2971D3C4D7C69AD7CE4DFB6F6F2 /* FavoriteShow.swift */,
 				DC73A86DFFFE9383A9934BE22A505411 /* FavoriteShowResponse.swift */,
 			);
-			name = Favorite;
 			path = Favorite;
 			sourceTree = "<group>";
 		};
@@ -983,7 +965,6 @@
 				390718138D903B0DEAF7585CD866276D /* ShowSongIdentity.swift */,
 				CD708821B0105C895F24F3E216173920 /* ShowSongIdentityResponse.swift */,
 			);
-			name = Identity;
 			path = Identity;
 			sourceTree = "<group>";
 		};
@@ -993,7 +974,6 @@
 				9118F87D4590747867FA4AFDA7B36478 /* Keychain.swift */,
 				049198E7C04E4E20CF0C849F956CA860 /* Support Files */,
 			);
-			name = KeychainAccess;
 			path = KeychainAccess;
 			sourceTree = "<group>";
 		};
@@ -1003,7 +983,6 @@
 				F5ED0EA7C3CB53AD2A766264EBAC411C /* EpisodeIdentity.swift */,
 				171144C0B08C4DEA97FD19691EA85B86 /* EpisodeIdentityResponse.swift */,
 			);
-			name = Identity;
 			path = Identity;
 			sourceTree = "<group>";
 		};
@@ -1013,7 +992,6 @@
 				745A88AF7206DD7B5B5FB8CE80BF8271 /* Core */,
 				C4AAF5E9090904607882ABAC628688C6 /* Support Files */,
 			);
-			name = TRON;
 			path = TRON;
 			sourceTree = "<group>";
 		};
@@ -1061,7 +1039,6 @@
 				CA7CBD74431AEC7E11397B2BCC425F0C /* LanguageAttributes.swift */,
 				081F25DED15AA425258B37ACEE373382 /* LanguageResponse.swift */,
 			);
-			name = Language;
 			path = Language;
 			sourceTree = "<group>";
 		};
@@ -1072,7 +1049,6 @@
 				4ED13DAB455BF11DD9880B69EC430063 /* KKEndpoint+Me.swift */,
 				FD4E9D192BDC86B16025F09D4DF7E297 /* KKEndpoint+Shows.swift */,
 			);
-			name = KKEndpoint;
 			path = KKEndpoint;
 			sourceTree = "<group>";
 		};
@@ -1085,7 +1061,6 @@
 				ABF44F2BF89F16AF1E52DBE16720F78C /* TVRating.swift */,
 				00118FD7680E95949558945FC1C14B3D /* UserRating.swift */,
 			);
-			name = Attributes;
 			path = Attributes;
 			sourceTree = "<group>";
 		};
@@ -1095,7 +1070,6 @@
 				3F57E2BB513222B7C211D56066935C99 /* LibraryUpdate.swift */,
 				B0C3613326BA6D63A317D995ACD3E56B /* LibraryUpdateResponse.swift */,
 			);
-			name = Library;
 			path = Library;
 			sourceTree = "<group>";
 		};
@@ -1105,7 +1079,6 @@
 				E6FF85C326C0877AFC87B94ED78DE8DA /* EpisodeUpdate.swift */,
 				06A761CFFE89770BA5FAD6037A0622B4 /* EpisodeUpdateResponse.swift */,
 			);
-			name = "Watch Status";
 			path = "Watch Status";
 			sourceTree = "<group>";
 		};
@@ -1118,7 +1091,6 @@
 				516FA937295792339E6A55A150C5A167 /* SongResponse.swift */,
 				D01A4E5A605AB24E8FBBF38211C00830 /* Identity */,
 			);
-			name = Song;
 			path = Song;
 			sourceTree = "<group>";
 		};
@@ -1131,7 +1103,6 @@
 				8E8A2BDEEF82E458B683890E6926E0F0 /* StaffResponse.swift */,
 				40F192C05396B7D0C09080A765097F23 /* Attributes */,
 			);
-			name = Staff;
 			path = Staff;
 			sourceTree = "<group>";
 		};
@@ -1144,7 +1115,6 @@
 				1A2D94CE86E5BF98B25EFBF62D372818 /* PersonResponse.swift */,
 				B0502E0297D1387A41AA5E2EC977DB2F /* Identity */,
 			);
-			name = Person;
 			path = Person;
 			sourceTree = "<group>";
 		};
@@ -1156,7 +1126,6 @@
 				3E39FAD396CC64F38F59E1830257DBAA /* AccessTokenRelationships.swift */,
 				FB17634F85F0463E5A2CB5517388E1B0 /* AccessTokenResponse.swift */,
 			);
-			name = "Access Tokens";
 			path = "Access Tokens";
 			sourceTree = "<group>";
 		};
@@ -1179,7 +1148,6 @@
 				039AE85D4A60934048D291E27730B875 /* UserUpdate.swift */,
 				F9779352D15418862EAE91099E0E9276 /* UserUpdateResponse.swift */,
 			);
-			name = Update;
 			path = Update;
 			sourceTree = "<group>";
 		};
@@ -1227,7 +1195,6 @@
 				230373633464DD593C102994876341DD /* Studio */,
 				2D3E9F2E738E18B9F5586D0491E67681 /* Themes */,
 			);
-			name = Show;
 			path = Show;
 			sourceTree = "<group>";
 		};
@@ -1237,7 +1204,6 @@
 				935944FDAC7808016C6AFFD3F85DC7B3 /* UserNotificationUpdate.swift */,
 				724C2BF9B37D31FC5A0D3E2AAB11BF9A /* UserNotificationUpdateResponse.swift */,
 			);
-			name = Update;
 			path = Update;
 			sourceTree = "<group>";
 		};
@@ -1259,7 +1225,6 @@
 				EDF0866B7B70B4AE55D5EE7398E6F3AC /* SeasonResponse.swift */,
 				B9E938E1B1E6D29316CFB8C64088CFA9 /* Identity */,
 			);
-			name = Season;
 			path = Season;
 			sourceTree = "<group>";
 		};
@@ -1269,7 +1234,6 @@
 				9167F1FAB9C65443E9047D00AA8FB373 /* UserFollow.swift */,
 				E77B9FFB78A4EB4185494CA884F91C16 /* Update */,
 			);
-			name = Follow;
 			path = Follow;
 			sourceTree = "<group>";
 		};
@@ -1281,7 +1245,6 @@
 				C136079D079D4B3F679C92D5B315217D /* RelatedShowResponse.swift */,
 				120804367F088064E937336DE29CB9CC /* Attributes */,
 			);
-			name = "Related Shows";
 			path = "Related Shows";
 			sourceTree = "<group>";
 		};
@@ -1290,7 +1253,6 @@
 			children = (
 				07145D56696FA500C85A0B92169F0978 /* CastRole.swift */,
 			);
-			name = Attributes;
 			path = Attributes;
 			sourceTree = "<group>";
 		};
@@ -1300,7 +1262,6 @@
 				31351F2545CF58E26774C5EC3FA38A62 /* FeedMessageUpdate.swift */,
 				B5B87DDEF449EA973DEC705E3490AAE2 /* FeedMessageUpdateResponse.swift */,
 			);
-			name = Update;
 			path = Update;
 			sourceTree = "<group>";
 		};
@@ -1345,7 +1306,6 @@
 				FB1204AF9027B6D3BBCF9E680AAE1C84 /* Validation.swift */,
 				7454AEC516DEFF90BD13F616AC6F35F7 /* Support Files */,
 			);
-			name = Alamofire;
 			path = Alamofire;
 			sourceTree = "<group>";
 		};
@@ -1372,7 +1332,6 @@
 				88D238778E9EC674FE768EFE90BFB413 /* PersonIdentity.swift */,
 				943DBF85FE4BB30B4CEC4734D4998E6F /* PersonIdentityResponse.swift */,
 			);
-			name = Identity;
 			path = Identity;
 			sourceTree = "<group>";
 		};
@@ -1401,7 +1360,6 @@
 				134AA37CC7E050AE81041731B2148FE4 /* ExploreCategoryRelationships.swift */,
 				E2DBBBB9C2F4E350E87FC689DD918B3A /* ExploreCategoryResponse.swift */,
 			);
-			name = Explore;
 			path = Explore;
 			sourceTree = "<group>";
 		};
@@ -1411,7 +1369,6 @@
 				0B0FC696D399BEAD1A4F33A7173A844B /* CastIdentity.swift */,
 				0813E7900E6BD9962191AEC1DE3272B3 /* CastIdentityResponse.swift */,
 			);
-			name = Identity;
 			path = Identity;
 			sourceTree = "<group>";
 		};
@@ -1422,7 +1379,6 @@
 				A3E56CB04149B458F324C820B11D148A /* GenreAttributes.swift */,
 				7A72A70528E971DD7C076817BBB50D4C /* GenreResponse.swift */,
 			);
-			name = Genre;
 			path = Genre;
 			sourceTree = "<group>";
 		};
@@ -1432,7 +1388,6 @@
 				919BE5C189537B100AE5E65A6B2F0FB1 /* SeasonIdentity.swift */,
 				F2E2BCA59A6084CDD8FB5E28CE81A1F4 /* SeasonIdentityResponse.swift */,
 			);
-			name = Identity;
 			path = Identity;
 			sourceTree = "<group>";
 		};
@@ -1467,7 +1422,6 @@
 				122E5A46FC8CD560CC41637EF84C630F /* Notification+KurozoraKit.swift */,
 				56AE8C723C6D97218C398D5F1FFA1179 /* String+Date.swift */,
 			);
-			name = Foundation;
 			path = Foundation;
 			sourceTree = "<group>";
 		};
@@ -1489,7 +1443,6 @@
 				86A7223DB8AF89B7C5A33AB2EA3760CB /* SongIdentity.swift */,
 				ABFDECD5DEB241CFFBE6E2403526D608 /* SongIdentityResponse.swift */,
 			);
-			name = Identity;
 			path = Identity;
 			sourceTree = "<group>";
 		};
@@ -1502,7 +1455,6 @@
 				09A1EBC9BC1D75FEA2ECF554727E660C /* UserNotificationResponse.swift */,
 				97F8E1B58B7D3D8C321BBD39C8712283 /* Update */,
 			);
-			name = "User Notification";
 			path = "User Notification";
 			sourceTree = "<group>";
 		};
@@ -1516,7 +1468,6 @@
 				AA44C43C21AD9DDA319E6D5EA59468B6 /* Attributes */,
 				B75BF509B00278E64AF6B101C02C209D /* Identity */,
 			);
-			name = Cast;
 			path = Cast;
 			sourceTree = "<group>";
 		};
@@ -1527,7 +1478,6 @@
 				EFC3E01213A20FBE6A1D7B246E2522B3 /* KKError.swift */,
 				6F00F850AC395800B14EE9EB6E527350 /* KKErrorResponse.swift */,
 			);
-			name = Error;
 			path = Error;
 			sourceTree = "<group>";
 		};
@@ -1537,18 +1487,17 @@
 				5E20BAD2A5556B6A837465CD4881C115 /* FollowUpdate.swift */,
 				443B2DFC0239DCFB89D6B911792AB67E /* FollowUpdateResponse.swift */,
 			);
-			name = Update;
 			path = Update;
 			sourceTree = "<group>";
 		};
 		E89515A558DEE692D94A4FDE3440A156 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5D797E9A5C5782CE845840781FA1CC81 /* Alamofire */,
-				E8EE7F078656FABB8F6821D10FF994BB /* KeychainAccess */,
+				5D797E9A5C5782CE845840781FA1CC81 /* Alamofire.framework */,
+				E8EE7F078656FABB8F6821D10FF994BB /* KeychainAccess.framework */,
 				C98B557ADAC2AA23A9E03629771C4F67 /* KurozoraKit */,
 				3377BABE1394902CF07DD13A6F3AB324 /* Pods-KurozoraKit_Tests */,
-				934C9384F84C81874A5A4907BCCCA2C8 /* TRON */,
+				934C9384F84C81874A5A4907BCCCA2C8 /* TRON.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1559,7 +1508,6 @@
 				5A4B8F254BA8A018014B3AA1AD25235B /* ShowIdentity.swift */,
 				8F591A750C90B43FC73C7A156DB4C4D9 /* ShowIdentityResponse.swift */,
 			);
-			name = Identity;
 			path = Identity;
 			sourceTree = "<group>";
 		};
@@ -1573,7 +1521,6 @@
 				FB3816F7A8C249E231562B9E3445D216 /* Location */,
 				414D421B58DAA18F198CA1DEDF94CBCA /* Platform */,
 			);
-			name = Session;
 			path = Session;
 			sourceTree = "<group>";
 		};
@@ -1587,7 +1534,6 @@
 				157A52D9CA8D8E52A487E4A991C63A1F /* FeedMessageResponse.swift */,
 				AB3D69572BA6C8C32B52BA54AA778086 /* Update */,
 			);
-			name = Message;
 			path = Message;
 			sourceTree = "<group>";
 		};
@@ -1598,7 +1544,6 @@
 				393672ACDFB1C9AECB655EF96D11F5C4 /* ReceiptAttributes.swift */,
 				4F0D825FB8D79F6937857149CFAFF2CD /* ReceiptResponse.swift */,
 			);
-			name = Receipt;
 			path = Receipt;
 			sourceTree = "<group>";
 		};
@@ -1609,7 +1554,6 @@
 				62702B81585158F7042B1DD4E8993D99 /* AppThemeAttributes.swift */,
 				839CB5EBA36873270B03A1D0DD114354 /* AppThemeResponse.swift */,
 			);
-			name = "App Theme";
 			path = "App Theme";
 			sourceTree = "<group>";
 		};
@@ -1620,7 +1564,6 @@
 				FB1D06BB80EB271753CD2B9131BA49D4 /* LocationAttributes.swift */,
 				4CC4DCA9877BDD7095A1E5DCC956B92D /* LocationResponse.swift */,
 			);
-			name = Location;
 			path = Location;
 			sourceTree = "<group>";
 		};
@@ -1686,7 +1629,7 @@
 			);
 			name = TRON;
 			productName = TRON;
-			productReference = 934C9384F84C81874A5A4907BCCCA2C8 /* TRON */;
+			productReference = 934C9384F84C81874A5A4907BCCCA2C8 /* TRON.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		615C831BCE925ED486B225B87E44926D /* KeychainAccess */ = {
@@ -1704,7 +1647,7 @@
 			);
 			name = KeychainAccess;
 			productName = KeychainAccess;
-			productReference = E8EE7F078656FABB8F6821D10FF994BB /* KeychainAccess */;
+			productReference = E8EE7F078656FABB8F6821D10FF994BB /* KeychainAccess.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		8E4CD662FA889CB234D168D1979A2626 /* KurozoraKit */ = {
@@ -1764,7 +1707,7 @@
 			);
 			name = Alamofire;
 			productName = Alamofire;
-			productReference = 5D797E9A5C5782CE845840781FA1CC81 /* Alamofire */;
+			productReference = 5D797E9A5C5782CE845840781FA1CC81 /* Alamofire.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -1774,7 +1717,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1240;
-				LastUpgradeCheck = 1240;
+				LastUpgradeCheck = 1330;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 12.0";
@@ -2183,7 +2126,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/TRON/TRON-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/TRON/TRON-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2218,7 +2161,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/KeychainAccess/KeychainAccess-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/KeychainAccess/KeychainAccess-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2254,7 +2197,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/TRON/TRON-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/TRON/TRON-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2288,7 +2231,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/KeychainAccess/KeychainAccess-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/KeychainAccess/KeychainAccess-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2323,7 +2266,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Alamofire/Alamofire-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Alamofire/Alamofire-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2487,7 +2430,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Alamofire/Alamofire-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Alamofire/Alamofire-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
