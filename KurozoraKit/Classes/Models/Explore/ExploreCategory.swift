@@ -9,7 +9,7 @@
 public struct ExploreCategory: Codable, Hashable {
 	// MARK: - Properties
 	/// The id of the resource.
-	public let id: UUID = UUID()
+	private(set) public var id: UUID = UUID()
 
 	/// The type of the resource.
 	public let type: String
