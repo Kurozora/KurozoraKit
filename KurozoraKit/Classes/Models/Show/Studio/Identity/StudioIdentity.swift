@@ -1,12 +1,12 @@
 //
-//  PersonIdentity.swift
+//  StudioIdentity.swift
 //  KurozoraKit
 //
 //  Created by Khoren Katklian on 25/02/2022.
 //
 
-/// A root object that stores information about a person identity resource.
-public class PersonIdentity: IdentityResource, Hashable {
+/// A root object that stores information about a studio identity resource.
+public class StudioIdentity: IdentityResource, Hashable {
 	public let id: Int
 
 	public let type: String
@@ -16,12 +16,12 @@ public class PersonIdentity: IdentityResource, Hashable {
 	// MARK: - Initializers
 	public init(id: Int) {
 		self.id = id
-		self.type = "people"
+		self.type = "studios"
 		self.href = ""
 	}
 
 	// MARK: - Functions
-	public static func == (lhs: PersonIdentity, rhs: PersonIdentity) -> Bool {
+	public static func == (lhs: StudioIdentity, rhs: StudioIdentity) -> Bool {
 		return lhs.id == rhs.id
 	}
 

@@ -15,6 +15,13 @@ public class SeasonIdentity: IdentityResource, Hashable {
 
 	public let href: String
 
+	// MARK: - Initializers
+	public init(id: Int) {
+		self.id = id
+		self.type = "seasons"
+		self.href = ""
+	}
+
 	// MARK: - Functions
 	public static func == (lhs: SeasonIdentity, rhs: SeasonIdentity) -> Bool {
 		return lhs.id == rhs.id
