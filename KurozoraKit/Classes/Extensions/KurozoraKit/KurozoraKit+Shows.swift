@@ -303,37 +303,4 @@ extension KurozoraKit {
 			completionHandler(.failure(error))
 		})
 	}
-
-	/// Fetch a list of shows matching the search query.
-	///
-	/// - Parameter show: The search query by which the search list should be fetched.
-	///	- Parameter next: The URL string of the next page in the paginated response. Use `nil` to get first page.
-	///	- Parameter completionHandler: A closure returning a value that represents either a success or a failure, including an associated value in each case.
-	///	- Parameter result: A value that represents either a success or a failure, including an associated value in each case.
-	@discardableResult
-	public func search(forShow show: String, next: String? = nil, completion completionHandler: @escaping (_ result: Result<ShowResponse, KKAPIError>) -> Void) -> DataRequest {
-		let showsSearch = next ?? KKEndpoint.Shows.search.endpointValue
-		let request: APIRequest<ShowResponse, KKAPIError> = tron.codable.request(showsSearch).buildURL(.relativeToBaseURL)
-
-		request.headers = headers
-		if !self.authenticationKey.isEmpty {
-			request.headers.add(.authorization(bearerToken: self.authenticationKey))
-		}
-
-		request.method = .get
-		if next == nil {
-			request.parameters = [
-				"query": show
-			]
-		}
-		return request.perform(withSuccess: { showResponse in
-			completionHandler(.success(showResponse))
-		}, failure: { error in
-			print("❌ Received show search error:", error.errorDescription ?? "Unknown error")
-			print("┌ Server message:", error.message ?? "No message")
-			print("├ Recovery suggestion:", error.recoverySuggestion ?? "No suggestion available")
-			print("└ Failure reason:", error.failureReason ?? "No reason available")
-			completionHandler(.failure(error))
-		})
-	}
 }

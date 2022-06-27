@@ -64,9 +64,6 @@ extension KKEndpoint {
 		/// The endpoint to upcoming for shows.
 		case upcoming
 
-		/// The endpoint to search for shows.
-		case search
-
 		// MARK: - Properties
 		/// The endpoint value of the Shows API type.
 		var endpointValue: String {
@@ -91,8 +88,6 @@ extension KKEndpoint {
 				return "anime/\(showIdentity.id)/studios"
 			case .upcoming:
 				return "anime/upcoming"
-			case .search:
-				return "anime/search"
 			}
 		}
 	}
@@ -146,6 +141,30 @@ extension KKEndpoint {
 				return "feed/home"
 			case .post:
 				return "feed"
+			}
+		}
+	}
+}
+
+// MARK: - Search
+extension KKEndpoint {
+	/// The set of available Search API endpoint types.
+	internal enum Search {
+		// MARK: - Cases
+		/// The endpoint for searching a resource.
+		case index
+
+		/// The endpoint for search suggestions.
+		case suggestions
+
+		// MARK: - Properties
+		/// The endpoint value of the Search API type.
+		var endpointValue: String {
+			switch self {
+			case .index:
+				return "search/"
+			case .suggestions:
+				return "search/suggestions"
 			}
 		}
 	}
