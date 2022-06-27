@@ -1,9 +1,8 @@
 //
-//  UserFollow.swift
+//  UserIdentityResponse.swift
 //  KurozoraKit
 //
-//  Created by Khoren Katklian on 10/01/2019.
-//  Copyright © 2019 Kurozora. All rights reserved.
+//  Created by Khoren Katklian on 22/05/2022.
 //
 
 /// A root object that stores information about a collection of user follow.

@@ -3,7 +3,6 @@
 //  KurozoraKit
 //
 //  Created by Khoren Katklian on 26/02/2022.
-//  Copyright © 2022 Kurozora. All rights reserved.
 //
 
 import TRON
