@@ -1884,6 +1884,7 @@
 				FE3A2DDA7F6FF411A82F29574B4779D2 /* CharacterRelationships.swift in Sources */,
 				70F149701EC17FB99E343C7BFB3FD401 /* CharacterResponse.swift in Sources */,
 				38447A8E0DB585B790D67B3F90185479 /* Episode.swift in Sources */,
+				66EAB5CA285E76B300D81C06 /* ExploreCategoryIdentity.swift in Sources */,
 				3143C72DFEDBC998596B5F967A9FA7C8 /* EpisodeAttributes.swift in Sources */,
 				CD7B98F5AD4CDC0F7626145F847AD0F0 /* EpisodeIdentityResponse.swift in Sources */,
 				AB3728200D7A469D5A4221C4B9894514 /* EpisodeResponse.swift in Sources */,
