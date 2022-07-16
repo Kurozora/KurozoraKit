@@ -4,7 +4,7 @@ copyright: "Copyright © 2018-present Khoren Katklian. All rights reserved. See 
 readme: README.md
 
 module: KurozoraKit
-module_version: 0.33.0
+module_version: 0.33.1
 
 github_url: "https://github.com/Kurozora/KurozoraKit"
 github_file_prefix: "https://github.com/Kurozora/KurozoraKit/tree/master"
