@@ -19,6 +19,6 @@ extension KurozoraKit {
 		let request: APIRequest<CastResponse, KKAPIError> = tron.codable.request(castsDetails)
 		request.headers = headers
 		request.method = .get
-		return request.perform().serializingDecodable(CastResponse.self)
+		return request.perform().serializingDecodable(CastResponse.self, decoder: self.tron.codable.modelDecoder)
 	}
 }
