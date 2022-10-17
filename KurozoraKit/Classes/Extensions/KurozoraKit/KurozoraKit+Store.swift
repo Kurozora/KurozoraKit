@@ -24,7 +24,7 @@ extension KurozoraKit {
 					User.current?.attributes.updateSubscription(from: receipt)
 				}
 			} catch {
-				print("Received validate receipt error: \(error.localizedDescription ?? "No message available")")
+				print("Received validate receipt error: \(error.localizedDescription)")
 			}
 		}
 
