@@ -5,38 +5,47 @@
 //  Created by Khoren Katklian on 18/08/2020.
 //
 
+import Alamofire
 import TRON
 import UIKit
 
 extension KurozoraKit {
 	/// Fetches the authenticated user's profile details.
 	///
-	/// - Parameters:
-	///    - completionHandler: A closure returning a value that represents either a success or a failure, including an associated value in each case.
-	///    - result: A value that represents either a success or a failure, including an associated value in each case.
-	public func getProfileDetails(completion completionHandler: @escaping (_ result: Result<[User], KKAPIError>) -> Void) {
+	/// - Returns: An instance of `RequestSender` with the results of the profile details response.
+	public func getProfileDetails() -> RequestSender<UserResponse, KKAPIError> {
+		let profileDetailsRequest = self.sendGetProfileDetailsRequest()
+
+		Task {
+			do {
+				let userResponse = try await profileDetailsRequest.value
+
+				User.current = userResponse.data.first
+				NotificationCenter.default.post(name: .KUserIsSignedInDidChange, object: nil)
+			} catch {
+				print("Received validate receipt error: \(error.localizedDescription)")
+			}
+		}
+
+		return profileDetailsRequest
+	}
+
+	/// Fetches the authenticated user's profile details.
+	///
+	/// - Returns: An instance of `RequestSender` with the results of the profile details response.
+	private func sendGetProfileDetailsRequest() -> RequestSender<UserResponse, KKAPIError> {
+		// Prepare headers
+		var headers = self.headers
+		headers.add(.authorization(bearerToken: self.authenticationKey))
+
+		// Prepare request
 		let meProfile = KKEndpoint.Me.profile.endpointValue
 		let request: APIRequest<UserResponse, KKAPIError> = tron.codable.request(meProfile)
+			.method(.get)
+			.headers(headers)
 
-		request.headers = headers
-		request.headers.add(.authorization(bearerToken: self.authenticationKey))
-
-		request.method = .get
-		request.perform(withSuccess: { userResponse in
-			User.current = userResponse.data.first
-			completionHandler(.success(userResponse.data))
-//			NotificationCenter.default.post(name: .KUserIsSignedInDidChange, object: nil)
-		}, failure: { [weak self] error in
-			guard let self = self else { return }
-			if self.services.showAlerts {
-				UIApplication.topViewController?.presentAlertController(title: "Can't Get Profile Details 😔", message: error.message)
-			}
-			print("❌ Received get profile details error", error.errorDescription ?? "Unknown error")
-			print("┌ Server message:", error.message ?? "No message")
-			print("├ Recovery suggestion:", error.recoverySuggestion ?? "No suggestion available")
-			print("└ Failure reason:", error.failureReason ?? "No reason available")
-			completionHandler(.failure(error))
-		})
+		// Send request
+		return request.sender()
 	}
 
 	/// Updates the authenticated user's profile information.
@@ -119,30 +128,23 @@ extension KurozoraKit {
 	///    - followList: The follow list value indicating whather to fetch the followers or following list.
 	///    - next: The URL string of the next page in the paginated response. Use `nil` to get first page.
 	///    - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
-	///    - completionHandler: A closure returning a value that represents either a success or a failure, including an associated value in each case.
-	///    - result: A value that represents either a success or a failure, including an associated value in each case.
-	public func getFollowList(_ followList: UsersListType, next: String? = nil, limit: Int = 25, completion completionHandler: @escaping (_ result: Result<UserIdentityResponse, KKAPIError>) -> Void) {
+	///
+	/// - Returns: An instance of `RequestSender` with the results of the get follow list response.
+	public func getFollowList(_ followList: UsersListType, next: String? = nil, limit: Int = 25) -> RequestSender<UserIdentityResponse, KKAPIError> {
+		// Prepare headers
+		var headers = self.headers
+		headers.add(.authorization(bearerToken: self.authenticationKey))
+
+		// Prepare request
 		let meFollowersOrFollowing = next ?? (followList == .followers ? KKEndpoint.Me.followers.endpointValue : KKEndpoint.Me.following.endpointValue)
 		let request: APIRequest<UserIdentityResponse, KKAPIError> = tron.codable.request(meFollowersOrFollowing).buildURL(.relativeToBaseURL)
+			.method(.get)
+			.parameters([
+				"limit": limit
+			])
+			.headers(headers)
 
-		request.headers = headers
-		request.headers.add(.authorization(bearerToken: self.authenticationKey))
-
-		request.parameters["limit"] = limit
-
-		request.method = .get
-		request.perform(withSuccess: { userIdentityResponse in
-			completionHandler(.success(userIdentityResponse))
-		}, failure: { [weak self] error in
-			guard let self = self else { return }
-			if self.services.showAlerts {
-				UIApplication.topViewController?.presentAlertController(title: "Can't Get \(followList.rawValue.capitalized) List 😔", message: error.message)
-			}
-			print("❌ Received get \(followList.rawValue) error:", error.errorDescription ?? "Unknown error")
-			print("┌ Server message:", error.message ?? "No message")
-			print("├ Recovery suggestion:", error.recoverySuggestion ?? "No suggestion available")
-			print("└ Failure reason:", error.failureReason ?? "No reason available")
-			completionHandler(.failure(error))
-		})
+		// Send request
+		return request.sender()
 	}
 }
