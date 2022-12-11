@@ -53,10 +53,7 @@ extension KurozoraKit {
 	/// Send `nil` if an infomration shouldn't be updated, otherwise send an empty instance to unset an information.
 	///
 	/// - Parameters:
-	///    - biography: The user's new biography.
-	///    - profileImage: The user's new profile image.
-	///    - bannerImage: The user's new profile image.
-	///    - username: The user's new username.
+	///    - profileUpdateRequest: An instance of `ProfileUpdateRequest` containing the new profile details.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the update information response.
 	public func updateInformation(_ profileUpdateRequest: ProfileUpdateRequest) -> RequestSender<UserUpdateResponse, KKAPIError> {
