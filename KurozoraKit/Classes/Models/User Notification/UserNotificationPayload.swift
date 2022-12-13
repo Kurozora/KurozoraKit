@@ -20,8 +20,8 @@ extension UserNotification {
 		/// [Follower] The id of a follower.
 		public let userID: Int?
 
-		/// [Follower] The username of a follower.
-		public let username: String?
+		/// [Follower] The nickname of a follower.
+		public let nickname: String?
 
 		/// [Follower] The profile image of the follower.
 		public let profileImageURL: String?

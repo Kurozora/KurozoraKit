@@ -12,11 +12,11 @@ extension User {
 		/// The role of the user.
 		public let role: Int?
 
-		/// The slug of the user.
-		public let slug: String
-
 		/// The username of the user.
 		public let username: String
+
+		/// The nickname of the user.
+		public let nickname: String
 
 		/// The Kurozora ID (email address) of the user.
 		///
