@@ -58,7 +58,7 @@ extension KurozoraKit {
 	/// - Returns: An instance of `RequestSender` with the results of the update information response.
 	public func updateInformation(_ profileUpdateRequest: ProfileUpdateRequest) -> RequestSender<UserUpdateResponse, KKAPIError> {
 		// Prepare headers
-		var headers: HTTPHeaders = [
+		let headers: HTTPHeaders = [
 			.contentType("multipart/form-data"),
 			.accept("application/json"),
 			.authorization(bearerToken: self.authenticationKey)

@@ -140,7 +140,7 @@ extension KurozoraKit {
 		// Prepare request
 		let feedPost = KKEndpoint.Feed.post.endpointValue
 		let request: APIRequest<FeedMessageResponse, KKAPIError> = tron.codable.request(feedPost)
-		request.method(.post)
+			.method(.post)
 			.parameters(parameters)
 			.headers(headers)
 
