@@ -4,7 +4,7 @@ copyright: "Copyright © 2018-present Khoren Katklian. All rights reserved. See 
 readme: README.md
 
 module: KurozoraKit
-module_version: 1.2.2
+module_version: 1.3.0
 
 github_url: "https://github.com/Kurozora/KurozoraKit"
 github_file_prefix: "https://github.com/Kurozora/KurozoraKit/tree/master"
@@ -18,6 +18,6 @@ min_acl: internal
 skip_undocumented: true
 
 podspec: "KurozoraKit.podspec"
-pod_sources: ["https://github.com/CocoaPods/Specs.git", "https://github.com/kiritokatklian/Specs.git"]
+pod_sources: ["https://cdn.cocoapods.org", "https://github.com/kiritokatklian/Specs.git"]
 
 output: "~/Docs/developer/kurozorakit"
