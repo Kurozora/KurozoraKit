@@ -32,7 +32,10 @@ extension KurozoraKit {
 			if self.services.showAlerts {
 				UIApplication.topViewController?.presentAlertController(title: "Can't Get Access Tokens 😔", message: error.message)
 			}
-			print("Received get access token error: \(error.message ?? "No message available")")
+			print("❌ Received get access tokens error:", error.errorDescription ?? "Unknown error")
+			print("┌ Server message:", error.message)
+			print("├ Recovery suggestion:", error.recoverySuggestion ?? "No suggestion available")
+			print("└ Failure reason:", error.failureReason ?? "No reason available")
 			completionHandler(.failure(error))
 		})
 	}
@@ -57,7 +60,7 @@ extension KurozoraKit {
 				UIApplication.topViewController?.presentAlertController(title: "Can't Get Access Token's Details 😔", message: error.message)
 			}
 			print("❌ Received get access token details error:", error.errorDescription ?? "Unknown error")
-			print("┌ Server message:", error.message ?? "No message")
+			print("┌ Server message:", error.message)
 			print("├ Recovery suggestion:", error.recoverySuggestion ?? "No suggestion available")
 			print("└ Failure reason:", error.failureReason ?? "No reason available")
 			completionHandler(.failure(error))
@@ -86,7 +89,7 @@ extension KurozoraKit {
 			completionHandler(.success(success))
 		}, failure: { error in
 			print("❌ Received update access token error:", error.errorDescription ?? "Unknown error")
-			print("┌ Server message:", error.message ?? "No message")
+			print("┌ Server message:", error.message)
 			print("├ Recovery suggestion:", error.recoverySuggestion ?? "No suggestion available")
 			print("└ Failure reason:", error.failureReason ?? "No reason available")
 			completionHandler(.failure(error))
@@ -116,7 +119,7 @@ extension KurozoraKit {
 				UIApplication.topViewController?.presentAlertController(title: "Can't Delete Access Token 😔", message: error.message)
 			}
 			print("❌ Received delete access token error:", error.errorDescription ?? "Unknown error")
-			print("┌ Server message:", error.message ?? "No message")
+			print("┌ Server message:", error.message)
 			print("├ Recovery suggestion:", error.recoverySuggestion ?? "No suggestion available")
 			print("└ Failure reason:", error.failureReason ?? "No reason available")
 			completionHandler(.failure(error))
