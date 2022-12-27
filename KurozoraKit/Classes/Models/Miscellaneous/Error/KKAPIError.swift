@@ -54,11 +54,12 @@ public class KKAPIError: APIError {
 			}
 		}
 
-		guard self.message == nil else { return }
 		if let responseCode = self.error?.asAFError?.responseCode {
 			switch responseCode {
-			default:
+			case 500:
 				self._message = "There was an error while connecting to the server. If this error persists, check out our Twitter account @KurozoraApp for more information!"
+			default:
+				return
 			}
 		}
 	}
