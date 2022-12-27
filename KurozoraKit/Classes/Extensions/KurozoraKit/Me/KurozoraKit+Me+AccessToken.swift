@@ -125,35 +125,19 @@ extension KurozoraKit {
 
 	/// Sign out the given user access token.
 	///
-	///After the user has been signed out successfully, a notification with the `KUserIsSignedInDidChange` name is posted.
-	///This notification can be observed to perform UI changes regarding the user's sign in status. For example you can remove buttons the user should not have access to if not signed in.
-	///
-	/// - Parameters:
-	///    - completionHandler: A closure returning a value that represents either a success or a failure, including an associated value in each case.
-	///    - result: A value that represents either a success or a failure, including an associated value in each case.
-	public func signOut(completion completionHandler: @escaping (_ result: Result<KKSuccess, KKAPIError>) -> Void) {
+	/// - Returns: An instance of `RequestSender` with the results of the sign out response.
+	public func signOut() -> RequestSender<KKSuccess, KKAPIError> {
+		// Prepare headers
+		var headers = self.headers
+		headers.add(.authorization(bearerToken: self.authenticationKey))
+
+		// Prepare request
 		let meAccessTokensDelete = KKEndpoint.Me.AccessTokens.delete(self.authenticationKey).endpointValue
 		let request: APIRequest<KKSuccess, KKAPIError> = tron.codable.request(meAccessTokensDelete)
+			.method(.post)
+			.headers(headers)
 
-		request.headers = headers
-		request.headers.add(.authorization(bearerToken: self.authenticationKey))
-
-		request.method = .post
-		request.perform(withSuccess: { success in
-			User.current = nil
-			self.authenticationKey = ""
-			completionHandler(.success(success))
-			NotificationCenter.default.post(name: .KUserIsSignedInDidChange, object: nil)
-		}, failure: { [weak self] error in
-			guard let self = self else { return }
-			if self.services.showAlerts {
-				UIApplication.topViewController?.presentAlertController(title: "Can't Sign Out 😔", message: error.message)
-			}
-			print("❌ Received sign out error:", error.errorDescription ?? "Unknown error")
-			print("┌ Server message:", error.message ?? "No message")
-			print("├ Recovery suggestion:", error.recoverySuggestion ?? "No suggestion available")
-			print("└ Failure reason:", error.failureReason ?? "No reason available")
-			completionHandler(.failure(error))
-		})
+		// Send request
+		return request.sender()
 	}
 }
