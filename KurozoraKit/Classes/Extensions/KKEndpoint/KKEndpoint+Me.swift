@@ -41,25 +41,25 @@ extension KKEndpoint.Me {
 	}
 }
 
-// MARK: - Favorite Show
+// MARK: - Favorites
 extension KKEndpoint.Me {
-	/// The set of available Favorite Show API endpoint types.
-	internal enum FavoriteShow {
+	/// The set of available Favorites API endpoint types.
+	internal enum Favorites {
 		// MARK: - Cases
-		/// The endpoint to the authenticated user's favorite shows list.
+		/// The endpoint to the authenticated user's favorites list.
 		case index
 
-		/// The endpoint to get, add or remove shows from the authenticated user's favorite shows list.
+		/// The endpoint to get, add or remove shows from the authenticated user's favorites list.
 		case update
 
 		// MARK: - Properties
-		/// The endpoint value of the Favorite Show API type.
+		/// The endpoint value of the Favorites API type.
 		var endpointValue: String {
 			switch self {
 			case .index:
-				return "me/favorite-anime"
+				return "me/favorites"
 			case .update:
-				return "me/favorite-anime"
+				return "me/favorites"
 			}
 		}
 	}

@@ -14,8 +14,8 @@ public struct Search: Codable {
 	/// A collection of episodes.
 	public let episodes: EpisodeIdentityResponse?
 
-//	/// A collection of games.
-//	public let games: GameIdentityResponse?
+	/// A collection of games.
+	public let games: GameIdentityResponse?
 
 	/// A collection of literatures.
 	public let literatures: LiteratureIdentityResponse?

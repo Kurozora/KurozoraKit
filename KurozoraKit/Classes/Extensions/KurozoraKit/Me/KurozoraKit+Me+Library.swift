@@ -60,7 +60,7 @@ extension KurozoraKit {
 		headers.add(.authorization(bearerToken: self.authenticationKey))
 
 		// Prepare parameters
-		var parameters: [String: Any] = [
+		let parameters: [String: Any] = [
 			"library": libraryKind.rawValue,
 			"model_id": modelID,
 			"status": libraryStatus.rawValue
@@ -90,7 +90,7 @@ extension KurozoraKit {
 		headers.add(.authorization(bearerToken: self.authenticationKey))
 
 		// Prepare parameters
-		var parameters: [String: Any] = [
+		let parameters: [String: Any] = [
 			"library": libraryKind.rawValue,
 			"model_id": modelID
 		]
@@ -124,7 +124,7 @@ extension KurozoraKit {
 		headers.add(.authorization(bearerToken: self.authenticationKey))
 
 		// Prepare parameters
-		var parameters: [String: Any] = [
+		let parameters: [String: Any] = [
 			"library": libraryKind.rawValue,
 			"service": service.rawValue,
 			"behavior": behavior.rawValue
