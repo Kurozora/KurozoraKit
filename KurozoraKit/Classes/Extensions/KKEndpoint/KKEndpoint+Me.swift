@@ -95,8 +95,11 @@ extension KKEndpoint.Me {
 		/// The endpoint to the delete a show from the authenticated user's library.
 		case delete
 
-		/// The endpoint to import an exported MAL file into the  authenticated user's library.
+		/// The endpoint to import an exported MyAnimeList file into the  authenticated user's library.
 		case malImport
+
+		/// The endpoint to import an exported library file into the  authenticated user's library.
+		case `import`
 
 		// MARK: - Properties
 		/// The endpoint value of the Library API type.
@@ -108,6 +111,8 @@ extension KKEndpoint.Me {
 				return "me/library/delete"
 			case .malImport:
 				return "me/library/mal-import"
+			case .`import`:
+				return "me/library/import"
 			}
 		}
 	}
