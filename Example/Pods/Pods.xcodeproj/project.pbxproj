@@ -134,6 +134,10 @@
 		6632C431298B03B300702F7C /* GameRelationships.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6632C42C298B03AE00702F7C /* GameRelationships.swift */; };
 		6632C432298B03B300702F7C /* GameResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6632C42D298B03AF00702F7C /* GameResponse.swift */; };
 		6632C433298B03B300702F7C /* GameAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6632C42B298B03AE00702F7C /* GameAttributes.swift */; };
+		66E1215C29AFF1130051C4ED /* KurozoraKit+Games.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E1215B29AFF1130051C4ED /* KurozoraKit+Games.swift */; };
+		66E1216129AFF2310051C4ED /* RelatedGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E1216029AFF22D0051C4ED /* RelatedGame.swift */; };
+		66E1216229AFF2310051C4ED /* RelatedGameAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E1215E29AFF22D0051C4ED /* RelatedGameAttributes.swift */; };
+		66E1216329AFF2310051C4ED /* RelatedGameResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E1215F29AFF22D0051C4ED /* RelatedGameResponse.swift */; };
 		675863AE6A69360C32B69E58C236728E /* FeedMessageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D314DBBA7E7F7AB5BDB7C4325312C7B3 /* FeedMessageRequest.swift */; };
 		68FB2DCB4C77DBCAF9A6037E470F2BDE /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA71BF90F2F350E25992CECAEBC6B49 /* ParameterEncoding.swift */; };
 		698FF943AE07BA1E66CA319C5CBE44D9 /* AppThemeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B4B2CB62259742DA5E49815037DC9D /* AppThemeResponse.swift */; };
@@ -523,6 +527,10 @@
 		6632C42C298B03AE00702F7C /* GameRelationships.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRelationships.swift; sourceTree = "<group>"; };
 		6632C42D298B03AF00702F7C /* GameResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameResponse.swift; sourceTree = "<group>"; };
 		667BCD567D468DCB0F6BCB02E1757D92 /* KurozoraKit+User.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "KurozoraKit+User.swift"; sourceTree = "<group>"; };
+		66E1215B29AFF1130051C4ED /* KurozoraKit+Games.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KurozoraKit+Games.swift"; sourceTree = "<group>"; };
+		66E1215E29AFF22D0051C4ED /* RelatedGameAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelatedGameAttributes.swift; sourceTree = "<group>"; };
+		66E1215F29AFF22D0051C4ED /* RelatedGameResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelatedGameResponse.swift; sourceTree = "<group>"; };
+		66E1216029AFF22D0051C4ED /* RelatedGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelatedGame.swift; sourceTree = "<group>"; };
 		68502FA54DA8FBFC1C4DE441BEE5A0E8 /* KKSuccess.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = KKSuccess.swift; sourceTree = "<group>"; };
 		68DD3ECD4AB0CF1CD2C8EA0993C47690 /* URLEncodedFormEncoder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = URLEncodedFormEncoder.swift; path = Source/URLEncodedFormEncoder.swift; sourceTree = "<group>"; };
 		693B4CFD99F0E8ED85EC0FB20A49781D /* KurozoraKit+Me+Library.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "KurozoraKit+Me+Library.swift"; sourceTree = "<group>"; };
@@ -1150,6 +1158,16 @@
 			path = Identity;
 			sourceTree = "<group>";
 		};
+		66E1215D29AFF2230051C4ED /* Related Games */ = {
+			isa = PBXGroup;
+			children = (
+				66E1216029AFF22D0051C4ED /* RelatedGame.swift */,
+				66E1215E29AFF22D0051C4ED /* RelatedGameAttributes.swift */,
+				66E1215F29AFF22D0051C4ED /* RelatedGameResponse.swift */,
+			);
+			path = "Related Games";
+			sourceTree = "<group>";
+		};
 		67DC5F31CEAEF91BDC2BB86E869F61B5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -1189,6 +1207,7 @@
 				D466F69407B0C6BC469318FC0F2C1084 /* KurozoraKit+Episodes.swift */,
 				82C78AFFC3FBC688765C604653F3F260 /* KurozoraKit+Explore.swift */,
 				2FFC7E2008997A5625A5169F60CBFA1D /* KurozoraKit+Feed.swift */,
+				66E1215B29AFF1130051C4ED /* KurozoraKit+Games.swift */,
 				7276FF4A6DE3195E4D604A614A56E46D /* KurozoraKit+Genres.swift */,
 				5E48A5F0846B04FDD3F3ADC647C514B7 /* KurozoraKit+Legal.swift */,
 				6627FFE7298B20AE00733729 /* KurozoraKit+Literatures.swift */,
@@ -1663,6 +1682,7 @@
 				476CC08373A2D1288BB0C2D8A65DD4AC /* Cast */,
 				54694819E167B841E09DC81E0D793345 /* Favorite */,
 				BCAADE0FD2BAC79120189DAC439BFBDF /* Identity */,
+				66E1215D29AFF2230051C4ED /* Related Games */,
 				6632C4102986950200702F7C /* Related Literature */,
 				19ED203E4E1ECC7407DD2E0FFE31F2EB /* Related Shows */,
 				346503AB43FFF59D7E4DEAC87C2F5518 /* Reminder */,
@@ -2189,6 +2209,7 @@
 				805E11824D5EBD4ADE92FF40A02EE2C2 /* KurozoraKit+Studios.swift in Sources */,
 				7D2FF820333986A10ED639EAAB9CBF67 /* KurozoraKit+Theme.swift in Sources */,
 				4E00CBB0E2AAF8E8DE012899AE09A841 /* KurozoraKit+ThemeStore.swift in Sources */,
+				66E1216129AFF2310051C4ED /* RelatedGame.swift in Sources */,
 				452CADC38E51FFF7642A496416911578 /* KurozoraKit+User.swift in Sources */,
 				6632C432298B03B300702F7C /* GameResponse.swift in Sources */,
 				0B75A04E8208632B111A9C2E6F97A4C0 /* KurozoraKit-dummy.m in Sources */,
@@ -2223,6 +2244,7 @@
 				804FEC804C6B8B21EE82302371177190 /* Platform.swift in Sources */,
 				5246359A77098ACBDE8B1BABB4169A93 /* PlatformAttributes.swift in Sources */,
 				386D2CCBB0D57F16DC8FAB4300C1AB03 /* PlatformResponse.swift in Sources */,
+				66E1215C29AFF1130051C4ED /* KurozoraKit+Games.swift in Sources */,
 				0B3D101CD69F37DA0E9AD336DFF77F1B /* ProfileUpdateRequest.swift in Sources */,
 				6632C3FD2986940500702F7C /* LiteratureIdentityResponse.swift in Sources */,
 				EE84CF195B91815042C28E882F3E7CE0 /* ReadStatus.swift in Sources */,
@@ -2284,6 +2306,7 @@
 				A6832E679F41BBEC173843678BB74119 /* String+Date.swift in Sources */,
 				ED5A2750376F2B680DD90A2331E4FE65 /* Studio.swift in Sources */,
 				9DF3AA54E1A32F25F5F2915033019484 /* StudioAttributes.swift in Sources */,
+				66E1216329AFF2310051C4ED /* RelatedGameResponse.swift in Sources */,
 				0BA5C2048F622117B274A84F309CE365 /* StudioIdentity.swift in Sources */,
 				2D3895498FFCA34CA9BB260335325BE1 /* StudioIdentityResponse.swift in Sources */,
 				D4CC894AE3FEC813F070EDDC345956A6 /* StudioRelationships.swift in Sources */,
@@ -2316,6 +2339,7 @@
 				64F2652906A723DE560B6C95DF61138F /* UserUpdate.swift in Sources */,
 				E41480CF9CF95754BAB8BC1B15E59E8D /* UserUpdateResponse.swift in Sources */,
 				249204E81E14FDD5E1E8C98DE8C8376A /* WatchStatus.swift in Sources */,
+				66E1216229AFF2310051C4ED /* RelatedGameAttributes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
