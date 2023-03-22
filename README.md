@@ -1,4 +1,4 @@
-<p align="center"><img src="https://developer.kurozora.app/assets/images/icons/KurozoraKit.png"></p>
+<p align="center"><img src=".github/Assets/KurozoraKit_icon.png"></p>
 
 <p align="center">
     <sup><b>KurozoraKit</b></sup>
@@ -85,12 +85,16 @@ If you happen to find a security vulnerability, we would appreciate you letting 
 
 # Getting in Touch
 
-If you have any questions or just want to say hi, join the Kurozora [Discord](https://discord.gg/bHUmr3h) and drop a message on the #development channel.
+If you have any questions or just want to say hi, join the Kurozora [Discord](https://discord.gg/f3QFzGqsah) and drop a message on the #development channel.
 
-# Author
+# More by Kurozora
 
-Khoren Katklian, a.k.a Kiritokatklian or simply Kirito.
+- [Kurozora Web](https://github.com/kurozora/kurozora-web) — Home to the Kurozora website and API.
+- [Kurozora iOS App](https://github.com/kurozora/kurozora-app) — iOS/iPadOS/MacOS client app.
+- [Kurozora Web Extension](https://github.com/Kurozora/kurozora-extension) — The Ultimate Search Engine for Anime, Manga and Game Fans.
+- [Kurozora Discord Bot](https://github.com/kurozora/kurozora-discord-bot) — A versatile Discord bot with access to Kurozora services.
+- [Kurozora Android App](https://github.com/kurozora/kurozora-android) — Android client app.
 
 # License
 
-All rights reserved.
+Kurozora-web is an Open Source project covered by the [GNU General Public License v3.0](LICENSE).
