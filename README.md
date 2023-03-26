@@ -4,7 +4,7 @@
     <sup><b>KurozoraKit</b></sup>
 </p>
 
-# KurozoraKit [![Swift 5](https://img.shields.io/badge/Swift-5-orange.svg?style=flat&logo=Swift)](https://swift.org) [![Platform](https://img.shields.io/badge/Platform-iOS%20|%20iPadOS%20|%20macOS-lightgrey.svg?style=flat&logo=Apple)](https://www.apple.com/ios) [![Documentation](https://img.shields.io/badge/Documentation-100%25-green.svg?style=flat)](https://developer.kurozora.app/KurozoraKit) [![Discord](https://img.shields.io/discord/449250093623934977?style=flat&label=Discord&logo=Discord&color=7289DA)](https://discord.gg/bHUmr3h)
+# KurozoraKit [![Swift 5](https://img.shields.io/badge/Swift%205-white.svg?style=flat&logo=Swift)](https://swift.org)  [![Apple Platform](https://img.shields.io/badge/iOS%20|%20ipadOS%20|%20macOS-black?style=flat&logo=Apple)](https://apple.co/3CsQlKq) [![Kurozora Discord Server](https://img.shields.io/discord/449250093623934977?style=flat&label=&logo=Discord&logoColor=white&color=7289DA)](https://discord.gg/f3QFzGqsah) [![Documentation](https://img.shields.io/badge/Documentation-100%25-green.svg?style=flat)](https://developer.kurozora.app/KurozoraKit) [![License](https://img.shields.io/badge/License-GPLv3-blue.svg?style=flat)](LICENSE)
 
 [KurozoraKit](https://developer.kurozora.app/kurozorakit) lets users manage their anime library and access many other serices from your app. When users provide permission to access their Kurozora account, they can use your app to share anime, add anime to their library, and discover any of the millions of anime in the Kurozora catalog. If your app detects that the user is not yet a Kurozora member, you can offer them to create an account within your app.
 
