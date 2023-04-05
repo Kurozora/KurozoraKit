@@ -4,7 +4,7 @@ copyright: "Copyright © 2018-present Redark. All rights reserved. See [license]
 readme: README.md
 
 module: KurozoraKit
-module_version: 1.5.2
+module_version: 1.6.0
 
 github_url: "https://github.com/Kurozora/KurozoraKit"
 github_file_prefix: "https://github.com/Kurozora/KurozoraKit/tree/master"
