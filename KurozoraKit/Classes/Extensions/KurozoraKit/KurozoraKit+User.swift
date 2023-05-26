@@ -116,13 +116,9 @@ extension KurozoraKit {
 		return request.perform(withSuccess: { [weak self] oAuthResponse in
 			guard let self = self else { return }
 			self.authenticationKey = oAuthResponse.authenticationToken
-			if let user = oAuthResponse.data?.first {
-				User.current = user
-			}
+			User.current = oAuthResponse.data?.first
 			completionHandler(.success(oAuthResponse))
-			if oAuthResponse.data?.first != nil {
-				NotificationCenter.default.post(name: .KUserIsSignedInDidChange, object: nil)
-			}
+			NotificationCenter.default.post(name: .KUserIsSignedInDidChange, object: nil)
 		}, failure: { [weak self] error in
 			guard let self = self else { return }
 			UIView().endEditing(true)
