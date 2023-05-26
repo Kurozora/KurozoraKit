@@ -134,6 +134,19 @@
 		6632C431298B03B300702F7C /* GameRelationships.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6632C42C298B03AE00702F7C /* GameRelationships.swift */; };
 		6632C432298B03B300702F7C /* GameResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6632C42D298B03AF00702F7C /* GameResponse.swift */; };
 		6632C433298B03B300702F7C /* GameAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6632C42B298B03AE00702F7C /* GameAttributes.swift */; };
+		666C896429F92B000075B5D6 /* KKSearchFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666C896329F92B000075B5D6 /* KKSearchFilter.swift */; };
+		666C896729F92B860075B5D6 /* ShowFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666C896629F92B860075B5D6 /* ShowFilter.swift */; };
+		666C896929F92B9A0075B5D6 /* UserFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666C896829F92B990075B5D6 /* UserFilter.swift */; };
+		666C896B29F92BA80075B5D6 /* LiteratureFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666C896A29F92BA80075B5D6 /* LiteratureFilter.swift */; };
+		666C896D29F92BCC0075B5D6 /* StudioFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666C896C29F92BCC0075B5D6 /* StudioFilter.swift */; };
+		666C896F29F92BDC0075B5D6 /* AppThemeFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666C896E29F92BDC0075B5D6 /* AppThemeFilter.swift */; };
+		666C897129F92BE30075B5D6 /* EpisodeFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666C897029F92BE30075B5D6 /* EpisodeFilter.swift */; };
+		666C897329F92BEC0075B5D6 /* GameFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666C897229F92BEC0075B5D6 /* GameFilter.swift */; };
+		666C897529F92BF30075B5D6 /* PersonFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666C897429F92BF30075B5D6 /* PersonFilter.swift */; };
+		666C897729F92BFD0075B5D6 /* SongFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666C897629F92BFD0075B5D6 /* SongFilter.swift */; };
+		666C897929F92C930075B5D6 /* CharacterFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666C897829F92C930075B5D6 /* CharacterFilter.swift */; };
+		666C897B29F932DD0075B5D6 /* Filterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666C897A29F932DD0075B5D6 /* Filterable.swift */; };
+		66D3895829EF4ABE00087E82 /* SearchSuggestionsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D3895629EF4AAB00087E82 /* SearchSuggestionsResponse.swift */; };
 		66E1215C29AFF1130051C4ED /* KurozoraKit+Games.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E1215B29AFF1130051C4ED /* KurozoraKit+Games.swift */; };
 		66E1216129AFF2310051C4ED /* RelatedGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E1216029AFF22D0051C4ED /* RelatedGame.swift */; };
 		66E1216229AFF2310051C4ED /* RelatedGameAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E1215E29AFF22D0051C4ED /* RelatedGameAttributes.swift */; };
@@ -526,7 +539,20 @@
 		6632C42B298B03AE00702F7C /* GameAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameAttributes.swift; sourceTree = "<group>"; };
 		6632C42C298B03AE00702F7C /* GameRelationships.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRelationships.swift; sourceTree = "<group>"; };
 		6632C42D298B03AF00702F7C /* GameResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameResponse.swift; sourceTree = "<group>"; };
+		666C896329F92B000075B5D6 /* KKSearchFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KKSearchFilter.swift; sourceTree = "<group>"; };
+		666C896629F92B860075B5D6 /* ShowFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowFilter.swift; sourceTree = "<group>"; };
+		666C896829F92B990075B5D6 /* UserFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFilter.swift; sourceTree = "<group>"; };
+		666C896A29F92BA80075B5D6 /* LiteratureFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiteratureFilter.swift; sourceTree = "<group>"; };
+		666C896C29F92BCC0075B5D6 /* StudioFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudioFilter.swift; sourceTree = "<group>"; };
+		666C896E29F92BDC0075B5D6 /* AppThemeFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppThemeFilter.swift; sourceTree = "<group>"; };
+		666C897029F92BE30075B5D6 /* EpisodeFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeFilter.swift; sourceTree = "<group>"; };
+		666C897229F92BEC0075B5D6 /* GameFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameFilter.swift; sourceTree = "<group>"; };
+		666C897429F92BF30075B5D6 /* PersonFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonFilter.swift; sourceTree = "<group>"; };
+		666C897629F92BFD0075B5D6 /* SongFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongFilter.swift; sourceTree = "<group>"; };
+		666C897829F92C930075B5D6 /* CharacterFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterFilter.swift; sourceTree = "<group>"; };
+		666C897A29F932DD0075B5D6 /* Filterable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filterable.swift; sourceTree = "<group>"; };
 		667BCD567D468DCB0F6BCB02E1757D92 /* KurozoraKit+User.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "KurozoraKit+User.swift"; sourceTree = "<group>"; };
+		66D3895629EF4AAB00087E82 /* SearchSuggestionsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSuggestionsResponse.swift; sourceTree = "<group>"; };
 		66E1215B29AFF1130051C4ED /* KurozoraKit+Games.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KurozoraKit+Games.swift"; sourceTree = "<group>"; };
 		66E1215E29AFF22D0051C4ED /* RelatedGameAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelatedGameAttributes.swift; sourceTree = "<group>"; };
 		66E1215F29AFF22D0051C4ED /* RelatedGameResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelatedGameResponse.swift; sourceTree = "<group>"; };
@@ -1158,6 +1184,31 @@
 			path = Identity;
 			sourceTree = "<group>";
 		};
+		666C896529F92B710075B5D6 /* Filters */ = {
+			isa = PBXGroup;
+			children = (
+				666C896E29F92BDC0075B5D6 /* AppThemeFilter.swift */,
+				666C897829F92C930075B5D6 /* CharacterFilter.swift */,
+				666C897029F92BE30075B5D6 /* EpisodeFilter.swift */,
+				666C897229F92BEC0075B5D6 /* GameFilter.swift */,
+				666C896A29F92BA80075B5D6 /* LiteratureFilter.swift */,
+				666C897429F92BF30075B5D6 /* PersonFilter.swift */,
+				666C896629F92B860075B5D6 /* ShowFilter.swift */,
+				666C897629F92BFD0075B5D6 /* SongFilter.swift */,
+				666C896C29F92BCC0075B5D6 /* StudioFilter.swift */,
+				666C896829F92B990075B5D6 /* UserFilter.swift */,
+			);
+			path = Filters;
+			sourceTree = "<group>";
+		};
+		66D3895529EF4A9900087E82 /* Suggestions */ = {
+			isa = PBXGroup;
+			children = (
+				66D3895629EF4AAB00087E82 /* SearchSuggestionsResponse.swift */,
+			);
+			path = Suggestions;
+			sourceTree = "<group>";
+		};
 		66E1215D29AFF2230051C4ED /* Related Games */ = {
 			isa = PBXGroup;
 			children = (
@@ -1303,6 +1354,7 @@
 		828D5AB88E67A44A097A485A00EAF6F6 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				666C897A29F932DD0075B5D6 /* Filterable.swift */,
 				6ED56FC6268A45ADE1C1EE449C8B3785 /* IdentityResource.swift */,
 				FAC18BBD2DAAF99D5D3BCCA03A52939D /* LibraryAttributes.swift */,
 			);
@@ -1424,6 +1476,8 @@
 			children = (
 				071957E93D5BE9642547F6EF691571D0 /* Search.swift */,
 				130BF590A0BF9C73735D8FCCC78DC165 /* SearchResponse.swift */,
+				666C896529F92B710075B5D6 /* Filters */,
+				66D3895529EF4A9900087E82 /* Suggestions */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -1618,6 +1672,7 @@
 				9FE585857270B56DACC570D62158B471 /* FavoriteStatus.swift */,
 				B8CF832218798B6E381DC3B4A4FAFEE7 /* FollowStatus.swift */,
 				0E5790DC9737BAE264709B9A4752A1F0 /* KKLibrary.swift */,
+				666C896329F92B000075B5D6 /* KKSearchFilter.swift */,
 				F7B4191F29E780192849287BEB2CCB2B /* KKSearchScope.swift */,
 				8F7AB3F5282794D32C7038990E9A4119 /* KKSearchType.swift */,
 				35209539ABD47616C612F2949C88136D /* OAuthAction.swift */,
@@ -1641,10 +1696,10 @@
 				C10F549DAD43BBAE14F16E395178EA9D /* Enums */,
 				D93E37A6E0E3FA53FCCCA609BF57FC44 /* Extensions */,
 				67DC5F31CEAEF91BDC2BB86E869F61B5 /* Models */,
-				501E0C3E94B3BF50831E3B5A0A86EDF4 /* Pod */,
 				828D5AB88E67A44A097A485A00EAF6F6 /* Protocols */,
 				613D06301C438ED6FFBDF447C300F6F3 /* Requests */,
 				C0DCC4AB29335B50BABF56C50BBAA27C /* Support Files */,
+				501E0C3E94B3BF50831E3B5A0A86EDF4 /* Pod */,
 			);
 			name = KurozoraKit;
 			path = ../..;
@@ -2102,7 +2157,9 @@
 				8DC07BA8219F285BDB4CEB1D2F0B5879 /* AccessToken.swift in Sources */,
 				02C3AD6EF31915B74D75AAD8F8CA22A0 /* AccessTokenAttributes.swift in Sources */,
 				1653DF052F2F9F1EC4973F24978CDD46 /* AccessTokenRelationships.swift in Sources */,
+				666C897B29F932DD0075B5D6 /* Filterable.swift in Sources */,
 				D66F6E537D7C426C8CB86927F450DE42 /* AccessTokenResponse.swift in Sources */,
+				666C896429F92B000075B5D6 /* KKSearchFilter.swift in Sources */,
 				8BF5A20FC12FBFCECB7B9B8E4BA1CC82 /* ActivityStatus.swift in Sources */,
 				42E1AE6E75D6CAC698373116DC52DCD6 /* AdaptationSource.swift in Sources */,
 				B9EEE683EC79CBF9FA324633EEB000CA /* AiringStatus.swift in Sources */,
@@ -2113,6 +2170,7 @@
 				236DFD4DE6C6990145C3CFBD8776B995 /* BadgeAttributes.swift in Sources */,
 				7DDDFC78E457C76F974F3816C9985EA1 /* BadgeResponse.swift in Sources */,
 				53AE5609AF035220AD34503CE21AFE78 /* Cast.swift in Sources */,
+				666C897129F92BE30075B5D6 /* EpisodeFilter.swift in Sources */,
 				6627FFF12990758600733729 /* LibraryResponse.swift in Sources */,
 				9BCB47859557A8B8F534340A1F15E278 /* CastAttributes.swift in Sources */,
 				D503316F07D51939EDB1ED9EA4462629 /* CastIdentity.swift in Sources */,
@@ -2127,6 +2185,7 @@
 				D28E14F87CE93FFBE16814E42F89A172 /* CharacterRelationships.swift in Sources */,
 				2B2A5BADF8A6D644F0FDD56D1C84D4FE /* CharacterResponse.swift in Sources */,
 				62A272DC6415378B73B51D9D204B1AC9 /* Episode.swift in Sources */,
+				66D3895829EF4ABE00087E82 /* SearchSuggestionsResponse.swift in Sources */,
 				791930A9F376442A83942B58039D2306 /* EpisodeAttributes.swift in Sources */,
 				C731F7B8551D84C07BB17B3225CD5415 /* EpisodeIdentity.swift in Sources */,
 				0D212DB2056BE2221D3D464993D34C29 /* EpisodeIdentityResponse.swift in Sources */,
@@ -2139,6 +2198,8 @@
 				53DD36E9AF57B1BA0C33504E923B4487 /* ExploreCategoryIdentity.swift in Sources */,
 				0597BF41133F3BD37966B6149A69EA6A /* ExploreCategoryIdentityResponse.swift in Sources */,
 				16634B8AFBBB6A37005A8964338929EF /* ExploreCategoryRelationships.swift in Sources */,
+				666C896B29F92BA80075B5D6 /* LiteratureFilter.swift in Sources */,
+				666C896929F92B9A0075B5D6 /* UserFilter.swift in Sources */,
 				6632C3F42986901700702F7C /* Literature.swift in Sources */,
 				47CD983C94C8E655679521578674C701 /* ExploreCategoryResponse.swift in Sources */,
 				D06468C353541F81695E67B7D445D2F2 /* ExploreCategorySize.swift in Sources */,
@@ -2190,6 +2251,7 @@
 				C9D2495B6D0EC47681303C5AE5CCA94B /* KurozoraKit+Genres.swift in Sources */,
 				CA9C48B29495797A018DCEC9828A3EA3 /* KurozoraKit+Legal.swift in Sources */,
 				F37D69236318C14164BE841A89387EBD /* KurozoraKit+Me.swift in Sources */,
+				666C897529F92BF30075B5D6 /* PersonFilter.swift in Sources */,
 				43014620C991BAD6AB29853E94FA3459 /* KurozoraKit+Me+AccessToken.swift in Sources */,
 				7C6AB8B95FAA0AAABD717E1957A8CAD2 /* KurozoraKit+Me+FavoriteShow.swift in Sources */,
 				BE485E987950BD62CDB8DB0E1DD37F0C /* KurozoraKit+Me+Feed.swift in Sources */,
@@ -2199,6 +2261,7 @@
 				F87162115EF548F865DCF31D708EB305 /* KurozoraKit+Me+Session.swift in Sources */,
 				6632C3FA2986933200702F7C /* LiteratureIdentity.swift in Sources */,
 				6B0FFFCF4D5F7C262805EFE356AA3601 /* KurozoraKit+Misc.swift in Sources */,
+				666C896F29F92BDC0075B5D6 /* AppThemeFilter.swift in Sources */,
 				ECE55F053899FEFF0F0E320E19D662D2 /* KurozoraKit+People.swift in Sources */,
 				F46F84E1584D7514B681553227A5C805 /* KurozoraKit+Search.swift in Sources */,
 				6627FFF02990758600733729 /* Library.swift in Sources */,
@@ -2212,6 +2275,7 @@
 				66E1216129AFF2310051C4ED /* RelatedGame.swift in Sources */,
 				452CADC38E51FFF7642A496416911578 /* KurozoraKit+User.swift in Sources */,
 				6632C432298B03B300702F7C /* GameResponse.swift in Sources */,
+				666C897729F92BFD0075B5D6 /* SongFilter.swift in Sources */,
 				0B75A04E8208632B111A9C2E6F97A4C0 /* KurozoraKit-dummy.m in Sources */,
 				6FFA95F7AB75C2F6B59437852E7712F6 /* Language.swift in Sources */,
 				7BAB33753310A035B762510784D52B3D /* LanguageAttributes.swift in Sources */,
@@ -2224,6 +2288,7 @@
 				FC7733B1E04617BBA670FF62180DEA1A /* LocationAttributes.swift in Sources */,
 				1C215469CF317822C34C094E5DD94390 /* LocationResponse.swift in Sources */,
 				DB87C60FE76373CB260C063A900EBCC4 /* LibraryImport.swift in Sources */,
+				666C896D29F92BCC0075B5D6 /* StudioFilter.swift in Sources */,
 				191FD42079F709C1F220A14767E68EF7 /* Media.swift in Sources */,
 				6627FFEF2990758600733729 /* LibraryUpdate.swift in Sources */,
 				20C3A97AE5733F1A37BBC60527047D42 /* MediaRelation.swift in Sources */,
@@ -2243,6 +2308,8 @@
 				85B572C32106292C6275D63BD134FD90 /* PersonResponse.swift in Sources */,
 				804FEC804C6B8B21EE82302371177190 /* Platform.swift in Sources */,
 				5246359A77098ACBDE8B1BABB4169A93 /* PlatformAttributes.swift in Sources */,
+				666C896729F92B860075B5D6 /* ShowFilter.swift in Sources */,
+				666C897329F92BEC0075B5D6 /* GameFilter.swift in Sources */,
 				386D2CCBB0D57F16DC8FAB4300C1AB03 /* PlatformResponse.swift in Sources */,
 				66E1215C29AFF1130051C4ED /* KurozoraKit+Games.swift in Sources */,
 				0B3D101CD69F37DA0E9AD336DFF77F1B /* ProfileUpdateRequest.swift in Sources */,
@@ -2324,6 +2391,7 @@
 				13F0539B9AEDE89B6A94C873063B1FBE /* UserAttributes.swift in Sources */,
 				7ACB5AB9D135AC99E0C714E4D9EFB555 /* UserIdentity.swift in Sources */,
 				9E056BFAFB4F5F7F72ED613E2D72F747 /* UserIdentityResponse.swift in Sources */,
+				666C897929F92C930075B5D6 /* CharacterFilter.swift in Sources */,
 				FA2EDA66AA61408D553F229E22B20C42 /* UserNotification.swift in Sources */,
 				2583C38D34F7E97551AB5EBA1F560ACE /* UserNotificationAttributes.swift in Sources */,
 				5089F032F716DD35CE16E8F8305ED746 /* UserNotificationPayload.swift in Sources */,
