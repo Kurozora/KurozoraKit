@@ -1,4 +1,4 @@
-<p align="center"><img src=".github/Assets/KurozoraKit_icon.png" width="256px"></p>
+<p align="center"><img src=".github/Assets/KurozoraKit.png" width="256px"></p>
 
 <p align="center">
     <sup><b>The magic behind Kurozora app</b></sup>
