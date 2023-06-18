@@ -1,6 +1,6 @@
 author: "Kurozora"
 author_url: "https://github.com/Kurozora"
-copyright: "Copyright © 2018-present Redark. All rights reserved. See [license](https://github.com/Kurozora/KurozoraKit/blob/master/LICENSE)."
+copyright: "MIT. See [license](https://github.com/Kurozora/KurozoraKit/blob/master/LICENSE)."
 readme: README.md
 
 module: KurozoraKit
@@ -10,7 +10,7 @@ github_url: "https://github.com/Kurozora/KurozoraKit"
 github_file_prefix: "https://github.com/Kurozora/KurozoraKit/tree/master"
 
 root_url: "https://developer.kurozora.app/kurozorakit/"
-docset_icon: ".github/Assets/KurozoraKit_icon.png"
+docset_icon: ".github/Assets/KurozoraKit.png"
 dash_url: "https://developer.kurozora.app/kurozorakit/docsets/KurozoraKit.xml"
 
 clean: true
@@ -20,4 +20,4 @@ skip_undocumented: true
 podspec: "KurozoraKit.podspec"
 pod_sources: ["https://cdn.cocoapods.org"]
 
-output: "~/Docs/developer/kurozorakit"
+output: "~/Developer/developer/KurozoraKit"
