@@ -56,7 +56,10 @@ extension User {
 		public var isVerified: Bool
 
 		/// The join date of the user.
-		public let joinDate: Date
+		public let joinedAt: Date
+
+		/// The subscription date of the user.
+		public let subscribedAt: Date?
 
 		/// The follower count of the user.
 		public var followerCount: Int
