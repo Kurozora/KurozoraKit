@@ -9,10 +9,10 @@ extension Episode {
 	/// A root object that stores information about episode relationships, such as the season, and show that belong to it.
 	public struct Relationships: Codable {
 		// MARK: - Properties
-		/// The season belonging to the episode.
-		public let season: SeasonResponse?
+		/// The seasons belonging to the episode.
+		public let seasons: SeasonResponse?
 
-		/// The show belonging to the episode.
-		public let show: ShowResponse?
+		/// The shows belonging to the episode.
+		public let shows: ShowResponse?
 	}
 }
