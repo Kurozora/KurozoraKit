@@ -18,6 +18,9 @@ extension KKEndpoint.Shows {
 		/// The endpoint to the episodes related to a season.
 		case episodes(_ seasonIdentity: SeasonIdentity)
 
+		/// The endpoint to update the watch status of an season.
+		case watched(_ seasonIdentity: SeasonIdentity)
+
 		// MARK: - Properties
 		/// The endpoint value of the Seasons API type.
 		var endpointValue: String {
@@ -26,6 +29,8 @@ extension KKEndpoint.Shows {
 				return "seasons/\(seasonIdentity.id)"
 			case .episodes(let seasonIdentity):
 				return "seasons/\(seasonIdentity.id)/episodes"
+			case .watched(let seasonIdentity):
+				return "seasons/\(seasonIdentity.id)/watched"
 			}
 		}
 	}
