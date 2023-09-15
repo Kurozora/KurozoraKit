@@ -29,7 +29,7 @@ extension KurozoraKit {
 		}
 
 		// Prepare request
-		let episodesDetails = KKEndpoint.Shows.Episodes.details(episodeIdentity).endpointValue
+		let episodesDetails = KKEndpoint.Episodes.details(episodeIdentity).endpointValue
 		let request: APIRequest<EpisodeResponse, KKAPIError> = tron.codable.request(episodesDetails)
 			.method(.get)
 			.parameters(parameters)
@@ -52,7 +52,7 @@ extension KurozoraKit {
 		}
 
 		// Prepare request
-		let episodesWatched = KKEndpoint.Shows.Episodes.watched(episodeIdentity).endpointValue
+		let episodesWatched = KKEndpoint.Episodes.watched(episodeIdentity).endpointValue
 		let request: APIRequest<EpisodeUpdateResponse, KKAPIError> = tron.codable.request(episodesWatched)
 			.method(.post)
 			.headers(headers)
@@ -85,8 +85,8 @@ extension KurozoraKit {
 		}
 		
 		// Prepare request
-		let showsEpisodesRate = KKEndpoint.Shows.Episodes.rate(episodeIdentity).endpointValue
-		let request: APIRequest<KKSuccess, KKAPIError> = tron.codable.request(showsEpisodesRate)
+		let episodesRate = KKEndpoint.Episodes.rate(episodeIdentity).endpointValue
+		let request: APIRequest<KKSuccess, KKAPIError> = tron.codable.request(episodesRate)
 			.method(.post)
 			.parameters(parameters)
 			.headers(headers)
