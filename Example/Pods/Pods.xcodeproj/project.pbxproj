@@ -147,6 +147,12 @@
 		666C897729F92BFD0075B5D6 /* SongFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666C897629F92BFD0075B5D6 /* SongFilter.swift */; };
 		666C897929F92C930075B5D6 /* CharacterFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666C897829F92C930075B5D6 /* CharacterFilter.swift */; };
 		666C897B29F932DD0075B5D6 /* Filterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666C897A29F932DD0075B5D6 /* Filterable.swift */; };
+		66928F7B2A75A68200D12F12 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66928F7A2A75A68200D12F12 /* Review.swift */; };
+		66928F7E2A75A69A00D12F12 /* ReviewAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66928F7D2A75A69A00D12F12 /* ReviewAttributes.swift */; };
+		66928F802A75A6B800D12F12 /* ReviewRelationships.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66928F7F2A75A6B800D12F12 /* ReviewRelationships.swift */; };
+		66928F852A768C8200D12F12 /* ReviewResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66928F832A768AB800D12F12 /* ReviewResponse.swift */; };
+		669A46FF2AB0571C003E7FDB /* SeasonUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669A46FE2AB0571C003E7FDB /* SeasonUpdate.swift */; };
+		669A47012AB05757003E7FDB /* SeasonUpdateResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669A47002AB05757003E7FDB /* SeasonUpdateResponse.swift */; };
 		66D3895829EF4ABE00087E82 /* SearchSuggestionsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D3895629EF4AAB00087E82 /* SearchSuggestionsResponse.swift */; };
 		66E1215C29AFF1130051C4ED /* KurozoraKit+Games.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E1215B29AFF1130051C4ED /* KurozoraKit+Games.swift */; };
 		66E1216129AFF2310051C4ED /* RelatedGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E1216029AFF22D0051C4ED /* RelatedGame.swift */; };
@@ -462,7 +468,7 @@
 		303F4FE4E7822B6517B0BE6A51C84187 /* UserRelationships.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UserRelationships.swift; sourceTree = "<group>"; };
 		313412E5DD66E536DEFBC8E7ED31C00E /* UserNotificationUpdateResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UserNotificationUpdateResponse.swift; sourceTree = "<group>"; };
 		32229C3FD21BF20A578179C0E4F13D85 /* Staff.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Staff.swift; sourceTree = "<group>"; };
-		3377BABE1394902CF07DD13A6F3AB324 /* Pods-KurozoraKit_Tests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-KurozoraKit_Tests"; path = Pods_KurozoraKit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3377BABE1394902CF07DD13A6F3AB324 /* Pods_KurozoraKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KurozoraKit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3468F53CB8A732929AE6DC1BF6D2072E /* SessionDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SessionDelegate.swift; path = Source/SessionDelegate.swift; sourceTree = "<group>"; };
 		35209539ABD47616C612F2949C88136D /* OAuthAction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OAuthAction.swift; sourceTree = "<group>"; };
 		36D1EE0B1E0363E1021A9A14B28AC52B /* ReminderShowResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ReminderShowResponse.swift; sourceTree = "<group>"; };
@@ -554,6 +560,12 @@
 		666C897829F92C930075B5D6 /* CharacterFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterFilter.swift; sourceTree = "<group>"; };
 		666C897A29F932DD0075B5D6 /* Filterable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filterable.swift; sourceTree = "<group>"; };
 		667BCD567D468DCB0F6BCB02E1757D92 /* KurozoraKit+User.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "KurozoraKit+User.swift"; sourceTree = "<group>"; };
+		66928F7A2A75A68200D12F12 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
+		66928F7D2A75A69A00D12F12 /* ReviewAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewAttributes.swift; sourceTree = "<group>"; };
+		66928F7F2A75A6B800D12F12 /* ReviewRelationships.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewRelationships.swift; sourceTree = "<group>"; };
+		66928F832A768AB800D12F12 /* ReviewResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewResponse.swift; sourceTree = "<group>"; };
+		669A46FE2AB0571C003E7FDB /* SeasonUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonUpdate.swift; sourceTree = "<group>"; };
+		669A47002AB05757003E7FDB /* SeasonUpdateResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonUpdateResponse.swift; sourceTree = "<group>"; };
 		66D3895629EF4AAB00087E82 /* SearchSuggestionsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSuggestionsResponse.swift; sourceTree = "<group>"; };
 		66E1215B29AFF1130051C4ED /* KurozoraKit+Games.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KurozoraKit+Games.swift"; sourceTree = "<group>"; };
 		66E1215E29AFF22D0051C4ED /* RelatedGameAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelatedGameAttributes.swift; sourceTree = "<group>"; };
@@ -669,7 +681,7 @@
 		C88300020E3A6DB7D5010E6194BD35CD /* UserRating.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UserRating.swift; sourceTree = "<group>"; };
 		C8F8736E5954F15C223E99D1C097E71E /* TRONCodable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TRONCodable.swift; path = Source/TRON/TRONCodable.swift; sourceTree = "<group>"; };
 		C967957AE1FE4F88805AC5993F139AE8 /* StudioResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StudioResponse.swift; sourceTree = "<group>"; };
-		C98B557ADAC2AA23A9E03629771C4F67 /* KurozoraKit */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = KurozoraKit; path = KurozoraKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C98B557ADAC2AA23A9E03629771C4F67 /* KurozoraKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KurozoraKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA388C479919C97A015268471382B4B1 /* Character.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		CAABCC4C6A3520B097365BFCD22740CC /* Favorite.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
 		CB11938CC7DFAE36592FE138439449EB /* NetworkLoggerPlugin.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NetworkLoggerPlugin.swift; path = Source/TRON/NetworkLoggerPlugin.swift; sourceTree = "<group>"; };
@@ -1204,6 +1216,26 @@
 			path = Filters;
 			sourceTree = "<group>";
 		};
+		66928F792A75A55200D12F12 /* Review */ = {
+			isa = PBXGroup;
+			children = (
+				66928F7A2A75A68200D12F12 /* Review.swift */,
+				66928F7D2A75A69A00D12F12 /* ReviewAttributes.swift */,
+				66928F7F2A75A6B800D12F12 /* ReviewRelationships.swift */,
+				66928F832A768AB800D12F12 /* ReviewResponse.swift */,
+			);
+			path = Review;
+			sourceTree = "<group>";
+		};
+		669A46FD2AB05702003E7FDB /* Watch Status */ = {
+			isa = PBXGroup;
+			children = (
+				669A46FE2AB0571C003E7FDB /* SeasonUpdate.swift */,
+				669A47002AB05757003E7FDB /* SeasonUpdateResponse.swift */,
+			);
+			path = "Watch Status";
+			sourceTree = "<group>";
+		};
 		66D3895529EF4A9900087E82 /* Suggestions */ = {
 			isa = PBXGroup;
 			children = (
@@ -1239,6 +1271,7 @@
 				6632C3EA298688A500702F7C /* Literature */,
 				728BC8F5FB6B49A428ECF886DD824EC2 /* Miscellaneous */,
 				F5234D88F88048FD95F1C00EDE4720C7 /* Person */,
+				66928F792A75A55200D12F12 /* Review */,
 				A2BDE879DDD332F6D08DC9589A24D28B /* Search */,
 				8308C0C203E33FAE751F28A3781B1BD4 /* Season */,
 				0D98AB46ACF90A71D0D8C5C9F45C9FF2 /* Session */,
@@ -1372,6 +1405,7 @@
 				51BF7C0290736EB4E6785B0835DE83D6 /* SeasonAttributes.swift */,
 				AFE4C79F910B27ADC3071694693EEC79 /* SeasonResponse.swift */,
 				DA3E50C92C5F522EE9B1B9BC9E93A5F2 /* Identity */,
+				669A46FD2AB05702003E7FDB /* Watch Status */,
 			);
 			path = Season;
 			sourceTree = "<group>";
@@ -1851,8 +1885,8 @@
 			children = (
 				5D797E9A5C5782CE845840781FA1CC81 /* Alamofire.framework */,
 				E8EE7F078656FABB8F6821D10FF994BB /* KeychainAccess.framework */,
-				C98B557ADAC2AA23A9E03629771C4F67 /* KurozoraKit */,
-				3377BABE1394902CF07DD13A6F3AB324 /* Pods-KurozoraKit_Tests */,
+				C98B557ADAC2AA23A9E03629771C4F67 /* KurozoraKit.framework */,
+				3377BABE1394902CF07DD13A6F3AB324 /* Pods_KurozoraKit_Tests.framework */,
 				934C9384F84C81874A5A4907BCCCA2C8 /* TRON.framework */,
 			);
 			name = Products;
@@ -2023,7 +2057,7 @@
 			);
 			name = KurozoraKit;
 			productName = KurozoraKit;
-			productReference = C98B557ADAC2AA23A9E03629771C4F67 /* KurozoraKit */;
+			productReference = C98B557ADAC2AA23A9E03629771C4F67 /* KurozoraKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		D248FC121099F7D1E014081932AEF45A /* Pods-KurozoraKit_Tests */ = {
@@ -2045,7 +2079,7 @@
 			);
 			name = "Pods-KurozoraKit_Tests";
 			productName = Pods_KurozoraKit_Tests;
-			productReference = 3377BABE1394902CF07DD13A6F3AB324 /* Pods-KurozoraKit_Tests */;
+			productReference = 3377BABE1394902CF07DD13A6F3AB324 /* Pods_KurozoraKit_Tests.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		EAAA1AD3A8A1B59AB91319EE40752C6D /* Alamofire */ = {
@@ -2072,8 +2106,9 @@
 		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1300;
-				LastUpgradeCheck = 1420;
+				LastUpgradeCheck = 1430;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 12.0";
@@ -2247,6 +2282,7 @@
 				59957F24DD37D3041138A11758912830 /* KKSuccess.swift in Sources */,
 				F78ECCCDCC2C8025853B5946B9E5D7BB /* KurozoraKit.swift in Sources */,
 				51FAE76462571EE407B232E29645601F /* KurozoraKit+Cast.swift in Sources */,
+				66928F7E2A75A69A00D12F12 /* ReviewAttributes.swift in Sources */,
 				20B5DFF7A30435CF63B85E46FA7EAF8C /* KurozoraKit+Characters.swift in Sources */,
 				7D499D90B848B3723CE5EAD5DFF5B112 /* KurozoraKit+Episodes.swift in Sources */,
 				474E5974A53925D4CD158B7A3D18EDF9 /* KurozoraKit+Explore.swift in Sources */,
@@ -2257,6 +2293,7 @@
 				666C897529F92BF30075B5D6 /* PersonFilter.swift in Sources */,
 				43014620C991BAD6AB29853E94FA3459 /* KurozoraKit+Me+AccessToken.swift in Sources */,
 				7C6AB8B95FAA0AAABD717E1957A8CAD2 /* KurozoraKit+Me+FavoriteShow.swift in Sources */,
+				66928F802A75A6B800D12F12 /* ReviewRelationships.swift in Sources */,
 				BE485E987950BD62CDB8DB0E1DD37F0C /* KurozoraKit+Me+Feed.swift in Sources */,
 				4037A36D771522886F9557E86299E368 /* KurozoraKit+Me+Library.swift in Sources */,
 				1800253F4BBAA7CB1A75E6BE607EEAE4 /* KurozoraKit+Me+Notifications.swift in Sources */,
@@ -2299,6 +2336,7 @@
 				9D20C4BB683E473CC00F1B2E38DCD4C7 /* MediaStat.swift in Sources */,
 				ABF3F7DA0C088C43770FDC33318B82ED /* Meta.swift in Sources */,
 				65CF056E9EC5EC6E3106518ECA16AAA5 /* MetaResponse.swift in Sources */,
+				66928F852A768C8200D12F12 /* ReviewResponse.swift in Sources */,
 				D41AB9F0BC69C5B3E50BF06A2C64431C /* Notification+KurozoraKit.swift in Sources */,
 				4C47113411AFB6ABECF9293688AF1D06 /* OAuthAction.swift in Sources */,
 				660EEEC52A68450A00F98A2C /* EpisodeRelationships.swift in Sources */,
@@ -2343,6 +2381,7 @@
 				E3BA81B6CF08489E4A48B62A2FA87B1F /* SessionIdentityResponse.swift in Sources */,
 				C5C45465AFBDF0935860C968FD0E9925 /* SessionRelationships.swift in Sources */,
 				EC8F3CF3E0250AD1C06A7034ADF77DD0 /* SessionResponse.swift in Sources */,
+				669A46FF2AB0571C003E7FDB /* SeasonUpdate.swift in Sources */,
 				13B7A4A471EA10D77FB869733B4FD64D /* Settings.swift in Sources */,
 				A2311E25A012D17D4E9C3AEFD2393568 /* SettingsResponse.swift in Sources */,
 				8966869A4769104682DE9BFE0A6D675E /* Show.swift in Sources */,
@@ -2374,6 +2413,7 @@
 				5C5D4AC38024E7DA1CAC3A114453DA18 /* StaffRelationships.swift in Sources */,
 				2D957B886B57ECED2D4E4B93C480D862 /* StaffResponse.swift in Sources */,
 				019398D3542611E83EC334AB1659204F /* StaffRole.swift in Sources */,
+				66928F7B2A75A68200D12F12 /* Review.swift in Sources */,
 				A6832E679F41BBEC173843678BB74119 /* String+Date.swift in Sources */,
 				ED5A2750376F2B680DD90A2331E4FE65 /* Studio.swift in Sources */,
 				9DF3AA54E1A32F25F5F2915033019484 /* StudioAttributes.swift in Sources */,
@@ -2387,6 +2427,7 @@
 				47F11B34613BD7CC7AD79CDCE377600E /* ThemeIdentity.swift in Sources */,
 				88E160B966ED94532CE05698E4236993 /* ThemeIdentityResponse.swift in Sources */,
 				AB694EBAEA72225BD42CEF4E6AB753AF /* ThemeResponse.swift in Sources */,
+				669A47012AB05757003E7FDB /* SeasonUpdateResponse.swift in Sources */,
 				B69E4B572F0B6FD70FDB43F6A02C737A /* TVRating.swift in Sources */,
 				4C5116D02EFA923A7E12E47008DC70BA /* UIApplication+KurozoraKit.swift in Sources */,
 				9F72A43336693F573EF359AE6E848594 /* UIDevice+KurozoraKit.swift in Sources */,
@@ -2536,14 +2577,13 @@
 			baseConfigurationReference = 086D76E5901B45C963722E1BF807FA00 /* TRON.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/TRON/TRON-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/TRON/TRON-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -2554,6 +2594,8 @@
 					"@loader_path/Frameworks",
 				);
 				MODULEMAP_FILE = "Target Support Files/TRON/TRON.modulemap";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				PRODUCT_MODULE_NAME = TRON;
 				PRODUCT_NAME = TRON;
 				SDKROOT = iphoneos;
@@ -2571,14 +2613,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BA6947EB06012FD74E2C895D7ADABDCC /* KeychainAccess.release.xcconfig */;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/KeychainAccess/KeychainAccess-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/KeychainAccess/KeychainAccess-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -2589,6 +2630,8 @@
 					"@loader_path/Frameworks",
 				);
 				MODULEMAP_FILE = "Target Support Files/KeychainAccess/KeychainAccess.modulemap";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				PRODUCT_MODULE_NAME = KeychainAccess;
 				PRODUCT_NAME = KeychainAccess;
 				SDKROOT = iphoneos;
@@ -2607,14 +2650,13 @@
 			baseConfigurationReference = E1CCC596E660AAA9A41B90BE00CEA9C3 /* Alamofire.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/Alamofire/Alamofire-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Alamofire/Alamofire-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -2625,6 +2667,8 @@
 					"@loader_path/Frameworks",
 				);
 				MODULEMAP_FILE = "Target Support Files/Alamofire/Alamofire.modulemap";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				PRODUCT_MODULE_NAME = Alamofire;
 				PRODUCT_NAME = Alamofire;
 				SDKROOT = iphoneos;
@@ -2641,14 +2685,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 049DAF25B2C8399973F714A78B6280B0 /* KeychainAccess.debug.xcconfig */;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/KeychainAccess/KeychainAccess-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/KeychainAccess/KeychainAccess-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -2659,6 +2702,8 @@
 					"@loader_path/Frameworks",
 				);
 				MODULEMAP_FILE = "Target Support Files/KeychainAccess/KeychainAccess.modulemap";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				PRODUCT_MODULE_NAME = KeychainAccess;
 				PRODUCT_NAME = KeychainAccess;
 				SDKROOT = iphoneos;
@@ -2730,7 +2775,6 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRIP_INSTALLED_PRODUCT = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -2793,7 +2837,6 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRIP_INSTALLED_PRODUCT = NO;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
@@ -2807,14 +2850,13 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				INFOPLIST_FILE = "Target Support Files/Pods-KurozoraKit_Tests/Pods-KurozoraKit_Tests-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -2825,6 +2867,8 @@
 				);
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-KurozoraKit_Tests/Pods-KurozoraKit_Tests.modulemap";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -2844,14 +2888,13 @@
 			baseConfigurationReference = 95C7BA75947B11F1E7B65BA93BFE6D81 /* KurozoraKit.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/KurozoraKit/KurozoraKit-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/KurozoraKit/KurozoraKit-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -2862,6 +2905,8 @@
 					"@loader_path/Frameworks",
 				);
 				MODULEMAP_FILE = "Target Support Files/KurozoraKit/KurozoraKit.modulemap";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				PRODUCT_MODULE_NAME = KurozoraKit;
 				PRODUCT_NAME = KurozoraKit;
 				SDKROOT = iphoneos;
@@ -2879,14 +2924,13 @@
 			baseConfigurationReference = E9E25A07085FE91D62BE5B497977229F /* KurozoraKit.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/KurozoraKit/KurozoraKit-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/KurozoraKit/KurozoraKit-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -2897,6 +2941,8 @@
 					"@loader_path/Frameworks",
 				);
 				MODULEMAP_FILE = "Target Support Files/KurozoraKit/KurozoraKit.modulemap";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				PRODUCT_MODULE_NAME = KurozoraKit;
 				PRODUCT_NAME = KurozoraKit;
 				SDKROOT = iphoneos;
@@ -2916,14 +2962,13 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				INFOPLIST_FILE = "Target Support Files/Pods-KurozoraKit_Tests/Pods-KurozoraKit_Tests-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -2934,6 +2979,8 @@
 				);
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-KurozoraKit_Tests/Pods-KurozoraKit_Tests.modulemap";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -2952,14 +2999,13 @@
 			baseConfigurationReference = F8DD33827DC92446CB446E87233F4C9F /* TRON.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/TRON/TRON-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/TRON/TRON-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -2970,6 +3016,8 @@
 					"@loader_path/Frameworks",
 				);
 				MODULEMAP_FILE = "Target Support Files/TRON/TRON.modulemap";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				PRODUCT_MODULE_NAME = TRON;
 				PRODUCT_NAME = TRON;
 				SDKROOT = iphoneos;
@@ -2987,14 +3035,13 @@
 			baseConfigurationReference = 299E9C80AB501758F4B68E1248F24EE5 /* Alamofire.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/Alamofire/Alamofire-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Alamofire/Alamofire-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -3005,6 +3052,8 @@
 					"@loader_path/Frameworks",
 				);
 				MODULEMAP_FILE = "Target Support Files/Alamofire/Alamofire.modulemap";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				PRODUCT_MODULE_NAME = Alamofire;
 				PRODUCT_NAME = Alamofire;
 				SDKROOT = iphoneos;
