@@ -160,6 +160,8 @@
 		66E1216129AFF2310051C4ED /* RelatedGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E1216029AFF22D0051C4ED /* RelatedGame.swift */; };
 		66E1216229AFF2310051C4ED /* RelatedGameAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E1215E29AFF22D0051C4ED /* RelatedGameAttributes.swift */; };
 		66E1216329AFF2310051C4ED /* RelatedGameResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E1215F29AFF22D0051C4ED /* RelatedGameResponse.swift */; };
+		66FEC48C2B06BCC90074983F /* FavoriteLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66FEC48B2B06BCC90074983F /* FavoriteLibrary.swift */; };
+		66FEC48E2B06BCFD0074983F /* FavoriteLibraryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66FEC48D2B06BCFD0074983F /* FavoriteLibraryResponse.swift */; };
 		675863AE6A69360C32B69E58C236728E /* FeedMessageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D314DBBA7E7F7AB5BDB7C4325312C7B3 /* FeedMessageRequest.swift */; };
 		68FB2DCB4C77DBCAF9A6037E470F2BDE /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA71BF90F2F350E25992CECAEBC6B49 /* ParameterEncoding.swift */; };
 		698FF943AE07BA1E66CA319C5CBE44D9 /* AppThemeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B4B2CB62259742DA5E49815037DC9D /* AppThemeResponse.swift */; };
@@ -575,6 +577,8 @@
 		66E1215E29AFF22D0051C4ED /* RelatedGameAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelatedGameAttributes.swift; sourceTree = "<group>"; };
 		66E1215F29AFF22D0051C4ED /* RelatedGameResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelatedGameResponse.swift; sourceTree = "<group>"; };
 		66E1216029AFF22D0051C4ED /* RelatedGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelatedGame.swift; sourceTree = "<group>"; };
+		66FEC48B2B06BCC90074983F /* FavoriteLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteLibrary.swift; sourceTree = "<group>"; };
+		66FEC48D2B06BCFD0074983F /* FavoriteLibraryResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteLibraryResponse.swift; sourceTree = "<group>"; };
 		68502FA54DA8FBFC1C4DE441BEE5A0E8 /* KKSuccess.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = KKSuccess.swift; sourceTree = "<group>"; };
 		68DD3ECD4AB0CF1CD2C8EA0993C47690 /* URLEncodedFormEncoder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = URLEncodedFormEncoder.swift; path = Source/URLEncodedFormEncoder.swift; sourceTree = "<group>"; };
 		693B4CFD99F0E8ED85EC0FB20A49781D /* KurozoraKit+Me+Library.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "KurozoraKit+Me+Library.swift"; sourceTree = "<group>"; };
@@ -1267,6 +1271,15 @@
 			path = "Related Games";
 			sourceTree = "<group>";
 		};
+		66FEC48A2B06BC990074983F /* Favorite Library */ = {
+			isa = PBXGroup;
+			children = (
+				66FEC48B2B06BCC90074983F /* FavoriteLibrary.swift */,
+				66FEC48D2B06BCFD0074983F /* FavoriteLibraryResponse.swift */,
+			);
+			path = "Favorite Library";
+			sourceTree = "<group>";
+		};
 		67DC5F31CEAEF91BDC2BB86E869F61B5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -1275,6 +1288,7 @@
 				E945E360FE961C327AB9520884E8F836 /* Character */,
 				4D1F998DB96C4E740DE90B98AEB0158E /* Episode */,
 				03DFEB2EC08CB76E7F057575F1E17D21 /* Explore */,
+				66FEC48A2B06BC990074983F /* Favorite Library */,
 				DFC6CE9A7BAD12972966AF9AB90DC58E /* Feed */,
 				6632C422298B024700702F7C /* Game */,
 				8E57068411CE2F5AAA8BC33618FE4C65 /* Genre */,
@@ -2254,6 +2268,7 @@
 				666C896B29F92BA80075B5D6 /* LiteratureFilter.swift in Sources */,
 				666C896929F92B9A0075B5D6 /* UserFilter.swift in Sources */,
 				6632C3F42986901700702F7C /* Literature.swift in Sources */,
+				66FEC48E2B06BCFD0074983F /* FavoriteLibraryResponse.swift in Sources */,
 				47CD983C94C8E655679521578674C701 /* ExploreCategoryResponse.swift in Sources */,
 				D06468C353541F81695E67B7D445D2F2 /* ExploreCategorySize.swift in Sources */,
 				F4AE3EAD1304BE6071715F92533966B6 /* ExploreCategoryType.swift in Sources */,
@@ -2451,6 +2466,7 @@
 				805835061EF58CA1BD30E4D0238C7539 /* User.swift in Sources */,
 				13F0539B9AEDE89B6A94C873063B1FBE /* UserAttributes.swift in Sources */,
 				7ACB5AB9D135AC99E0C714E4D9EFB555 /* UserIdentity.swift in Sources */,
+				66FEC48C2B06BCC90074983F /* FavoriteLibrary.swift in Sources */,
 				9E056BFAFB4F5F7F72ED613E2D72F747 /* UserIdentityResponse.swift in Sources */,
 				666C897929F92C930075B5D6 /* CharacterFilter.swift in Sources */,
 				FA2EDA66AA61408D553F229E22B20C42 /* UserNotification.swift in Sources */,
