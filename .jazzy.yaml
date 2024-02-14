@@ -4,7 +4,7 @@ copyright: "MIT. See [license](https://github.com/Kurozora/KurozoraKit/blob/mast
 readme: README.md
 
 module: KurozoraKit
-module_version: 1.10.2
+module_version: 1.10.3
 
 github_url: "https://github.com/Kurozora/KurozoraKit"
 github_file_prefix: "https://github.com/Kurozora/KurozoraKit/tree/master"
