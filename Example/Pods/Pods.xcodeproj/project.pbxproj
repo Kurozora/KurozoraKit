@@ -122,7 +122,6 @@
 		661981612B6995030078CE32 /* RecapItemRelationships.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661981602B6995030078CE32 /* RecapItemRelationships.swift */; };
 		6627FFE8298B20AE00733729 /* KurozoraKit+Literatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6627FFE7298B20AE00733729 /* KurozoraKit+Literatures.swift */; };
 		6627FFEE2990758600733729 /* LibraryUpdateResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496B62B2C5C27B65DAF3B79A88805958 /* LibraryUpdateResponse.swift */; };
-		6627FFEF2990758600733729 /* LibraryUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29467DD133993946383C657141D35947 /* LibraryUpdate.swift */; };
 		6627FFF02990758600733729 /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6627FFEC2990748200733729 /* Library.swift */; };
 		6627FFF12990758600733729 /* LibraryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6627FFE92990742100733729 /* LibraryResponse.swift */; };
 		6632C3F32986901400702F7C /* LiteratureAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6632C3ED298688C300702F7C /* LiteratureAttributes.swift */; };
@@ -140,6 +139,7 @@
 		6632C431298B03B300702F7C /* GameRelationships.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6632C42C298B03AE00702F7C /* GameRelationships.swift */; };
 		6632C432298B03B300702F7C /* GameResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6632C42D298B03AF00702F7C /* GameResponse.swift */; };
 		6632C433298B03B300702F7C /* GameAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6632C42B298B03AE00702F7C /* GameAttributes.swift */; };
+		663E088D2B8B8EA9001F9A62 /* HiddenStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663E088C2B8B8EA9001F9A62 /* HiddenStatus.swift */; };
 		6664C7492AEBCDDC00E5CCB3 /* StaffIdentityResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6664C7482AEBCDDC00E5CCB3 /* StaffIdentityResponse.swift */; };
 		6664C74C2AEBCE0B00E5CCB3 /* StaffIdentity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6664C74B2AEBCE0B00E5CCB3 /* StaffIdentity.swift */; };
 		666C896429F92B000075B5D6 /* KKSearchFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666C896329F92B000075B5D6 /* KKSearchFilter.swift */; };
@@ -467,7 +467,6 @@
 		2868798C9501AAC8CEDDEE3CCA2E90E4 /* KurozoraKit+Cast.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "KurozoraKit+Cast.swift"; sourceTree = "<group>"; };
 		289CB03437E797B954E3DCFE7B5FD29E /* FeedMessageUpdateResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FeedMessageUpdateResponse.swift; sourceTree = "<group>"; };
 		2926A2C9E714A17014C06EA4A51A96A3 /* KKEndpoint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KKEndpoint.swift; path = KurozoraKit/Classes/KKEndpoint.swift; sourceTree = "<group>"; };
-		29467DD133993946383C657141D35947 /* LibraryUpdate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LibraryUpdate.swift; sourceTree = "<group>"; };
 		299E9C80AB501758F4B68E1248F24EE5 /* Alamofire.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Alamofire.release.xcconfig; sourceTree = "<group>"; };
 		2A49FA4CA9B7DC54B742F8B38673669F /* UserAttributes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UserAttributes.swift; sourceTree = "<group>"; };
 		2AA71BF90F2F350E25992CECAEBC6B49 /* ParameterEncoding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParameterEncoding.swift; path = Source/ParameterEncoding.swift; sourceTree = "<group>"; };
@@ -566,6 +565,7 @@
 		6632C42B298B03AE00702F7C /* GameAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameAttributes.swift; sourceTree = "<group>"; };
 		6632C42C298B03AE00702F7C /* GameRelationships.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRelationships.swift; sourceTree = "<group>"; };
 		6632C42D298B03AF00702F7C /* GameResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameResponse.swift; sourceTree = "<group>"; };
+		663E088C2B8B8EA9001F9A62 /* HiddenStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiddenStatus.swift; sourceTree = "<group>"; };
 		6664C7482AEBCDDC00E5CCB3 /* StaffIdentityResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaffIdentityResponse.swift; sourceTree = "<group>"; };
 		6664C74B2AEBCE0B00E5CCB3 /* StaffIdentity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaffIdentity.swift; sourceTree = "<group>"; };
 		666C896329F92B000075B5D6 /* KKSearchFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KKSearchFilter.swift; sourceTree = "<group>"; };
@@ -1180,7 +1180,6 @@
 		6627FFEB2990743000733729 /* Update */ = {
 			isa = PBXGroup;
 			children = (
-				29467DD133993946383C657141D35947 /* LibraryUpdate.swift */,
 				496B62B2C5C27B65DAF3B79A88805958 /* LibraryUpdateResponse.swift */,
 			);
 			path = Update;
@@ -1780,6 +1779,7 @@
 				CB1717AA8ABAA0BC44C6EB2D5E509549 /* ExploreCategoryType.swift */,
 				9FE585857270B56DACC570D62158B471 /* FavoriteStatus.swift */,
 				B8CF832218798B6E381DC3B4A4FAFEE7 /* FollowStatus.swift */,
+				663E088C2B8B8EA9001F9A62 /* HiddenStatus.swift */,
 				0E5790DC9737BAE264709B9A4752A1F0 /* KKLibrary.swift */,
 				666C896329F92B000075B5D6 /* KKSearchFilter.swift */,
 				F7B4191F29E780192849287BEB2CCB2B /* KKSearchScope.swift */,
@@ -2363,6 +2363,7 @@
 				66928F7E2A75A69A00D12F12 /* ReviewAttributes.swift in Sources */,
 				20B5DFF7A30435CF63B85E46FA7EAF8C /* KurozoraKit+Characters.swift in Sources */,
 				7D499D90B848B3723CE5EAD5DFF5B112 /* KurozoraKit+Episodes.swift in Sources */,
+				663E088D2B8B8EA9001F9A62 /* HiddenStatus.swift in Sources */,
 				474E5974A53925D4CD158B7A3D18EDF9 /* KurozoraKit+Explore.swift in Sources */,
 				5A5D440339EA1856697A29E9FEC24873 /* KurozoraKit+Feed.swift in Sources */,
 				C9D2495B6D0EC47681303C5AE5CCA94B /* KurozoraKit+Genres.swift in Sources */,
@@ -2410,7 +2411,6 @@
 				DB87C60FE76373CB260C063A900EBCC4 /* LibraryImport.swift in Sources */,
 				666C896D29F92BCC0075B5D6 /* StudioFilter.swift in Sources */,
 				191FD42079F709C1F220A14767E68EF7 /* Media.swift in Sources */,
-				6627FFEF2990758600733729 /* LibraryUpdate.swift in Sources */,
 				20C3A97AE5733F1A37BBC60527047D42 /* MediaRelation.swift in Sources */,
 				6632C414298695AF00702F7C /* RelatedLiterature.swift in Sources */,
 				9D20C4BB683E473CC00F1B2E38DCD4C7 /* MediaStat.swift in Sources */,
