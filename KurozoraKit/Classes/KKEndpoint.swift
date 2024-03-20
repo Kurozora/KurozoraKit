@@ -490,6 +490,9 @@ extension KKEndpoint {
 		/// The endpoint to the shows of a song.
 		case shows(_ songIdentity: SongIdentity)
 
+		/// The endpoint to the games of a song.
+		case games(_ songIdentity: SongIdentity)
+
 		// MARK: - Properties
 		/// The endpoint value of the Songs API type.
 		var endpointValue: String {
@@ -498,6 +501,8 @@ extension KKEndpoint {
 				return "songs/\(songIdentity.id)"
 			case .shows(let songIdentity):
 				return "songs/\(songIdentity.id)/anime"
+			case .games(let songIdentity):
+				return "songs/\(songIdentity.id)/games"
 			}
 		}
 	}
