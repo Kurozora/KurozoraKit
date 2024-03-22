@@ -166,6 +166,8 @@
 		669A47012AB05757003E7FDB /* SeasonUpdateResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669A47002AB05757003E7FDB /* SeasonUpdateResponse.swift */; };
 		66D17C7D2B65B3FB00373D3D /* RecapItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D17C7C2B65B3FB00373D3D /* RecapItemType.swift */; };
 		66D3895829EF4ABE00087E82 /* SearchSuggestionsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D3895629EF4AAB00087E82 /* SearchSuggestionsResponse.swift */; };
+		66D921712BAE44370068C685 /* ReviewIdentityResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D9216F2BAE441E0068C685 /* ReviewIdentityResponse.swift */; };
+		66D921732BAE443A0068C685 /* ReviewIdentity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D921722BAE443A0068C685 /* ReviewIdentity.swift */; };
 		66E1215C29AFF1130051C4ED /* KurozoraKit+Games.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E1215B29AFF1130051C4ED /* KurozoraKit+Games.swift */; };
 		66E1216129AFF2310051C4ED /* RelatedGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E1216029AFF22D0051C4ED /* RelatedGame.swift */; };
 		66E1216229AFF2310051C4ED /* RelatedGameAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E1215E29AFF22D0051C4ED /* RelatedGameAttributes.swift */; };
@@ -593,6 +595,8 @@
 		669A47002AB05757003E7FDB /* SeasonUpdateResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonUpdateResponse.swift; sourceTree = "<group>"; };
 		66D17C7C2B65B3FB00373D3D /* RecapItemType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecapItemType.swift; sourceTree = "<group>"; };
 		66D3895629EF4AAB00087E82 /* SearchSuggestionsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSuggestionsResponse.swift; sourceTree = "<group>"; };
+		66D9216F2BAE441E0068C685 /* ReviewIdentityResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewIdentityResponse.swift; sourceTree = "<group>"; };
+		66D921722BAE443A0068C685 /* ReviewIdentity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewIdentity.swift; sourceTree = "<group>"; };
 		66E1215B29AFF1130051C4ED /* KurozoraKit+Games.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KurozoraKit+Games.swift"; sourceTree = "<group>"; };
 		66E1215E29AFF22D0051C4ED /* RelatedGameAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelatedGameAttributes.swift; sourceTree = "<group>"; };
 		66E1215F29AFF22D0051C4ED /* RelatedGameResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelatedGameResponse.swift; sourceTree = "<group>"; };
@@ -1276,6 +1280,7 @@
 		66928F792A75A55200D12F12 /* Review */ = {
 			isa = PBXGroup;
 			children = (
+				66D9216E2BAE44010068C685 /* Identity */,
 				66928F7A2A75A68200D12F12 /* Review.swift */,
 				66928F7D2A75A69A00D12F12 /* ReviewAttributes.swift */,
 				66928F7F2A75A6B800D12F12 /* ReviewRelationships.swift */,
@@ -1299,6 +1304,15 @@
 				66D3895629EF4AAB00087E82 /* SearchSuggestionsResponse.swift */,
 			);
 			path = Suggestions;
+			sourceTree = "<group>";
+		};
+		66D9216E2BAE44010068C685 /* Identity */ = {
+			isa = PBXGroup;
+			children = (
+				66D921722BAE443A0068C685 /* ReviewIdentity.swift */,
+				66D9216F2BAE441E0068C685 /* ReviewIdentityResponse.swift */,
+			);
+			path = Identity;
 			sourceTree = "<group>";
 		};
 		66E1215D29AFF2230051C4ED /* Related Games */ = {
@@ -2392,6 +2406,7 @@
 				805E11824D5EBD4ADE92FF40A02EE2C2 /* KurozoraKit+Studios.swift in Sources */,
 				7D2FF820333986A10ED639EAAB9CBF67 /* KurozoraKit+Theme.swift in Sources */,
 				4E00CBB0E2AAF8E8DE012899AE09A841 /* KurozoraKit+ThemeStore.swift in Sources */,
+				66D921712BAE44370068C685 /* ReviewIdentityResponse.swift in Sources */,
 				66E1216129AFF2310051C4ED /* RelatedGame.swift in Sources */,
 				452CADC38E51FFF7642A496416911578 /* KurozoraKit+User.swift in Sources */,
 				6632C432298B03B300702F7C /* GameResponse.swift in Sources */,
@@ -2514,6 +2529,7 @@
 				47F11B34613BD7CC7AD79CDCE377600E /* ThemeIdentity.swift in Sources */,
 				88E160B966ED94532CE05698E4236993 /* ThemeIdentityResponse.swift in Sources */,
 				AB694EBAEA72225BD42CEF4E6AB753AF /* ThemeResponse.swift in Sources */,
+				66D921732BAE443A0068C685 /* ReviewIdentity.swift in Sources */,
 				669A47012AB05757003E7FDB /* SeasonUpdateResponse.swift in Sources */,
 				B69E4B572F0B6FD70FDB43F6A02C737A /* TVRating.swift in Sources */,
 				4C5116D02EFA923A7E12E47008DC70BA /* UIApplication+KurozoraKit.swift in Sources */,
