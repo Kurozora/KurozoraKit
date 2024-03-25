@@ -270,7 +270,7 @@ extension KurozoraKit {
 		return request.sender()
 	}
 
-	/// Fetch the profile details of the given user user identity.
+	/// Fetch the profile details of the given user identity.
 	///
 	/// - Parameters:
 	///    - userIdentity: The identity of the user whose profile details should be fetched.
