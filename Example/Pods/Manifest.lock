@@ -1,7 +1,7 @@
 PODS:
-  - Alamofire (5.6.4)
+  - Alamofire (5.9.1)
   - KeychainAccess (4.2.2)
-  - KurozoraKit (1.3.5):
+  - KurozoraKit (1.12.2):
     - KeychainAccess
     - TRON (= 5.5.0-beta.1)
   - TRON (5.5.0-beta.1):
@@ -24,11 +24,11 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Alamofire: 4e95d97098eacb88856099c4fc79b526a299e48c
+  Alamofire: f36a35757af4587d8e4f4bfa223ad10be2422b8c
   KeychainAccess: c0c4f7f38f6fc7bbe58f5702e25f7bd2f65abf51
-  KurozoraKit: 5fcdbf673c634f891f20e7386efaa538ca7697cf
+  KurozoraKit: 7d5181d36e4edc1e8f2a3ef576491876701b1d83
   TRON: 722c4dcb33b98722b567153a436ec0db26c50d14
 
 PODFILE CHECKSUM: eb7e277b33a87bdd79eba5ba5ab3d31cba69c023
 
-COCOAPODS: 1.11.3
+COCOAPODS: 1.15.2

@@ -1,21 +1,21 @@
 {
   "name": "KurozoraKit",
-  "version": "1.3.5",
+  "version": "1.12.2",
   "summary": "KurozoraKit is a simple to use framework for interacting with the Kurozora API.",
-  "description": "KurozoraKit lets users manage their anime library and access many other services from your app. When users provide permission to access their Kurozora account, they can use your app to share anime, add anime to their library, and discover any of the millions of anime in the Kurozora catalog. If your app detects that the user is not yet a Kurozora member, you can offer them to create an account within your app.",
+  "description": "KurozoraKit lets users manage their anime, manga, games and music library and access many other services from your app. When users provide permission to access their Kurozora account, they can use your app to share anime, add it to their library, and discover any of the thousands of content in the Kurozora catalog. If your app detects that the user is not yet a Kurozora member, you can offer them to create an account within your app.",
   "homepage": "https://github.com/Kurozora/KurozoraKit",
   "license": {
-    "type": "AGPLv3.0",
+    "type": "GPLv3.0",
     "file": "LICENSE"
   },
   "authors": {
-    "kiritokatklian": "casillaskhoren1@gmail.com"
+    "Kurozora": "kurozoraapp@gmail.com"
   },
   "source": {
     "git": "https://github.com/Kurozora/KurozoraKit.git",
-    "tag": "1.3.5"
+    "tag": "1.12.2"
   },
-  "social_media_url": "https://twitter.com/katklian",
+  "social_media_url": "https://twitter.com/KurozoraApp",
   "platforms": {
     "ios": "15.0"
   },
