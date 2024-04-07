@@ -134,6 +134,10 @@
 		63D7C69A553A003404DE53A6EFB6B8B5 /* TRON-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 57883D0E7186F4FD35978C201A994082 /* TRON-dummy.m */; };
 		658851DB5714FE920B2FFE69DDC48D8C /* KurozoraKit+Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54BE8656CB8539499A6E3913B4DD6832 /* KurozoraKit+Feed.swift */; };
 		6610A9F344C83E3988F3FE732F65FB09 /* GameIdentity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13F38FFAB49B783204D8BB1BE60466A /* GameIdentity.swift */; };
+		6631A2B42BC28529008356F6 /* KurozoraKit+Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6631A2B32BC28529008356F6 /* KurozoraKit+Images.swift */; };
+		6631A2B82BC28663008356F6 /* MediaResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6631A2B72BC28663008356F6 /* MediaResponse.swift */; };
+		6631A2BA2BC28A99008356F6 /* MediaKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6631A2B92BC28A99008356F6 /* MediaKind.swift */; };
+		6631A2BC2BC28AA8008356F6 /* MediaCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6631A2BB2BC28AA8008356F6 /* MediaCollection.swift */; };
 		66986115D22404F162E269C6420EB742 /* RelatedLiteratureResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5738A78E55B82A4C9A53DE8137A00A2E /* RelatedLiteratureResponse.swift */; };
 		67C6476BC34CCE3DB7000C00B7E00273 /* RelatedGameAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB53350C608488DD0E9563EC5E96927B /* RelatedGameAttributes.swift */; };
 		681A29C350750E9C1A51097A979365B7 /* KKEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531A1A47514D325B88D2F246AE58342E /* KKEndpoint.swift */; };
@@ -439,7 +443,7 @@
 		076507522A04297D163F1953E99DD32D /* KurozoraKit+Studios.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "KurozoraKit+Studios.swift"; sourceTree = "<group>"; };
 		085C47D86339246C9A0E473913769106 /* UserNotificationUpdate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UserNotificationUpdate.swift; sourceTree = "<group>"; };
 		085DBCE7DD98588B2ED103B1C1F36026 /* Alamofire-Alamofire */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "Alamofire-Alamofire"; path = Alamofire.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
-		087B2572667AB4F309C3C3F8180291B8 /* KurozoraKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = KurozoraKit.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		087B2572667AB4F309C3C3F8180291B8 /* KurozoraKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = KurozoraKit.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		087D7AA4D01FCEF78D17984A40E1EEF5 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
 		091CAA6F66976F246350D962568C1D0C /* ShowFilter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ShowFilter.swift; sourceTree = "<group>"; };
 		0B2472A34424FAF2C381FCF22832E54A /* KurozoraKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KurozoraKit-prefix.pch"; sourceTree = "<group>"; };
@@ -581,12 +585,16 @@
 		63195DF0F9F7403F0578B62179CEDA7B /* RetryPolicy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RetryPolicy.swift; path = Source/Features/RetryPolicy.swift; sourceTree = "<group>"; };
 		631AF131B159A90BDC00C69CADF1FFE2 /* StudioResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StudioResponse.swift; sourceTree = "<group>"; };
 		65ED10D22F835932CC927A7B386C40A5 /* ExploreCategoryIdentityResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ExploreCategoryIdentityResponse.swift; sourceTree = "<group>"; };
+		6631A2B32BC28529008356F6 /* KurozoraKit+Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KurozoraKit+Images.swift"; sourceTree = "<group>"; };
+		6631A2B72BC28663008356F6 /* MediaResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaResponse.swift; sourceTree = "<group>"; };
+		6631A2B92BC28A99008356F6 /* MediaKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaKind.swift; sourceTree = "<group>"; };
+		6631A2BB2BC28AA8008356F6 /* MediaCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCollection.swift; sourceTree = "<group>"; };
 		667DEDB1841EE6E16696CA91934AFB45 /* ShowAttributes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ShowAttributes.swift; sourceTree = "<group>"; };
 		679BD420E825581122E372CE5589E802 /* KurozoraKit+Me+AccessToken.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "KurozoraKit+Me+AccessToken.swift"; sourceTree = "<group>"; };
 		67E8220E87898AEF97219DFC18129EB2 /* UserIdentity.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UserIdentity.swift; sourceTree = "<group>"; };
 		68314FACAC10B97E3CD49BCDF48D0427 /* User.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		6868F5C2CDF10B3C5D194304443373C1 /* ResponseSerialization.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ResponseSerialization.swift; path = Source/Features/ResponseSerialization.swift; sourceTree = "<group>"; };
-		686B0383E185064867672C7771E1B1C1 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		686B0383E185064867672C7771E1B1C1 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		68B58998D35EFFFB869199B5B195502C /* Plugin.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Plugin.swift; path = Source/TRON/Plugin.swift; sourceTree = "<group>"; };
 		69AF2BDAB4AC56DBECAA93C07C1B02F0 /* APIStub.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = APIStub.swift; path = Source/TRON/APIStub.swift; sourceTree = "<group>"; };
 		69CE25FF894898E46E4007B79ED732C2 /* KurozoraKit+ThemeStore.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "KurozoraKit+ThemeStore.swift"; sourceTree = "<group>"; };
@@ -618,7 +626,7 @@
 		7B1D5A95ED0C366111C53BBE89DF5F14 /* KeychainAccess-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KeychainAccess-umbrella.h"; sourceTree = "<group>"; };
 		7BAF42ED96FEBBA9577E432F14E189D2 /* FeedMessage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FeedMessage.swift; sourceTree = "<group>"; };
 		7CFDF56AE8118F0290CCA000ECB51480 /* GameIdentityResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GameIdentityResponse.swift; sourceTree = "<group>"; };
-		7E8D542957296904C49DBE34AF6A7343 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = Source/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		7E8D542957296904C49DBE34AF6A7343 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = Source/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		8116602C02B77B2D6EBACD8D66C5AED9 /* WatchStatus.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WatchStatus.swift; sourceTree = "<group>"; };
 		8192A6290CB9DEAF99959596AA87E62C /* AppThemeFilter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AppThemeFilter.swift; sourceTree = "<group>"; };
 		839BF4265747BB91AF0C28F6176601C8 /* EpisodeIdentity.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EpisodeIdentity.swift; sourceTree = "<group>"; };
@@ -659,7 +667,7 @@
 		9977EE683BE43B39F55E9BC058A387A3 /* Combine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Combine.swift; path = Source/TRON/Combine.swift; sourceTree = "<group>"; };
 		9CE58FC93D3B7499512FE6AE9A76A390 /* HTTPHeaders.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HTTPHeaders.swift; path = Source/Core/HTTPHeaders.swift; sourceTree = "<group>"; };
 		9D155762890AAF99DEFF8F4259AC4567 /* PersonIdentityResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PersonIdentityResponse.swift; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9DA0257AF89075A68E5651CE30EC39FB /* ExploreCategorySize.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ExploreCategorySize.swift; sourceTree = "<group>"; };
 		9DCE393E6817DE123D940F7D459B6D63 /* GenreAttributes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GenreAttributes.swift; sourceTree = "<group>"; };
 		9EB911ADA78DCC92471F1A7651D11200 /* FeedMessageUpdateRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FeedMessageUpdateRequest.swift; sourceTree = "<group>"; };
@@ -725,7 +733,7 @@
 		CAB8D8991AEBEA61FE8236B06EB05193 /* KurozoraKit+Cast.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "KurozoraKit+Cast.swift"; sourceTree = "<group>"; };
 		CABA6FF6AB4FA34AD98A6D4EC9D5DD98 /* ParameterEncoder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParameterEncoder.swift; path = Source/Core/ParameterEncoder.swift; sourceTree = "<group>"; };
 		CC4C9AF7F8131D5D30A0CE1AE18D1D24 /* APIError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = APIError.swift; path = Source/TRON/APIError.swift; sourceTree = "<group>"; };
-		CDDC31D915041A00E593D944FFB2E845 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		CDDC31D915041A00E593D944FFB2E845 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		CE2B979086256404A3E13D258E57F346 /* Character.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		CE83D805308CD185028705584D3757C1 /* Receipt.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Receipt.swift; sourceTree = "<group>"; };
 		CF008166763BBFEFC97A06179D1A7412 /* LegalResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LegalResponse.swift; sourceTree = "<group>"; };
@@ -877,7 +885,6 @@
 				36283D834003A349E556C055651C1F41 /* Identity */,
 				FAF1E145FD1040B04DAA155C820C98E8 /* Watch Status */,
 			);
-			name = Episode;
 			path = Episode;
 			sourceTree = "<group>";
 		};
@@ -895,7 +902,6 @@
 				F17EE06F9DF2B523A827FAFDD8C44CD6 /* ShowSongIdentity.swift */,
 				9902CFF8B85CC05DEE64AF023C3E6D81 /* ShowSongIdentityResponse.swift */,
 			);
-			name = Identity;
 			path = Identity;
 			sourceTree = "<group>";
 		};
@@ -905,7 +911,6 @@
 				DAA5782774F9861CE7F6761FAD22AE89 /* StaffIdentity.swift */,
 				AC789BD87C9BAECEA3C9C1CE472FE8CD /* StaffIdentityResponse.swift */,
 			);
-			name = Identity;
 			path = Identity;
 			sourceTree = "<group>";
 		};
@@ -957,7 +962,6 @@
 				623B596E90ECB72122C9A8631183D1E0 /* Resources */,
 				8199A6D58A14D1D33DDE90935CA5126E /* Support Files */,
 			);
-			name = Alamofire;
 			path = Alamofire;
 			sourceTree = "<group>";
 		};
@@ -967,7 +971,6 @@
 				25DFC5BAD37045221BA4D3E9ADC2E13F /* Meta.swift */,
 				6AA108217843498BE4251CBF362CA555 /* MetaResponse.swift */,
 			);
-			name = Meta;
 			path = Meta;
 			sourceTree = "<group>";
 		};
@@ -977,7 +980,6 @@
 				EFE9037EF4645C02D59B762FBED46622 /* SessionIdentity.swift */,
 				94FF0DD26202DDE34D592204BC1CD208 /* SessionIdentityResponse.swift */,
 			);
-			name = Identity;
 			path = Identity;
 			sourceTree = "<group>";
 		};
@@ -1001,7 +1003,6 @@
 				631AF131B159A90BDC00C69CADF1FFE2 /* StudioResponse.swift */,
 				7A049253D657E63E8472579DDC6D5B81 /* Identity */,
 			);
-			name = Studio;
 			path = Studio;
 			sourceTree = "<group>";
 		};
@@ -1012,7 +1013,6 @@
 				8D8CABB3FD6809A8ED718B9A8BDF5B18 /* LanguageAttributes.swift */,
 				B5F0579819FF06FC5C99BC4C37392AFC /* LanguageResponse.swift */,
 			);
-			name = Language;
 			path = Language;
 			sourceTree = "<group>";
 		};
@@ -1023,7 +1023,6 @@
 				845ACCE1AD6C57BC80CCB7058127B17F /* AppThemeAttributes.swift */,
 				322E60669F23F396233C06296463A3AA /* AppThemeResponse.swift */,
 			);
-			name = "App Theme";
 			path = "App Theme";
 			sourceTree = "<group>";
 		};
@@ -1033,7 +1032,6 @@
 				171C7FFD1F1B13D826C425FDF5601654 /* Notification+KurozoraKit.swift */,
 				1E1269A92EA32B0A3A81317EB442F15B /* String+Date.swift */,
 			);
-			name = Foundation;
 			path = Foundation;
 			sourceTree = "<group>";
 		};
@@ -1043,7 +1041,6 @@
 				522BB5A1CA6B197B4C27BD5A088EE5E4 /* CastIdentity.swift */,
 				4E30FACA003223882D3AAE8BC463E3D8 /* CastIdentityResponse.swift */,
 			);
-			name = Identity;
 			path = Identity;
 			sourceTree = "<group>";
 		};
@@ -1053,7 +1050,6 @@
 				C663E80F983AF69031DAF7E8AD1D4AEC /* ReviewIdentity.swift */,
 				A926B49A1C2F2C1BF8B8D0D26A79C96E /* ReviewIdentityResponse.swift */,
 			);
-			name = Identity;
 			path = Identity;
 			sourceTree = "<group>";
 		};
@@ -1063,7 +1059,6 @@
 				EC63E16D0CAFBF5AF30C4AFEA8DD576B /* SeasonUpdate.swift */,
 				DDC0A6631B53EC1472DEAE5E5E28943B /* SeasonUpdateResponse.swift */,
 			);
-			name = "Watch Status";
 			path = "Watch Status";
 			sourceTree = "<group>";
 		};
@@ -1073,7 +1068,6 @@
 				839BF4265747BB91AF0C28F6176601C8 /* EpisodeIdentity.swift */,
 				C72CF32F21B5C93B7D975FE3C23239C6 /* EpisodeIdentityResponse.swift */,
 			);
-			name = Identity;
 			path = Identity;
 			sourceTree = "<group>";
 		};
@@ -1083,7 +1077,6 @@
 				7421C97237B51475C7DC724AEBDEC450 /* ThemeIdentity.swift */,
 				DA5DAF8A64B06E9AAC5F1507CB7075CF /* ThemeIdentityResponse.swift */,
 			);
-			name = Identity;
 			path = Identity;
 			sourceTree = "<group>";
 		};
@@ -1093,7 +1086,6 @@
 				22058C3AEDDEEEA6EC17D1180201E7BC /* ExploreCategoryIdentity.swift */,
 				65ED10D22F835932CC927A7B386C40A5 /* ExploreCategoryIdentityResponse.swift */,
 			);
-			name = Identity;
 			path = Identity;
 			sourceTree = "<group>";
 		};
@@ -1104,7 +1096,6 @@
 				33DE2439FCBC31E59A804FF787509B69 /* PlatformAttributes.swift */,
 				EDC8EFF709C85C52C791CA0FA1EE10EA /* PlatformResponse.swift */,
 			);
-			name = Platform;
 			path = Platform;
 			sourceTree = "<group>";
 		};
@@ -1133,7 +1124,6 @@
 				E2606B66F3A9A20EB20681326F0A142C /* ReceiptAttributes.swift */,
 				56B7F1D8B4B0830E2707343D425A1889 /* ReceiptResponse.swift */,
 			);
-			name = Receipt;
 			path = Receipt;
 			sourceTree = "<group>";
 		};
@@ -1152,7 +1142,6 @@
 			children = (
 				3C50C0091417B2BAEC296AAAF8856F79 /* FeedMessageIdentity.swift */,
 			);
-			name = Identity;
 			path = Identity;
 			sourceTree = "<group>";
 		};
@@ -1164,7 +1153,6 @@
 				8BA3F3C734D5AB20C04D129449C28BD2 /* ThemeResponse.swift */,
 				378B113DBC821568FC9C6467200A10AA /* Identity */,
 			);
-			name = Themes;
 			path = Themes;
 			sourceTree = "<group>";
 		};
@@ -1175,7 +1163,6 @@
 				DB53350C608488DD0E9563EC5E96927B /* RelatedGameAttributes.swift */,
 				3BC9758E3DBD5B73A828E1565AED40F5 /* RelatedGameResponse.swift */,
 			);
-			name = "Related Games";
 			path = "Related Games";
 			sourceTree = "<group>";
 		};
@@ -1196,7 +1183,6 @@
 				A13F38FFAB49B783204D8BB1BE60466A /* GameIdentity.swift */,
 				7CFDF56AE8118F0290CCA000ECB51480 /* GameIdentityResponse.swift */,
 			);
-			name = Identity;
 			path = Identity;
 			sourceTree = "<group>";
 		};
@@ -1205,7 +1191,6 @@
 			children = (
 				3AC0DC303FFF30F731C0723DE74E58B6 /* SearchSuggestionsResponse.swift */,
 			);
-			name = Suggestions;
 			path = Suggestions;
 			sourceTree = "<group>";
 		};
@@ -1220,7 +1205,6 @@
 				B0F71225F941AC5839C5D86F95F168EA /* Location */,
 				4032DD7AA8C272CAA35E866AF49AF26F /* Platform */,
 			);
-			name = Session;
 			path = Session;
 			sourceTree = "<group>";
 		};
@@ -1230,7 +1214,6 @@
 				A31FD3FFBE469A2EFCD75480EB04CBF7 /* Favorite.swift */,
 				F988DFBDC8259283DB6524CA75794400 /* FavoriteResponse.swift */,
 			);
-			name = Favorite;
 			path = Favorite;
 			sourceTree = "<group>";
 		};
@@ -1240,7 +1223,6 @@
 				0F74905DC93E930EC1674B2A7EDE8C6F /* LiteratureIdentity.swift */,
 				DFB9128AB7B9FAD324A189B1C3E873DB /* LiteratureIdentityResponse.swift */,
 			);
-			name = Identity;
 			path = Identity;
 			sourceTree = "<group>";
 		};
@@ -1250,7 +1232,6 @@
 				085C47D86339246C9A0E473913769106 /* UserNotificationUpdate.swift */,
 				8ACB9897F0D8AA45B6AC50B1E75B0846 /* UserNotificationUpdateResponse.swift */,
 			);
-			name = Update;
 			path = Update;
 			sourceTree = "<group>";
 		};
@@ -1262,7 +1243,6 @@
 				BC1B0828207F3D06ABB2A0741B244F0C /* GenreResponse.swift */,
 				7FF2E0FDBFF88738A1A8D3DD85263D9A /* Identity */,
 			);
-			name = Genre;
 			path = Genre;
 			sourceTree = "<group>";
 		};
@@ -1272,7 +1252,6 @@
 				4BBBF283F7F4FC19010551F652901184 /* FavoriteLibrary.swift */,
 				C1C150A3E2AEB41FF6E76CE44BC21935 /* FavoriteLibraryResponse.swift */,
 			);
-			name = "Favorite Library";
 			path = "Favorite Library";
 			sourceTree = "<group>";
 		};
@@ -1282,7 +1261,6 @@
 				444BB6F6BD24EFF49761340CB4289E5D /* UserUpdate.swift */,
 				B6BADF029FB96190B5964CE5886F0B71 /* UserUpdateResponse.swift */,
 			);
-			name = Update;
 			path = Update;
 			sourceTree = "<group>";
 		};
@@ -1294,6 +1272,15 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
+		6631A2B62BC28650008356F6 /* Media */ = {
+			isa = PBXGroup;
+			children = (
+				A07F2A6AD8A06E5FFBDCC006CACE66BE /* Media.swift */,
+				6631A2B72BC28663008356F6 /* MediaResponse.swift */,
+			);
+			path = Media;
+			sourceTree = "<group>";
+		};
 		669662E8503F73707E5D09451BF927D1 /* KKEndpoint */ = {
 			isa = PBXGroup;
 			children = (
@@ -1301,7 +1288,6 @@
 				B0EAAD1280730460BEBC98692BD34FC4 /* KKEndpoint+Me.swift */,
 				C03AF88AFFBAE4E0CCDF0AB9CCD91760 /* KKEndpoint+Shows.swift */,
 			);
-			name = KKEndpoint;
 			path = KKEndpoint;
 			sourceTree = "<group>";
 		};
@@ -1315,6 +1301,7 @@
 				54BE8656CB8539499A6E3913B4DD6832 /* KurozoraKit+Feed.swift */,
 				DAC8FBDC0C5306E13834010D48555298 /* KurozoraKit+Games.swift */,
 				9316E6CC9D7012051A2570746681F7AB /* KurozoraKit+Genres.swift */,
+				6631A2B32BC28529008356F6 /* KurozoraKit+Images.swift */,
 				70BB2FE54ADEA25166A60A356A8E8612 /* KurozoraKit+Legal.swift */,
 				F602696309FDA53505AA0A7EDBC9A773 /* KurozoraKit+Literatures.swift */,
 				2E228AE62B36F06D4EF5B3DB751C4D46 /* KurozoraKit+Me.swift */,
@@ -1332,7 +1319,6 @@
 				4DCA1AB04B69A2EE597D4CAA61BA0C51 /* KurozoraKit+User.swift */,
 				DD57FFFF1E2622FE3621F8BB6B359E83 /* Me */,
 			);
-			name = KurozoraKit;
 			path = KurozoraKit;
 			sourceTree = "<group>";
 		};
@@ -1353,7 +1339,6 @@
 				DD5DF0282C7BE65725331FB042EADE0F /* LiteratureResponse.swift */,
 				52284E96464C67D3439445D68A3A2500 /* Identity */,
 			);
-			name = Literature;
 			path = Literature;
 			sourceTree = "<group>";
 		};
@@ -1363,7 +1348,6 @@
 				913DEED73EBD451CB10AA1EB0D2512CA /* Settings.swift */,
 				60E29EFA1A5AB351823D8F0640DC723B /* SettingsResponse.swift */,
 			);
-			name = Settings;
 			path = Settings;
 			sourceTree = "<group>";
 		};
@@ -1386,7 +1370,6 @@
 				905189B3D83FF40141BF5968DA33AD18 /* StudioIdentity.swift */,
 				75C2F4304B70B6402EB586DECD5B9CD4 /* StudioIdentityResponse.swift */,
 			);
-			name = Identity;
 			path = Identity;
 			sourceTree = "<group>";
 		};
@@ -1414,7 +1397,6 @@
 				F221753EEC96B4216BFBCAC87F282B2B /* ReviewResponse.swift */,
 				2E9B1850108A3CA7D05514A58B7D5533 /* Identity */,
 			);
-			name = Review;
 			path = Review;
 			sourceTree = "<group>";
 		};
@@ -1426,7 +1408,6 @@
 				EB086C74315A1E4B175B3152EE5ACADC /* ShowSongResponse.swift */,
 				05699E4F1E96BC7A86D69E9285A731F5 /* Identity */,
 			);
-			name = "Show Songs";
 			path = "Show Songs";
 			sourceTree = "<group>";
 		};
@@ -1439,7 +1420,6 @@
 				FE142EA105F99EB127C44E62D08DB6F5 /* CharacterResponse.swift */,
 				E6C5FDF41E6F9A1D9DBDBB0FC1A9CE4E /* Identity */,
 			);
-			name = Character;
 			path = Character;
 			sourceTree = "<group>";
 		};
@@ -1449,7 +1429,6 @@
 				1B7AC06513D9436D302B59C214FB6524 /* GenreIdentity.swift */,
 				86AA8FA55340E783A32A97639745422F /* GenreIdentityResponse.swift */,
 			);
-			name = Identity;
 			path = Identity;
 			sourceTree = "<group>";
 		};
@@ -1461,7 +1440,6 @@
 				E24219655D09D77FFC28B9A894F6DBE6 /* Filters */,
 				4E54B848E312BCCE487CCEC8A336CCE1 /* Suggestions */,
 			);
-			name = Search;
 			path = Search;
 			sourceTree = "<group>";
 		};
@@ -1470,7 +1448,6 @@
 			children = (
 				E341D34F0DCCC453F1FF3AC0F50FC417 /* CastRole.swift */,
 			);
-			name = Attributes;
 			path = Attributes;
 			sourceTree = "<group>";
 		};
@@ -1495,7 +1472,6 @@
 			children = (
 				E4151E271E217C4EF45D22FA0F83FD19 /* Message */,
 			);
-			name = Feed;
 			path = Feed;
 			sourceTree = "<group>";
 		};
@@ -1512,6 +1488,8 @@
 				A7B082C21FC378BBE32DA0A32111AD06 /* KKSearchFilter.swift */,
 				50250709DCA16E889E422B19F47C1807 /* KKSearchScope.swift */,
 				E513CA76A870C918A98916613CC1A6B8 /* KKSearchType.swift */,
+				6631A2BB2BC28AA8008356F6 /* MediaCollection.swift */,
+				6631A2B92BC28A99008356F6 /* MediaKind.swift */,
 				8ABC07C4AC9A13FA1E6C5671628C552D /* OAuthAction.swift */,
 				24B3C35E2DD6F58ABD23C18ACE6DE761 /* ProfileUpdateImageRequest.swift */,
 				2741A708124CDB26BADC2D9FB2CF3D74 /* ReadStatus.swift */,
@@ -1562,7 +1540,6 @@
 				D99F6E27A4CA867051FC12C882D1937D /* Attributes */,
 				0C50B7E2FE336868134157E0D6568C77 /* Identity */,
 			);
-			name = Staff;
 			path = Staff;
 			sourceTree = "<group>";
 		};
@@ -1571,15 +1548,14 @@
 			children = (
 				DAB524E2FF53B03D1714BD4A2E3A17B1 /* KKSuccess.swift */,
 				F4591F10F61EF554EC97ECC4EB2C4FA1 /* LibraryImport.swift */,
-				A07F2A6AD8A06E5FFBDCC006CACE66BE /* Media.swift */,
 				0FE950DBABDBD99C1EDA950FACD30A83 /* MediaStat.swift */,
 				31D46EC2441931DFAECB275412AE590D /* OAuthResponse.swift */,
 				EAEB86FC26F7E957149936CE2D3888A5 /* SignInResponse.swift */,
 				F19FD30EC14A1656CC7CC0BAED7A0C21 /* Error */,
+				6631A2B62BC28650008356F6 /* Media */,
 				1513E7374C703FECBD7AFC3EAB20133B /* Meta */,
 				75C42CDA15A1F437180DF9D8F61E4C8D /* Settings */,
 			);
-			name = Miscellaneous;
 			path = Miscellaneous;
 			sourceTree = "<group>";
 		};
@@ -1601,7 +1577,6 @@
 			children = (
 				182110D0C9CDB2A4A1763EBA68C7F787 /* LibraryUpdateResponse.swift */,
 			);
-			name = Update;
 			path = Update;
 			sourceTree = "<group>";
 		};
@@ -1611,7 +1586,6 @@
 				8D9B2B96AC494D6D59DE5C3503C36269 /* ReminderShow.swift */,
 				05D6CEFC40F121AC6F7DF7214B99953A /* ReminderShowResponse.swift */,
 			);
-			name = Reminder;
 			path = Reminder;
 			sourceTree = "<group>";
 		};
@@ -1621,7 +1595,6 @@
 				AC79D515755FF387FBF9BCD24C197196 /* SeasonIdentity.swift */,
 				D194841116E846A60594BD41AE731949 /* SeasonIdentityResponse.swift */,
 			);
-			name = Identity;
 			path = Identity;
 			sourceTree = "<group>";
 		};
@@ -1708,7 +1681,6 @@
 				990D26744F1D9B4E042F618959350A1D /* PersonIdentity.swift */,
 				9D155762890AAF99DEFF8F4259AC4567 /* PersonIdentityResponse.swift */,
 			);
-			name = Identity;
 			path = Identity;
 			sourceTree = "<group>";
 		};
@@ -1719,7 +1691,6 @@
 				1E983BA442D1C4F9E736DA9AF4CA6378 /* BadgeAttributes.swift */,
 				C61655AA54CA24F9187FEBC28E1A0355 /* BadgeResponse.swift */,
 			);
-			name = Badge;
 			path = Badge;
 			sourceTree = "<group>";
 		};
@@ -1749,7 +1720,6 @@
 				012A6081B2874E143604E07402293FE5 /* GameResponse.swift */,
 				4CBFDE37BE051C73139206AABAB158C3 /* Identity */,
 			);
-			name = Game;
 			path = Game;
 			sourceTree = "<group>";
 		};
@@ -1760,7 +1730,6 @@
 				A648F5CB1C32A6D9F147ADE95D4968A6 /* LocationAttributes.swift */,
 				10D7A5C97318DE0EBF6525FC5E193FA5 /* LocationResponse.swift */,
 			);
-			name = Location;
 			path = Location;
 			sourceTree = "<group>";
 		};
@@ -1770,7 +1739,6 @@
 				8F030132403518215B218872DC582A2C /* FeedMessageUpdate.swift */,
 				0CB9A7C25DCFA96F6EFA6CF94B5BEAF0 /* FeedMessageUpdateResponse.swift */,
 			);
-			name = Update;
 			path = Update;
 			sourceTree = "<group>";
 		};
@@ -1779,7 +1747,6 @@
 			children = (
 				62555227B976083550CE7EED391E0261 /* MediaRelation.swift */,
 			);
-			name = Attributes;
 			path = Attributes;
 			sourceTree = "<group>";
 		};
@@ -1789,7 +1756,6 @@
 				4857D8CB4A9A46FB68BB72BC94B49155 /* FollowUpdate.swift */,
 				F8D8A5F234A67AF10DB855AA17DDD25F /* FollowUpdateResponse.swift */,
 			);
-			name = "Follow Update";
 			path = "Follow Update";
 			sourceTree = "<group>";
 		};
@@ -1810,7 +1776,6 @@
 				A418B389D2E78CCE3720788E9D0B8379 /* Reminder */,
 				7B95D582A49110633182FC7FF4A74CB8 /* Show Songs */,
 			);
-			name = Show;
 			path = Show;
 			sourceTree = "<group>";
 		};
@@ -1823,7 +1788,6 @@
 				FAEF105890B48C1B28F87B133B368CD6 /* TVRating.swift */,
 				25AE61BC52472E91B5BF287C7B96CD24 /* UserRating.swift */,
 			);
-			name = Attributes;
 			path = Attributes;
 			sourceTree = "<group>";
 		};
@@ -1833,7 +1797,6 @@
 				67E8220E87898AEF97219DFC18129EB2 /* UserIdentity.swift */,
 				393289C51EB0161CF8089A632E0420CB /* UserIdentityResponse.swift */,
 			);
-			name = Identity;
 			path = Identity;
 			sourceTree = "<group>";
 		};
@@ -1859,7 +1822,6 @@
 				F068496CA839046E39B8A1F6EA73E058 /* LibraryResponse.swift */,
 				9E60D611EC2E96257E633F0328E0FDB1 /* Update */,
 			);
-			name = Library;
 			path = Library;
 			sourceTree = "<group>";
 		};
@@ -1885,7 +1847,6 @@
 				812F875C70870D6F88A3144C2F86DBA4 /* Attributes */,
 				2571C3F56684717EB643E44591B6368F /* Identity */,
 			);
-			name = Cast;
 			path = Cast;
 			sourceTree = "<group>";
 		};
@@ -1894,7 +1855,6 @@
 			children = (
 				75033297D79B9F8EE606478F282558E1 /* StaffRole.swift */,
 			);
-			name = Attributes;
 			path = Attributes;
 			sourceTree = "<group>";
 		};
@@ -1909,7 +1869,6 @@
 				8424E2DE66CE1824A7C9820A715F24BD /* KurozoraKit+Me+ReminderShow.swift */,
 				2D33719612D2D78ECF9C9C7B416CE96B /* KurozoraKit+Me+Session.swift */,
 			);
-			name = Me;
 			path = Me;
 			sourceTree = "<group>";
 		};
@@ -1922,7 +1881,6 @@
 				11BB66E5AF029E6FA1FE8686D22E748A /* UserNotificationResponse.swift */,
 				54CDE82586ED8CD9BB74214F1913DBC7 /* Update */,
 			);
-			name = "User Notification";
 			path = "User Notification";
 			sourceTree = "<group>";
 		};
@@ -1933,7 +1891,6 @@
 				A0F9E14D58894D608AFE4A66DCA2C978 /* LegalAttributes.swift */,
 				CF008166763BBFEFC97A06179D1A7412 /* LegalResponse.swift */,
 			);
-			name = Legal;
 			path = Legal;
 			sourceTree = "<group>";
 		};
@@ -1945,7 +1902,6 @@
 				181B949986A8358F68153BA5157BCFF1 /* RecapItemRelationships.swift */,
 				2BDD928CDD3C77110ACF924EC2C21E5F /* RecapItemResponse.swift */,
 			);
-			name = "Recap Item";
 			path = "Recap Item";
 			sourceTree = "<group>";
 		};
@@ -1963,7 +1919,6 @@
 				AD3DD55E75771106E7B5C8D49D60FC97 /* StudioFilter.swift */,
 				EB9AA20C4728F612AEAB32360E556EAB /* UserFilter.swift */,
 			);
-			name = Filters;
 			path = Filters;
 			sourceTree = "<group>";
 		};
@@ -1976,7 +1931,6 @@
 				A47DF2294692E4E1A8FCD040C28E55EE /* Identity */,
 				2F59E221C3A6C771F7EE5E7B6FE994FD /* Watch Status */,
 			);
-			name = Season;
 			path = Season;
 			sourceTree = "<group>";
 		};
@@ -1991,7 +1945,6 @@
 				4AA129CC848EEEE3BDFDBE4AFFD8E53B /* Identity */,
 				B6264E23C8A6C9BA8C6357745DDA7552 /* Update */,
 			);
-			name = Message;
 			path = Message;
 			sourceTree = "<group>";
 		};
@@ -2004,7 +1957,6 @@
 				3FDC21486C98BB989554D6B9313523F5 /* PersonResponse.swift */,
 				AB0CE3C8069B296B3AE992B879154A5F /* Identity */,
 			);
-			name = Person;
 			path = Person;
 			sourceTree = "<group>";
 		};
@@ -2017,7 +1969,6 @@
 				39F008C9949769C02388FCED37B7E7E1 /* SongResponse.swift */,
 				F1F58C17B5D02821297938956F2BCF40 /* Identity */,
 			);
-			name = Song;
 			path = Song;
 			sourceTree = "<group>";
 		};
@@ -2027,7 +1978,6 @@
 				369145C13C4D0671469B821B73B7ED61 /* CharacterIdentity.swift */,
 				43C6C01782393D3991E8D4EAEBBB36D7 /* CharacterIdentityResponse.swift */,
 			);
-			name = Identity;
 			path = Identity;
 			sourceTree = "<group>";
 		};
@@ -2038,7 +1988,6 @@
 				A87101780D1CD7B7CF03486A5BECB33E /* UIDevice+KurozoraKit.swift */,
 				FE361184EEA7A44A1CAC03D391F0B6B2 /* UIViewController+KurozoraKit.swift */,
 			);
-			name = UIKit;
 			path = UIKit;
 			sourceTree = "<group>";
 		};
@@ -2048,7 +1997,6 @@
 				A52279AB8EA5C379B5D9FF62F13DEF8A /* Core */,
 				8ED62D75F8B9CADD870F5F9A8ED98F46 /* Support Files */,
 			);
-			name = TRON;
 			path = TRON;
 			sourceTree = "<group>";
 		};
@@ -2065,7 +2013,6 @@
 				46A58B820388A43B74381475A086C7F8 /* Receipt */,
 				5C0D242F4E37CC4CB8562D566F0A1BDF /* Update */,
 			);
-			name = User;
 			path = User;
 			sourceTree = "<group>";
 		};
@@ -2076,7 +2023,6 @@
 				26A635605D870D59A95BD40AD8FF3A57 /* KKError.swift */,
 				40AD2E830C0123F2AA374F3921E98292 /* KKErrorResponse.swift */,
 			);
-			name = Error;
 			path = Error;
 			sourceTree = "<group>";
 		};
@@ -2086,7 +2032,6 @@
 				EEBF4E63DD7AAFA0CFD07FDE0B80EC5F /* SongIdentity.swift */,
 				3A177F24E7DE119F021A47813E527312 /* SongIdentityResponse.swift */,
 			);
-			name = Identity;
 			path = Identity;
 			sourceTree = "<group>";
 		};
@@ -2097,7 +2042,6 @@
 				BA4ECA685D9620C980A39CA7392B84E0 /* RecapAttributes.swift */,
 				F6C6E0D592E4F8289285CFE8D3508FAD /* RecapResponse.swift */,
 			);
-			name = Recap;
 			path = Recap;
 			sourceTree = "<group>";
 		};
@@ -2108,7 +2052,6 @@
 				E05B587A2E92AEB837B356F4992F8656 /* RelatedLiteratureAttributes.swift */,
 				5738A78E55B82A4C9A53DE8137A00A2E /* RelatedLiteratureResponse.swift */,
 			);
-			name = "Related Literature";
 			path = "Related Literature";
 			sourceTree = "<group>";
 		};
@@ -2118,7 +2061,6 @@
 				D68DCF42E0DFEA930C89013CC1CEEE87 /* ShowIdentity.swift */,
 				9088C4C78502BD8671F6B6E5CE5F9D0B /* ShowIdentityResponse.swift */,
 			);
-			name = Identity;
 			path = Identity;
 			sourceTree = "<group>";
 		};
@@ -2128,7 +2070,6 @@
 				4950B418A2615D46C4E1BB1E58CA6963 /* Keychain.swift */,
 				7AA6D8F392BE3DA046A83B8C1FED2873 /* Support Files */,
 			);
-			name = KeychainAccess;
 			path = KeychainAccess;
 			sourceTree = "<group>";
 		};
@@ -2138,7 +2079,6 @@
 				B22CE631780423FD2A6EBBDA47262D52 /* EpisodeUpdate.swift */,
 				2185BAA51EF6C1DCBA100F940674EC65 /* EpisodeUpdateResponse.swift */,
 			);
-			name = "Watch Status";
 			path = "Watch Status";
 			sourceTree = "<group>";
 		};
@@ -2151,7 +2091,6 @@
 				76E4E12CA51A69F5C2F56A28F1A9A948 /* ExploreCategoryResponse.swift */,
 				3D9DA32831D6CE303DDBAFB8E85008F1 /* Identity */,
 			);
-			name = Explore;
 			path = Explore;
 			sourceTree = "<group>";
 		};
@@ -2163,7 +2102,6 @@
 				B944115D2C173FC63E954851883771C4 /* AccessTokenRelationships.swift */,
 				47A69E26241BE4F7E0D1A5DA945817EF /* AccessTokenResponse.swift */,
 			);
-			name = "Access Tokens";
 			path = "Access Tokens";
 			sourceTree = "<group>";
 		};
@@ -2175,7 +2113,6 @@
 				BD6FF7A61EC7B12152C23D590153B8FC /* RelatedShowResponse.swift */,
 				B6FA848A905E546C6443B04479BABF3A /* Attributes */,
 			);
-			name = "Related Shows";
 			path = "Related Shows";
 			sourceTree = "<group>";
 		};
@@ -2446,6 +2383,7 @@
 				630C51CAF88FBDE7AAEE6B21A0A618E9 /* AccessTokenRelationships.swift in Sources */,
 				6A91B30468948C23851854F212FE7B9E /* AccessTokenResponse.swift in Sources */,
 				5F08CD522E9F434046AF4A6E89A89ED4 /* ActivityStatus.swift in Sources */,
+				6631A2B82BC28663008356F6 /* MediaResponse.swift in Sources */,
 				26371E3963A4B56BF3E88FCAF6BEA345 /* AdaptationSource.swift in Sources */,
 				B85F063955BB209092273E0E9BD14763 /* AiringStatus.swift in Sources */,
 				2A0EEDB1FE6418D634FAEEDCD5AD2A40 /* AppTheme.swift in Sources */,
@@ -2516,11 +2454,14 @@
 				6E5AAA764FDAFAAE1009C3AEEFA5C80A /* GenreAttributes.swift in Sources */,
 				7030B5A379C4A5F8869B0D269DE14528 /* GenreIdentity.swift in Sources */,
 				D4D11DC329D7BA19083DF9AE0DFA5D57 /* GenreIdentityResponse.swift in Sources */,
+				6631A2BA2BC28A99008356F6 /* MediaKind.swift in Sources */,
 				76AF15536DCD622EF2460D567EEC46D7 /* GenreResponse.swift in Sources */,
 				BA7B1603A7BCF3382AEB1AEA55CEA0FC /* Global+Swift.swift in Sources */,
 				69A69FBDBC513D8D97BAEC02A34F503D /* HiddenStatus.swift in Sources */,
+				6631A2BC2BC28AA8008356F6 /* MediaCollection.swift in Sources */,
 				EDCF02D3FC4DB5CB4A86FC8FF1EC5B6C /* IdentityResource.swift in Sources */,
 				1BE61CCB864D536C97143E18B5230E47 /* KKAPIError.swift in Sources */,
+				6631A2B42BC28529008356F6 /* KurozoraKit+Images.swift in Sources */,
 				681A29C350750E9C1A51097A979365B7 /* KKEndpoint.swift in Sources */,
 				2ACBD02B4BEBDEE997951B35465A65A8 /* KKEndpoint+Feed.swift in Sources */,
 				2F88B6B19037D1D9A5B56ED5A951EEA2 /* KKEndpoint+Me.swift in Sources */,
