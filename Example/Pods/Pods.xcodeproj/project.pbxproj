@@ -139,6 +139,7 @@
 		6631A2BA2BC28A99008356F6 /* MediaKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6631A2B92BC28A99008356F6 /* MediaKind.swift */; };
 		6631A2BC2BC28AA8008356F6 /* MediaCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6631A2BB2BC28AA8008356F6 /* MediaCollection.swift */; };
 		66986115D22404F162E269C6420EB742 /* RelatedLiteratureResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5738A78E55B82A4C9A53DE8137A00A2E /* RelatedLiteratureResponse.swift */; };
+		66F7CE752BDF0357009B1D33 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 66F7CE742BDF0357009B1D33 /* PrivacyInfo.xcprivacy */; };
 		67C6476BC34CCE3DB7000C00B7E00273 /* RelatedGameAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB53350C608488DD0E9563EC5E96927B /* RelatedGameAttributes.swift */; };
 		681A29C350750E9C1A51097A979365B7 /* KKEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531A1A47514D325B88D2F246AE58342E /* KKEndpoint.swift */; };
 		68238227D42B2511FA6A26BF71E92520 /* Alamofire-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 213472E4FDE9022D8452D0AFD5A0F3DE /* Alamofire-dummy.m */; };
@@ -590,6 +591,7 @@
 		6631A2B92BC28A99008356F6 /* MediaKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaKind.swift; sourceTree = "<group>"; };
 		6631A2BB2BC28AA8008356F6 /* MediaCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCollection.swift; sourceTree = "<group>"; };
 		667DEDB1841EE6E16696CA91934AFB45 /* ShowAttributes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ShowAttributes.swift; sourceTree = "<group>"; };
+		66F7CE742BDF0357009B1D33 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		679BD420E825581122E372CE5589E802 /* KurozoraKit+Me+AccessToken.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "KurozoraKit+Me+AccessToken.swift"; sourceTree = "<group>"; };
 		67E8220E87898AEF97219DFC18129EB2 /* UserIdentity.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UserIdentity.swift; sourceTree = "<group>"; };
 		68314FACAC10B97E3CD49BCDF48D0427 /* User.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -1291,6 +1293,15 @@
 			path = KKEndpoint;
 			sourceTree = "<group>";
 		};
+		66F7CE732BDF0326009B1D33 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				66F7CE742BDF0357009B1D33 /* PrivacyInfo.xcprivacy */,
+			);
+			name = Assets;
+			path = KurozoraKit/Assets;
+			sourceTree = "<group>";
+		};
 		685E4252D4948063141F8358AAF7422B /* KurozoraKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -1627,6 +1638,7 @@
 				531A1A47514D325B88D2F246AE58342E /* KKEndpoint.swift */,
 				4DA488EFBDB664D86FEC1372D41FE7E4 /* KKServices.swift */,
 				AB293D462F09544701C79B337C874804 /* KurozoraKit.swift */,
+				66F7CE732BDF0326009B1D33 /* Assets */,
 				84B37C5908552F0DF070DDC943D78AD3 /* Enums */,
 				9522D146E6FE64778140BD65129069F4 /* Extensions */,
 				AAE23D3A9DD038BB71BFE57CBCA02252 /* Models */,
@@ -2344,6 +2356,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66F7CE752BDF0357009B1D33 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

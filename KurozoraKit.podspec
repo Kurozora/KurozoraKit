@@ -11,11 +11,15 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/Kurozora/KurozoraKit.git', :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/KurozoraApp'
 
+  s.cocoapods_version = '>= 1.13.0'
+
   s.platform = :ios, '15.0'
   s.ios.deployment_target = '15.0'
 
+  s.swift_version = '5'
+
   s.source_files = 'KurozoraKit/Classes/**/*'
-  s.swift_version = '5.0'
+  s.resource_bundles = {'KurozoraKit' => ['KurozoraKit/Assets/**/*']}
 
   s.dependency 'KeychainAccess'
   s.dependency 'TRON', '5.5.0-beta.1'
