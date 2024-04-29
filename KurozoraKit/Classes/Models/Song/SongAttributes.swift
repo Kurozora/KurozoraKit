@@ -50,5 +50,8 @@ extension Song {
 
 		/// The copyright text of the song.
 		public let copyright: String?
+
+		/// The library attributes of the song.
+		public var library: LibraryAttributes?
 	}
 }
