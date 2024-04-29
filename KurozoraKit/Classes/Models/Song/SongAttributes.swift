@@ -47,5 +47,8 @@ extension Song {
 
 		/// The stats of the song.
 		public let stats: MediaStat?
+
+		/// The copyright text of the song.
+		public let copyright: String?
 	}
 }
