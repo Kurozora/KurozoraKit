@@ -78,9 +78,6 @@ extension KurozoraKit {
 			NotificationCenter.default.post(name: .KUserIsSignedInDidChange, object: nil)
 		}, failure: { [weak self] error in
 			guard let self = self else { return }
-			if self.services.showAlerts {
-				UIApplication.topViewController?.presentAlertController(title: "Can't Sign In 😔", message: error.message)
-			}
 			print("❌ Received sign in error:", error.errorDescription ?? "Unknown error")
 			print("┌ Server message:", error.message)
 			print("├ Recovery suggestion:", error.recoverySuggestion ?? "No suggestion available")
@@ -121,10 +118,6 @@ extension KurozoraKit {
 			NotificationCenter.default.post(name: .KUserIsSignedInDidChange, object: nil)
 		}, failure: { [weak self] error in
 			guard let self = self else { return }
-			UIView().endEditing(true)
-			if self.services.showAlerts {
-				UIApplication.topViewController?.presentAlertController(title: "Can't Sign In 😔", message: error.message)
-			}
 			print("❌ Received sign in with SIWA error:", error.errorDescription ?? "Unknown error")
 			print("┌ Server message:", error.message)
 			print("├ Recovery suggestion:", error.recoverySuggestion ?? "No suggestion available")
