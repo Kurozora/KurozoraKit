@@ -46,23 +46,23 @@ extension KurozoraKit {
 		return request.sender()
 	}
 
-	/// Sign in with the given `kurozoraID` and `password`.
+	/// Sign in with the given `email` and `password`.
 	///
 	/// This endpoint is used for signing in a user to their account. If the sign in was successful then a Kurozora authentication token is returned in the success closure.
 	///
 	/// - Parameters:
-	///    - kurozoraID: The Kurozora id of the user to be signed in.
+	///    - email: The email address of the user to be signed in.
 	///    - password: The password of the user to be signed in.
 	///    - completionHandler: A closure returning a value that represents either a success or a failure, including an associated value in each case.
 	///    - result: A value that represents either a success or a failure, including an associated value in each case.
 	@discardableResult
-	public func signIn(_ kurozoraID: String, _ password: String, completion completionHandler: @escaping (_ result: Result<String, KKAPIError>) -> Void) -> DataRequest {
+	public func signIn(_ email: String, _ password: String, completion completionHandler: @escaping (_ result: Result<String, KKAPIError>) -> Void) -> DataRequest {
 		let usersSignIn = KKEndpoint.Users.signIn.endpointValue
 		let request: APIRequest<SignInResponse, KKAPIError> = tron.codable.request(usersSignIn)
 		request.headers = headers
 		request.method = .post
 		request.parameters = [
-			"email": kurozoraID,
+			"email": email,
 			"password": password,
 			"platform": UIDevice.commonSystemName,
 			"platform_version": UIDevice.current.systemVersion,
