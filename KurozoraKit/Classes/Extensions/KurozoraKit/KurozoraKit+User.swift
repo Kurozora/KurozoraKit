@@ -208,7 +208,7 @@ extension KurozoraKit {
 	///
 	/// - Parameters:
 	///    - userIdentity: The identity of the user whose favorites list will be fetched.
-	///    - libraryKind: From which library to get the favorites
+	///    - libraryKind: From which library to get the favorites.
 	///    - next: The URL string of the next page in the paginated response. Use `nil` to get first page.
 	///    - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
 	///
@@ -220,14 +220,17 @@ extension KurozoraKit {
 			headers.add(.authorization(bearerToken: self.authenticationKey))
 		}
 
+		// Prepare parameters
+		let parameters: [String: Any] = [
+			"library": libraryKind.rawValue,
+			"limit": limit
+		]
+
 		// Prepare request
 		let usersFavorites = next ?? KKEndpoint.Users.favorites(userIdentity).endpointValue
 		let request: APIRequest<FavoriteLibraryResponse, KKAPIError> = tron.codable.request(usersFavorites).buildURL(.relativeToBaseURL)
 			.method(.get)
-			.parameters([
-				"library": libraryKind.rawValue,
-				"limit": limit
-			])
+			.parameters(parameters)
 			.headers(headers)
 
 		// Send request
