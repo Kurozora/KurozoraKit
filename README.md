@@ -14,6 +14,8 @@ KurozoraKit is designed to be:
 
 * **🛠 Intuitive:** KurozoraKit is built with Swift, one of the **fast**, **modern**, **safe** and **interactive** programming languages.
 
+* **🧵 Asynchronous:** By utilizing the power of Swift Concurrency, KurozoraKit is more readable and less prone to errors like data races and deadlocks by design.
+
 * **✨ Magical:** The kit is carefully designed to work as efficient and reliable as you would expect it to.
 
 * **📚 Documented:** With up to 100% documentation coverage.
@@ -41,14 +43,20 @@ KurozoraKit can be implemented using one line in the `global` scope.
 let kurozoraKit = KurozoraKit()
 ```
 
-KurozoraKit also accepts a `KKServices` object to enable and manage extra functionality. For example to manage Keychain data and enable built-in HUD alerts you can do something like the following:
+KurozoraKit allows you to set your own API endpoint. For example, if you have a custom API endpoint for debugging purposes, you can set it like this:
+
+```swift
+let kurozoraKit = KurozoraKit(apiEndpoint: .custom("https://kurozora.debug/api/"))
+```
+
+KurozoraKit also accepts a `KKServices` object to enable and manage extra functionality. For example to manage Keychain data you can do something like the following:
 
 ```swift
 // Prepare Keychain with your desired setting.
 let appIdentifierPrefix = Bundle.main.infoDictionary?["AppIdentifierPrefix"] as! String
 let keychain = Keychain(service: "AppName", accessGroup: "\(appIdentifierPrefix)com.company.shared").synchronizable(true).accessibility(.afterFirstUnlock)
 
-// Pass the keychain object and enable built-in alerts.
+// Pass the keychain object.
 let services = KKServices(keychain: keychain)
 
 // Pass KKService
@@ -59,7 +67,9 @@ You can also be chain desired methods instead of passing data as parameter.
 
 ```swift
 let services = KKServices().keychainDefaults(keychain)
-let kurozoraKit = KurozoraKit().authenticationKey("bearer-token").services(services)
+let kurozoraKit = KurozoraKit()
+	.authenticationKey("bearer-token")
+	.services(services)
 ```
 
 After setting up KurozoraKit you can use an API by calling its own method. For example, to get the explore page data, you do the following:
