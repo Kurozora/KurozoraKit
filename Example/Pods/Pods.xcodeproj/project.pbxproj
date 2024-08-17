@@ -158,6 +158,7 @@
 		66F0268D7E953159C9BB6F73E07FDF3E /* FollowUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0893D59FBF926B8B8EAFEBBD7BA328 /* FollowUpdate.swift */; };
 		66F55C572C406268006D78C8 /* ReminderLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F55C562C406263006D78C8 /* ReminderLibrary.swift */; };
 		66F55C592C406272006D78C8 /* ReminderLibraryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F55C582C40626D006D78C8 /* ReminderLibraryResponse.swift */; };
+		66F7D1A82C70C365002A09CE /* KurozoraAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F7D1A62C70C254002A09CE /* KurozoraAPI.swift */; };
 		68238227D42B2511FA6A26BF71E92520 /* Alamofire-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 213472E4FDE9022D8452D0AFD5A0F3DE /* Alamofire-dummy.m */; };
 		68995B28EE5B539CEA5A1133E4623927 /* MultipartFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771E6317D155CD43DF1C09E7D513E812 /* MultipartFormData.swift */; };
 		68A74F13F8FEBAA7E0EA9344DED0458B /* OperationQueue+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3FBB015BD1278848C0680288FE8F66 /* OperationQueue+Alamofire.swift */; };
@@ -611,6 +612,7 @@
 		66627D4E7D8E9BF7BE277D14153794D3 /* ExploreCategoryResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ExploreCategoryResponse.swift; sourceTree = "<group>"; };
 		66F55C562C406263006D78C8 /* ReminderLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderLibrary.swift; sourceTree = "<group>"; };
 		66F55C582C40626D006D78C8 /* ReminderLibraryResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderLibraryResponse.swift; sourceTree = "<group>"; };
+		66F7D1A62C70C254002A09CE /* KurozoraAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = KurozoraAPI.swift; path = KurozoraKit/Classes/KurozoraAPI.swift; sourceTree = "<group>"; };
 		676401C353C5161D035B19CE5363CFE7 /* RelatedShowResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RelatedShowResponse.swift; sourceTree = "<group>"; };
 		6868F5C2CDF10B3C5D194304443373C1 /* ResponseSerialization.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ResponseSerialization.swift; path = Source/Features/ResponseSerialization.swift; sourceTree = "<group>"; };
 		68B58998D35EFFFB869199B5B195502C /* Plugin.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Plugin.swift; path = Source/TRON/Plugin.swift; sourceTree = "<group>"; };
@@ -1263,6 +1265,7 @@
 			children = (
 				60389EADBB6EF319231D6A5C87E13022 /* KKEndpoint.swift */,
 				A11941ACA02B941C41161114268AA1B3 /* KKServices.swift */,
+				66F7D1A62C70C254002A09CE /* KurozoraAPI.swift */,
 				A1B729633E0834D8616FD44761AB0260 /* KurozoraKit.swift */,
 				E213EB51971281F93090D7FD6F7439D9 /* PrivacyInfo.xcprivacy */,
 				D4CF09F344E9B1E646640D9EC22685F3 /* Enums */,
@@ -2670,6 +2673,7 @@
 				C180C17343FDA5A014EBD5C160267240 /* Staff.swift in Sources */,
 				900D5769EDCA5D3C3455324E7078255A /* StaffAttributes.swift in Sources */,
 				07E17830105647D5B2857A8AD49401B7 /* StaffIdentity.swift in Sources */,
+				66F7D1A82C70C365002A09CE /* KurozoraAPI.swift in Sources */,
 				5E34E862DF70CD017411AA14F5C9C25E /* StaffIdentityResponse.swift in Sources */,
 				54CDF79797AF6F3DBA6FCA7C6F4C6D73 /* StaffRelationships.swift in Sources */,
 				1724A432F79BCF9E85151C3BF72FD18F /* StaffResponse.swift in Sources */,
