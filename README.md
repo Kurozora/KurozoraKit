@@ -30,10 +30,28 @@ To use KurozoraKit in your project, you need to install it first.
 
 ## Installation
 
-KurozoraKit is available through [CocoaPods](https://cocoapods.org). To install it, simply add the following line to your Podfile:
+### CocoaPods
+
+KurozoraKit is available through [CocoaPods](https://cocoapods.org). To install it, simply add the following line to your `Podfile`:
 
 ```ruby
 pod 'KurozoraKit'
+```
+
+### Swift Package Manager
+
+KurozoraKit is also available through [Swift Package Manager](https://swift.org/package-manager). To install it, simply add the package through Xcode. Go to `File > Add Package Dependencies...` and enter the following URL:
+
+```text
+https://github.com/Kurozora/KurozoraKit.git
+```
+
+Alternatively you can add the following line to your `Package.swift` file:
+
+```swift
+dependencies: [
+	.package(url: "https://github.com/Kurozora/KurozoraKit.git", from: "1.0.0")
+]
 ```
 
 ## Usage
