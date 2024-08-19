@@ -17,7 +17,7 @@ import TRON
 /// - Tag: KurozoraKit
 public class KurozoraKit {
 	// MARK: - Properties
-	/// Storage to the current user's authentication key.
+	/// Storage of the current user's authentication key.
 	internal var _authenticationKey: String = ""
 	/// The current user's authentication key.
 	public var authenticationKey: String {
@@ -26,6 +26,18 @@ public class KurozoraKit {
 		}
 		set {
 			self._authenticationKey = newValue
+		}
+	}
+
+	/// Storage of the current API endpoint.
+	internal var _apiEndpoint: KurozoraAPI = .v1
+	/// The current API Endpoint.
+	public var apiEndpoint: KurozoraAPI {
+		get {
+			return self._apiEndpoint
+		}
+		set {
+			self._apiEndpoint = newValue
 		}
 	}
 
@@ -54,8 +66,8 @@ public class KurozoraKit {
 	///    - apiEndpoint: The [KurozoraAPI](x-source-tag://KurozoraAPI) endpoint to be used.
 	///    - authenticationKey: The current signed in user's authentication key.
 	///    - services: The desired [KKServices](x-source-tag://KKServices) to be used.
-	public init(apiEndpoint: KurozoraAPI = .v1, authenticationKey: String = "", services: KKServices = KKServices()) {
-		self.apiEndpoint(apiEndpoint)
+	public init(apiEndpoint: KurozoraAPI? = nil, authenticationKey: String = "", services: KKServices = KKServices()) {
+		self.apiEndpoint(apiEndpoint ?? .v1)
 			.authenticationKey(authenticationKey)
 			.services(services)
 	}
@@ -75,6 +87,7 @@ public class KurozoraKit {
 			plugin ?? [NetworkLoggerPlugin()]
 		}
 
+		self.apiEndpoint = apiEndpoint
 		self.tron = TRON(baseURL: apiEndpoint.baseURL, plugins: plugins)
 		self.tron.codable.modelDecoder.dateDecodingStrategy = .secondsSince1970
 

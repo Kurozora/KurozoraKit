@@ -13,7 +13,7 @@ import TRON
 /// - `custom`: A custom URL for the Kurozora API.
 ///
 /// - Tag: KurozoraAPI
-public enum KurozoraAPI {
+public enum KurozoraAPI: Equatable {
 	// MARK: - Cases
 	/// The endpoint for the Kurozora API version 1.
 	case v1
@@ -22,13 +22,28 @@ public enum KurozoraAPI {
 	case custom(_ url: String, _ plugin: [Plugin]? = nil)
 
 	// MARK: - Properties
+	/// All cases of `KurozoraAPI`.
+	public static let allCases: [KurozoraAPI] = [.v1]
+
 	/// The base URL for the API.
-	var baseURL: String {
+	public var baseURL: String {
 		switch self {
 		case .v1:
-			return "https://kurozora.app/api/v1/"
+			return "https://api.kurozora.app/v1/"
 		case .custom(let url, _):
 			return url
+		}
+	}
+
+	// MARK: - Functions
+	public static func == (lhs: KurozoraAPI, rhs: KurozoraAPI) -> Bool {
+		switch (lhs, rhs) {
+		case (.v1, .v1):
+			return true
+		case (.custom(let lhsURL, _), .custom(let rhsURL, _)):
+			return lhsURL == rhsURL
+		default:
+			return false
 		}
 	}
 }
