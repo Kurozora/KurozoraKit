@@ -53,7 +53,7 @@ extension GameFilter: Filterable {
 		return [
 			"publication_day": self.publicationDay,
 			"publication_season": self.publicationSeason,
-			"country_of_origin": self.countryOfOrigin,
+			"country_id": self.countryOfOrigin,
 			"duration": self.duration,
 			"published_at": self.publishedAt,
 			"is_nsfw": self.isNSFW,

@@ -66,7 +66,7 @@ extension LiteratureFilter: Filterable {
 			"publication_day": self.publicationDay,
 			"publication_season": self.publicationSeason,
 			"publication_time": self.publicationTime,
-			"country_of_origin": self.countryOfOrigin,
+			"country_id": self.countryOfOrigin,
 			"duration": self.duration,
 			"started_at": self.startedAt,
 			"ended_at": self.endedAt,

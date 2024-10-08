@@ -63,7 +63,7 @@ extension ShowFilter: Filterable {
 			"air_day": self.airDay,
 			"air_season": self.airSeason,
 			"air_time": self.airTime,
-			"country_of_origin": self.countryOfOrigin,
+			"country_id": self.countryOfOrigin,
 			"duration": self.duration,
 			"started_at": self.startedAt,
 			"is_nsfw": self.isNSFW,
