@@ -233,6 +233,25 @@ extension KKEndpoint {
 	}
 }
 
+// MARK: - Schedule
+extension KKEndpoint {
+	/// The set of available Schedule API endpoints types.
+	internal enum Schedule {
+		// MARK: - Cases
+		/// The endpoint to the schedule page.
+		case index
+
+		// MARK: - Properties
+		/// The endpoint value of the Schedule API type.
+		var endpointValue: String {
+			switch self {
+			case .index:
+				return "schedule"
+			}
+		}
+	}
+}
+
 // MARK: - Shows
 extension KKEndpoint {
 	/// The set of available Shows API endpoints types.
