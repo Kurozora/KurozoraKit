@@ -14,8 +14,8 @@ extension KurozoraKit {
 	///    - type: The type of the schedule.
 	///    - date: The date for which the schedule is fetched.
 	///
-	/// - Returns: An instance of `RequestSender` with the results of the get recap list response.
-	public func getSchedule(for type: KKScheduleType, in date: Date) -> RequestSender<RecapResponse, KKAPIError> {
+	/// - Returns: An instance of `RequestSender` with the results of the get schedule list response.
+	public func getSchedule(for type: KKScheduleType, in date: Date) -> RequestSender<ScheduleResponse, KKAPIError> {
 		// Prepare headers
 		var headers = self.headers
 		if !self.authenticationKey.isEmpty {
@@ -29,8 +29,8 @@ extension KurozoraKit {
 		]
 
 		// Prepare request
-		let recapIndex = KKEndpoint.Me.Recap.index.endpointValue
-		let request: APIRequest<RecapResponse, KKAPIError> = tron.codable.request(recapIndex)
+		let scheduleIndex = KKEndpoint.Schedule.index.endpointValue
+		let request: APIRequest<ScheduleResponse, KKAPIError> = tron.codable.request(scheduleIndex)
 			.method(.get)
 			.parameters(parameters)
 			.headers(headers)

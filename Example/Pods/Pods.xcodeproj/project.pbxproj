@@ -154,6 +154,10 @@
 		6538AEA494B20DAB1CE9DF0C639E6EC8 /* AccessTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EEE35F59B87F5BBA41B4E190E9DAB08 /* AccessTokenResponse.swift */; };
 		662A3CE42CF1539900C2E2AB /* KurozoraKit+Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 662A3CE32CF1539900C2E2AB /* KurozoraKit+Schedule.swift */; };
 		662A3CE62CF153D400C2E2AB /* KKScheduleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 662A3CE52CF153D400C2E2AB /* KKScheduleType.swift */; };
+		664F9B162D07A6D9000E5F8E /* ScheduleResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664F9B152D07A6D0000E5F8E /* ScheduleResponse.swift */; };
+		664F9B182D07A6E1000E5F8E /* ScheduleAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664F9B172D07A6DC000E5F8E /* ScheduleAttributes.swift */; };
+		664F9B1A2D07A6E7000E5F8E /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664F9B192D07A6E4000E5F8E /* Schedule.swift */; };
+		664F9B1C2D07AF13000E5F8E /* ScheduleRelationships.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664F9B1B2D07AF0F000E5F8E /* ScheduleRelationships.swift */; };
 		666630152CCAD4B3002930D9 /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666630132CCAD4B3002930D9 /* Media.swift */; };
 		666630162CCAD4B3002930D9 /* MediaResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666630142CCAD4B3002930D9 /* MediaResponse.swift */; };
 		6666301B2CCE9C64002930D9 /* MediaRelationships.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6666301A2CCE9C64002930D9 /* MediaRelationships.swift */; };
@@ -608,6 +612,10 @@
 		64C6141299D8DB91FA99C2500230A62D /* EpisodeFilter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EpisodeFilter.swift; sourceTree = "<group>"; };
 		662A3CE32CF1539900C2E2AB /* KurozoraKit+Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KurozoraKit+Schedule.swift"; sourceTree = "<group>"; };
 		662A3CE52CF153D400C2E2AB /* KKScheduleType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KKScheduleType.swift; sourceTree = "<group>"; };
+		664F9B152D07A6D0000E5F8E /* ScheduleResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleResponse.swift; sourceTree = "<group>"; };
+		664F9B172D07A6DC000E5F8E /* ScheduleAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleAttributes.swift; sourceTree = "<group>"; };
+		664F9B192D07A6E4000E5F8E /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
+		664F9B1B2D07AF0F000E5F8E /* ScheduleRelationships.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleRelationships.swift; sourceTree = "<group>"; };
 		6657C68848A4699CD192B83B128C6FAE /* FeedMessageRelationships.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FeedMessageRelationships.swift; sourceTree = "<group>"; };
 		66627D4E7D8E9BF7BE277D14153794D3 /* ExploreCategoryResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ExploreCategoryResponse.swift; sourceTree = "<group>"; };
 		666630132CCAD4B3002930D9 /* Media.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
@@ -1333,6 +1341,17 @@
 			path = Identity;
 			sourceTree = "<group>";
 		};
+		664F9B142D07A6C2000E5F8E /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+				664F9B192D07A6E4000E5F8E /* Schedule.swift */,
+				664F9B172D07A6DC000E5F8E /* ScheduleAttributes.swift */,
+				664F9B1B2D07AF0F000E5F8E /* ScheduleRelationships.swift */,
+				664F9B152D07A6D0000E5F8E /* ScheduleResponse.swift */,
+			);
+			path = Schedule;
+			sourceTree = "<group>";
+		};
 		666630122CCAD48A002930D9 /* Media */ = {
 			isa = PBXGroup;
 			children = (
@@ -2035,6 +2054,7 @@
 				C914D135CB91DDFD9324201DB8B9B77C /* Reminder */,
 				66F55C552C406257006D78C8 /* Reminder Library */,
 				785C56AB85C2D17B55E2D3D4D2AFA1BF /* Review */,
+				664F9B142D07A6C2000E5F8E /* Schedule */,
 				E30C907A5753A50A8906E3115D6B93FF /* Search */,
 				D0453AE424105641B83BB12670532820 /* Season */,
 				FB041565856B58CC308F852B4B172EAE /* Session */,
@@ -2538,6 +2558,7 @@
 				1FDB2BA8524AC9CF8E5FF83253291D90 /* KKSearchType.swift in Sources */,
 				66A910F72C9EBBB1008B4098 /* Country.swift in Sources */,
 				A8A8973FA3EBA0811D43ADECEE52DB88 /* KKServices.swift in Sources */,
+				664F9B182D07A6E1000E5F8E /* ScheduleAttributes.swift in Sources */,
 				951D9339A4ED55A1E40CC1F5B25C69A8 /* KKSuccess.swift in Sources */,
 				8EE01DFB911BF12A130725D7A6FC9A8F /* KurozoraKit.swift in Sources */,
 				F2D33E16016FD4F03DA288F85FB41884 /* KurozoraKit+Cast.swift in Sources */,
@@ -2547,6 +2568,7 @@
 				0A92A15C35423A2D7668BC3FFB4C5640 /* KurozoraKit+Me+Favorite.swift in Sources */,
 				58B585F776727065F747D9FCA7F907E8 /* KurozoraKit+Feed.swift in Sources */,
 				E931D852C675FE9F9CB2C15C782C30C3 /* KurozoraKit+Games.swift in Sources */,
+				664F9B162D07A6D9000E5F8E /* ScheduleResponse.swift in Sources */,
 				E7CD9A62B29F51F70E61D9FF9C82B6D7 /* KurozoraKit+Genres.swift in Sources */,
 				D68A641441A8699EE7B16FE93650D268 /* KurozoraKit+Images.swift in Sources */,
 				0B690929B9961C6C51E8F11B4EAABA0E /* KurozoraKit+Legal.swift in Sources */,
@@ -2635,6 +2657,7 @@
 				A3ACF39DE8981A3C6414C87D904FD206 /* RelatedLiteratureResponse.swift in Sources */,
 				D7FBE50ECA6CE5F37CE92D1410399D60 /* RelatedShow.swift in Sources */,
 				5A845444D1E27235CBFFB09C2E4426EE /* RelatedShowAttributes.swift in Sources */,
+				664F9B1C2D07AF13000E5F8E /* ScheduleRelationships.swift in Sources */,
 				977CCCF157A3D8267EBF16E37C4F50B3 /* RelatedShowResponse.swift in Sources */,
 				81FBDBBF8F46A4019B1DB32C31A50308 /* Reminder.swift in Sources */,
 				12CEE6AC7AC00309E9DA1241946D20AA /* ReminderResponse.swift in Sources */,
@@ -2688,6 +2711,7 @@
 				A2513B54FEE369FF36E0B931DA98C30B /* SongType.swift in Sources */,
 				C180C17343FDA5A014EBD5C160267240 /* Staff.swift in Sources */,
 				900D5769EDCA5D3C3455324E7078255A /* StaffAttributes.swift in Sources */,
+				664F9B1A2D07A6E7000E5F8E /* Schedule.swift in Sources */,
 				07E17830105647D5B2857A8AD49401B7 /* StaffIdentity.swift in Sources */,
 				66F7D1A82C70C365002A09CE /* KurozoraAPI.swift in Sources */,
 				5E34E862DF70CD017411AA14F5C9C25E /* StaffIdentityResponse.swift in Sources */,
