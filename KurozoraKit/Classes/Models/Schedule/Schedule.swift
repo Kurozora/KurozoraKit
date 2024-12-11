@@ -15,7 +15,7 @@ public class Schedule: Codable, Hashable {
 	public var attributes: Schedule.Attributes
 
 	/// The relationships belonging to the schedule.
-	public let relationships: Schedule.Relationships?
+	public let relationships: Schedule.Relationships
 
 	// MARK: - Functions
 	public static func == (lhs: Schedule, rhs: Schedule) -> Bool {
