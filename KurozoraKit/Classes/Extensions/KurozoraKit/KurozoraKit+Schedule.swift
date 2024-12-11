@@ -23,9 +23,12 @@ extension KurozoraKit {
 		}
 
 		// Prepare parameters
+		let dateFormatter = DateFormatter()
+		dateFormatter.dateFormat = "yyyy-MM-dd"
+
 		var parameters: [String: Any] = [
 			"type": type.rawValue,
-			"date": date.formatted(.dateTime.day().month().year())
+			"date": dateFormatter.string(from: date)
 		]
 
 		// Prepare request
