@@ -84,8 +84,14 @@ extension Game {
 		/// The game's duration.
 		public let duration: String
 
+		/// The game's duration in seconds.
+		public let durationCount: TimeInterval
+
 		/// The game's calculated total duration.
 		public let durationTotal: String
+
+		/// The game's calculated total duration in seconds.
+		public let durationTotalCount: TimeInterval
 
 		/// The season the game has published in.
 		public let publicationSeason: String?
