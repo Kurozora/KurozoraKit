@@ -107,13 +107,13 @@ extension Literature {
 		public let duration: String
 
 		/// The literature's duration in seconds.
-		public let durationCount: TimeInterval
+		public let durationCount: Int
 
 		/// The literature's calculated total duration.
 		public let durationTotal: String
 
 		/// The literature's calculated total duration in seconds.
-		public let durationTotalCount: TimeInterval
+		public let durationTotalCount: Int
 
 		/// The season the literature has published in.
 		public let publicationSeason: String?
