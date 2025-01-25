@@ -150,7 +150,7 @@ extension KurozoraKit {
 	/// Rate the song with the given song identity.
 	///
 	/// - Parameters:
-	///    - songID: The id of the song which should be rated.
+	///    - songIdentity: The id of the song which should be rated.
 	///	   - score: The rating to leave.
 	///	   - description: The description of the rating.
 	///

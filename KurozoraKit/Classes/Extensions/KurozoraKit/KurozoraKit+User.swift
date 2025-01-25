@@ -281,7 +281,6 @@ extension KurozoraKit {
 	///
 	/// - Parameters:
 	///    - userIdentity: The identity of the user whose reviews list will be fetched.
-	///    - libraryKind: From which library to get the reviews
 	///    - next: The URL string of the next page in the paginated response. Use `nil` to get first page.
 	///    - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
 	///

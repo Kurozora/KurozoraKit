@@ -9,11 +9,11 @@ import UIKit
 
 /// The set of available enums for managing the user's library.
 ///
-/// `KKLibrary` offers:
-/// - [Kind](x-source-tag://KKL-Kind) enum for managing a specific user library.
-/// - [Status](x-source-tag://KKL-Status) enum for managing an item's status as well as populate a library view.
-/// - [SortType](x-source-tag://KKL-SortType) enum for managing the way items are sorted.
-///     - This in turn offers the [Option](x-source-tag://KKL-ST-Option) enum for managing the sorting order.
+/// ``KKLibrary`` offers:
+/// - ``KKLibrary/Kind`` enum for managing a specific user library.
+/// - ``KKLibrary/Status`` enum for managing an item's status as well as populate a library view.
+/// - ``KKLibrary/SortType`` enum for managing the way items are sorted.
+///     - This in turn offers the ``KKLibrary/SortType/Option`` enum for managing the sorting order.
 public enum KKLibrary {
 	/// The set of available library types.
 	///
