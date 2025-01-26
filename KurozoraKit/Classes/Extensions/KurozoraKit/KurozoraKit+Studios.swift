@@ -214,7 +214,7 @@ extension KurozoraKit {
 	/// Rate the studio with the given studio identity.
 	///
 	/// - Parameters:
-	///    - studioID: The id of the studio which should be rated.
+	///    - studioIdentity: The id of the studio which should be rated.
 	///	   - score: The rating to leave.
 	///	   - description: The description of the rating.
 	///

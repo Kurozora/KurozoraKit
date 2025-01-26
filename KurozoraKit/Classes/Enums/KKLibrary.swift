@@ -63,7 +63,7 @@ public enum KKLibrary {
 	/// ```
 	///
 	/// - Tag: KKL-Status
-	public enum Status: Int, Codable {
+	public enum Status: Int, Codable, Sendable {
 		// MARK: - Cases
 		/// The library has no status.
 		case none = -1
@@ -138,7 +138,7 @@ public enum KKLibrary {
 	/// - `myRating`: sorts by user's rating
 	///
 	/// - Tag: KKL-SortType
-	public enum SortType: Int, CaseIterable {
+	public enum SortType: Int, CaseIterable, Sendable {
 		// MARK: - Cases
 		/// Sorted by no specific type.
 		case none = 0
@@ -237,7 +237,7 @@ extension KKLibrary.SortType {
 	/// ```
 	///
 	/// - Tag: KKL-ST-Option
-	public enum Option: Int {
+	public enum Option: Int, Sendable {
 		// MARK: - Cases
 		/// Sorted by no options.
 		case none = 0
