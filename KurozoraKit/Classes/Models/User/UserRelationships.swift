@@ -7,7 +7,7 @@
 
 extension User {
 	/// A root object that stores information about user relationships, such as the sessions, and badges that belong to it.
-	public struct Relationships: Codable {
+	public struct Relationships: Codable, Sendable {
 		// MARK: - Properties
 		/// The access tokens belonging to the user.
 		public let accessTokens: AccessTokenResponse?

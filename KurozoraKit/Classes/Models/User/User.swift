@@ -6,7 +6,7 @@
 //
 
 /// A root object that stores information about a user resource.
-public class User: IdentityResource, Hashable {
+public final class User: IdentityResource, Hashable, @unchecked Sendable {
 	// MARK: - Properties
 	public let id: String
 
@@ -17,7 +17,7 @@ public class User: IdentityResource, Hashable {
 	public let href: String
 
 	/// An object which holds information about the current user.
-	public nonisolated(unsafe) static var current: User?
+	public internal(set) nonisolated(unsafe) static var current: User?
 
 	/// The attributes belonging to the user.
 	public var attributes: User.Attributes

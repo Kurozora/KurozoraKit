@@ -6,7 +6,7 @@
 //
 
 /// A root object that stores information about a related show resource.
-public struct RelatedShow: Codable, Hashable {
+public struct RelatedShow: Codable, Hashable, Sendable {
 	// MARK: - Properties
 	/// The id of the related show.
 	public let id: UUID = UUID()

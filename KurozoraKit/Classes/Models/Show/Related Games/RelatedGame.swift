@@ -6,7 +6,7 @@
 //
 
 /// A root object that stores information about a related game resource.
-public struct RelatedGame: Codable, Hashable {
+public struct RelatedGame: Codable, Hashable, Sendable {
 	// MARK: - Properties
 	/// The id of the related game.
 	public let id: UUID = UUID()
