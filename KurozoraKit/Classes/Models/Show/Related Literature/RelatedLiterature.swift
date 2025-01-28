@@ -17,6 +17,12 @@ public struct RelatedLiterature: Codable, Hashable, Sendable {
 	/// The attributes belonging to the related literature.
 	public var attributes: RelatedLiterature.Attributes
 
+	// MARK: - CodingKeys
+	enum CodingKeys: String, CodingKey {
+		case literature
+		case attributes
+	}
+
 	// MARK: - Functions
 	public static func == (lhs: RelatedLiterature, rhs: RelatedLiterature) -> Bool {
 		return lhs.id == rhs.id

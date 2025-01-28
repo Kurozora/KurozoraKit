@@ -17,6 +17,12 @@ public struct RelatedGame: Codable, Hashable, Sendable {
 	/// The attributes belonging to the related game.
 	public var attributes: RelatedGame.Attributes
 
+	// MARK: - CodingKeys
+	enum CodingKeys: String, CodingKey {
+		case game
+		case attributes
+	}
+
 	// MARK: - Functions
 	public static func == (lhs: RelatedGame, rhs: RelatedGame) -> Bool {
 		return lhs.id == rhs.id

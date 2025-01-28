@@ -17,6 +17,12 @@ public struct RelatedShow: Codable, Hashable, Sendable {
 	/// The attributes belonging to the related show.
 	public var attributes: RelatedShow.Attributes
 
+	// MARK: - CodingKeys
+	enum CodingKeys: String, CodingKey {
+		case show
+		case attributes
+	}
+
 	// MARK: - Functions
 	public static func == (lhs: RelatedShow, rhs: RelatedShow) -> Bool {
 		return lhs.id == rhs.id
