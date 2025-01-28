@@ -364,7 +364,7 @@ extension KurozoraKit {
 	///    - password: The authenticated user's password.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the delete user response.
-	public func deleteUser(password: String) -> RequestSender<KKSuccess, KKAPIError> {
+	public func deleteUser(password: String) async throws -> KKSuccess {
 		// Prepare headers
 		var headers = self.headers
 		headers.add(.authorization(bearerToken: self.authenticationKey))
@@ -382,6 +382,23 @@ extension KurozoraKit {
 			.headers(headers)
 
 		// Send request
-		return request.sender()
+		do {
+			let successResponse = try await request.sender().value
+
+			self.authenticationKey = ""
+			User.current = nil
+			NotificationCenter.default.post(name: .KUserIsSignedInDidChange, object: nil)
+
+			return successResponse
+		} catch let error as KKAPIError {
+			print("❌ Received delete user error:", error.errorDescription ?? "Unknown error")
+			print("┌ Server message:", error.message)
+			print("├ Recovery suggestion:", error.recoverySuggestion ?? "No suggestion available")
+			print("└ Failure reason:", error.failureReason ?? "No reason available")
+			throw error
+		} catch {
+			print("❌ Received delete user error:", error.localizedDescription ?? "Unknown error")
+			throw error
+		}
 	}
 }
