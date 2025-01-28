@@ -134,7 +134,7 @@ extension KurozoraKit {
 			print("└ Failure reason:", error.failureReason ?? "No reason available")
 			throw error
 		} catch {
-			print("❌ Received sign out error:", error.localizedDescription ?? "Unknown error")
+			print("❌ Received sign out error:", error.localizedDescription)
 			throw error
 		}
 	}

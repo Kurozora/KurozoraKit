@@ -104,7 +104,11 @@ extension KurozoraKit {
 
 		// Prepare parameters
 		var parameters: [String: Any] = [:]
-		parameters["limit"] = limit
+		if next == nil {
+			parameters = [
+				"limit": limit
+			]
+		}
 
 		// Prepare request
 		let songShows = next ?? KKEndpoint.Songs.shows(songIdentity).endpointValue
@@ -134,7 +138,11 @@ extension KurozoraKit {
 
 		// Prepare parameters
 		var parameters: [String: Any] = [:]
-		parameters["limit"] = limit
+		if next == nil {
+			parameters = [
+				"limit": limit
+			]
+		}
 
 		// Prepare request
 		let songGames = next ?? KKEndpoint.Songs.games(songIdentity).endpointValue

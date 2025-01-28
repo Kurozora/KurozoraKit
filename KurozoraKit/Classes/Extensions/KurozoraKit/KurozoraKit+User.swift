@@ -86,7 +86,7 @@ extension KurozoraKit {
 			print("└ Failure reason:", error.failureReason ?? "No reason available")
 			throw error
 		} catch {
-			print("❌ Received sign in error:", error.localizedDescription ?? "Unknown error")
+			print("❌ Received sign in error:", error.localizedDescription)
 			throw error
 		}
 	}
@@ -130,7 +130,7 @@ extension KurozoraKit {
 			print("└ Failure reason:", error.failureReason ?? "No reason available")
 			throw error
 		} catch {
-			print("❌ Received sign in with SIWA error:", error.localizedDescription ?? "Unknown error")
+			print("❌ Received sign in with SIWA error:", error.localizedDescription)
 			throw error
 		}
 	}
@@ -397,7 +397,7 @@ extension KurozoraKit {
 			print("└ Failure reason:", error.failureReason ?? "No reason available")
 			throw error
 		} catch {
-			print("❌ Received delete user error:", error.localizedDescription ?? "Unknown error")
+			print("❌ Received delete user error:", error.localizedDescription)
 			throw error
 		}
 	}
