@@ -110,6 +110,12 @@ extension KKEndpoint {
 		/// The endpoint to the shows belonging to a character.
 		case shows(_ characterIdentity: CharacterIdentity)
 
+		/// The endpoint to the reviews belonging to a character.
+		case reviews(_ characterIdentity: CharacterIdentity)
+
+		/// The endpoint to leave a rating on a character.
+		case rate(_ characterIdentity: CharacterIdentity)
+
 		// MARK: - Properties
 		/// The endpoint value of the Charactes API type.
 		var endpointValue: String {
@@ -126,6 +132,10 @@ extension KKEndpoint {
 				return "characters/\(characterIdentity.id)/literatures"
 			case .shows(let characterIdentity):
 				return "characters/\(characterIdentity.id)/anime"
+			case .reviews(let characterIdentity):
+				return "characters/\(characterIdentity.id)/reviews"
+			case .rate(let characterIdentity):
+				return "characters/\(characterIdentity.id)/rate"
 			}
 		}
 	}
@@ -212,6 +222,12 @@ extension KKEndpoint {
 		/// The endpoint to the shows belonging to a person.
 		case shows(_ personIdentity: PersonIdentity)
 
+		/// The endpoint to the reviews belonging to a studio.
+		case reviews(_ personIdentity: PersonIdentity)
+
+		/// The endpoint to leave a rating on a person.
+		case rate(_ personIdentity: PersonIdentity)
+
 		// MARK: - Properties
 		/// The endpoint value of the People API type.
 		var endpointValue: String {
@@ -228,6 +244,10 @@ extension KKEndpoint {
 				return "people/\(personIdentity.id)/literatures"
 			case .shows(let personIdentity):
 				return "people/\(personIdentity.id)/anime"
+			case .reviews(let personIdentity):
+				return "people/\(personIdentity.id)/reviews"
+			case .rate(let personIdentity):
+				return "people/\(personIdentity.id)/rate"
 			}
 		}
 	}
