@@ -89,7 +89,7 @@ extension KKEndpoint {
 
 // MARK: - Characters
 extension KKEndpoint {
-	/// The set of available Charactes API endpoints.
+	/// The set of available Characters API endpoints.
 	internal enum Characters {
 		// MARK: - Cases
 		/// The endpoint to the index of characters.
@@ -116,8 +116,11 @@ extension KKEndpoint {
 		/// The endpoint to leave a rating on a character.
 		case rate(_ characterIdentity: CharacterIdentity)
 
+		/// The endpoint to delete a character rating.
+		case deleteRating(_ characterIdentity: CharacterIdentity)
+
 		// MARK: - Properties
-		/// The endpoint value of the Charactes API type.
+		/// The endpoint value of the Characters API type.
 		var endpointValue: String {
 			switch self {
 			case .index:
@@ -135,6 +138,8 @@ extension KKEndpoint {
 			case .reviews(let characterIdentity):
 				return "characters/\(characterIdentity.id)/reviews"
 			case .rate(let characterIdentity):
+				return "characters/\(characterIdentity.id)/rate"
+			case .deleteRating(let characterIdentity):
 				return "characters/\(characterIdentity.id)/rate"
 			}
 		}

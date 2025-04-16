@@ -267,4 +267,25 @@ extension KurozoraKit {
 		// Send request
 		return request.sender()
 	}
+
+	/// Delete the authenticated user's rating of the specified character.
+	///
+	/// - Parameters:
+	///    - characterIdentity: The id of the character whose rating should be deleted.
+	///
+	/// - Returns: An instance of `RequestSender` with the results of the delete rating response.
+	public func deleteRating(_ characterIdentity: CharacterIdentity) -> RequestSender<KKSuccess, KKAPIError> {
+		// Prepare headers
+		var headers = self.headers
+		headers.add(.authorization(bearerToken: self.authenticationKey))
+
+		// Prepare request
+		let charactersDelete = KKEndpoint.Characters.deleteRating(characterIdentity).endpointValue
+		let request: APIRequest<KKSuccess, KKAPIError> = tron.codable.request(charactersDelete).buildURL(.relativeToBaseURL)
+			.method(.delete)
+			.headers(headers)
+
+		// Send request
+		return request.sender()
+	}
 }
