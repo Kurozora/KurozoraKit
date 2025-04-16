@@ -155,6 +155,7 @@
 		63D8E9A3B93DC0D5CDEDA6A4997737AF /* LiteratureAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511DAB8DBAA260CB4D8ED9A197537B95 /* LiteratureAttributes.swift */; };
 		6539250F3E22E40F07B0052F06D67571 /* TVRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4977E2A2A7B3E82009AEF1A4E9CB9A6E /* TVRating.swift */; };
 		6548AAB5F6BF88ACCD70A45F3AE5390F /* AccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF52ED62C4342A43ED1EDF9795293F33 /* AccessToken.swift */; };
+		6605CEE22DA5ED3800155CDC /* KurozoraKit+Reviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6605CEE12DA5ED3100155CDC /* KurozoraKit+Reviews.swift */; };
 		662CE313D54CD1715AAD5F49D0FCE8AC /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB81454E6D08A3C1D9CBA14CD63382C7 /* Platform.swift */; };
 		66E3E2FED23718A647A5AB92A6F76007 /* KurozoraKit+Studios.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34040F216F353547F8F26FDC9902D182 /* KurozoraKit+Studios.swift */; };
 		66F024DCBE9C5AE50FD48FE6876D5DEB /* ResponseSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6868F5C2CDF10B3C5D194304443373C1 /* ResponseSerialization.swift */; };
@@ -621,6 +622,7 @@
 		6339648B69712206697B633F42F2AAEB /* StaffRelationships.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StaffRelationships.swift; sourceTree = "<group>"; };
 		6456DA4565B29B466B103AC579489DED /* ExploreCategoryAttributes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ExploreCategoryAttributes.swift; sourceTree = "<group>"; };
 		64D5E74C55790540888E4643E6C64C4C /* LiteratureResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LiteratureResponse.swift; sourceTree = "<group>"; };
+		6605CEE12DA5ED3100155CDC /* KurozoraKit+Reviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KurozoraKit+Reviews.swift"; sourceTree = "<group>"; };
 		66190A526D54253E02C166CDC8E22ACA /* SongFilter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SongFilter.swift; sourceTree = "<group>"; };
 		66B277B921BEDE990DB42E510445299D /* UserFilter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UserFilter.swift; sourceTree = "<group>"; };
 		672B60E12EDCA35ABC98A44258899AE8 /* CharacterResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CharacterResponse.swift; sourceTree = "<group>"; };
@@ -951,6 +953,7 @@
 				70B8E1F086CD70B44B4F043739F9F13D /* KurozoraKit+Misc.swift */,
 				E70EDF87CE5E2457CC51CF9004ED70DE /* KurozoraKit+People.swift */,
 				4AF1F4FAB73F49E54114FF23073F5B7D /* KurozoraKit+Recap.swift */,
+				6605CEE12DA5ED3100155CDC /* KurozoraKit+Reviews.swift */,
 				8A394CC268004832C40F1EDA713BB8F3 /* KurozoraKit+Schedule.swift */,
 				24BBDA35AA5453947F70FE399EBBF7CB /* KurozoraKit+Search.swift */,
 				BD44CD06B99F3BB48982A9E01EA2D5F5 /* KurozoraKit+Seasons.swift */,
@@ -2629,6 +2632,7 @@
 				052071590B282BA4B75AE3B84C84AFD6 /* FollowStatus.swift in Sources */,
 				AC3F8922D3FAA450FE78372EF46DB59D /* FollowUpdate.swift in Sources */,
 				3AB5505E289DD92A43D31C01FAA40D37 /* FollowUpdateResponse.swift in Sources */,
+				6605CEE22DA5ED3800155CDC /* KurozoraKit+Reviews.swift in Sources */,
 				6F2CB571687193AFE684C7CAD36B364B /* Game.swift in Sources */,
 				1DDBA00C5147D3AF5D9ACE2FFC2958F2 /* GameAttributes.swift in Sources */,
 				A84AFED2E3FC6BEC2BDD2C8D08ED35E1 /* GameFilter.swift in Sources */,

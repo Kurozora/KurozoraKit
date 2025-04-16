@@ -253,6 +253,25 @@ extension KKEndpoint {
 	}
 }
 
+// MARK: - Reviews
+extension KKEndpoint {
+	/// The set of available Reviews API endpoints types.
+	internal enum Reviews {
+		// MARK: - Cases
+		/// The endpoint to delete a review.
+		case delete(_ reviewIdentity: ReviewIdentity)
+
+		// MARK: - Properties
+		/// The endpoint value of the Reviews API type.
+		var endpointValue: String {
+			switch self {
+			case .delete(let reviewIdentity):
+				return "reviews/\(reviewIdentity.id)/delete"
+			}
+		}
+	}
+}
+
 // MARK: - Schedule
 extension KKEndpoint {
 	/// The set of available Schedule API endpoints types.
