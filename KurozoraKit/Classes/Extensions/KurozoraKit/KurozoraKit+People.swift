@@ -244,7 +244,7 @@ extension KurozoraKit {
 	///	   - description: The description of the rating.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the rate person response.
-	public func rateperson(_ personIdentity: PersonIdentity, with score: Double, description: String?) -> RequestSender<KKSuccess, KKAPIError> {
+	public func ratePerson(_ personIdentity: PersonIdentity, with score: Double, description: String?) -> RequestSender<KKSuccess, KKAPIError> {
 		// Prepare headers
 		var headers = self.headers
 		headers.add(.authorization(bearerToken: self.authenticationKey))
