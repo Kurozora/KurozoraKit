@@ -146,8 +146,11 @@ extension KKEndpoint {
 	/// The set of available Episodes API endpoints.
 	internal enum Episodes {
 		// MARK: - Cases
-		/// The enpoint to the details of an episode.
+		/// The endpoint to the details of an episode.
 		case details(_ episodeIdentity: EpisodeIdentity)
+
+		/// The endpoint to the suggestions of an episode.
+		case suggestions(_ episodeIdentity: EpisodeIdentity)
 
 		/// The endpoint to update the watch status of an episode.
 		case watched(_ episodeIdentity: EpisodeIdentity)
@@ -164,6 +167,8 @@ extension KKEndpoint {
 			switch self {
 			case .details(let episodeIdentity):
 				return "episodes/\(episodeIdentity.id)"
+			case .suggestions(let episodeIdentity):
+				return "episodes/\(episodeIdentity.id)/suggestions"
 			case .watched(let episodeIdentity):
 				return "episodes/\(episodeIdentity.id)/watched"
 			case .rate(let episodeIdentity):
