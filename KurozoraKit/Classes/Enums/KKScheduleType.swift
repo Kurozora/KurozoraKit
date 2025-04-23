@@ -1,6 +1,6 @@
 //
 //  KKScheduleType.swift
-//  Pods
+//  KurozoraKit
 //
 //  Created by Khoren Katklian on 23/11/2024.
 //

@@ -1,6 +1,6 @@
 //
 //  KurozoraKit+Reviews.swift
-//  Pods
+//  KurozoraKit
 //
 //  Created by Khoren Katklian on 09/04/2025.
 //
