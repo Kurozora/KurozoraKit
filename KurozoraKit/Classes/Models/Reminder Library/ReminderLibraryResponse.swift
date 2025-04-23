@@ -1,6 +1,6 @@
 //
 //  ReminderLibraryResponse.swift
-//  Pods
+//  KurozoraKit
 //
 //  Created by Khoren Katklian on 11/07/2024.
 //

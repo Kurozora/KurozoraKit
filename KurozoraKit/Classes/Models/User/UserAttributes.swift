@@ -5,9 +5,9 @@
 //  Created by Khoren Katklian on 27/04/2020.
 //
 
-extension User {
+public extension User {
 	/// A root object that stores information about a single user, such as the user's username, bio, and profile image.
-	public struct Attributes: Codable, Sendable {
+	struct Attributes: Codable, Sendable {
 		// MARK: - Properties
 		/// The slug of the user.
 		public var slug: String
@@ -104,6 +104,12 @@ extension User {
 		/// Included only for the currently signed in user.
 		public let role: UserRole?
 
+		/// Whether the user is blocked by the current user.
+		fileprivate var isBlocked: Bool?
+
+		/// The follow status of the user.
+		fileprivate var _blockStatus: BlockStatus?
+
 		/// Whether the user is followed by the current user.
 		fileprivate var isFollowed: Bool?
 
@@ -113,10 +119,20 @@ extension User {
 }
 
 // MARK: - Helpers
-extension User.Attributes {
+public extension User.Attributes {
 	// MARK: - Properties
+	/// The block status of the user.
+	var blockStatus: BlockStatus {
+		get {
+			return self._blockStatus ?? BlockStatus(self.isBlocked)
+		}
+		set {
+			self._blockStatus = newValue
+		}
+	}
+
 	/// The follow status of the user.
-	public var followStatus: FollowStatus {
+	var followStatus: FollowStatus {
 		get {
 			return self._followStatus ?? FollowStatus(self.isFollowed)
 		}
@@ -126,10 +142,28 @@ extension User.Attributes {
 	}
 
 	// MARK: - Functions
+	/// Updates the attributes with the given `BlockUpdate` object.
+	///
+	/// - Parameter blockUpdate: The `BlockUpdate` object used to update the attributes.
+	mutating func update(using blockUpdate: BlockUpdate) {
+		self.blockStatus = blockUpdate.blockStatus
+	}
+
+	/// Returns a copy of the object with the updated attributes from the given `BlockUpdate` object.
+	///
+	/// - Parameter blockUpdate: The `BlockUpdate` object used to update the attributes.
+	///
+	/// - Returns: a copy of the object with the updated attributes from the given `blockUpdate` object.
+	mutating func updated(using blockUpdate: BlockUpdate) -> Self {
+		var userAttributes = self
+		userAttributes.blockStatus = blockUpdate.blockStatus
+		return userAttributes
+	}
+
 	/// Updates the attributes with the given `FollowUpdate` object.
 	///
 	/// - Parameter followUpdate: The `FollowUpdate` object used to update the attributes.
-	public mutating func update(using followUpdate: FollowUpdate) {
+	mutating func update(using followUpdate: FollowUpdate) {
 		self.followStatus = followUpdate.followStatus
 	}
 
@@ -138,7 +172,7 @@ extension User.Attributes {
 	/// - Parameter followUpdate: The `FollowUpdate` object used to update the attributes.
 	///
 	/// - Returns: a copy of the object with the updated attributes from the given `followUpdate` object.
-	public mutating func updated(using followUpdate: FollowUpdate) -> Self {
+	mutating func updated(using followUpdate: FollowUpdate) -> Self {
 		var userAttributes = self
 		userAttributes.followStatus = followUpdate.followStatus
 		return userAttributes
@@ -147,7 +181,7 @@ extension User.Attributes {
 	/// Updates the attributes with the given `UserUpdate` object.
 	///
 	/// - Parameter userUpdate: The `UserUpdate` object used to update the attributes.
-	public mutating func update(using userUpdate: UserUpdate) {
+	mutating func update(using userUpdate: UserUpdate) {
 		self.slug = userUpdate.username
 		self.username = userUpdate.nickname
 		self.biography = userUpdate.biography
@@ -163,7 +197,7 @@ extension User.Attributes {
 	/// - Parameter userUpdate: The `UserUpdate` object used to update the attributes.
 	///
 	/// - Returns: a copy of the object with the updated attributes from the given `userUpdate` object.
-	public mutating func updated(using userUpdate: UserUpdate) -> Self {
+	mutating func updated(using userUpdate: UserUpdate) -> Self {
 		var userAttributes = self
 		userAttributes.slug = userUpdate.username
 		userAttributes.username = userUpdate.nickname
@@ -179,7 +213,7 @@ extension User.Attributes {
 	/// Updates the subscription status of the user.
 	///
 	/// - Parameter receipt: The `Receipt` object used to update the subscription status.
-	public mutating func updateSubscription(from receipt: Receipt) {
+	mutating func updateSubscription(from receipt: Receipt) {
 		self.isSubscribed = receipt.attributes.isValid
 		self.isPro = receipt.attributes.isValid
 	}

@@ -213,6 +213,57 @@ extension KurozoraKit {
 		return request.sender()
 	}
 
+	/// Block or unblock a user with the given user identity.
+	///
+	/// - Parameters:
+	///    - userIdentity: The identity of the user to block/unblock.
+	///
+	/// - Returns: An instance of `RequestSender` with the results of the update block status response.
+	public func updateBlockStatus(forUser userIdentity: UserIdentity) -> RequestSender<BlockUpdateResponse, KKAPIError> {
+		// Prepare headers
+		var headers = self.headers
+		if !self.authenticationKey.isEmpty {
+			headers.add(.authorization(bearerToken: self.authenticationKey))
+		}
+
+		// Prepare request
+		let usersBlock = KKEndpoint.Users.block(userIdentity).endpointValue
+		let request: APIRequest<BlockUpdateResponse, KKAPIError> = tron.codable.request(usersBlock).buildURL(.relativeToBaseURL)
+			.method(.post)
+			.headers(headers)
+
+		// Send request
+		return request.sender()
+	}
+
+	/// Fetch the blocking list for the given user identity.
+	///
+	/// - Parameters:
+	///    - userIdentity: The identity of the user whose blocking list should be fetched.
+	///    - next: The URL string of the next page in the paginated response. Use `nil` to get first page.
+	///    - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
+	///
+	/// - Returns: An instance of `RequestSender` with the results of the get block list response.
+	public func getBlockList(forUser userIdentity: UserIdentity, next: String? = nil, limit: Int = 25) -> RequestSender<UserIdentityResponse, KKAPIError> {
+		// Prepare headers
+		var headers = self.headers
+		if !self.authenticationKey.isEmpty {
+			headers.add(.authorization(bearerToken: self.authenticationKey))
+		}
+
+		// Prepare request
+		let usersBlocking = next ?? KKEndpoint.Users.blocking(userIdentity).endpointValue
+		let request: APIRequest<UserIdentityResponse, KKAPIError> = tron.codable.request(usersBlocking).buildURL(.relativeToBaseURL)
+			.method(.get)
+			.parameters([
+				"limit": limit
+			])
+			.headers(headers)
+
+		// Send request
+		return request.sender()
+	}
+
 	/// Fetch the favorites list for the given user identity.
 	///
 	/// - Parameters:

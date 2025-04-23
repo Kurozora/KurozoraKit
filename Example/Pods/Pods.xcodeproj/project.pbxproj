@@ -156,6 +156,9 @@
 		6539250F3E22E40F07B0052F06D67571 /* TVRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4977E2A2A7B3E82009AEF1A4E9CB9A6E /* TVRating.swift */; };
 		6548AAB5F6BF88ACCD70A45F3AE5390F /* AccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF52ED62C4342A43ED1EDF9795293F33 /* AccessToken.swift */; };
 		6605CEE22DA5ED3800155CDC /* KurozoraKit+Reviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6605CEE12DA5ED3100155CDC /* KurozoraKit+Reviews.swift */; };
+		661D202A2DB98E69003F5A0E /* BlockUpdateResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661D20292DB98E69003F5A0E /* BlockUpdateResponse.swift */; };
+		661D202C2DB98E81003F5A0E /* BlockUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661D202B2DB98E81003F5A0E /* BlockUpdate.swift */; };
+		661D202E2DB98EA2003F5A0E /* BlockStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661D202D2DB98EA2003F5A0E /* BlockStatus.swift */; };
 		662CE313D54CD1715AAD5F49D0FCE8AC /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB81454E6D08A3C1D9CBA14CD63382C7 /* Platform.swift */; };
 		66E3E2FED23718A647A5AB92A6F76007 /* KurozoraKit+Studios.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34040F216F353547F8F26FDC9902D182 /* KurozoraKit+Studios.swift */; };
 		66F024DCBE9C5AE50FD48FE6876D5DEB /* ResponseSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6868F5C2CDF10B3C5D194304443373C1 /* ResponseSerialization.swift */; };
@@ -624,6 +627,9 @@
 		64D5E74C55790540888E4643E6C64C4C /* LiteratureResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LiteratureResponse.swift; sourceTree = "<group>"; };
 		6605CEE12DA5ED3100155CDC /* KurozoraKit+Reviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KurozoraKit+Reviews.swift"; sourceTree = "<group>"; };
 		66190A526D54253E02C166CDC8E22ACA /* SongFilter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SongFilter.swift; sourceTree = "<group>"; };
+		661D20292DB98E69003F5A0E /* BlockUpdateResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockUpdateResponse.swift; sourceTree = "<group>"; };
+		661D202B2DB98E81003F5A0E /* BlockUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockUpdate.swift; sourceTree = "<group>"; };
+		661D202D2DB98EA2003F5A0E /* BlockStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockStatus.swift; sourceTree = "<group>"; };
 		66B277B921BEDE990DB42E510445299D /* UserFilter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UserFilter.swift; sourceTree = "<group>"; };
 		672B60E12EDCA35ABC98A44258899AE8 /* CharacterResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CharacterResponse.swift; sourceTree = "<group>"; };
 		6748FC704C6A4F71B824BDF9D4E17F61 /* KKServices.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KKServices.swift; path = KurozoraKit/Classes/KKServices.swift; sourceTree = "<group>"; };
@@ -1194,6 +1200,7 @@
 				80BD308744D5968507D5978291C9AF0C /* UserRelationships.swift */,
 				82EFD37247C2BDE1ABED5A5A4B4CD1B0 /* UserResponse.swift */,
 				FFF4E9292C23616140B78E560CAF3136 /* Achievement */,
+				661D20282DB98E52003F5A0E /* Block Update */,
 				7568E3EDDA6A2529FC5484058C9B43AF /* Follow Update */,
 				C57D325677A5C35B48F281FE9A13D269 /* Identity */,
 				3627108981CAC516F327938FD6EDE409 /* Receipt */,
@@ -1517,6 +1524,15 @@
 				4C7EAD6913D068663038FB8CB8662E8B /* UIDevice+KurozoraKit.swift */,
 			);
 			path = UIKit;
+			sourceTree = "<group>";
+		};
+		661D20282DB98E52003F5A0E /* Block Update */ = {
+			isa = PBXGroup;
+			children = (
+				661D202B2DB98E81003F5A0E /* BlockUpdate.swift */,
+				661D20292DB98E69003F5A0E /* BlockUpdateResponse.swift */,
+			);
+			path = "Block Update";
 			sourceTree = "<group>";
 		};
 		6EB470D6945C33850F04638FD01C3C6C /* Update */ = {
@@ -1903,6 +1919,7 @@
 			isa = PBXGroup;
 			children = (
 				C1A4AF64CA4AB7BF8B6DC3107DDFC3BF /* ActivityStatus.swift */,
+				661D202D2DB98EA2003F5A0E /* BlockStatus.swift */,
 				6D3D994FE3AE58EE2C0DF78DCAEC4C92 /* ExploreCategorySize.swift */,
 				14AA9F4BC02B7AA9A6B685F8888A054A /* ExploreCategoryType.swift */,
 				D0DADE00BCDDA1F3CA20DA39431E7722 /* FavoriteStatus.swift */,
@@ -2699,6 +2716,7 @@
 				9BE1E1DF78FF0F93F172733A6EDDB49E /* Language.swift in Sources */,
 				F0051E7E8143A4926C79F223A0D39B29 /* LanguageAttributes.swift in Sources */,
 				D5D4DAA22DA723FA1E806988249AAEEC /* LanguageResponse.swift in Sources */,
+				661D202C2DB98E81003F5A0E /* BlockUpdate.swift in Sources */,
 				CB8AEE12030D623C68CA799ED8F9902B /* Legal.swift in Sources */,
 				E01675DCE7B97F76CF05E91A5AB4B8B7 /* LegalAttributes.swift in Sources */,
 				0D6DA992F5F837C97BA8814E97954286 /* LegalResponse.swift in Sources */,
@@ -2737,6 +2755,7 @@
 				6DEB241BADDA848AFB449EA1B26797BB /* PersonIdentityResponse.swift in Sources */,
 				B71148C4549B59B7F9CED20FB6F9D75F /* PersonRelationships.swift in Sources */,
 				71018B3484B6DE179977FE98069B5A7D /* PersonResponse.swift in Sources */,
+				661D202E2DB98EA2003F5A0E /* BlockStatus.swift in Sources */,
 				662CE313D54CD1715AAD5F49D0FCE8AC /* Platform.swift in Sources */,
 				39E487C21790D749E093B604BB37ABDE /* PlatformAttributes.swift in Sources */,
 				D388BCD22A541A827D58BB7224219454 /* PlatformResponse.swift in Sources */,
@@ -2828,6 +2847,7 @@
 				89AFE869D60F957D6745964D2707183B /* Studio.swift in Sources */,
 				DB1F533738BBCA397DA656F372B65EEC /* StudioAttributes.swift in Sources */,
 				5539E16DD572D2E4B1758C5241248E6C /* StudioFilter.swift in Sources */,
+				661D202A2DB98E69003F5A0E /* BlockUpdateResponse.swift in Sources */,
 				3844468C0D55BB7148A9BE734BEE6AEF /* StudioIdentity.swift in Sources */,
 				87BDECD2F21947C9573D61A00FC50C29 /* StudioIdentityResponse.swift in Sources */,
 				F96676A4457A25ADD82F3AB5FF88BBEB /* StudioRelationships.swift in Sources */,
