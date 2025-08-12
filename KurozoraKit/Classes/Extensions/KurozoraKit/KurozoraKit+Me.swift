@@ -52,7 +52,8 @@ extension KurozoraKit {
 		let headers: HTTPHeaders = [
 			.contentType("multipart/form-data"),
 			.accept("application/json"),
-			.authorization(bearerToken: self.authenticationKey)
+			.init(name: "X-API-Key", value: self.apiKey),
+			.authorization(bearerToken: self.authenticationKey),
 		]
 
 		// Prepare parameters

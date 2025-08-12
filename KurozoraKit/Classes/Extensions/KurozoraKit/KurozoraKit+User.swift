@@ -21,7 +21,8 @@ extension KurozoraKit {
 	public func signUp(withUsername username: String, emailAddress: String, password: String, profileImage: UIImage?) -> RequestSender<KKSuccess, KKAPIError> {
 		// Prepare headers
 		let headers: HTTPHeaders = [
-			.contentType("multipart/form-data")
+			.contentType("multipart/form-data"),
+			.init(name: "X-API-Key", value: self.apiKey)
 		]
 
 		// Prepare parameters
