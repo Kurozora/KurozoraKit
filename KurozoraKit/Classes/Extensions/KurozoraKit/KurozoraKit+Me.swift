@@ -62,8 +62,8 @@ extension KurozoraKit {
 		if let username = profileUpdateRequest.username {
 			parameters["username"] = username
 		}
-		if let username = profileUpdateRequest.nickname {
-			parameters["nickname"] = username
+		if let nickname = profileUpdateRequest.nickname {
+			parameters["nickname"] = nickname
 		}
 		if let biography = profileUpdateRequest.biography {
 			parameters["biography"] = biography
