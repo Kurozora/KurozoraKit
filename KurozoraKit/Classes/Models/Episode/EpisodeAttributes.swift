@@ -30,6 +30,9 @@ extension Episode {
 		/// The synopsis text of the episode.
 		public let synopsis: String?
 
+		/// The show's tv rating.
+		public let tvRating: TVRating?
+
 		/// The title of the previous episode.
 		public let previousEpisodeTitle: String?
 

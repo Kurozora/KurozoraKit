@@ -38,7 +38,7 @@ public struct LibraryAttributes: Codable, Sendable {
 	public var status: KKLibrary.Status?
 
 	/// The rewatch count of the item.
-	public var rewathCount: Int?
+	public var rewatchCount: Int?
 }
 
 // MARK: - Helpers
