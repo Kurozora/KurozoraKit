@@ -54,7 +54,7 @@ extension KurozoraKit {
 	///    - exploreCategoryIdentity: The id of a explore category for which the content is fetched.
 	///	   - next: The URL string of the next page in the paginated response. Use `nil` to get first page.
 	///    - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 5 and the maximum value is 25.
-	///    
+	///
 	/// - Returns: An instance of `RequestSender` with the results of the get explore response.
 	public func getExplore(_ exploreCategoryIdentity: ExploreCategoryIdentity, next: String? = nil, limit: Int = 5) -> RequestSender<ExploreCategoryResponse, KKAPIError> {
 		// Prepare headers
@@ -64,12 +64,9 @@ extension KurozoraKit {
 		}
 
 		// Prepare parameters
-		var parameters: [String: Any] = [:]
-		if next == nil {
-			parameters = [
-				"limit": limit
-			]
-		}
+		var parameters: [String: Any] = [
+			"limit": limit,
+		]
 
 		// Prepare request
 		let exploreIndex = next ?? KKEndpoint.Explore.details(exploreCategoryIdentity).endpointValue

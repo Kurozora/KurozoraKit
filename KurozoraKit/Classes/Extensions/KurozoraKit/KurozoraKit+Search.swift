@@ -27,18 +27,18 @@ extension KurozoraKit {
 		}
 
 		// Prepare parameters
-		var parameters: [String: Any] = [:]
+		var parameters: [String: Any] = [
+			"limit": limit,
+		]
+
 		if next == nil {
 			let types: [String] = types.map { kkSearchType in
 				return kkSearchType.rawValue
 			}
 
-			parameters = [
-				"scope": scope.queryValue,
-				"types": types,
-				"query": query,
-				"limit": limit
-			]
+			parameters["scope"] = scope.queryValue
+			parameters["types"] = types
+			parameters["query"] = query
 
 			if let filter = filter {
 				var filters: [String: Any] = [:]

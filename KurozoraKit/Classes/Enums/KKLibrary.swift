@@ -17,7 +17,7 @@ import UIKit
 public enum KKLibrary {
 	/// The set of available library types.
 	///
-	/// ```
+	/// ```swift
 	/// case shows = 0
 	/// case literature = 1
 	/// case game = 2
@@ -51,7 +51,7 @@ public enum KKLibrary {
 
 	/// The set of available library status types.
 	///
-	/// ```
+	/// ```swift
 	/// case none = -1
 	/// case inProgress = 0
 	/// case planning = 2
@@ -228,7 +228,7 @@ public enum KKLibrary {
 extension KKLibrary.SortType {
 	/// The set of available library sort type option types.
 	///
-	/// ```
+	/// ```swift
 	/// case none = 0
 	/// case ascending, descending
 	/// case most, least

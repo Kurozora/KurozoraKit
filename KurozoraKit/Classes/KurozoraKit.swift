@@ -56,7 +56,7 @@ public class KurozoraKit {
 	/// Most common HTTP headers for the Kurozora API.
 	///
 	/// Current headers are:
-	/// ```
+	/// ```swift
 	/// "Content-Type": "application/x-www-form-urlencoded",
 	/// "Accept": "application/json"
 	/// ```

@@ -24,12 +24,11 @@ extension KurozoraKit {
 		}
 
 		// Prepare parameters
-		var parameters: [String: Any] = [:]
-		if next == nil {
-			parameters = [
-				"limit": limit
-			]
+		var parameters: [String: Any] = [
+			"limit": limit
+		]
 
+		if next == nil {
 			if let filter = filter {
 				let filters: [String: Any] = filter.toFilterArray().compactMapValues { value in
 					return value

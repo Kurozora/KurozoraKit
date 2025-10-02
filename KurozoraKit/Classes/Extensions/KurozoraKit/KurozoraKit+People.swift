@@ -25,12 +25,11 @@ extension KurozoraKit {
 		}
 
 		// Prepare parameters
-		var parameters: [String: Any] = [:]
-		if next == nil {
-			parameters = [
-				"limit": limit
-			]
+		var parameters: [String: Any] = [
+			"limit": limit,
+		]
 
+		if next == nil {
 			if let filter = filter {
 				let filters: [String: Any] = filter.toFilterArray().compactMapValues { value in
 					return value
@@ -98,7 +97,7 @@ extension KurozoraKit {
 	public func getCharacters(forPerson personIdentity: PersonIdentity, next: String? = nil, limit: Int = 25) -> RequestSender<CharacterIdentityResponse, KKAPIError> {
 		// Prepare parameters
 		let parameters: [String: Any] = [
-			"limit": limit
+			"limit": limit,
 		]
 
 		// Prepare request
@@ -129,7 +128,7 @@ extension KurozoraKit {
 
 		// Prepare parameters
 		let parameters: [String: Any] = [
-			"limit": limit
+			"limit": limit,
 		]
 
 		// Prepare request
@@ -160,7 +159,7 @@ extension KurozoraKit {
 
 		// Prepare parameters
 		let parameters: [String: Any] = [
-			"limit": limit
+			"limit": limit,
 		]
 
 		// Prepare request
@@ -191,7 +190,7 @@ extension KurozoraKit {
 
 		// Prepare parameters
 		let parameters: [String: Any] = [
-			"limit": limit
+			"limit": limit,
 		]
 
 		// Prepare request
@@ -222,7 +221,7 @@ extension KurozoraKit {
 
 		// Prepare parameters
 		let parameters: [String: Any] = [
-			"limit": limit
+			"limit": limit,
 		]
 
 		// Prepare request

@@ -10,7 +10,7 @@ public enum ExploreCategorySize: String, Codable, Sendable {
 	// MARK: - Cases
 	/// Indicates that the explore category has the `banner` size.
 	///
-	/// ```
+	/// ```swift
 	/// //   +-----------------------------------------------------+
 	/// //   | +----------------------------------------+  +-------|
 	/// //   |                                                     |
@@ -33,7 +33,7 @@ public enum ExploreCategorySize: String, Codable, Sendable {
 
 	/// Indicates that the explore category has the `large` size.
 	///
-	/// ```
+	/// ```swift
 	/// //   +-----------------------------------------------------+
 	/// //   | +----------------------------------------+  +-------|
 	/// //   | |                                        |  |       |
@@ -54,7 +54,7 @@ public enum ExploreCategorySize: String, Codable, Sendable {
 
 	/// Indicates that the explore category has the `medium` size.
 	///
-	/// ```
+	/// ```swift
 	/// //   +-----------------------------------------------------+
 	/// //   | +----------------------------+  +-------------------|
 	/// //   | |                            |  |                   |
@@ -72,7 +72,7 @@ public enum ExploreCategorySize: String, Codable, Sendable {
 
 	/// Indicates that the explore category has the `small` size.
 	///
-	/// ```
+	/// ```swift
 	/// //   +-----------------------------------------------------+
 	/// //   | +-------------+  +-------------+  +-------------+  +|
 	/// //   | |             |  |             |  |             |  ||
@@ -90,7 +90,7 @@ public enum ExploreCategorySize: String, Codable, Sendable {
 
 	/// Indicates that the explore category has the `upcoming` size.
 	///
-	/// ```
+	/// ```swift
 	/// //   +-----------------------------------------------------+
 	/// //   | +-------------------------------------+  +----------|
 	/// //   | |                                     |  |          |
@@ -121,7 +121,7 @@ public enum ExploreCategorySize: String, Codable, Sendable {
 
 	/// Indicates that the explore category has the `video` size.
 	///
-	/// ```
+	/// ```swift
 	/// //   +-----------------------------------------------------+
 	/// //   | +----------------------------------------+  +-------|
 	/// //   | |                                        |  |       |
