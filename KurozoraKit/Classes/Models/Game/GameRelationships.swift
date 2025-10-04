@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 01/02/2023.
 //
 
+import Foundation
+
 extension Game {
 	/// A root object that stores information about game relationships, such as the studios, and cast that belong to it.
 	public struct Relationships: Codable, Sendable {
@@ -17,7 +19,7 @@ extension Game {
 
 		/// The people belonging to the game.
 		public let people: PersonIdentityResponse?
-		
+
 		/// The shows related to the game.
 		public let relatedShows: RelatedShowResponse?
 

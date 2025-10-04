@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 27/04/2020.
 //
 
+import Foundation
+
 extension Achievement {
 	/// A root object that stores information about a single achievement, such as the achievement's name, description, and color.
 	public struct Attributes: Codable, Sendable {

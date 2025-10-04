@@ -6,9 +6,10 @@
 //
 
 import Alamofire
+import UIKit
 import TRON
 
-extension KurozoraKit {
+public extension KurozoraKit {
 	/// Sign up a new account with the given details.
 	///
 	/// - Parameters:
@@ -18,23 +19,23 @@ extension KurozoraKit {
 	///    - profileImage: The new user's profile image.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the sign up response.
-	public func signUp(withUsername username: String, emailAddress: String, password: String, profileImage: UIImage?) -> RequestSender<KKSuccess, KKAPIError> {
+	func signUp(withUsername username: String, emailAddress: String, password: String, profileImage: UIImage?) -> RequestSender<KKSuccess, KKAPIError> {
 		// Prepare headers
 		let headers: HTTPHeaders = [
 			.contentType("multipart/form-data"),
-			.init(name: "X-API-Key", value: self.apiKey)
+			.init(name: "X-API-Key", value: self.apiKey),
 		]
 
 		// Prepare parameters
 		let parameters = [
 			"username": username,
 			"email": emailAddress,
-			"password": password
+			"password": password,
 		]
 
 		// Prepare request
 		let usersSignUp = KKEndpoint.Users.signUp.endpointValue
-		let request: UploadAPIRequest<KKSuccess, KKAPIError> = tron.codable.uploadMultipart(usersSignUp) { (formData) in
+		let request: UploadAPIRequest<KKSuccess, KKAPIError> = tron.codable.uploadMultipart(usersSignUp) { formData in
 			if let profileImage = profileImage?.jpegData(compressionQuality: 0.1) {
 				formData.append(profileImage, withName: "profileImage", fileName: "ProfileImage.png", mimeType: "image/png")
 			}
@@ -58,7 +59,7 @@ extension KurozoraKit {
 	///    - password: The password of the user to be signed in.
 	///
 	/// - Returns: An instance of ``SignInResponse`` with the results of the sign in response.
-	public func signIn(_ email: String, _ password: String) async throws -> SignInResponse {
+	func signIn(_ email: String, _ password: String) async throws -> SignInResponse {
 		let usersSignIn = KKEndpoint.Users.signIn.endpointValue
 		let request: APIRequest<SignInResponse, KKAPIError> = tron.codable.request(usersSignIn)
 		request.headers = headers
@@ -69,7 +70,7 @@ extension KurozoraKit {
 			"platform": UIDevice.commonSystemName,
 			"platform_version": UIDevice.current.systemVersion,
 			"device_vendor": "Apple",
-			"device_model": UIDevice.modelName
+			"device_model": UIDevice.modelName,
 		]
 
 		do {
@@ -103,7 +104,7 @@ extension KurozoraKit {
 	///    - token: A JSON Web Token (JWT) that securely communicates information about the user to the server.
 	///
 	/// - Returns: An instance of ``OAuthResponse`` with the results of the sign in response.
-	public func signIn(withAppleID token: String) async throws -> OAuthResponse {
+	func signIn(withAppleID token: String) async throws -> OAuthResponse {
 		let siwaSignIn = KKEndpoint.Users.siwaSignIn.endpointValue
 		let request: APIRequest<OAuthResponse, KKAPIError> = tron.codable.request(siwaSignIn)
 		request.headers = headers
@@ -113,7 +114,7 @@ extension KurozoraKit {
 			"platform": UIDevice.commonSystemName,
 			"platform_version": UIDevice.current.systemVersion,
 			"device_vendor": "Apple",
-			"device_model": UIDevice.modelName
+			"device_model": UIDevice.modelName,
 		]
 
 		do {
@@ -142,13 +143,13 @@ extension KurozoraKit {
 	///    - emailAddress: The email address to which the reset link should be sent.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the reset password response.
-	public func resetPassword(withEmailAddress emailAddress: String) -> RequestSender<KKSuccess, KKAPIError> {
+	func resetPassword(withEmailAddress emailAddress: String) -> RequestSender<KKSuccess, KKAPIError> {
 		// Prepare headers
 		let headers = self.headers
 
 		// Prepare parameters
 		let parameters = [
-			"email": emailAddress
+			"email": emailAddress,
 		]
 
 		// Prepare request
@@ -171,7 +172,7 @@ extension KurozoraKit {
 	///    - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the get follow list response.
-	public func getFollowList(forUser userIdentity: UserIdentity, _ followList: UsersListType, next: String? = nil, limit: Int = 25) -> RequestSender<UserIdentityResponse, KKAPIError> {
+	func getFollowList(forUser userIdentity: UserIdentity, _ followList: UsersListType, next: String? = nil, limit: Int = 25) -> RequestSender<UserIdentityResponse, KKAPIError> {
 		// Prepare headers
 		var headers = self.headers
 		if !self.authenticationKey.isEmpty {
@@ -183,7 +184,7 @@ extension KurozoraKit {
 		let request: APIRequest<UserIdentityResponse, KKAPIError> = tron.codable.request(usersFollowerOrFollowing).buildURL(.relativeToBaseURL)
 			.method(.get)
 			.parameters([
-				"limit": limit
+				"limit": limit,
 			])
 			.headers(headers)
 
@@ -197,7 +198,7 @@ extension KurozoraKit {
 	///    - userIdentity: The identity of the user to follow/unfollow.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the update follow status response.
-	public func updateFollowStatus(forUser userIdentity: UserIdentity) -> RequestSender<FollowUpdateResponse, KKAPIError> {
+	func updateFollowStatus(forUser userIdentity: UserIdentity) -> RequestSender<FollowUpdateResponse, KKAPIError> {
 		// Prepare headers
 		var headers = self.headers
 		if !self.authenticationKey.isEmpty {
@@ -220,7 +221,7 @@ extension KurozoraKit {
 	///    - userIdentity: The identity of the user to block/unblock.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the update block status response.
-	public func updateBlockStatus(forUser userIdentity: UserIdentity) -> RequestSender<BlockUpdateResponse, KKAPIError> {
+	func updateBlockStatus(forUser userIdentity: UserIdentity) -> RequestSender<BlockUpdateResponse, KKAPIError> {
 		// Prepare headers
 		var headers = self.headers
 		if !self.authenticationKey.isEmpty {
@@ -245,7 +246,7 @@ extension KurozoraKit {
 	///    - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the get block list response.
-	public func getBlockList(forUser userIdentity: UserIdentity, next: String? = nil, limit: Int = 25) -> RequestSender<UserIdentityResponse, KKAPIError> {
+	func getBlockList(forUser userIdentity: UserIdentity, next: String? = nil, limit: Int = 25) -> RequestSender<UserIdentityResponse, KKAPIError> {
 		// Prepare headers
 		var headers = self.headers
 		if !self.authenticationKey.isEmpty {
@@ -257,7 +258,7 @@ extension KurozoraKit {
 		let request: APIRequest<UserIdentityResponse, KKAPIError> = tron.codable.request(usersBlocking).buildURL(.relativeToBaseURL)
 			.method(.get)
 			.parameters([
-				"limit": limit
+				"limit": limit,
 			])
 			.headers(headers)
 
@@ -274,7 +275,7 @@ extension KurozoraKit {
 	///    - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the get favorites response.
-	public func getFavorites(forUser userIdentity: UserIdentity, libraryKind: KKLibrary.Kind, next: String? = nil, limit: Int = 25) -> RequestSender<FavoriteLibraryResponse, KKAPIError> {
+	func getFavorites(forUser userIdentity: UserIdentity, libraryKind: KKLibrary.Kind, next: String? = nil, limit: Int = 25) -> RequestSender<FavoriteLibraryResponse, KKAPIError> {
 		// Prepare headers
 		var headers = self.headers
 		if !self.authenticationKey.isEmpty {
@@ -284,7 +285,7 @@ extension KurozoraKit {
 		// Prepare parameters
 		let parameters: [String: Any] = [
 			"library": libraryKind.rawValue,
-			"limit": limit
+			"limit": limit,
 		]
 
 		// Prepare request
@@ -310,7 +311,7 @@ extension KurozoraKit {
 	///    - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the get library response.
-	public func getLibrary(forUser userIdentity: UserIdentity, libraryKind: KKLibrary.Kind, withLibraryStatus libraryStatus: KKLibrary.Status, withSortType sortType: KKLibrary.SortType, withSortOption sortOption: KKLibrary.SortType.Option, next: String? = nil, limit: Int = 25) -> RequestSender<LibraryResponse, KKAPIError> {
+	func getLibrary(forUser userIdentity: UserIdentity, libraryKind: KKLibrary.Kind, withLibraryStatus libraryStatus: KKLibrary.Status, withSortType sortType: KKLibrary.SortType, withSortOption sortOption: KKLibrary.SortType.Option, next: String? = nil, limit: Int = 25) -> RequestSender<LibraryResponse, KKAPIError> {
 		// Prepare headers
 		var headers = self.headers
 		if !self.authenticationKey.isEmpty {
@@ -321,7 +322,7 @@ extension KurozoraKit {
 		var parameters: [String: Any] = [
 			"library": libraryKind.rawValue,
 			"status": libraryStatus.sectionValue,
-			"limit": limit
+			"limit": limit,
 		]
 		if sortType != .none {
 			parameters["sort"] = "\(sortType.parameterValue)\(sortOption.parameterValue)"
@@ -346,7 +347,7 @@ extension KurozoraKit {
 	///    - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the get reviews response.
-	public func getReviewsList(forUser userIdentity: UserIdentity, next: String? = nil, limit: Int = 25) -> RequestSender<ReviewResponse, KKAPIError> {
+	func getReviewsList(forUser userIdentity: UserIdentity, next: String? = nil, limit: Int = 25) -> RequestSender<ReviewResponse, KKAPIError> {
 		// Prepare headers
 		var headers = self.headers
 		if !self.authenticationKey.isEmpty {
@@ -358,7 +359,7 @@ extension KurozoraKit {
 		let request: APIRequest<ReviewResponse, KKAPIError> = tron.codable.request(usersReviews).buildURL(.relativeToBaseURL)
 			.method(.get)
 			.parameters([
-				"limit": limit
+				"limit": limit,
 			])
 			.headers(headers)
 
@@ -372,7 +373,7 @@ extension KurozoraKit {
 	///    - userIdentity: The identity of the user whose profile details should be fetched.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the get user details response.
-	public func getDetails(forUser userIdentity: UserIdentity) -> RequestSender<UserResponse, KKAPIError> {
+	func getDetails(forUser userIdentity: UserIdentity) -> RequestSender<UserResponse, KKAPIError> {
 		// Prepare headers
 		var headers = self.headers
 		if !self.authenticationKey.isEmpty {
@@ -393,7 +394,7 @@ extension KurozoraKit {
 	///
 	/// - Parameters:
 	///    - username: The username to search for.
-	public func searchUsers(for username: String) -> RequestSender<UserIdentityResponse, KKAPIError> {
+	func searchUsers(for username: String) -> RequestSender<UserIdentityResponse, KKAPIError> {
 		// Prepare headers
 		var headers = headers
 		if !self.authenticationKey.isEmpty {
@@ -416,14 +417,14 @@ extension KurozoraKit {
 	///    - password: The authenticated user's password.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the delete user response.
-	public func deleteUser(password: String) async throws -> KKSuccess {
+	func deleteUser(password: String) async throws -> KKSuccess {
 		// Prepare headers
 		var headers = self.headers
 		headers.add(.authorization(bearerToken: self.authenticationKey))
 
 		// Prepare parameters
 		let parameters = [
-			"password": password
+			"password": password,
 		]
 
 		// Prepare request

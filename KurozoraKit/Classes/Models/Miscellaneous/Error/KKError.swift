@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 22/12/2018.
 //
 
+import Foundation
+
 /// Information about an error that occurred while processing a request.
 public struct KKError: Codable, Sendable {
 	// MARK: - Properties

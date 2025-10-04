@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 09/08/2020.
 //
 
+import Foundation
+
 extension Show {
 	/// A root object that stores information about show relationships, such as the studios, and cast that belong to it.
 	public struct Relationships: Codable, Sendable {

@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 09/08/2020.
 //
 
+import Foundation
+
 /// A root object that stores information about an episode resource.
 public final class Episode: IdentityResource, Hashable, @unchecked Sendable {
 	// MARK: - Properties

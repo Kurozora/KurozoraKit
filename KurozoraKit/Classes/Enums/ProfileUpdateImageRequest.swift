@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 24/02/2024.
 //
 
+import Foundation
+
 /// The list of available profile update image request types.
 ///
 /// - Tag: ProfileUpdateImageRequest

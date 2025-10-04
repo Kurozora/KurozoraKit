@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 27/04/2020.
 //
 
+import Foundation
+
 extension UserNotification {
 	/// A root object that stores information about user notification payload.
 	public struct Payload: Codable, Sendable {

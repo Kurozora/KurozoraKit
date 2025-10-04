@@ -6,21 +6,22 @@
 //
 
 import Alamofire
+import Foundation
 import TRON
 
-extension KurozoraKit {
+public extension KurozoraKit {
 	/// Fetch the library entries with the given status in the authenticated user's library.
 	///
 	/// - Parameters:
 	///    - libraryKind: In which library the item should be added.
 	///    - libraryStatus: The library status to retrieve the library items for.
-	///    - sortType: The sort value by which the retrived items should be sorted.
-	///    - sortOption: The sort option value by which the retrived items should be sorted.
+	///    - sortType: The sort value by which the retrieved items should be sorted.
+	///    - sortOption: The sort option value by which the retrieved items should be sorted.
 	///    - next: The URL string of the next page in the paginated response. Use `nil` to get first page.
 	///    - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the get library response.
-	public func getLibrary(_ libraryKind: KKLibrary.Kind, withLibraryStatus libraryStatus: KKLibrary.Status, withSortType sortType: KKLibrary.SortType, withSortOption sortOption: KKLibrary.SortType.Option, next: String? = nil, limit: Int = 25) -> RequestSender<LibraryResponse, KKAPIError> {
+	func getLibrary(_ libraryKind: KKLibrary.Kind, withLibraryStatus libraryStatus: KKLibrary.Status, withSortType sortType: KKLibrary.SortType, withSortOption sortOption: KKLibrary.SortType.Option, next: String? = nil, limit: Int = 25) -> RequestSender<LibraryResponse, KKAPIError> {
 		// Prepare headers
 		var headers = self.headers
 		headers.add(.authorization(bearerToken: self.authenticationKey))
@@ -29,7 +30,7 @@ extension KurozoraKit {
 		var parameters: [String: Any] = [
 			"library": libraryKind.rawValue,
 			"status": libraryStatus.sectionValue,
-			"limit": limit
+			"limit": limit,
 		]
 		if sortType != .none {
 			parameters["sort"] = "\(sortType.parameterValue)\(sortOption.parameterValue)"
@@ -54,7 +55,7 @@ extension KurozoraKit {
 	///    - modelID: The id of the model to add.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the add to library response.
-	public func addToLibrary(_ libraryKind: KKLibrary.Kind, withLibraryStatus libraryStatus: KKLibrary.Status, modelID: String) -> RequestSender<LibraryUpdateResponse, KKAPIError> {
+	func addToLibrary(_ libraryKind: KKLibrary.Kind, withLibraryStatus libraryStatus: KKLibrary.Status, modelID: String) -> RequestSender<LibraryUpdateResponse, KKAPIError> {
 		// Prepare headers
 		var headers = self.headers
 		headers.add(.authorization(bearerToken: self.authenticationKey))
@@ -63,7 +64,7 @@ extension KurozoraKit {
 		let parameters: [String: Any] = [
 			"library": libraryKind.rawValue,
 			"model_id": modelID,
-			"status": libraryStatus.rawValue
+			"status": libraryStatus.rawValue,
 		]
 
 		// Prepare request
@@ -86,7 +87,7 @@ extension KurozoraKit {
 	///    - isHidden: Wehther the item is marked as hidden.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the update in library response.
-	public func updateInLibrary(_ libraryKind: KKLibrary.Kind, modelID: String, rewatchCount: Int?, isHidden: Bool?) -> RequestSender<LibraryUpdateResponse, KKAPIError> {
+	func updateInLibrary(_ libraryKind: KKLibrary.Kind, modelID: String, rewatchCount: Int?, isHidden: Bool?) -> RequestSender<LibraryUpdateResponse, KKAPIError> {
 		// Prepare headers
 		var headers = self.headers
 		headers.add(.authorization(bearerToken: self.authenticationKey))
@@ -94,7 +95,7 @@ extension KurozoraKit {
 		// Prepare parameters
 		var parameters: [String: Any] = [
 			"library": libraryKind.rawValue,
-			"model_id": modelID
+			"model_id": modelID,
 		]
 		if let rewatchCount = rewatchCount {
 			parameters["rewatch_count"] = rewatchCount
@@ -121,7 +122,7 @@ extension KurozoraKit {
 	///    - modelID: The id of the model to be deleted.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the remove from library response.
-	public func removeFromLibrary(_ libraryKind: KKLibrary.Kind, modelID: String) -> RequestSender<LibraryUpdateResponse, KKAPIError> {
+	func removeFromLibrary(_ libraryKind: KKLibrary.Kind, modelID: String) -> RequestSender<LibraryUpdateResponse, KKAPIError> {
 		// Prepare headers
 		var headers = self.headers
 		headers.add(.authorization(bearerToken: self.authenticationKey))
@@ -129,7 +130,7 @@ extension KurozoraKit {
 		// Prepare parameters
 		let parameters: [String: Any] = [
 			"library": libraryKind.rawValue,
-			"model_id": modelID
+			"model_id": modelID,
 		]
 
 		// Prepare request
@@ -150,7 +151,7 @@ extension KurozoraKit {
 	///    - password: The authenticated user's password.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the library clear response.
-	public func clearLibrary(_ libraryKind: KKLibrary.Kind, password: String) -> RequestSender<KKSuccess, KKAPIError> {
+	func clearLibrary(_ libraryKind: KKLibrary.Kind, password: String) -> RequestSender<KKSuccess, KKAPIError> {
 		// Prepare headers
 		var headers = self.headers
 		headers.add(.authorization(bearerToken: self.authenticationKey))
@@ -158,7 +159,7 @@ extension KurozoraKit {
 		// Prepare parameters
 		let parameters: [String: Any] = [
 			"library": libraryKind.rawValue,
-			"password": password
+			"password": password,
 		]
 
 		// Prepare request
@@ -181,11 +182,11 @@ extension KurozoraKit {
 	///    - filePath: The path to the file to be imported.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the import to library response.
-	public func importToLibrary(_ libraryKind: KKLibrary.Kind, importService service: LibraryImport.Service, importBehavior behavior: LibraryImport.Behavior, filePath: URL) -> RequestSender<KKSuccess, KKAPIError> {
+	func importToLibrary(_ libraryKind: KKLibrary.Kind, importService service: LibraryImport.Service, importBehavior behavior: LibraryImport.Behavior, filePath: URL) -> RequestSender<KKSuccess, KKAPIError> {
 		// Prepare headers
 		var headers: HTTPHeaders = [
 			.contentType("multipart/form-data"),
-			.accept("application/json")
+			.accept("application/json"),
 		]
 		headers.add(.authorization(bearerToken: self.authenticationKey))
 
@@ -193,7 +194,7 @@ extension KurozoraKit {
 		let parameters: [String: Any] = [
 			"library": libraryKind.rawValue,
 			"service": service.rawValue,
-			"behavior": behavior.rawValue
+			"behavior": behavior.rawValue,
 		]
 
 		// Prepare request
@@ -201,9 +202,9 @@ extension KurozoraKit {
 		let request: UploadAPIRequest<KKSuccess, KKAPIError> = tron.codable.uploadMultipart(meLibraryImport) { formData in
 			formData.append(filePath, withName: "file", fileName: "LibraryImport.xml", mimeType: "text/xml")
 		}
-			.method(.post)
-			.headers(headers)
-			.parameters(parameters)
+		.method(.post)
+		.headers(headers)
+		.parameters(parameters)
 
 		// Send request
 		return request.sender()

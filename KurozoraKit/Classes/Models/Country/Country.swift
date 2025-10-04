@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 21/09/2024.
 //
 
+import Foundation
+
 /// A root object that stores information about a country resource.
 public struct Country: Codable, Hashable, Sendable {
 	// MARK: - Properties

@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 23/08/2019.
 //
 
+import Foundation
+
 /// A root object that stores information about a achievement resource.
 public struct Achievement: Codable, Hashable, Sendable {
 	// MARK: - Properties

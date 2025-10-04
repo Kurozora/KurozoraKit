@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 25/02/2022.
 //
 
+import Foundation
+
 /// A root object that stores information about a genre identity resource.
 public struct GenreIdentity: IdentityResource, Hashable {
 	// MARK: - Properties

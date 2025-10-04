@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 12/02/2022.
 //
 
+import Foundation
+
 /// A root object that stores information about a season identity resource.
 public struct CastIdentity: IdentityResource, Hashable, Sendable {
 	// MARK: - Properties

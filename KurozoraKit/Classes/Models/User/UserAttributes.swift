@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 27/04/2020.
 //
 
+import Foundation
+
 public extension User {
 	/// A root object that stores information about a single user, such as the user's username, bio, and profile image.
 	struct Attributes: Codable, Sendable {

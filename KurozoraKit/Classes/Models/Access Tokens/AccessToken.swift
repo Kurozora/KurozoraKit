@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 28/11/2021.
 //
 
+import Foundation
+
 /// A root object that stores information about a collection of access tokens.
 public struct AccessToken: IdentityResource, Hashable {
 	// MARK: - Properties

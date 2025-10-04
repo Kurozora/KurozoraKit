@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 23/04/2025.
 //
 
+import Foundation
+
 /// A root object that stores information about a user's block update.
 public struct BlockUpdateResponse: Codable, Sendable {
 	// MARK: - Properties

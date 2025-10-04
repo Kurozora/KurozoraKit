@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 09/08/2018.
 //
 
+import Foundation
+
 /// A root object that stores information about an explore category resource.
 public struct ExploreCategory: IdentityResource, Hashable {
 	// MARK: - Properties

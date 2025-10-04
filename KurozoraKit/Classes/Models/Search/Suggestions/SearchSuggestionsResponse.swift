@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 19/04/2023.
 //
 
+import Foundation
+
 /// A root object that stores information about a collection of search suggestions.
 public struct SearchSuggestionsResponse: Codable, Sendable {
 	// MARK: - Properties

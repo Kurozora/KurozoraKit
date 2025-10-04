@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 04/08/2020.
 //
 
+import Foundation
+
 extension AccessToken {
 	/// A root object that stores information about access token relationships, such as the user it belongs to, and the platform it was created on.
 	public struct Relationships: Codable, Sendable {

@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 01/02/2023.
 //
 
+import Foundation
+
 extension Game {
 	/// A root object that stores information about a single game, such as the game's title, episode count, and air date.
 	public struct Attributes: Codable, Sendable {

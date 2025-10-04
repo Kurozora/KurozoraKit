@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 28/06/2020.
 //
 
+import Foundation
+
 /// A root object that stores information about a cast resource.
 public struct Cast: IdentityResource, Hashable {
 	// MARK: - Properties

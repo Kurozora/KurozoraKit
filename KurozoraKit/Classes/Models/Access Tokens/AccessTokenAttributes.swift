@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 27/04/2020.
 //
 
+import Foundation
+
 extension AccessToken {
 	/// A root object that stores information about a single access token, such as the token's ip address, and last validated date.
 	public struct Attributes: Codable, Sendable {

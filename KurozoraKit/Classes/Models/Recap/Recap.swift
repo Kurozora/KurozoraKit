@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 04/01/2024.
 //
 
+import Foundation
+
 /// A root object that stores information about a recap resource.
 public struct Recap: IdentityResource, Hashable {
 	// MARK: - Properties

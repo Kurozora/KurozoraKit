@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 22/08/2020.
 //
 
+import Foundation
+
 /// A root object that stores information about an OAuth sign in object request.
 public struct OAuthResponse: Codable, Sendable {
 	// MARK: - Properties

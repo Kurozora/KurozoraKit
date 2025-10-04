@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 27/04/2020.
 //
 
+import Foundation
+
 extension AppTheme {
 	/// A root object that stores information about a single app theme, such as the app theme's name, download count, and download link.
 	public struct Attributes: Codable, Sendable {

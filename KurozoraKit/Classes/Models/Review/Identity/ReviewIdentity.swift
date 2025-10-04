@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 22/03/2024.
 //
 
+import Foundation
+
 /// A root object that stores information about a user identity resource.
 public struct ReviewIdentity: IdentityResource, Hashable {
 	// MARK: - Properties

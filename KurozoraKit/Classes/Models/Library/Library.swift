@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 06/02/2023.
 //
 
+import Foundation
+
 /// A root object that stores information about a library resource.
 public struct Library: Codable, Sendable {
 	// MARK: - Properties

@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 27/04/2020.
 //
 
+import Foundation
+
 extension Genre {
 	/// A root object that stores information about a single genre, such as the genre's name, color, and symbol.
 	public struct Attributes: Codable, Sendable {

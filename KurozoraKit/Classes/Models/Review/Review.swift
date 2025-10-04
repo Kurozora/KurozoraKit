@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 29/07/2023.
 //
 
+import Foundation
+
 /// A root object that stores information about a review resource.
 public struct Review: IdentityResource, Hashable {
 	// MARK: - Properties

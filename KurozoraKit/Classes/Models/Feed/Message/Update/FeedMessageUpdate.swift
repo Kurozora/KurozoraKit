@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 06/11/2021.
 //
 
+import Foundation
+
 /// A root object that stores information about a feed message update resource.
 public struct FeedMessageUpdate: Codable, Sendable {
 	// MARK: - Properties

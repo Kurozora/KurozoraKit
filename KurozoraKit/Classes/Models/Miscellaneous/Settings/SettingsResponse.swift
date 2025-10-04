@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 09/12/2022.
 //
 
+import Foundation
+
 /// A root object that stores information about a collection of settings.
 public struct SettingsResponse: Codable, Sendable {
 	// MARK: - Properties

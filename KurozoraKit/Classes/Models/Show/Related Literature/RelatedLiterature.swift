@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 29/01/2023.
 //
 
+import Foundation
+
 /// A root object that stores information about a related literature resource.
 public struct RelatedLiterature: Codable, Hashable, Sendable {
 	// MARK: - Properties

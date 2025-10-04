@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 14/06/2021.
 //
 
+import Foundation
+
 /// A root object that stores information about an airing status resource.
 public struct AiringStatus: Codable, Hashable, Sendable {
 	// MARK: - Properties

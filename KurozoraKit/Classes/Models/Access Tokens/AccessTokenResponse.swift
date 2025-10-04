@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 19/09/2018.
 //
 
+import Foundation
+
 /// A root object that stores information about an access token response.
 public struct AccessTokenResponse: Codable, Sendable {
 	// MARK: - Properties

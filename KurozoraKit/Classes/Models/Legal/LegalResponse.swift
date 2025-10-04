@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 09/09/2018.
 //
 
+import Foundation
+
 /// A root object that stores information about a single legal object.
 public struct LegalResponse: Codable, Sendable {
 	// MARK: - Properties

@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 06/12/2022.
 //
 
+import Foundation
+
 /// A root object that stores information about a feed message identity resource.
 public struct FeedMessageIdentity: IdentityResource, Hashable {
 	// MARK: - Properties

@@ -6,9 +6,10 @@
 //
 
 import Alamofire
+import Foundation
 import TRON
 
-extension KurozoraKit {
+public extension KurozoraKit {
 	/// Fetch the characters index.
 	///
 	/// - Parameters:
@@ -17,7 +18,7 @@ extension KurozoraKit {
 	///    - filter: The filters to apply on the index list.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the characters index response.
-	public func charactersIndex(next: String? = nil, limit: Int = 5, filter: CharacterFilter?) -> RequestSender<CharacterIdentityResponse, KKAPIError> {
+	func charactersIndex(next: String? = nil, limit: Int = 5, filter: CharacterFilter?) -> RequestSender<CharacterIdentityResponse, KKAPIError> {
 		// Prepare headers
 		var headers = self.headers
 		if !self.authenticationKey.isEmpty {
@@ -32,7 +33,7 @@ extension KurozoraKit {
 		if next == nil {
 			if let filter = filter {
 				let filters: [String: Any] = filter.toFilterArray().compactMapValues { value in
-					return value
+					value
 				}
 
 				do {
@@ -62,7 +63,7 @@ extension KurozoraKit {
 	///    - relationships: The relationships to include in the response.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the get character details response.
-	public func getDetails(forCharacter characterIdentity: CharacterIdentity, including relationships: [String] = []) -> RequestSender<CharacterResponse, KKAPIError> {
+	func getDetails(forCharacter characterIdentity: CharacterIdentity, including relationships: [String] = []) -> RequestSender<CharacterResponse, KKAPIError> {
 		// Prepare headers
 		var headers = self.headers
 		if !self.authenticationKey.isEmpty {
@@ -94,10 +95,10 @@ extension KurozoraKit {
 	///    - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the get people response.
-	public func getPeople(forCharacter characterIdentity: CharacterIdentity, next: String? = nil, limit: Int = 25) -> RequestSender<PersonIdentityResponse, KKAPIError> {
+	func getPeople(forCharacter characterIdentity: CharacterIdentity, next: String? = nil, limit: Int = 25) -> RequestSender<PersonIdentityResponse, KKAPIError> {
 		// Prepare parameters
 		let parameters: [String: Any] = [
-			"limit": limit
+			"limit": limit,
 		]
 
 		// Prepare request
@@ -119,7 +120,7 @@ extension KurozoraKit {
 	///    - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the get shows response.
-	public func getShows(forCharacter characterIdentity: CharacterIdentity, next: String? = nil, limit: Int = 25) -> RequestSender<ShowIdentityResponse, KKAPIError> {
+	func getShows(forCharacter characterIdentity: CharacterIdentity, next: String? = nil, limit: Int = 25) -> RequestSender<ShowIdentityResponse, KKAPIError> {
 		// Prepare headers
 		var headers = self.headers
 		if !self.authenticationKey.isEmpty {
@@ -128,7 +129,7 @@ extension KurozoraKit {
 
 		// Prepare parameters
 		let parameters: [String: Any] = [
-			"limit": limit
+			"limit": limit,
 		]
 
 		// Prepare request
@@ -150,7 +151,7 @@ extension KurozoraKit {
 	///    - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the get literatures response.
-	public func getLiteratures(forCharacter characterIdentity: CharacterIdentity, next: String? = nil, limit: Int = 25) -> RequestSender<LiteratureIdentityResponse, KKAPIError> {
+	func getLiteratures(forCharacter characterIdentity: CharacterIdentity, next: String? = nil, limit: Int = 25) -> RequestSender<LiteratureIdentityResponse, KKAPIError> {
 		// Prepare headers
 		var headers = self.headers
 		if !self.authenticationKey.isEmpty {
@@ -159,7 +160,7 @@ extension KurozoraKit {
 
 		// Prepare parameters
 		let parameters: [String: Any] = [
-			"limit": limit
+			"limit": limit,
 		]
 
 		// Prepare request
@@ -181,7 +182,7 @@ extension KurozoraKit {
 	///    - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the get games response.
-	public func getGames(forCharacter characterIdentity: CharacterIdentity, next: String? = nil, limit: Int = 25) -> RequestSender<GameIdentityResponse, KKAPIError> {
+	func getGames(forCharacter characterIdentity: CharacterIdentity, next: String? = nil, limit: Int = 25) -> RequestSender<GameIdentityResponse, KKAPIError> {
 		// Prepare headers
 		var headers = self.headers
 		if !self.authenticationKey.isEmpty {
@@ -190,7 +191,7 @@ extension KurozoraKit {
 
 		// Prepare parameters
 		let parameters: [String: Any] = [
-			"limit": limit
+			"limit": limit,
 		]
 
 		// Prepare request
@@ -212,7 +213,7 @@ extension KurozoraKit {
 	///	   - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the get reviews response.
-	public func getReviews(forCharacter characterIdentity: CharacterIdentity, next: String? = nil, limit: Int = 25) -> RequestSender<ReviewResponse, KKAPIError> {
+	func getReviews(forCharacter characterIdentity: CharacterIdentity, next: String? = nil, limit: Int = 25) -> RequestSender<ReviewResponse, KKAPIError> {
 		// Prepare headers
 		var headers = self.headers
 		if !self.authenticationKey.isEmpty {
@@ -221,7 +222,7 @@ extension KurozoraKit {
 
 		// Prepare parameters
 		let parameters: [String: Any] = [
-			"limit": limit
+			"limit": limit,
 		]
 
 		// Prepare request
@@ -243,14 +244,14 @@ extension KurozoraKit {
 	///	   - description: The description of the rating.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the rate character response.
-	public func rateCharacter(_ characterIdentity: CharacterIdentity, with score: Double, description: String?) -> RequestSender<KKSuccess, KKAPIError> {
+	func rateCharacter(_ characterIdentity: CharacterIdentity, with score: Double, description: String?) -> RequestSender<KKSuccess, KKAPIError> {
 		// Prepare headers
 		var headers = self.headers
 		headers.add(.authorization(bearerToken: self.authenticationKey))
 
 		// Prepare parameters
 		var parameters: [String: Any] = [
-			"rating": score
+			"rating": score,
 		]
 		if let description = description {
 			parameters["description"] = description
@@ -273,7 +274,7 @@ extension KurozoraKit {
 	///    - characterIdentity: The id of the character whose rating should be deleted.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the delete rating response.
-	public func deleteRating(_ characterIdentity: CharacterIdentity) -> RequestSender<KKSuccess, KKAPIError> {
+	func deleteRating(_ characterIdentity: CharacterIdentity) -> RequestSender<KKSuccess, KKAPIError> {
 		// Prepare headers
 		var headers = self.headers
 		headers.add(.authorization(bearerToken: self.authenticationKey))

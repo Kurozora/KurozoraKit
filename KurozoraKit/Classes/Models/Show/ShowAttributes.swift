@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 27/04/2020.
 //
 
+import Foundation
+
 extension Show {
 	/// A root object that stores information about a single show, such as the show's title, episode count, and air date.
 	public struct Attributes: Codable, Sendable {

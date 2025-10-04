@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 27/08/2020.
 //
 
+import Foundation
+
 extension FeedMessage {
 	/// A root object that stores information about a single feed message, such as the message's content, and whether it's a spoiler or NSFW.
 	public struct Attributes: Codable, Sendable {

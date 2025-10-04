@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 14/08/2020.
 //
 
+import Foundation
+
 /// A root object that stores information about a user follow update resource.
 public struct FollowUpdate: Codable, Sendable {
 	// MARK: - Properties

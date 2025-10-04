@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 07/04/2024.
 //
 
+import Foundation
+
 /// A root object that stores information about a collection of media.
 public struct MediaResponse: Codable, Sendable {
 	// MARK: - Properties

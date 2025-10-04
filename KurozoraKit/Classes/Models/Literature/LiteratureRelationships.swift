@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 29/01/2023.
 //
 
+import Foundation
+
 extension Literature {
 	/// A root object that stores information about literature relationships, such as the studios, and cast that belong to it.
 	public struct Relationships: Codable, Sendable {

@@ -5,8 +5,10 @@
 //  Created by Khoren Katklian on 06/04/2020.
 //
 
+import UIKit
+
 // MARK: - Model
-internal extension UIDevice {
+extension UIDevice {
 	// MARK: - Properties
 	/// The device's model name in a readable form.
 	static let modelName: String = {
@@ -26,7 +28,7 @@ internal extension UIDevice {
 		func mapToDevice(identifier: String) -> String {
 			#if os(iOS)
 			switch identifier {
-				// iPod
+			// iPod
 			case "iPod1,1":												return "iPod touch"
 			case "iPod2,1":												return "iPod touch (2nd genertion)"
 			case "iPod3,1":												return "iPod touch (3rd generation)"
@@ -34,7 +36,7 @@ internal extension UIDevice {
 			case "iPod5,1":												return "iPod touch (5th generation)"
 			case "iPod7,1":												return "iPod touch (6th generation)"
 			case "iPod9,1":												return "iPod touch (7th generation)"
-				// iPhone
+			// iPhone
 			case "iPhone1,1":											return "iPhone 2G"
 			case "iPhone1,2":											return "iPhone 3G"
 			case "iPhone2,1":											return "iPhone 3GS"
@@ -81,7 +83,7 @@ internal extension UIDevice {
 			case "iPhone17,2": 											return "iPhone 16 Pro Max"
 			case "iPhone17,3":											return "iPhone 16"
 			case "iPhone17,4":											return "iPhone 16 Plus"
-				// iPad
+			// iPad
 			case "iPad1,1", "iPad1,2":									return "iPad"
 			case "iPad2,1", "iPad2,2", "iPad2,3", "iPad2,4":			return "iPad 2"
 			case "iPad2,5", "iPad2,6", "iPad2,7":						return "iPad mini"
@@ -118,7 +120,7 @@ internal extension UIDevice {
 			case "iPad16,1", "iPad16,2":								return "iPad mini (A17 Pro)"
 			case "iPad16,3", "iPad16,4":								return "iPad Pro (11-inch) (M4)"
 			case "iPad16,5", "iPad16,6":								return "iPad Pro (13-inch) (M4)"
-				// Apple TV
+			// Apple TV
 			case "AppleTV1,1":											return "Apple TV (1st generation)"
 			case "AppleTV2,1":											return "Apple TV (2nd generation)"
 			case "AppleTV3,1":											return "Apple TV (3rd generation)"
@@ -126,16 +128,16 @@ internal extension UIDevice {
 			case "AppleTV5,3":											return "Apple TV (4th generation)"
 			case "AppleTV6,2":											return "Apple TV 4K"
 			case "AppleTV11,1":											return "Apple TV 4K (2nd generation)"
-				// HomePod
+			// HomePod
 			case "AudioAccessory1,1", "AudioAccessory1,2":				return "HomePod"
 			case "AudioAccessory5,1":									return "HomePod mini"
-				// Simulator
+			// Simulator
 			case "i386", "x86_64":										return "Simulator \(mapToDevice(identifier: ProcessInfo().environment["SIMULATOR_MODEL_IDENTIFIER"] ?? "iOS"))"
 			default:													return identifier
 			}
 			#elseif os(watchOS)
 			switch identifier {
-				// Apple Watch
+			// Apple Watch
 			case "Watch1,1", "Watch1,2":								return "Apple Watch"
 			case "Watch2,3", "Watch2,4":								return "Apple Watch Series 2"
 			case "Watch2,6", "Watch2,7":								return "Apple Watch Series 1"

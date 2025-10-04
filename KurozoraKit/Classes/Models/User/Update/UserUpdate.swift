@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 14/08/2020.
 //
 
+import Foundation
+
 /// A root object that stores information about a user update resource.
 public struct UserUpdate: Codable, Sendable {
 	// MARK: - Properties

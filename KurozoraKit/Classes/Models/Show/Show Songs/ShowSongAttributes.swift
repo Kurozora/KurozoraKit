@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 25/02/2022.
 //
 
+import Foundation
+
 extension ShowSong {
 	/// A root object that stores information about a single show, such as the show song's type, position, and episode debute.
 	public struct Attributes: Codable, Sendable {

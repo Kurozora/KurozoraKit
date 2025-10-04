@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 04/01/2024.
 //
 
+import Foundation
+
 extension RecapItem {
 	/// A root object that stores information about a single recap item, such as the recap item's year, and type.
 	public struct Attributes: Codable, Sendable {

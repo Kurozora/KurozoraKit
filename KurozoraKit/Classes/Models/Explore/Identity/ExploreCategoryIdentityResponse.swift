@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 18/06/2022.
 //
 
+import Foundation
+
 /// A root object that stores information about a collection of explore category identities.
 public struct ExploreCategoryIdentityResponse: Codable, Sendable {
 	// MARK: - Properties

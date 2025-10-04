@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 29/07/2023.
 //
 
+import Foundation
+
 /// A root object that stores information about a collection of reviews.
 public struct ReviewResponse: Codable, Sendable {
 	// MARK: - Properties

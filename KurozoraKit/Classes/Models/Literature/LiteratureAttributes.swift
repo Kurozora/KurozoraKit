@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 29/01/2023.
 //
 
+import Foundation
+
 extension Literature {
 	/// A root object that stores information about a single literature, such as the literature's title, episode count, and air date.
 	public struct Attributes: Codable, Sendable {

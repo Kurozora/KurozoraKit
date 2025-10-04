@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 15/06/2021.
 //
 
+import Foundation
+
 extension Staff {
 	/// A root object that stores information about a single staff, such as the staff's role.
 	public struct Attributes: Codable, Sendable {

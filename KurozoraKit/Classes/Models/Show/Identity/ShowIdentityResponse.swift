@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 20/07/2021.
 //
 
+import Foundation
+
 /// A root object that stores information about a collection of show identities.
 public struct ShowIdentityResponse: Codable, Sendable {
 	// MARK: - Properties

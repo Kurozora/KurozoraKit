@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 06/08/2020.
 //
 
+import Foundation
+
 extension User {
 	/// A root object that stores information about user relationships, such as the sessions, and achievements that belong to it.
 	public struct Relationships: Codable, Sendable {

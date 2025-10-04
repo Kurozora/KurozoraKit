@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 18/06/2021.
 //
 
+import Foundation
+
 /// A root object that stores information about a show's user rating.
 public struct UserRating: Codable, Sendable {
 	/// The list of ratings per star.

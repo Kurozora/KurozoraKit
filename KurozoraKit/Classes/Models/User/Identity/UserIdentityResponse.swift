@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 22/05/2022.
 //
 
+import Foundation
+
 /// A root object that stores information about a collection of user identities.
 public struct UserIdentityResponse: Codable, Sendable {
 	// MARK: - Properties

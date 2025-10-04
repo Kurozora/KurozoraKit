@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 25/02/2022.
 //
 
+import Foundation
+
 extension Song {
 	/// A root object that stores information about a single song, such as the song's title, artist, and video url.
 	public struct Attributes: Codable, Sendable {

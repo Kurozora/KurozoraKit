@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 29/01/2022.
 //
 
+import UIKit
+
 ///  List of available song types.
 ///
 /// - Tag: SongType

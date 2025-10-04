@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 04/08/2020.
 //
 
+import Foundation
+
 /// A root object that stores information about a collection of session.
 public struct Session: IdentityResource, Hashable {
 	// MARK: - Properties

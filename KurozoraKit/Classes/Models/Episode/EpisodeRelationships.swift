@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 19/07/2023.
 //
 
+import Foundation
+
 extension Episode {
 	/// A root object that stores information about episode relationships, such as the season, and show that belong to it.
 	public struct Relationships: Codable, Sendable {

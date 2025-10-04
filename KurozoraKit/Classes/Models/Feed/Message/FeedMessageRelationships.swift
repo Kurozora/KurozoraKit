@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 27/08/2020.
 //
 
+import Foundation
+
 extension FeedMessage {
 	/// A root object that stores information about feed message relationships, such as the user it belongs to.
 	public struct Relationships: Codable, Sendable {

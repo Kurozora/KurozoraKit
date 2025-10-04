@@ -1,4 +1,4 @@
-// swift-tools-version: 6.1
+// swift-tools-version: 5.5
 
 //  Package.swift
 //  KurozoraKit
@@ -9,14 +9,14 @@
 import PackageDescription
 
 let package = Package(
-	name: "KurozoraKit",
+    name: "KurozoraKit",
 	platforms: [
 		.macOS(.v12),
 		.iOS(.v15),
 	],
-	products: [
-		.library(name: "KurozoraKit", targets: ["KurozoraKit"]),
-	],
+    products: [
+        .library(name: "KurozoraKit", targets: ["KurozoraKit"]),
+    ],
 	dependencies: [
 		.package(url: "https://github.com/kishikawakatsumi/KeychainAccess.git", from: "4.2.2"),
 		.package(url: "https://github.com/MLSDev/TRON.git", from: "5.5.0-beta.1"),
@@ -32,5 +32,5 @@ let package = Package(
 			resources: [.copy("Assets/PrivacyInfo.xcprivacy")]
 		),
 	],
-	swiftLanguageModes: [.v5, .v6]
+	swiftLanguageVersions: [.v5]
 )

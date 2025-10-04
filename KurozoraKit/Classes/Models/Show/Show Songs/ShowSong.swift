@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 25/02/2022.
 //
 
+import Foundation
+
 /// A root object that stores information about a show song resource.
 public final class ShowSong: IdentityResource, Hashable, @unchecked Sendable {
 	// MARK: - Properties

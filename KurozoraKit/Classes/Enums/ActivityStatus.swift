@@ -5,7 +5,7 @@
 //  Created by Khoren Katklian on 20/04/2020.
 //
 
-import Foundation
+import UIKit
 
 /// The set of available activity status types.
 ///

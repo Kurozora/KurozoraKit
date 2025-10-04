@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 25/02/2022.
 //
 
+import Foundation
+
 extension Song {
 	/// A root object that stores information about song relationships, such as the shows that belong to it.
 	public struct Relationships: Codable, Sendable {

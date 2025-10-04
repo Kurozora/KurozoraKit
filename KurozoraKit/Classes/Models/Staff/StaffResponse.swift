@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 15/06/2021.
 //
 
+import Foundation
+
 /// A root object that stores information about a collection of staff.
 public struct StaffResponse: Codable, Sendable {
 	// MARK: - Properties

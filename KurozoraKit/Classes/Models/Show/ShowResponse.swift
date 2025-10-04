@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 09/10/2018.
 //
 
+import Foundation
+
 /// A root object that stores information about a collection of shows.
 public struct ShowResponse: Codable, Sendable {
 	// MARK: - Properties

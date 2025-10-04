@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 27/04/2020.
 //
 
+import Foundation
+
 extension Season {
 	/// A root object that stores information about a single season, such as the season's title, number, and episodes count.
 	public struct Attributes: Codable, Sendable {

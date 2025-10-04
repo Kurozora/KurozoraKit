@@ -5,9 +5,10 @@
 //  Created by Khoren Katklian on 18/08/2020.
 //
 
+import Foundation
 import TRON
 
-extension KurozoraKit {
+public extension KurozoraKit {
 	/// Fetch the list of reminders for the authenticated user.
 	///
 	/// - Parameters:
@@ -16,7 +17,7 @@ extension KurozoraKit {
 	///    - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the get reminders response.
-	public func getReminders(for libraryKind: KKLibrary.Kind, next: String? = nil, limit: Int = 25) -> RequestSender<ReminderLibraryResponse, KKAPIError> {
+	func getReminders(for libraryKind: KKLibrary.Kind, next: String? = nil, limit: Int = 25) -> RequestSender<ReminderLibraryResponse, KKAPIError> {
 		// Prepare headers
 		var headers = self.headers
 		headers.add(.authorization(bearerToken: self.authenticationKey))
@@ -24,7 +25,7 @@ extension KurozoraKit {
 		// Prepare parameters
 		let parameters: [String: Any] = [
 			"library": libraryKind.rawValue,
-			"limit": limit
+			"limit": limit,
 		]
 
 		// Prepare request
@@ -45,7 +46,7 @@ extension KurozoraKit {
 	///    - modelID: The id of the model whose reminder status should be updated.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the update reminder status response.
-	public func updateReminderStatus(inLibrary libraryKind: KKLibrary.Kind, modelID: String) -> RequestSender<ReminderResponse, KKAPIError> {
+	func updateReminderStatus(inLibrary libraryKind: KKLibrary.Kind, modelID: String) -> RequestSender<ReminderResponse, KKAPIError> {
 		// Prepare headers
 		var headers = self.headers
 		headers.add(.authorization(bearerToken: self.authenticationKey))
@@ -53,7 +54,7 @@ extension KurozoraKit {
 		// Prepare parameters
 		let parameters: [String: Any] = [
 			"library": libraryKind.rawValue,
-			"model_id": modelID
+			"model_id": modelID,
 		]
 
 		// Prepare request
@@ -68,9 +69,8 @@ extension KurozoraKit {
 	}
 
 	/// The reminder subscription url of the authenticated user.
-	public var reminderSubscriptionURL: URL {
+	var reminderSubscriptionURL: URL {
 		let meRemindersDownload = KKEndpoint.Me.Reminders.download.endpointValue
-		let subscriptionURL = tron.urlBuilder.url(forPath: meRemindersDownload)
-		return subscriptionURL
+		return tron.urlBuilder.url(forPath: meRemindersDownload)
 	}
 }

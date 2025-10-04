@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 20/07/2021.
 //
 
+import Foundation
+
 /// A root object that stores information about a show identity resource.
 public struct ShowIdentity: IdentityResource, Hashable, Sendable {
 	// MARK: - Properties

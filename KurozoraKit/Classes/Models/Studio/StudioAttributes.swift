@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 22/06/2020.
 //
 
+import Foundation
+
 extension Studio {
 	/// A root object that stores information about a single studio, such as the studios's name, logo, and date founded.
 	public struct Attributes: Codable, Sendable {

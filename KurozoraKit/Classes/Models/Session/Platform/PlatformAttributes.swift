@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 04/08/2020.
 //
 
+import Foundation
+
 extension Platform {
 	/// A root object that stores information about a single platform, such as the platform's system name, version, and device vendor.
 	public struct Attributes: Codable, Sendable {
@@ -18,7 +20,7 @@ extension Platform {
 		/// The version of the platform.
 		public let systemVersion: String?
 
-		/// The device vendor name of the platofrm.
+		/// The device vendor name of the platform.
 		public let deviceVendor: String?
 
 		/// The device model of the platform.

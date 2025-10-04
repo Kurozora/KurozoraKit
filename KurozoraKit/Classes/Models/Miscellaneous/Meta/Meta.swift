@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 10/12/2022.
 //
 
+import Foundation
+
 /// An immutable object that stores meta information returned by the API.
 public struct Meta: Codable, Sendable {
 	// MARK: - Properties

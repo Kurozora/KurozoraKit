@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 17/05/2018.
 //
 
+import Foundation
+
 /// A root object that stores information about a user resource.
 public final class User: IdentityResource, Hashable, @unchecked Sendable {
 	// MARK: - Properties

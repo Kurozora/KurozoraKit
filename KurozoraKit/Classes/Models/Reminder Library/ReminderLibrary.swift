@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 11/07/2024.
 //
 
+import Foundation
+
 /// A root object that stores information about a reminder library resource.
 public struct ReminderLibrary: Codable, Sendable {
 	// MARK: - Properties

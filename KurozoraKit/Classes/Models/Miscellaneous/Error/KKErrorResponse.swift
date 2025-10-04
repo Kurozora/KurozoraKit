@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 11/08/2020.
 //
 
+import Foundation
+
 /// A root object that stores information about an error.
 public struct KKErrorResponse: Codable, Sendable {
 	// MARK: - Properties

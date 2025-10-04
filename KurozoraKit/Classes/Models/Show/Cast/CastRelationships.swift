@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 15/08/2020.
 //
 
+import Foundation
+
 extension Cast {
 	/// A root object that stores information about cast relationships, such as the people, and characters that belong to it.
 	public struct Relationships: Codable, Sendable {

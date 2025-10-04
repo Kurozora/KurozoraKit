@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 27/06/2020.
 //
 
+import Foundation
+
 extension Character {
 	/// A root object that stores information about a single character, such as the character's name, blood type, and hight.
 	public struct Attributes: Codable, Sendable {

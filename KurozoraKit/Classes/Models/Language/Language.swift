@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 13/07/2021.
 //
 
+import Foundation
+
 /// A root object that stores information about a language resource.
 public struct Language: Codable, Hashable, Sendable {
 	// MARK: - Properties

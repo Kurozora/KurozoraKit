@@ -5,10 +5,11 @@
 //  Created by Khoren Katklian on 26/02/2022.
 //
 
-import TRON
 import Alamofire
+import Foundation
+import TRON
 
-extension KurozoraKit {
+public extension KurozoraKit {
 	/// Fetch the songs index.
 	///
 	/// - Parameters:
@@ -17,7 +18,7 @@ extension KurozoraKit {
 	///    - filter: The filters to apply on the index list.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the songs index response.
-	public func songsIndex(next: String? = nil, limit: Int = 5, filter: SongFilter?) -> RequestSender<SongIdentityResponse, KKAPIError> {
+	func songsIndex(next: String? = nil, limit: Int = 5, filter: SongFilter?) -> RequestSender<SongIdentityResponse, KKAPIError> {
 		// Prepare headers
 		var headers = self.headers
 		if !self.authenticationKey.isEmpty {
@@ -32,7 +33,7 @@ extension KurozoraKit {
 		if next == nil {
 			if let filter = filter {
 				let filters: [String: Any] = filter.toFilterArray().compactMapValues { value in
-					return value
+					value
 				}
 
 				do {
@@ -62,7 +63,7 @@ extension KurozoraKit {
 	///    - relationships: The relationships to include in the response.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the get song details response.
-	public func getDetails(forSong songIdentity: SongIdentity, including relationships: [String] = []) -> RequestSender<SongResponse, KKAPIError> {
+	func getDetails(forSong songIdentity: SongIdentity, including relationships: [String] = []) -> RequestSender<SongResponse, KKAPIError> {
 		// Prepare headers
 		var headers = self.headers
 		if !self.authenticationKey.isEmpty {
@@ -94,7 +95,7 @@ extension KurozoraKit {
 	///	   - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the get song shows response.
-	public func getShows(forSong songIdentity: SongIdentity, next: String? = nil, limit: Int = 25) -> RequestSender<ShowIdentityResponse, KKAPIError> {
+	func getShows(forSong songIdentity: SongIdentity, next: String? = nil, limit: Int = 25) -> RequestSender<ShowIdentityResponse, KKAPIError> {
 		// Prepare headers
 		var headers = self.headers
 		if !self.authenticationKey.isEmpty {
@@ -125,7 +126,7 @@ extension KurozoraKit {
 	///	   - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the get song games response.
-	public func getGames(forSong songIdentity: SongIdentity, next: String? = nil, limit: Int = 25) -> RequestSender<GameIdentityResponse, KKAPIError> {
+	func getGames(forSong songIdentity: SongIdentity, next: String? = nil, limit: Int = 25) -> RequestSender<GameIdentityResponse, KKAPIError> {
 		// Prepare headers
 		var headers = self.headers
 		if !self.authenticationKey.isEmpty {
@@ -156,14 +157,14 @@ extension KurozoraKit {
 	///	   - description: The description of the rating.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the rate song response.
-	public func rateSong(_ songIdentity: SongIdentity, with score: Double, description: String?) -> RequestSender<KKSuccess, KKAPIError> {
+	func rateSong(_ songIdentity: SongIdentity, with score: Double, description: String?) -> RequestSender<KKSuccess, KKAPIError> {
 		// Prepare headers
 		var headers = self.headers
 		headers.add(.authorization(bearerToken: self.authenticationKey))
 
 		// Prepare parameters
 		var parameters: [String: Any] = [
-			"rating": score
+			"rating": score,
 		]
 		if let description = description {
 			parameters["description"] = description
@@ -188,7 +189,7 @@ extension KurozoraKit {
 	///	   - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the get reviews response.
-	public func getReviews(forSong songIdentity: SongIdentity, next: String? = nil, limit: Int = 25) -> RequestSender<ReviewResponse, KKAPIError> {
+	func getReviews(forSong songIdentity: SongIdentity, next: String? = nil, limit: Int = 25) -> RequestSender<ReviewResponse, KKAPIError> {
 		// Prepare headers
 		var headers = self.headers
 		if !self.authenticationKey.isEmpty {
@@ -197,7 +198,7 @@ extension KurozoraKit {
 
 		// Prepare parameters
 		let parameters: [String: Any] = [
-			"limit": limit
+			"limit": limit,
 		]
 
 		// Prepare request

@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 28/02/2019.
 //
 
+import Foundation
+
 /// A root object that stores information about an app theme resource.
 public struct AppTheme: IdentityResource, Hashable, Sendable {
 	// MARK: - Properties

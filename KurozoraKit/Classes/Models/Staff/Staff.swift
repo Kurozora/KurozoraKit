@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 15/06/2021.
 //
 
+import Foundation
+
 /// A root object that stores information about a staff resource.
 public struct Staff: IdentityResource, Hashable {
 	// MARK: - Properties

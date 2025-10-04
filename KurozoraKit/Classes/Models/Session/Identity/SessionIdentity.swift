@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 21/07/2022.
 //
 
+import Foundation
+
 /// A root object that stores information about a session identity resource.
 public struct SessionIdentity: Codable, Hashable, Sendable {
 	// MARK: - Properties

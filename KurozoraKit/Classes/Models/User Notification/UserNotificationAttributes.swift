@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 06/08/2020.
 //
 
+import Foundation
+
 extension UserNotification {
 	/// A root object that stores information about a single user notification, such as the notification's type, read status, and payload.
 	public struct Attributes: Codable, Sendable {

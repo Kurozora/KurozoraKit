@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 22/05/2022.
 //
 
+import Foundation
+
 /// A root object that stores information about a search resource.
 public struct Search: Codable, Sendable {
 	// MARK: - Properties

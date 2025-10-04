@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 21/07/2022.
 //
 
+import Foundation
+
 /// A root object that stores information about a collection of session identities.
 public struct SessionIdentityResponse: Codable, Sendable {
 	// MARK: - Properties

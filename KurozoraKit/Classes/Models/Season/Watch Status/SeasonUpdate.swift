@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 12/09/2023.
 //
 
+import Foundation
+
 /// A root object that stores information about an season update resource.
 public struct SeasonUpdate: Codable, Sendable {
 	// MARK: - Properties

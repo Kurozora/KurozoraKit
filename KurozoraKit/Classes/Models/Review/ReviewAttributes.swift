@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 29/07/2023.
 //
 
+import Foundation
+
 extension Review {
 	/// A root object that stores information about a single review, such as the review's score, and description.
 	public struct Attributes: Codable, Sendable {

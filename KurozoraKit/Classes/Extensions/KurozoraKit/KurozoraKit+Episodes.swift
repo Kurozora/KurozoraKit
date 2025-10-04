@@ -5,6 +5,7 @@
 //  Created by Khoren Katklian on 29/09/2019.
 //
 
+import Foundation
 import TRON
 
 extension KurozoraKit {
@@ -106,7 +107,7 @@ extension KurozoraKit {
 		if let description = description {
 			parameters["description"] = description
 		}
-		
+
 		// Prepare request
 		let episodesRate = KKEndpoint.Episodes.rate(episodeIdentity).endpointValue
 		let request: APIRequest<KKSuccess, KKAPIError> = tron.codable.request(episodesRate)

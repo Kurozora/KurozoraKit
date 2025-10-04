@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 14/08/2020.
 //
 
+import Foundation
+
 extension ExploreCategory {
 	/// A root object that stores information about explore category relationships, such as the shows, genres, and characters that belong to it.
 	public struct Relationships: Codable, Sendable {

@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 27/04/2020.
 //
 
+import Foundation
+
 extension ExploreCategory {
 	/// A root object that stores information about a single explore category, such as the category's title, size, and type.
 	public struct Attributes: Codable, Sendable {

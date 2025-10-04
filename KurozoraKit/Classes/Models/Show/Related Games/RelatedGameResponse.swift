@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 01/03/2023.
 //
 
+import Foundation
+
 /// A root object that stores information about a collection of related games.
 public struct RelatedGameResponse: Codable, Sendable {
 	// MARK: - Properties

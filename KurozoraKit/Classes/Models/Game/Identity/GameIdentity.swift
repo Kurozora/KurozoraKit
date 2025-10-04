@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 01/02/2023.
 //
 
+import Foundation
+
 /// A root object that stores information about a game identity resource.
 public struct GameIdentity: IdentityResource, Hashable, Sendable {
 	// MARK: - Properties

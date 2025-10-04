@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 10/04/2020.
 //
 
+import Foundation
+
 /// An immutable object that stores information about a single successful request, such as the success message.
 public struct KKSuccess: Codable, Sendable {
 	// MARK: - Properties

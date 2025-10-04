@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 12/02/2022.
 //
 
+import Foundation
+
 /// A root object that stores information about a collection of cast identities.
 public struct CastIdentityResponse: Codable, Sendable {
 	// MARK: - Properties

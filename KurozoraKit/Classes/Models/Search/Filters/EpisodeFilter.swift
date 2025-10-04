@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 26/04/2023.
 //
 
+import Foundation
+
 public struct EpisodeFilter {
 	// MARK: - Properties
 	public let duration: Int?

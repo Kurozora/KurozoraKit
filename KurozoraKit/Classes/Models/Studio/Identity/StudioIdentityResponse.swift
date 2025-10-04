@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 25/02/2022.
 //
 
+import Foundation
+
 /// A root object that stores information about a collection of studio identities.
 public struct StudioIdentityResponse: Codable, Sendable {
 	// MARK: - Properties

@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 15/06/2021.
 //
 
+import Foundation
+
 extension Staff {
 	/// A root object that stores information about staff relationships, such as the people that belong to it.
 	public struct Relationships: Codable, Sendable {

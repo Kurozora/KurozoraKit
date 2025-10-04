@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 01/02/2023.
 //
 
+import Foundation
+
 /// A root object that stores information about a game resource.
 public final class Game: IdentityResource, Hashable, @unchecked Sendable {
 	// MARK: - Properties

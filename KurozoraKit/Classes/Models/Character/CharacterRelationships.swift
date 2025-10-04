@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 20/08/2020.
 //
 
+import Foundation
+
 extension Character {
 	/// A root object that stores information about character relationships, such as the shows, and people that belong to it.
 	public struct Relationships: Codable, Sendable {

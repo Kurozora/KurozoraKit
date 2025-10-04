@@ -5,6 +5,7 @@
 //  Created by Khoren Katklian on 23/11/2024.
 //
 
+import Foundation
 import TRON
 
 extension KurozoraKit {

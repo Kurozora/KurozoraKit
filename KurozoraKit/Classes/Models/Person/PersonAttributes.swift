@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 27/04/2020.
 //
 
+import Foundation
+
 extension Person {
 	/// A root object that stores information about a single person, such as the person's name, role, and image.
 	public struct Attributes: Codable, Sendable {

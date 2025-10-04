@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 04/01/2024.
 //
 
+import Foundation
+
 extension Recap {
 	/// A root object that stores information about a single recap, such as the recap's year, and description.
 	public struct Attributes: Codable, Sendable {

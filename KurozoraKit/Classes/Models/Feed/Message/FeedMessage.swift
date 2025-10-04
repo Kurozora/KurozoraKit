@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 27/08/2020.
 //
 
+import Foundation
+
 /// A root object that stores information about a feed message resource.
 public final class FeedMessage: IdentityResource, Hashable, @unchecked Sendable {
 	// MARK: - Properties

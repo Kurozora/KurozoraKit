@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 16/11/2023.
 //
 
+import Foundation
+
 /// A root object that stores information about a favorite library resource.
 public struct FavoriteLibrary: Codable, Sendable {
 	// MARK: - Properties

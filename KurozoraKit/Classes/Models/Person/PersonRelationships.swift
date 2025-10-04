@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 20/08/2020.
 //
 
+import Foundation
+
 extension Person {
 	/// A root object that stores information about person relationships, such as the shows, and characters that belong to it.
 	public struct Relationships: Codable, Sendable {

@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 04/10/2020.
 //
 
+import Foundation
+
 extension Receipt {
 	/// A root object that stores information about a single receipt, such as the receipt's validity.
 	public struct Attributes: Codable, Sendable {

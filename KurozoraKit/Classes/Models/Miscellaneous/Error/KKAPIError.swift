@@ -5,6 +5,7 @@
 //  Created by Khoren Katklian on 12/08/2020.
 //
 
+import Foundation
 @preconcurrency import TRON
 
 /// An immutable object that stores information about a single failed request, such as the error message.
@@ -24,7 +25,7 @@ public final class KKAPIError: APIError {
 	///    - response: The metadata associated with the response to an HTTP protocol URL load request.
 	///    - data: A byte buffer in memory.
 	///    - error: A type representing an error value that can be thrown.
-	required public init(request: URLRequest?, response: HTTPURLResponse?, data: Data?, error: Error?) {
+	public required init(request: URLRequest?, response: HTTPURLResponse?, data: Data?, error: Error?) {
 		super.init(request: request, response: response, data: data, error: error)
 		self.processData()
 	}
@@ -36,7 +37,7 @@ public final class KKAPIError: APIError {
 	///    - response: The metadata associated with the response to an HTTP protocol URL load request.
 	///    - fileURL: A value that identifies the location of a resource, such as an item on a remote server or the path to a local file.
 	///    - error: A type representing an error value that can be thrown.
-	required public init(request: URLRequest?, response: HTTPURLResponse?, fileURL: URL?, error: Error?) {
+	public required init(request: URLRequest?, response: HTTPURLResponse?, fileURL: URL?, error: Error?) {
 		super.init(request: request, response: response, fileURL: fileURL, error: error)
 		self.processData()
 	}
@@ -66,10 +67,10 @@ public final class KKAPIError: APIError {
 }
 
 // MARK: - Helpers
-extension KKAPIError {
+public extension KKAPIError {
 	// MARK: - Properties
 	/// The message of a failed request.
-	public var message: String {
+	var message: String {
 		return self._message ?? self.kkErrors.first?.detail ?? self.localizedDescription
 	}
 }

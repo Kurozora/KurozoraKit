@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 20/11/2021.
 //
 
+import Foundation
+
 /// A root object that stores information about a media stat resource.
 public struct MediaStat: Codable, Sendable {
 	// MARK: - Properties

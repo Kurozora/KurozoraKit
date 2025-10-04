@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 05/08/2020.
 //
 
+import Foundation
+
 extension Location {
 	/// A root object that stores information about a single location, such as the location's region, latitude, and longitude.
 	public struct Attributes: Codable, Sendable {

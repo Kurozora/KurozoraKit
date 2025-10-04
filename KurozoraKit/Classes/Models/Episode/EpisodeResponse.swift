@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 11/10/2018.
 //
 
+import Foundation
+
 /// A root object that stores information about a collection of episodes.
 public struct EpisodeResponse: Codable, Sendable {
 	// MARK: - Properties

@@ -5,6 +5,8 @@
 //  Created by Khoren Katklian on 27/04/2020.
 //
 
+import Foundation
+
 /// A root object that stores information about a location resource.
 public struct Location: Codable, Sendable {
 	// MARK: - Properties
