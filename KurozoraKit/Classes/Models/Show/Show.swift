@@ -8,9 +8,9 @@
 import Foundation
 
 /// A root object that stores information about a show resource.
-public final class Show: IdentityResource, Hashable, @unchecked Sendable {
+public final class Show: KurozoraItem, IdentityResource, Equatable, Hashable, @unchecked Sendable {
 	// MARK: - Properties
-	public let id: String
+	public let id: KurozoraItemID
 
 	public let type: String
 
@@ -29,5 +29,9 @@ public final class Show: IdentityResource, Hashable, @unchecked Sendable {
 
 	public func hash(into hasher: inout Hasher) {
 		hasher.combine(self.id)
+	}
+
+	public var hashValue: Int {
+		return self.id.hashValue
 	}
 }

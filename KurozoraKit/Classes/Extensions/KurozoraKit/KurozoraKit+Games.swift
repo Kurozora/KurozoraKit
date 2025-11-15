@@ -12,7 +12,7 @@ extension KurozoraKit {
 	/// Fetch the games index.
 	///
 	/// - Parameters:
-	///	   - next: The URL string of the next page in the paginated response. Use `nil` to get first page.
+	///    - next: The URL string of the next page in the paginated response. Use `nil` to get first page.
 	///    - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 5 and the maximum value is 25.
 	///    - filter: The filters to apply on the index list.
 	///
@@ -55,11 +55,11 @@ extension KurozoraKit {
 		return request.sender()
 	}
 
-	///	Fetch the game details for the given game identity.
+	/// Fetch the game details for the given game identity.
 	///
-	///	- Parameters:
-	///	   - gameIdentity: The identity of the game for which the details should be fetched.
-	///	   - relationships: The relationships to include in the response.
+	/// - Parameters:
+	///    - gameIdentity: The identity of the game for which the details should be fetched.
+	///    - relationships: The relationships to include in the response.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the get game detail response.
 	public func getDetails(forGame gameIdentity: GameIdentity, including relationships: [String] = []) -> RequestSender<GameResponse, KKAPIError> {
@@ -86,12 +86,12 @@ extension KurozoraKit {
 		return request.sender()
 	}
 
-	///	Fetch the person details for the given game identity.
+	/// Fetch the person details for the given game identity.
 	///
-	///	- Parameters:
-	///	   - gameIdentity: The game identity object for which the person details should be fetched.
-	///	   - next: The URL string of the next page in the paginated response. Use `nil` to get first page.
-	///	   - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
+	/// - Parameters:
+	///    - gameIdentity: The game identity object for which the person details should be fetched.
+	///    - next: The URL string of the next page in the paginated response. Use `nil` to get first page.
+	///    - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the get people response.
 	public func getPeople(forGame gameIdentity: GameIdentity, next: String? = nil, limit: Int = 25) -> RequestSender<PersonIdentityResponse, KKAPIError> {
@@ -111,12 +111,12 @@ extension KurozoraKit {
 		return request.sender()
 	}
 
-	///	Fetch the cast details for the given game identity.
+	/// Fetch the cast details for the given game identity.
 	///
-	///	- Parameters:
-	///	   - gameIdentity: The game identity object for which the cast details should be fetched.
-	///	   - next: The URL string of the next page in the paginated response. Use `nil` to get first page.
-	///	   - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
+	/// - Parameters:
+	///    - gameIdentity: The game identity object for which the cast details should be fetched.
+	///    - next: The URL string of the next page in the paginated response. Use `nil` to get first page.
+	///    - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the get cast response.
 	public func getCast(forGame gameIdentity: GameIdentity, next: String? = nil, limit: Int = 25) -> RequestSender<CastIdentityResponse, KKAPIError> {
@@ -136,12 +136,12 @@ extension KurozoraKit {
 		return request.sender()
 	}
 
-	///	Fetch the character details for the given game identity.
+	/// Fetch the character details for the given game identity.
 	///
-	///	- Parameters:
-	///	   - gameIdentity: The game identity object for which the character details should be fetched.
-	///	   - next: The URL string of the next page in the paginated response. Use `nil` to get first page.
-	///	   - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
+	/// - Parameters:
+	///    - gameIdentity: The game identity object for which the character details should be fetched.
+	///    - next: The URL string of the next page in the paginated response. Use `nil` to get first page.
+	///    - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the get characters response.
 	public func getCharacters(forGame gameIdentity: GameIdentity, next: String? = nil, limit: Int = 25) -> RequestSender<CharacterIdentityResponse, KKAPIError> {
@@ -161,12 +161,12 @@ extension KurozoraKit {
 		return request.sender()
 	}
 
-	///	Fetch the related games for a the given game identity.
+	/// Fetch the related games for a the given game identity.
 	///
-	///	- Parameters:
-	///	   - gameIdentity: The game identity object for which the related games should be fetched.
-	///	   - next: The URL string of the next page in the paginated response. Use `nil` to get first page.
-	///	   - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
+	/// - Parameters:
+	///    - gameIdentity: The game identity object for which the related games should be fetched.
+	///    - next: The URL string of the next page in the paginated response. Use `nil` to get first page.
+	///    - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the get related games response.
 	public func getRelatedGames(forGame gameIdentity: GameIdentity, next: String? = nil, limit: Int = 25) -> RequestSender<RelatedGameResponse, KKAPIError> {
@@ -192,12 +192,12 @@ extension KurozoraKit {
 		return request.sender()
 	}
 
-	///	Fetch the related shows for a the given game identity.
+	/// Fetch the related shows for a the given game identity.
 	///
-	///	- Parameters:
-	///	   - gameIdentity: The game identity object for which the related shows should be fetched.
-	///	   - next: The URL string of the next page in the paginated response. Use `nil` to get first page.
-	///	   - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
+	/// - Parameters:
+	///    - gameIdentity: The game identity object for which the related shows should be fetched.
+	///    - next: The URL string of the next page in the paginated response. Use `nil` to get first page.
+	///    - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the get related shows response.
 	public func getRelatedShows(forGame gameIdentity: GameIdentity, next: String? = nil, limit: Int = 25) -> RequestSender<RelatedShowResponse, KKAPIError> {
@@ -223,12 +223,12 @@ extension KurozoraKit {
 		return request.sender()
 	}
 
-	///	Fetch the related literatures for a the given game identity.
+	/// Fetch the related literatures for a the given game identity.
 	///
-	///	- Parameters:
-	///	   - gameIdentity: The game identity object for which the related literatures should be fetched.
-	///	   - next: The URL string of the next page in the paginated response. Use `nil` to get first page.
-	///	   - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
+	/// - Parameters:
+	///    - gameIdentity: The game identity object for which the related literatures should be fetched.
+	///    - next: The URL string of the next page in the paginated response. Use `nil` to get first page.
+	///    - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the get related literatures response.
 	public func getRelatedLiteratures(forGame gameIdentity: GameIdentity, next: String? = nil, limit: Int = 25) -> RequestSender<RelatedLiteratureResponse, KKAPIError> {
@@ -254,12 +254,12 @@ extension KurozoraKit {
 		return request.sender()
 	}
 
-	///	Fetch the reviews for a the given game identity.
+	/// Fetch the reviews for a the given game identity.
 	///
-	///	- Parameters:
-	///	   - gameIdentity: The game identity object for which the reviews should be fetched.
-	///	   - next: The URL string of the next page in the paginated response. Use `nil` to get first page.
-	///	   - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
+	/// - Parameters:
+	///    - gameIdentity: The game identity object for which the reviews should be fetched.
+	///    - next: The URL string of the next page in the paginated response. Use `nil` to get first page.
+	///    - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the get reviews response.
 	public func getReviews(forGame gameIdentity: GameIdentity, next: String? = nil, limit: Int = 25) -> RequestSender<ReviewResponse, KKAPIError> {
@@ -285,10 +285,10 @@ extension KurozoraKit {
 		return request.sender()
 	}
 
-	///	Fetch the studios for a the given game identity.
+	/// Fetch the studios for a the given game identity.
 	///
-	///	- Parameter gameIdentity: The game identity object for which the studios should be fetched.
-	///	- Parameter next: The URL string of the next page in the paginated response. Use `nil` to get first page.
+	/// - Parameter gameIdentity: The game identity object for which the studios should be fetched.
+	/// - Parameter next: The URL string of the next page in the paginated response. Use `nil` to get first page.
 	/// - Parameter limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the get studios response.
@@ -309,10 +309,10 @@ extension KurozoraKit {
 		return request.sender()
 	}
 
-	///	Fetch the more by studio section for a the given game identity.
+	/// Fetch the more by studio section for a the given game identity.
 	///
-	///	- Parameter gameIdentity: The game identity object for which the studio games should be fetched.
-	///	- Parameter next: The URL string of the next page in the paginated response. Use `nil` to get first page.
+	/// - Parameter gameIdentity: The game identity object for which the studio games should be fetched.
+	/// - Parameter next: The URL string of the next page in the paginated response. Use `nil` to get first page.
 	/// - Parameter limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the get more by studio response.
@@ -343,8 +343,8 @@ extension KurozoraKit {
 	///
 	/// - Parameters:
 	///    - gameIdentity: The id of the game which should be rated.
-	///	   - score: The rating to leave.
-	///	   - description: The description of the rating.
+	///    - score: The rating to leave.
+	///    - description: The description of the rating.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the rate game response.
 	public func rateGame(_ gameIdentity: GameIdentity, with score: Double, description: String?) -> RequestSender<KKSuccess, KKAPIError> {

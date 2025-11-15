@@ -8,16 +8,16 @@
 import Foundation
 
 /// A root object that stores information about a show song identity resource.
-public struct ShowSongIdentity: IdentityResource, Hashable {
+public struct ShowSongIdentity: KurozoraItem, IdentityResource, Hashable {
 	// MARK: - Properties
-	public let id: String
+	public let id: KurozoraItemID
 
 	public let type: String
 
 	public let href: String
 
 	// MARK: - Initializers
-	public init(id: String) {
+	public init(id: KurozoraItemID) {
 		self.id = id
 		self.type = "show-songs"
 		self.href = ""

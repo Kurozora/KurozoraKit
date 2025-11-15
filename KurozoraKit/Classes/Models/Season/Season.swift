@@ -8,9 +8,9 @@
 import Foundation
 
 /// A root object that stores information about a season resource.
-public final class Season: IdentityResource, Hashable, @unchecked Sendable {
+public final class Season: KurozoraItem, IdentityResource, Hashable, @unchecked Sendable {
 	// MARK: - Properties
-	public let id: String
+	public let id: KurozoraItemID
 
 	public let type: String
 

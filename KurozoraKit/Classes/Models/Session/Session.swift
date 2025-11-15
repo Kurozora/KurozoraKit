@@ -8,9 +8,9 @@
 import Foundation
 
 /// A root object that stores information about a collection of session.
-public struct Session: IdentityResource, Hashable {
+public struct Session: KurozoraItem, IdentityResource, Hashable {
 	// MARK: - Properties
-	public let id: String
+	public let id: KurozoraItemID
 
 	public let type: String
 

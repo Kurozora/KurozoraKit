@@ -8,9 +8,9 @@
 import Foundation
 
 /// A root object that stores information about a genre resource.
-public struct Genre: IdentityResource, Hashable {
+public struct Genre: KurozoraItem, IdentityResource, Hashable {
 	// MARK: - Properties
-	public let id: String
+	public let id: KurozoraItemID
 
 	public let type: String
 

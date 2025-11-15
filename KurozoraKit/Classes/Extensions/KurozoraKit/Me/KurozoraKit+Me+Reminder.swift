@@ -46,7 +46,7 @@ public extension KurozoraKit {
 	///    - modelID: The id of the model whose reminder status should be updated.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the update reminder status response.
-	func updateReminderStatus(inLibrary libraryKind: KKLibrary.Kind, modelID: String) -> RequestSender<ReminderResponse, KKAPIError> {
+	func updateReminderStatus(inLibrary libraryKind: KKLibrary.Kind, modelID: KurozoraItemID) -> RequestSender<ReminderResponse, KKAPIError> {
 		// Prepare headers
 		var headers = self.headers
 		headers.add(.authorization(bearerToken: self.authenticationKey))

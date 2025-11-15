@@ -151,6 +151,9 @@ extension KKEndpoint {
 	/// The set of available Episodes API endpoints.
 	internal enum Episodes {
 		// MARK: - Cases
+		/// The endpoint to the index of episodes.
+		case index
+
 		/// The endpoint to the details of an episode.
 		case details(_ episodeIdentity: EpisodeIdentity)
 
@@ -170,6 +173,8 @@ extension KKEndpoint {
 		/// The endpoint value of the Episodes API type.
 		var endpointValue: String {
 			switch self {
+			case .index:
+				return "episodes"
 			case .details(let episodeIdentity):
 				return "episodes/\(episodeIdentity.id)"
 			case .suggestions(let episodeIdentity):
@@ -307,7 +312,7 @@ extension KKEndpoint {
 	internal enum Shows {
 		// MARK: - Cases
 		/// The endpoint to the index of shows.
-		case index(_ showIdentities: [ShowIdentity])
+		case index
 
 		/// The endpoint to the details of a show.
 		case details(_ showIdentity: ShowIdentity)
@@ -355,12 +360,8 @@ extension KKEndpoint {
 		/// The endpoint value of the Shows API type.
 		var endpointValue: String {
 			switch self {
-			case .index(let showIdentities):
-				if showIdentities.isEmpty {
-					return "anime"
-				} else {
-					return "anime/\(showIdentities.map { $0.id }.joined(separator: ","))"
-				}
+			case .index:
+				return "anime"
 			case .details(let showIdentity):
 				return "anime/\(showIdentity.id)"
 			case .cast(let showIdentity):

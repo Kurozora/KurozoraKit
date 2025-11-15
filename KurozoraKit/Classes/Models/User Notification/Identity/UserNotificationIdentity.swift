@@ -1,14 +1,14 @@
 //
-//  LiteratureIdentity.swift
+//  UserNotificationIdentity.swift
 //  KurozoraKit
 //
-//  Created by Khoren Katklian on 29/01/2023.
+//  Created by Khoren Katklian on 27/10/2025.
 //
 
 import Foundation
 
-/// A root object that stores information about a literature identity resource.
-public struct LiteratureIdentity: KurozoraItem, IdentityResource, Hashable, Sendable {
+/// A root object that stores information about a user notification identity resource.
+public struct UserNotificationIdentity: KurozoraItem, IdentityResource, Hashable {
 	// MARK: - Properties
 	public let id: KurozoraItemID
 
@@ -19,12 +19,12 @@ public struct LiteratureIdentity: KurozoraItem, IdentityResource, Hashable, Send
 	// MARK: - Initializers
 	public init(id: KurozoraItemID) {
 		self.id = id
-		self.type = "literatures"
+		self.type = "notifications"
 		self.href = ""
 	}
 
 	// MARK: - Functions
-	public static func == (lhs: LiteratureIdentity, rhs: LiteratureIdentity) -> Bool {
+	public static func == (lhs: UserNotificationIdentity, rhs: UserNotificationIdentity) -> Bool {
 		return lhs.id == rhs.id
 	}
 

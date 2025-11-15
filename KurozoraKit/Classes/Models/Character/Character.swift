@@ -8,9 +8,9 @@
 import Foundation
 
 /// A root object that stores information about a character resource.
-public final class Character: IdentityResource, Hashable, @unchecked Sendable {
+public final class Character: KurozoraItem, IdentityResource, Hashable, @unchecked Sendable {
 	// MARK: - Properties
-	public let id: String
+	public let id: KurozoraItemID
 
 	public let type: String
 

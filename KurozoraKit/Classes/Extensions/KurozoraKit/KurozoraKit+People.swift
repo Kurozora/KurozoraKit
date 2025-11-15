@@ -13,7 +13,7 @@ public extension KurozoraKit {
 	/// Fetch the peopel index.
 	///
 	/// - Parameters:
-	///	   - next: The URL string of the next page in the paginated response. Use `nil` to get first page.
+	///    - next: The URL string of the next page in the paginated response. Use `nil` to get first page.
 	///    - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 5 and the maximum value is 25.
 	///    - filter: The filters to apply on the index list.
 	///
@@ -112,12 +112,12 @@ public extension KurozoraKit {
 		return request.sender()
 	}
 
-	///	Fetch the shows for the given person identity.
+	/// Fetch the shows for the given person identity.
 	///
 	/// - Parameters:
 	///    - personIdentity: The person identity object for which the shows should be fetched.
-	///	   - next: The URL string of the next page in the paginated response. Use `nil` to get first page.
-	///	   - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
+	///    - next: The URL string of the next page in the paginated response. Use `nil` to get first page.
+	///    - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the get shows response.
 	func getShows(forPerson personIdentity: PersonIdentity, next: String? = nil, limit: Int = 25) -> RequestSender<ShowIdentityResponse, KKAPIError> {
@@ -147,8 +147,8 @@ public extension KurozoraKit {
 	///
 	/// - Parameters:
 	///    - personIdentity: The person identity object for which the literatures should be fetched.
-	///	   - next: The URL string of the next page in the paginated response. Use `nil` to get first page.
-	///	   - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
+	///    - next: The URL string of the next page in the paginated response. Use `nil` to get first page.
+	///    - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the get literatures response.
 	func getLiteratures(forPerson personIdentity: PersonIdentity, next: String? = nil, limit: Int = 25) -> RequestSender<LiteratureIdentityResponse, KKAPIError> {
@@ -178,8 +178,8 @@ public extension KurozoraKit {
 	///
 	/// - Parameters:
 	///    - personIdentity: The person identity object for which the games should be fetched.
-	///	   - next: The URL string of the next page in the paginated response. Use `nil` to get first page.
-	///	   - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
+	///    - next: The URL string of the next page in the paginated response. Use `nil` to get first page.
+	///    - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the get games response.
 	func getGames(forPerson personIdentity: PersonIdentity, next: String? = nil, limit: Int = 25) -> RequestSender<GameIdentityResponse, KKAPIError> {
@@ -205,12 +205,12 @@ public extension KurozoraKit {
 		return request.sender()
 	}
 
-	///	Fetch the reviews for a the given person identity.
+	/// Fetch the reviews for a the given person identity.
 	///
-	///	- Parameters:
-	///	   - personIdentity: The person identity object for which the reviews should be fetched.
-	///	   - next: The URL string of the next page in the paginated response. Use `nil` to get first page.
-	///	   - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
+	/// - Parameters:
+	///    - personIdentity: The person identity object for which the reviews should be fetched.
+	///    - next: The URL string of the next page in the paginated response. Use `nil` to get first page.
+	///    - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the get reviews response.
 	func getReviews(forPerson personIdentity: PersonIdentity, next: String? = nil, limit: Int = 25) -> RequestSender<ReviewResponse, KKAPIError> {
@@ -240,8 +240,8 @@ public extension KurozoraKit {
 	///
 	/// - Parameters:
 	///    - personIdentity: The id of the person which should be rated.
-	///	   - score: The rating to leave.
-	///	   - description: The description of the rating.
+	///    - score: The rating to leave.
+	///    - description: The description of the rating.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the rate person response.
 	func ratePerson(_ personIdentity: PersonIdentity, with score: Double, description: String?) -> RequestSender<KKSuccess, KKAPIError> {

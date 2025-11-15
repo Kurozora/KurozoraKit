@@ -75,7 +75,7 @@ extension KurozoraKit {
 
 	/// Update an season's watch status.
 	///
-	///	- Parameter seasonIdentity: The season identity object of the season that should be marked as watched/unwatched.
+	/// - Parameter seasonIdentity: The season identity object of the season that should be marked as watched/unwatched.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the update season watch status response.
 	public func updateSeasonWatchStatus(_ seasonIdentity: SeasonIdentity) -> RequestSender<SeasonUpdateResponse, KKAPIError> {

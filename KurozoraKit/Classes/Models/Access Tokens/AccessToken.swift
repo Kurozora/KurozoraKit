@@ -8,9 +8,9 @@
 import Foundation
 
 /// A root object that stores information about a collection of access tokens.
-public struct AccessToken: IdentityResource, Hashable {
+public struct AccessToken: KurozoraItem, IdentityResource, Hashable {
 	// MARK: - Properties
-	public let id: String
+	public let id: KurozoraItemID
 
 	public let type: String
 

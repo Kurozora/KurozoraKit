@@ -33,9 +33,9 @@ extension KurozoraKit {
 	///    - notificationID: The id of the notification for which the details should be fetched.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the get notification details response.
-	public func getDetails(forNotificationID notificationID: String) -> RequestSender<UserNotificationResponse, KKAPIError> {
+	public func getDetails(forNotification notificationIdentity: KurozoraItem) -> RequestSender<UserNotificationResponse, KKAPIError> {
 		// Prepare request
-		let notificationsDetail = KKEndpoint.Me.Notifications.details(notificationID).endpointValue
+		let notificationsDetail = KKEndpoint.Me.Notifications.details(notificationIdentity).endpointValue
 		let request: APIRequest<UserNotificationResponse, KKAPIError> = tron.codable.request(notificationsDetail)
 			.method(.get)
 			.headers(self.headers)
@@ -79,13 +79,13 @@ extension KurozoraKit {
 	///    - notificationID: The id of the notification to be deleted.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the delete notification response.
-	public func deleteNotification(_ notificationID: String) -> RequestSender<KKSuccess, KKAPIError> {
+	public func deleteNotification(_ notification: KurozoraItem) -> RequestSender<KKSuccess, KKAPIError> {
 		// Prepare headers
 		var headers = self.headers
 		headers.add(.authorization(bearerToken: self.authenticationKey))
 
 		// Prepare request
-		let meNotificationsDelete = KKEndpoint.Me.Notifications.delete(notificationID).endpointValue
+		let meNotificationsDelete = KKEndpoint.Me.Notifications.delete(notification).endpointValue
 		let request: APIRequest<KKSuccess, KKAPIError> = tron.codable.request(meNotificationsDelete)
 			.method(.post)
 			.headers(headers)

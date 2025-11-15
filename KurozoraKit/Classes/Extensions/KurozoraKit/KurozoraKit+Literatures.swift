@@ -8,16 +8,16 @@
 import Foundation
 import TRON
 
-extension KurozoraKit {
+public extension KurozoraKit {
 	/// Fetch the literatures index.
 	///
 	/// - Parameters:
-	///	   - next: The URL string of the next page in the paginated response. Use `nil` to get first page.
+	///    - next: The URL string of the next page in the paginated response. Use `nil` to get first page.
 	///    - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 5 and the maximum value is 25.
 	///    - filter: The filters to apply on the index list.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the literatures index response.
-	public func literaturesIndex(next: String? = nil, limit: Int = 5, filter: LiteratureFilter?) -> RequestSender<LiteratureIdentityResponse, KKAPIError> {
+	func literaturesIndex(next: String? = nil, limit: Int = 5, filter: LiteratureFilter?) -> RequestSender<LiteratureIdentityResponse, KKAPIError> {
 		// Prepare headers
 		var headers = self.headers
 		if !self.authenticationKey.isEmpty {
@@ -32,7 +32,7 @@ extension KurozoraKit {
 		if next == nil {
 			if let filter = filter {
 				let filters: [String: Any] = filter.toFilterArray().compactMapValues { value in
-					return value
+					value
 				}
 
 				do {
@@ -55,14 +55,102 @@ extension KurozoraKit {
 		return request.sender()
 	}
 
-	///	Fetch the literature details for the given literature identity.
+	/// Fetch the literature details for the given literature identity.
 	///
-	///	- Parameters:
-	///	   - literatureIdentity: The identity of the literature for which the details should be fetched.
-	///	   - relationships: The relationships to include in the response.
+	/// - Parameters:
+	///    - literatureIdentity: The identity of the literature for which the details should be fetched.
+	///    - relationships: The relationships to include in the response.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the get literature detail response.
-	public func getDetails(forLiterature literatureIdentity: LiteratureIdentity, including relationships: [String] = []) -> RequestSender<LiteratureResponse, KKAPIError> {
+	func getDetails<I: KurozoraRequestable>(for identity: KurozoraItem, including relationships: [String] = []) -> RequestSender<I, KKAPIError> {
+		// Prepare headers
+		var headers = self.headers
+		if !self.authenticationKey.isEmpty {
+			headers.add(.authorization(bearerToken: self.authenticationKey))
+		}
+
+		// Prepare parameters
+		var parameters: [String: Any] = [:]
+		if !relationships.isEmpty {
+			parameters["include"] = relationships.joined(separator: ",")
+		}
+
+		// Prepare request
+		let detailsEndpoint = if let identity = identity as? ShowIdentity {
+			KKEndpoint.Shows.details(identity).endpointValue
+		} else if let identity = identity as? LiteratureIdentity {
+			KKEndpoint.Literatures.details(identity).endpointValue
+		} else if let identity = identity as? GameIdentity {
+			KKEndpoint.Games.details(identity).endpointValue
+		} else {
+			fatalError("❌ Unsupported identity type: \(type(of: identity))")
+		}
+		let request: APIRequest<I, KKAPIError> = tron.codable.request(detailsEndpoint)
+			.method(.get)
+			.parameters(parameters)
+			.headers(headers)
+
+		// Send request
+		return request.sender()
+	}
+
+	func getDetails<I: KurozoraRequestable>(for identities: [KurozoraItem], including relationships: [String] = []) -> RequestSender<I, KKAPIError> {
+		// Prepare headers
+		var headers = self.headers
+		if !self.authenticationKey.isEmpty {
+			headers.add(.authorization(bearerToken: self.authenticationKey))
+		}
+
+		// Prepare parameters
+		var parameters: [String: Any] = [:]
+		if !identities.isEmpty {
+			parameters["ids"] = identities.map { $0.id.rawValue }.joined(separator: ",")
+		}
+		if !relationships.isEmpty {
+			parameters["include"] = relationships.joined(separator: ",")
+		}
+
+		// Prepare request
+		let indexEndpoint = if (identities as? [CharacterIdentity]) != nil {
+			KKEndpoint.Characters.index.endpointValue
+		} else if (identities as? [EpisodeIdentity]) != nil {
+			KKEndpoint.Episodes.index.endpointValue
+		} else if (identities as? [GameIdentity]) != nil {
+			KKEndpoint.Games.index.endpointValue
+		} else if (identities as? [LiteratureIdentity]) != nil {
+			KKEndpoint.Literatures.index.endpointValue
+		} else if (identities as? [PersonIdentity]) != nil {
+			KKEndpoint.People.index.endpointValue
+		} else if (identities as? [SeasonIdentity]) != nil {
+			KKEndpoint.Shows.Seasons.index.endpointValue
+		} else if (identities as? [ShowIdentity]) != nil {
+			KKEndpoint.Shows.index.endpointValue
+		} else if (identities as? [StudioIdentity]) != nil {
+			KKEndpoint.Studios.index.endpointValue
+		} else if (identities as? [GenreIdentity]) != nil {
+			KKEndpoint.Genres.index.endpointValue
+		} else if (identities as? [ThemeIdentity]) != nil {
+			KKEndpoint.Themes.index.endpointValue
+		} else {
+			fatalError("❌ Unsupported identity type: \(type(of: identities))")
+		}
+		let request: APIRequest<I, KKAPIError> = tron.codable.request(indexEndpoint)
+			.method(.get)
+			.parameters(parameters)
+			.headers(headers)
+
+		// Send request
+		return request.sender()
+	}
+
+	/// Fetch the literature details for the given literature identity.
+	///
+	/// - Parameters:
+	///    - literatureIdentity: The identity of the literature for which the details should be fetched.
+	///    - relationships: The relationships to include in the response.
+	///
+	/// - Returns: An instance of `RequestSender` with the results of the get literature detail response.
+	func getDetails(forLiterature literatureIdentity: LiteratureIdentity, including relationships: [String] = []) -> RequestSender<LiteratureResponse, KKAPIError> {
 		// Prepare headers
 		var headers = self.headers
 		if !self.authenticationKey.isEmpty {
@@ -86,15 +174,49 @@ extension KurozoraKit {
 		return request.sender()
 	}
 
-	///	Fetch the person details for the given literature identity.
+	/// Fetch the literature details for the given literature identities.
 	///
-	///	- Parameters:
-	///	   - literatureIdentity: The literature identity object for which the person details should be fetched.
-	///	   - next: The URL string of the next page in the paginated response. Use `nil` to get first page.
-	///	   - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
+	/// - Parameters:
+	///    - literatureIdentities: The identity of the literature for which the details should be fetched.
+	///    - relationships: The relationships to include in the response.
+	///
+	/// - Returns: An instance of `RequestSender` with the results of the get literature detail response.
+	func getDetails(forLiteratures literatureIdentities: [LiteratureIdentity], including relationships: [String] = []) -> RequestSender<LiteratureResponse, KKAPIError> {
+		// Prepare headers
+		var headers = self.headers
+		if !self.authenticationKey.isEmpty {
+			headers.add(.authorization(bearerToken: self.authenticationKey))
+		}
+
+		// Prepare parameters
+		var parameters: [String: Any] = [:]
+		if !literatureIdentities.isEmpty {
+			parameters["ids"] = literatureIdentities.map { $0.id.rawValue }.joined(separator: ",")
+		}
+		if !relationships.isEmpty {
+			parameters["include"] = relationships.joined(separator: ",")
+		}
+
+		// Prepare request
+		let literaturesDetails = KKEndpoint.Literatures.index.endpointValue
+		let request: APIRequest<LiteratureResponse, KKAPIError> = tron.codable.request(literaturesDetails)
+			.method(.get)
+			.parameters(parameters)
+			.headers(headers)
+
+		// Send request
+		return request.sender()
+	}
+
+	/// Fetch the person details for the given literature identity.
+	///
+	/// - Parameters:
+	///    - literatureIdentity: The literature identity object for which the person details should be fetched.
+	///    - next: The URL string of the next page in the paginated response. Use `nil` to get first page.
+	///    - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the get people response.
-	public func getPeople(forLiterature literatureIdentity: LiteratureIdentity, next: String? = nil, limit: Int = 25) -> RequestSender<PersonIdentityResponse, KKAPIError> {
+	func getPeople(forLiterature literatureIdentity: LiteratureIdentity, next: String? = nil, limit: Int = 25) -> RequestSender<PersonIdentityResponse, KKAPIError> {
 		// Prepare parameters
 		let parameters: [String: Any] = [
 			"limit": limit
@@ -111,15 +233,15 @@ extension KurozoraKit {
 		return request.sender()
 	}
 
-	///	Fetch the cast details for the given literature identity.
+	/// Fetch the cast details for the given literature identity.
 	///
-	///	- Parameters:
-	///	   - literatureIdentity: The literature identity object for which the cast details should be fetched.
-	///	   - next: The URL string of the next page in the paginated response. Use `nil` to get first page.
-	///	   - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
+	/// - Parameters:
+	///    - literatureIdentity: The literature identity object for which the cast details should be fetched.
+	///    - next: The URL string of the next page in the paginated response. Use `nil` to get first page.
+	///    - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the get cast response.
-	public func getCast(forLiterature literatureIdentity: LiteratureIdentity, next: String? = nil, limit: Int = 25) -> RequestSender<CastIdentityResponse, KKAPIError> {
+	func getCast(forLiterature literatureIdentity: LiteratureIdentity, next: String? = nil, limit: Int = 25) -> RequestSender<CastIdentityResponse, KKAPIError> {
 		// Prepare parameters
 		let parameters: [String: Any] = [
 			"limit": limit
@@ -136,15 +258,15 @@ extension KurozoraKit {
 		return request.sender()
 	}
 
-	///	Fetch the character details for the given literature identity.
+	/// Fetch the character details for the given literature identity.
 	///
-	///	- Parameters:
-	///	   - literatureIdentity: The literature identity object for which the character details should be fetched.
-	///	   - next: The URL string of the next page in the paginated response. Use `nil` to get first page.
-	///	   - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
+	/// - Parameters:
+	///    - literatureIdentity: The literature identity object for which the character details should be fetched.
+	///    - next: The URL string of the next page in the paginated response. Use `nil` to get first page.
+	///    - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the get characters response.
-	public func getCharacters(forLiterature literatureIdentity: LiteratureIdentity, next: String? = nil, limit: Int = 25) -> RequestSender<CharacterIdentityResponse, KKAPIError> {
+	func getCharacters(forLiterature literatureIdentity: LiteratureIdentity, next: String? = nil, limit: Int = 25) -> RequestSender<CharacterIdentityResponse, KKAPIError> {
 		// Prepare parameters
 		let parameters: [String: Any] = [
 			"limit": limit
@@ -161,15 +283,15 @@ extension KurozoraKit {
 		return request.sender()
 	}
 
-	///	Fetch the related literatures for a the given literature identity.
+	/// Fetch the related literatures for a the given literature identity.
 	///
-	///	- Parameters:
-	///	   - literatureIdentity: The literature identity object for which the related literatures should be fetched.
-	///	   - next: The URL string of the next page in the paginated response. Use `nil` to get first page.
-	///	   - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
+	/// - Parameters:
+	///    - literatureIdentity: The literature identity object for which the related literatures should be fetched.
+	///    - next: The URL string of the next page in the paginated response. Use `nil` to get first page.
+	///    - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the get related literatures response.
-	public func getRelatedLiteratures(forLiterature literatureIdentity: LiteratureIdentity, next: String? = nil, limit: Int = 25) -> RequestSender<RelatedLiteratureResponse, KKAPIError> {
+	func getRelatedLiteratures(forLiterature literatureIdentity: LiteratureIdentity, next: String? = nil, limit: Int = 25) -> RequestSender<RelatedLiteratureResponse, KKAPIError> {
 		// Prepare headers
 		var headers = self.headers
 		if !self.authenticationKey.isEmpty {
@@ -192,15 +314,15 @@ extension KurozoraKit {
 		return request.sender()
 	}
 
-	///	Fetch the related shows for a the given literature identity.
+	/// Fetch the related shows for a the given literature identity.
 	///
-	///	- Parameters:
-	///	   - literatureIdentity: The literature identity object for which the related shows should be fetched.
-	///	   - next: The URL string of the next page in the paginated response. Use `nil` to get first page.
-	///	   - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
+	/// - Parameters:
+	///    - literatureIdentity: The literature identity object for which the related shows should be fetched.
+	///    - next: The URL string of the next page in the paginated response. Use `nil` to get first page.
+	///    - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the get related shows response.
-	public func getRelatedShows(forLiterature literatureIdentity: LiteratureIdentity, next: String? = nil, limit: Int = 25) -> RequestSender<RelatedShowResponse, KKAPIError> {
+	func getRelatedShows(forLiterature literatureIdentity: LiteratureIdentity, next: String? = nil, limit: Int = 25) -> RequestSender<RelatedShowResponse, KKAPIError> {
 		// Prepare headers
 		var headers = self.headers
 		if !self.authenticationKey.isEmpty {
@@ -223,15 +345,15 @@ extension KurozoraKit {
 		return request.sender()
 	}
 
-	///	Fetch the related games for a the given literature identity.
+	/// Fetch the related games for a the given literature identity.
 	///
-	///	- Parameters:
-	///	   - literatureIdentity: The literature identity object for which the related games should be fetched.
-	///	   - next: The URL string of the next page in the paginated response. Use `nil` to get first page.
-	///	   - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
+	/// - Parameters:
+	///    - literatureIdentity: The literature identity object for which the related games should be fetched.
+	///    - next: The URL string of the next page in the paginated response. Use `nil` to get first page.
+	///    - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the get related games response.
-	public func getRelatedGames(forLiterature literatureIdentity: LiteratureIdentity, next: String? = nil, limit: Int = 25) -> RequestSender<RelatedGameResponse, KKAPIError> {
+	func getRelatedGames(forLiterature literatureIdentity: LiteratureIdentity, next: String? = nil, limit: Int = 25) -> RequestSender<RelatedGameResponse, KKAPIError> {
 		// Prepare headers
 		var headers = self.headers
 		if !self.authenticationKey.isEmpty {
@@ -254,15 +376,15 @@ extension KurozoraKit {
 		return request.sender()
 	}
 
-	///	Fetch the reviews for a the given literature identity.
+	/// Fetch the reviews for a the given literature identity.
 	///
-	///	- Parameters:
-	///	   - literatureIdentity: The literature identity object for which the reviews should be fetched.
-	///	   - next: The URL string of the next page in the paginated response. Use `nil` to get first page.
-	///	   - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
+	/// - Parameters:
+	///    - literatureIdentity: The literature identity object for which the reviews should be fetched.
+	///    - next: The URL string of the next page in the paginated response. Use `nil` to get first page.
+	///    - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the get reviews response.
-	public func getReviews(forLiterature literatureIdentity: LiteratureIdentity, next: String? = nil, limit: Int = 25) -> RequestSender<ReviewResponse, KKAPIError> {
+	func getReviews(forLiterature literatureIdentity: LiteratureIdentity, next: String? = nil, limit: Int = 25) -> RequestSender<ReviewResponse, KKAPIError> {
 		// Prepare headers
 		var headers = self.headers
 		if !self.authenticationKey.isEmpty {
@@ -284,14 +406,15 @@ extension KurozoraKit {
 		// Send request
 		return request.sender()
 	}
-	///	Fetch the studios for a the given literature identity.
+
+	/// Fetch the studios for a the given literature identity.
 	///
-	///	- Parameter literatureIdentity: The literature identity object for which the studios should be fetched.
-	///	- Parameter next: The URL string of the next page in the paginated response. Use `nil` to get first page.
+	/// - Parameter literatureIdentity: The literature identity object for which the studios should be fetched.
+	/// - Parameter next: The URL string of the next page in the paginated response. Use `nil` to get first page.
 	/// - Parameter limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the get studios response.
-	public func getStudios(forLiterature literatureIdentity: LiteratureIdentity, next: String? = nil, limit: Int = 25) -> RequestSender<StudioIdentityResponse, KKAPIError> {
+	func getStudios(forLiterature literatureIdentity: LiteratureIdentity, next: String? = nil, limit: Int = 25) -> RequestSender<StudioIdentityResponse, KKAPIError> {
 		// Prepare parameters
 		let parameters: [String: Any] = [
 			"limit": limit
@@ -308,14 +431,14 @@ extension KurozoraKit {
 		return request.sender()
 	}
 
-	///	Fetch the more by studio section for a the given literature identity.
+	/// Fetch the more by studio section for a the given literature identity.
 	///
-	///	- Parameter literatureIdentity: The literature identity object for which the studio literatures should be fetched.
-	///	- Parameter next: The URL string of the next page in the paginated response. Use `nil` to get first page.
+	/// - Parameter literatureIdentity: The literature identity object for which the studio literatures should be fetched.
+	/// - Parameter next: The URL string of the next page in the paginated response. Use `nil` to get first page.
 	/// - Parameter limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the get more by studio response.
-	public func getMoreByStudio(forLiterature literatureIdentity: LiteratureIdentity, next: String? = nil, limit: Int = 25) -> RequestSender<LiteratureIdentityResponse, KKAPIError> {
+	func getMoreByStudio(forLiterature literatureIdentity: LiteratureIdentity, next: String? = nil, limit: Int = 25) -> RequestSender<LiteratureIdentityResponse, KKAPIError> {
 		// Prepare headers
 		var headers = self.headers
 		if !self.authenticationKey.isEmpty {
@@ -342,11 +465,11 @@ extension KurozoraKit {
 	///
 	/// - Parameters:
 	///    - literatureIdentity: The id of the literature which should be rated.
-	///	   - score: The rating to leave.
-	///	   - description: The description of the rating.
+	///    - score: The rating to leave.
+	///    - description: The description of the rating.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the rate literature response.
-	public func rateLiterature(_ literatureIdentity: LiteratureIdentity, with score: Double, description: String?) -> RequestSender<KKSuccess, KKAPIError> {
+	func rateLiterature(_ literatureIdentity: LiteratureIdentity, with score: Double, description: String?) -> RequestSender<KKSuccess, KKAPIError> {
 		// Prepare headers
 		var headers = self.headers
 		headers.add(.authorization(bearerToken: self.authenticationKey))
@@ -377,7 +500,7 @@ extension KurozoraKit {
 	///    - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the get upcoming literatures response.
-	public func getUpcomingLiteratures(next: String? = nil, limit: Int = 25) -> RequestSender<LiteratureIdentityResponse, KKAPIError> {
+	func getUpcomingLiteratures(next: String? = nil, limit: Int = 25) -> RequestSender<LiteratureIdentityResponse, KKAPIError> {
 		// Prepare headers
 		var headers = self.headers
 		if !self.authenticationKey.isEmpty {

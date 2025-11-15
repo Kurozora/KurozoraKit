@@ -8,9 +8,9 @@
 import Foundation
 
 /// A root object that stores information about a theme resource.
-public struct Theme: IdentityResource, Hashable {
+public struct Theme: KurozoraItem, IdentityResource, Hashable {
 	// MARK: - Properties
-	public let id: String
+	public let id: KurozoraItemID
 
 	public let type: String
 

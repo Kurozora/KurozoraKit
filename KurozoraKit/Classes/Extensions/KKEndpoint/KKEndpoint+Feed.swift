@@ -11,39 +11,39 @@ extension KKEndpoint.Feed {
 	internal enum Messages {
 		// MARK: - Cases
 		/// The endpoint to the message details.
-		case details(_ messageID: String)
+		case details(_ messageIdentity: KurozoraItem)
 
 		/// The endpoint to update the message details.
-		case update(_ messageID: String)
+		case update(_ messageIdentity: KurozoraItem)
 
 		/// The endpoint to heart or unheart a feed message.
-		case heart(_ messageID: String)
+		case heart(_ messageIdentity: KurozoraItem)
 
 		/// The endpoint to pin or unpin a feed message.
-		case pin(_ messageID: String)
+		case pin(_ messageIdentity: KurozoraItem)
 
 		/// The endpoint to the replies of a feed message.
-		case replies(_ messageID: String)
+		case replies(_ messageIdentity: KurozoraItem)
 
 		/// The endpoint to delete the message details.
-		case delete(_ messageID: String)
+		case delete(_ messageIdentity: KurozoraItem)
 
 		// MARK: - Properties
 		/// The endpoint value of the Messages API type.
 		var endpointValue: String {
 			switch self {
-			case .details(let messageID):
-				return "feed/messages/\(messageID)"
-			case .update(let messageID):
-				return "feed/messages/\(messageID)/update"
-			case .heart(let messageID):
-				return "feed/messages/\(messageID)/heart"
-			case .pin(let messageID):
-				return "feed/messages/\(messageID)/pin"
-			case .replies(let messageID):
-				return "feed/messages/\(messageID)/replies"
-			case .delete(let messageID):
-				return "feed/messages/\(messageID)/delete"
+			case .details(let messageIdentity):
+				return "feed/messages/\(messageIdentity.id)"
+			case .update(let messageIdentity):
+				return "feed/messages/\(messageIdentity.id)/update"
+			case .heart(let messageIdentity):
+				return "feed/messages/\(messageIdentity.id)/heart"
+			case .pin(let messageIdentity):
+				return "feed/messages/\(messageIdentity.id)/pin"
+			case .replies(let messageIdentity):
+				return "feed/messages/\(messageIdentity.id)/replies"
+			case .delete(let messageIdentity):
+				return "feed/messages/\(messageIdentity.id)/delete"
 			}
 		}
 	}

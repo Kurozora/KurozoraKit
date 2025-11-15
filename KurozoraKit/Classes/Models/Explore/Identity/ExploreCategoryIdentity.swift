@@ -8,16 +8,16 @@
 import Foundation
 
 /// A root object that stores information about an explore category identity resource.
-public struct ExploreCategoryIdentity: IdentityResource, Hashable {
+public struct ExploreCategoryIdentity: KurozoraItem, IdentityResource, Hashable {
 	// MARK: - Properties
-	public var id: String
+	public let id: KurozoraItemID
 
-	public var type: String
+	public let type: String
 
-	public var href: String
+	public let href: String
 
 	// MARK: - Initializers
-	public init(id: String) {
+	public init(id: KurozoraItemID) {
 		self.id = id
 		self.type = "explore"
 		self.href = ""

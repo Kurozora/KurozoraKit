@@ -18,7 +18,7 @@ extension KurozoraKit {
 	///    - themeID: The id of a theme by which the explore page should be filtered.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the get explore response.
-	public func getExplore(genreID: String? = nil, themeID: String? = nil) -> RequestSender<ExploreCategoryResponse, KKAPIError> {
+	public func getExplore(genreID: KurozoraItemID? = nil, themeID: KurozoraItemID? = nil) -> RequestSender<ExploreCategoryResponse, KKAPIError> {
 		// Prepare headers
 		var headers = self.headers
 		if !self.authenticationKey.isEmpty {
@@ -27,12 +27,12 @@ extension KurozoraKit {
 
 		// Prepare parameters
 		var parameters: [String: Any] = [:]
-		if !(genreID?.isEmpty ?? true) {
+		if genreID != nil {
 			if let genreID = genreID {
 				parameters["genre_id"] = genreID
 			}
 		}
-		if !(themeID?.isEmpty ?? true) {
+		if themeID != nil {
 			if let themeID = themeID {
 				parameters["theme_id"] = themeID
 			}
@@ -53,7 +53,7 @@ extension KurozoraKit {
 	///
 	/// - Parameters:
 	///    - exploreCategoryIdentity: The id of a explore category for which the content is fetched.
-	///	   - next: The URL string of the next page in the paginated response. Use `nil` to get first page.
+	///    - next: The URL string of the next page in the paginated response. Use `nil` to get first page.
 	///    - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 5 and the maximum value is 25.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the get explore response.

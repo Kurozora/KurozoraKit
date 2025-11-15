@@ -142,7 +142,7 @@ extension KurozoraKit {
 	///    - messageID: The id of the message for which the details should be fetched.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the get feed message details response.
-	public func getDetails(forFeedMessage messageID: String) -> RequestSender<FeedMessageResponse, KKAPIError> {
+	public func getDetails(forFeedMessage messageIdentity: FeedMessageIdentity) -> RequestSender<FeedMessageResponse, KKAPIError> {
 		// Prepare headers
 		var headers = self.headers
 		if !self.authenticationKey.isEmpty {
@@ -150,7 +150,7 @@ extension KurozoraKit {
 		}
 
 		// Prepare request
-		let feedMessagesDetails = KKEndpoint.Feed.Messages.details(messageID).endpointValue
+		let feedMessagesDetails = KKEndpoint.Feed.Messages.details(messageIdentity).endpointValue
 		let request: APIRequest<FeedMessageResponse, KKAPIError> = tron.codable.request(feedMessagesDetails)
 			.method(.get)
 			.headers(headers)
@@ -167,7 +167,7 @@ extension KurozoraKit {
 	///    - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the get feed message replies response.
-	public func getReplies(forFeedMessage feedMessageID: String, next: String? = nil, limit: Int = 25) -> RequestSender<FeedMessageResponse, KKAPIError> {
+	public func getReplies(forFeedMessage messageIdentity: FeedMessageIdentity, next: String? = nil, limit: Int = 25) -> RequestSender<FeedMessageResponse, KKAPIError> {
 		// Prepare headers
 		var headers = self.headers
 		if !self.authenticationKey.isEmpty {
@@ -180,7 +180,7 @@ extension KurozoraKit {
 		]
 
 		// Prepare request
-		let feedMessagesResplies = next ?? KKEndpoint.Feed.Messages.replies(feedMessageID).endpointValue
+		let feedMessagesResplies = next ?? KKEndpoint.Feed.Messages.replies(messageIdentity).endpointValue
 		let request: APIRequest<FeedMessageResponse, KKAPIError> = tron.codable.request(feedMessagesResplies).buildURL(.relativeToBaseURL)
 			.method(.get)
 			.parameters(parameters)
@@ -209,7 +209,7 @@ extension KurozoraKit {
 		]
 
 		// Prepare request
-		let feedMessageUpdate = KKEndpoint.Feed.Messages.update(feedMessageUpdateRequest.feedMessageIdentity.id).endpointValue
+		let feedMessageUpdate = KKEndpoint.Feed.Messages.update(feedMessageUpdateRequest.feedMessageIdentity).endpointValue
 		let request: APIRequest<FeedMessageUpdateResponse, KKAPIError> = tron.codable.request(feedMessageUpdate)
 			.method(.post)
 			.parameters(parameters)
@@ -225,13 +225,13 @@ extension KurozoraKit {
 	///    - messageID: The id of the message to heart or un-heart.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the heart message response.
-	public func heartMessage(_ messageID: String) ->  RequestSender<FeedMessageUpdateResponse, KKAPIError> {
+	public func heartMessage(_ messageIdentity: FeedMessageIdentity) ->  RequestSender<FeedMessageUpdateResponse, KKAPIError> {
 		// Prepare headers
 		var headers = self.headers
 		headers.add(.authorization(bearerToken: self.authenticationKey))
 
 		// Prepare request
-		let feedPost = KKEndpoint.Feed.Messages.heart(messageID).endpointValue
+		let feedPost = KKEndpoint.Feed.Messages.heart(messageIdentity).endpointValue
 		let request: APIRequest<FeedMessageUpdateResponse, KKAPIError> = tron.codable.request(feedPost)
 			.method(.post)
 			.headers(headers)
@@ -246,13 +246,13 @@ extension KurozoraKit {
 	///    - messageID: The id of the message to pin or unpin.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the pin message response.
-	public func pinMessage(_ messageID: String) ->  RequestSender<FeedMessageUpdateResponse, KKAPIError> {
+	public func pinMessage(_ messageIdentity: FeedMessageIdentity) ->  RequestSender<FeedMessageUpdateResponse, KKAPIError> {
 		// Prepare headers
 		var headers = self.headers
 		headers.add(.authorization(bearerToken: self.authenticationKey))
 
 		// Prepare request
-		let feedPost = KKEndpoint.Feed.Messages.pin(messageID).endpointValue
+		let feedPost = KKEndpoint.Feed.Messages.pin(messageIdentity).endpointValue
 		let request: APIRequest<FeedMessageUpdateResponse, KKAPIError> = tron.codable.request(feedPost)
 			.method(.post)
 			.headers(headers)
@@ -267,13 +267,13 @@ extension KurozoraKit {
 	///    - messageID: The message ID to be deleted.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the delete message response.
-	public func deleteMessage(_ messageID: String) -> RequestSender<KKSuccess, KKAPIError> {
+	public func deleteMessage(_ messageIdentity: FeedMessageIdentity) -> RequestSender<KKSuccess, KKAPIError> {
 		// Prepare headers
 		var headers = self.headers
 		headers.add(.authorization(bearerToken: self.authenticationKey))
 
 		// Prepare request
-		let feedMessagesDelete = KKEndpoint.Feed.Messages.delete(messageID).endpointValue
+		let feedMessagesDelete = KKEndpoint.Feed.Messages.delete(messageIdentity).endpointValue
 		let request: APIRequest<KKSuccess, KKAPIError> = tron.codable.request(feedMessagesDelete)
 			.method(.post)
 			.headers(headers)

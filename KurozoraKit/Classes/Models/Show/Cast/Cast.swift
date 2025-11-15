@@ -8,9 +8,9 @@
 import Foundation
 
 /// A root object that stores information about a cast resource.
-public struct Cast: IdentityResource, Hashable {
+public struct Cast: KurozoraItem, IdentityResource, Hashable {
 	// MARK: - Properties
-	public let id: String
+	public let id: KurozoraItemID
 
 	public let type: String
 

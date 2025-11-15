@@ -55,7 +55,7 @@ public extension KurozoraKit {
 	///    - modelID: The id of the model to add.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the add to library response.
-	func addToLibrary(_ libraryKind: KKLibrary.Kind, withLibraryStatus libraryStatus: KKLibrary.Status, modelID: String) -> RequestSender<LibraryUpdateResponse, KKAPIError> {
+	func addToLibrary(_ libraryKind: KKLibrary.Kind, withLibraryStatus libraryStatus: KKLibrary.Status, modelID: KurozoraItemID) -> RequestSender<LibraryUpdateResponse, KKAPIError> {
 		// Prepare headers
 		var headers = self.headers
 		headers.add(.authorization(bearerToken: self.authenticationKey))
@@ -87,7 +87,7 @@ public extension KurozoraKit {
 	///    - isHidden: Wehther the item is marked as hidden.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the update in library response.
-	func updateInLibrary(_ libraryKind: KKLibrary.Kind, modelID: String, rewatchCount: Int?, isHidden: Bool?) -> RequestSender<LibraryUpdateResponse, KKAPIError> {
+	func updateInLibrary(_ libraryKind: KKLibrary.Kind, modelID: KurozoraItemID, rewatchCount: Int?, isHidden: Bool?) -> RequestSender<LibraryUpdateResponse, KKAPIError> {
 		// Prepare headers
 		var headers = self.headers
 		headers.add(.authorization(bearerToken: self.authenticationKey))
@@ -122,7 +122,7 @@ public extension KurozoraKit {
 	///    - modelID: The id of the model to be deleted.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the remove from library response.
-	func removeFromLibrary(_ libraryKind: KKLibrary.Kind, modelID: String) -> RequestSender<LibraryUpdateResponse, KKAPIError> {
+	func removeFromLibrary(_ libraryKind: KKLibrary.Kind, modelID: KurozoraItemID) -> RequestSender<LibraryUpdateResponse, KKAPIError> {
 		// Prepare headers
 		var headers = self.headers
 		headers.add(.authorization(bearerToken: self.authenticationKey))

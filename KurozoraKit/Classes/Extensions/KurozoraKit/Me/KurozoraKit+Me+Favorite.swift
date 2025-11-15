@@ -46,7 +46,7 @@ extension KurozoraKit {
 	///    - modelID: The id of the model whose favorite status should be updated.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the update favorite status response.
-	public func updateFavoriteStatus(inLibrary libraryKind: KKLibrary.Kind, modelID: String) -> RequestSender<FavoriteResponse, KKAPIError> {
+	public func updateFavoriteStatus(inLibrary libraryKind: KKLibrary.Kind, modelID: KurozoraItemID) -> RequestSender<FavoriteResponse, KKAPIError> {
 		// Prepare headers
 		var headers = self.headers
 		headers.add(.authorization(bearerToken: self.authenticationKey))

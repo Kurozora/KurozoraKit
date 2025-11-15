@@ -15,7 +15,7 @@ extension KurozoraKit {
 	///    - scope: The scope of the search.
 	///    - types: The types of the search.
 	///    - query: The search query.
-	///	   - next: The URL string of the next page in the paginated response. Use `nil` to get first page.
+	///    - next: The URL string of the next page in the paginated response. Use `nil` to get first page.
 	///    - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 5 and the maximum value is 25.
 	///    - filter: The filters to apply on the search.
 	///

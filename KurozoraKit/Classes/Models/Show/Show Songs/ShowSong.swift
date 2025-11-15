@@ -8,9 +8,9 @@
 import Foundation
 
 /// A root object that stores information about a show song resource.
-public final class ShowSong: IdentityResource, Hashable, @unchecked Sendable {
+public final class ShowSong: KurozoraItem, IdentityResource, Hashable, @unchecked Sendable {
 	// MARK: - Properties
-	public let id: String
+	public let id: KurozoraItemID
 
 	public let type: String
 

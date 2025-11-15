@@ -13,7 +13,7 @@ public extension KurozoraKit {
 	/// Fetch the songs index.
 	///
 	/// - Parameters:
-	///	   - next: The URL string of the next page in the paginated response. Use `nil` to get first page.
+	///    - next: The URL string of the next page in the paginated response. Use `nil` to get first page.
 	///    - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 5 and the maximum value is 25.
 	///    - filter: The filters to apply on the index list.
 	///
@@ -87,12 +87,12 @@ public extension KurozoraKit {
 		return request.sender()
 	}
 
-	///	Fetch the shows for the given song identity.
+	/// Fetch the shows for the given song identity.
 	///
 	/// - Parameters:
 	///    - songIdentity: The song identity object for which the shows should be fetched.
-	///	   - next: The URL string of the next page in the paginated response. Use `nil` to get first page.
-	///	   - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
+	///    - next: The URL string of the next page in the paginated response. Use `nil` to get first page.
+	///    - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the get song shows response.
 	func getShows(forSong songIdentity: SongIdentity, next: String? = nil, limit: Int = 25) -> RequestSender<ShowIdentityResponse, KKAPIError> {
@@ -118,12 +118,12 @@ public extension KurozoraKit {
 		return request.sender()
 	}
 
-	///	Fetch the games for the given song identity.
+	/// Fetch the games for the given song identity.
 	///
 	/// - Parameters:
 	///    - songIdentity: The song identity object for which the games should be fetched.
-	///	   - next: The URL string of the next page in the paginated response. Use `nil` to get first page.
-	///	   - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
+	///    - next: The URL string of the next page in the paginated response. Use `nil` to get first page.
+	///    - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the get song games response.
 	func getGames(forSong songIdentity: SongIdentity, next: String? = nil, limit: Int = 25) -> RequestSender<GameIdentityResponse, KKAPIError> {
@@ -153,8 +153,8 @@ public extension KurozoraKit {
 	///
 	/// - Parameters:
 	///    - songIdentity: The id of the song which should be rated.
-	///	   - score: The rating to leave.
-	///	   - description: The description of the rating.
+	///    - score: The rating to leave.
+	///    - description: The description of the rating.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the rate song response.
 	func rateSong(_ songIdentity: SongIdentity, with score: Double, description: String?) -> RequestSender<KKSuccess, KKAPIError> {
@@ -181,12 +181,12 @@ public extension KurozoraKit {
 		return request.sender()
 	}
 
-	///	Fetch the reviews for a the given song identity.
+	/// Fetch the reviews for a the given song identity.
 	///
-	///	- Parameters:
-	///	   - songIdentity: The song identity object for which the reviews should be fetched.
-	///	   - next: The URL string of the next page in the paginated response. Use `nil` to get first page.
-	///	   - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
+	/// - Parameters:
+	///    - songIdentity: The song identity object for which the reviews should be fetched.
+	///    - next: The URL string of the next page in the paginated response. Use `nil` to get first page.
+	///    - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the get reviews response.
 	func getReviews(forSong songIdentity: SongIdentity, next: String? = nil, limit: Int = 25) -> RequestSender<ReviewResponse, KKAPIError> {

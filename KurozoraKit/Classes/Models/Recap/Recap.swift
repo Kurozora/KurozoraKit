@@ -8,9 +8,9 @@
 import Foundation
 
 /// A root object that stores information about a recap resource.
-public struct Recap: IdentityResource, Hashable {
+public struct Recap: KurozoraItem, IdentityResource, Hashable {
 	// MARK: - Properties
-	public let id: String
+	public let id: KurozoraItemID
 
 	public let type: String
 

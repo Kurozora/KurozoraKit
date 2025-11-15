@@ -8,9 +8,9 @@
 import Foundation
 
 /// A root object that stores information about a user resource.
-public final class User: IdentityResource, Hashable, @unchecked Sendable {
+public final class User: KurozoraItem, IdentityResource, Hashable, @unchecked Sendable {
 	// MARK: - Properties
-	public let id: String
+	public let id: KurozoraItemID
 
 	public let uuid: UUID
 

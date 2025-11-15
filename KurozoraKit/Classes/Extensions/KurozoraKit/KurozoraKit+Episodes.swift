@@ -65,7 +65,7 @@ extension KurozoraKit {
 
 	/// Update an episode's watch status.
 	///
-	///	- Parameter episodeIdentity: The episode identity object of the episode that should be marked as watched/unwatched.
+	/// - Parameter episodeIdentity: The episode identity object of the episode that should be marked as watched/unwatched.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the update episode watch status response.
 	public func updateEpisodeWatchStatus(_ episodeIdentity: EpisodeIdentity) -> RequestSender<EpisodeUpdateResponse, KKAPIError> {
@@ -90,7 +90,7 @@ extension KurozoraKit {
 	/// - Parameters:
 	///    - episodeIdentity: The episode identity object of the episode which should be rated.
 	///    - score: The rating to leave.
-	///	   - description: The description of the rating.
+	///    - description: The description of the rating.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the rate episode response.
 	public func rateEpisode(_ episodeIdentity: EpisodeIdentity, with score: Double, description: String?) -> RequestSender<KKSuccess, KKAPIError> {
@@ -119,12 +119,12 @@ extension KurozoraKit {
 		return request.sender()
 	}
 
-	///	Fetch the reviews for a the given episode identity.
+	/// Fetch the reviews for a the given episode identity.
 	///
-	///	- Parameters:
-	///	   - episodeIdentity: The episode identity object for which the reviews should be fetched.
-	///	   - next: The URL string of the next page in the paginated response. Use `nil` to get first page.
-	///	   - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
+	/// - Parameters:
+	///    - episodeIdentity: The episode identity object for which the reviews should be fetched.
+	///    - next: The URL string of the next page in the paginated response. Use `nil` to get first page.
+	///    - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the get reviews response.
 	public func getReviews(forEpisode episodeIdentity: EpisodeIdentity, next: String? = nil, limit: Int = 25) -> RequestSender<ReviewResponse, KKAPIError> {

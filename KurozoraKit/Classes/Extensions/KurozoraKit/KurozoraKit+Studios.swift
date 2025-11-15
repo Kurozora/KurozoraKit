@@ -12,7 +12,7 @@ extension KurozoraKit {
 	/// Fetch the studios index.
 	///
 	/// - Parameters:
-	///	   - next: The URL string of the next page in the paginated response. Use `nil` to get first page.
+	///    - next: The URL string of the next page in the paginated response. Use `nil` to get first page.
 	///    - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 5 and the maximum value is 25.
 	///    - filter: The filters to apply on the index list.
 	///
@@ -55,12 +55,12 @@ extension KurozoraKit {
 		return request.sender()
 	}
 
-	///	Fetch the studio details for the given studio identiry.
+	/// Fetch the studio details for the given studio identiry.
 	///
 	/// - Parameters:
 	///    - studioIdentity: The studio identity ibject of the studio for which the details should be fetched.
 	///    - relationships: The relationships to include in the response.
-	///	   - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
+	///    - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the get studio detail response.
 	public func getDetails(forStudio studioIdentity: StudioIdentity, including relationships: [String] = [], limit: Int? = nil) -> RequestSender<StudioResponse, KKAPIError> {
@@ -87,12 +87,12 @@ extension KurozoraKit {
 		return request.sender()
 	}
 
-	///	Fetch the shows for the given studio identity.
+	/// Fetch the shows for the given studio identity.
 	///
 	/// - Parameters:
 	///    - studioIdentity: The studio identity object for which the shows should be fetched.
-	///	   - next: The URL string of the next page in the paginated response. Use `nil` to get first page.
-	///	   - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
+	///    - next: The URL string of the next page in the paginated response. Use `nil` to get first page.
+	///    - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the get shows response.
 	public func getShows(forStudio studioIdentity: StudioIdentity, next: String? = nil, limit: Int = 25) -> RequestSender<ShowIdentityResponse, KKAPIError> {
@@ -118,12 +118,12 @@ extension KurozoraKit {
 		return request.sender()
 	}
 
-	///	Fetch the literatures for the given studio identity.
+	/// Fetch the literatures for the given studio identity.
 	///
 	/// - Parameters:
 	///    - studioIdentity: The studio identity object for which the literatures should be fetched.
-	///	   - next: The URL string of the next page in the paginated response. Use `nil` to get first page.
-	///	   - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
+	///    - next: The URL string of the next page in the paginated response. Use `nil` to get first page.
+	///    - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the get literatures response.
 	public func getLiteratures(forStudio studioIdentity: StudioIdentity, next: String? = nil, limit: Int = 25) -> RequestSender<LiteratureIdentityResponse, KKAPIError> {
@@ -149,12 +149,12 @@ extension KurozoraKit {
 		return request.sender()
 	}
 
-	///	Fetch the games for the given studio identity.
+	/// Fetch the games for the given studio identity.
 	///
 	/// - Parameters:
 	///    - studioIdentity: The studio identity object for which the games should be fetched.
-	///	   - next: The URL string of the next page in the paginated response. Use `nil` to get first page.
-	///	   - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
+	///    - next: The URL string of the next page in the paginated response. Use `nil` to get first page.
+	///    - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the get games response.
 	public func getGames(forStudio studioIdentity: StudioIdentity, next: String? = nil, limit: Int = 25) -> RequestSender<GameIdentityResponse, KKAPIError> {
@@ -180,12 +180,12 @@ extension KurozoraKit {
 		return request.sender()
 	}
 
-	///	Fetch the reviews for a the given studio identity.
+	/// Fetch the reviews for a the given studio identity.
 	///
-	///	- Parameters:
-	///	   - studioIdentity: The studio identity object for which the reviews should be fetched.
-	///	   - next: The URL string of the next page in the paginated response. Use `nil` to get first page.
-	///	   - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
+	/// - Parameters:
+	///    - studioIdentity: The studio identity object for which the reviews should be fetched.
+	///    - next: The URL string of the next page in the paginated response. Use `nil` to get first page.
+	///    - limit: The limit on the number of objects, or number of objects in the specified relationship, that are returned. The default value is 25 and the maximum value is 100.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the get reviews response.
 	public func getReviews(forStudio studioIdentity: StudioIdentity, next: String? = nil, limit: Int = 25) -> RequestSender<ReviewResponse, KKAPIError> {
@@ -215,8 +215,8 @@ extension KurozoraKit {
 	///
 	/// - Parameters:
 	///    - studioIdentity: The id of the studio which should be rated.
-	///	   - score: The rating to leave.
-	///	   - description: The description of the rating.
+	///    - score: The rating to leave.
+	///    - description: The description of the rating.
 	///
 	/// - Returns: An instance of `RequestSender` with the results of the rate studio response.
 	public func rateStudio(_ studioIdentity: StudioIdentity, with score: Double, description: String?) -> RequestSender<KKSuccess, KKAPIError> {

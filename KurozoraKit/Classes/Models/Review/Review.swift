@@ -8,9 +8,9 @@
 import Foundation
 
 /// A root object that stores information about a review resource.
-public struct Review: IdentityResource, Hashable {
+public struct Review: KurozoraItem, IdentityResource, Hashable {
 	// MARK: - Properties
-	public let id: String
+	public let id: KurozoraItemID
 
 	public let type: String
 

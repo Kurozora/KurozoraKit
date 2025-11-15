@@ -8,9 +8,9 @@
 import Foundation
 
 /// A root object that stores information about a staff resource.
-public struct Staff: IdentityResource, Hashable {
+public struct Staff: KurozoraItem, IdentityResource, Hashable {
 	// MARK: - Properties
-	public let id: String
+	public let id: KurozoraItemID
 
 	public let type: String
 

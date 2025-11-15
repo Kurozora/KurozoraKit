@@ -10,7 +10,7 @@ import Foundation
 /// A root object that stores information about an app theme resource.
 public struct AppTheme: IdentityResource, Hashable, Sendable {
 	// MARK: - Properties
-	public let id: String
+	public let id: KurozoraItemID
 
 	public let type: String
 

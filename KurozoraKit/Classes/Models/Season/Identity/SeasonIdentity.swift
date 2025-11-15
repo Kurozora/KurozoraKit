@@ -8,16 +8,16 @@
 import Foundation
 
 /// A root object that stores information about a season identity resource.
-public struct SeasonIdentity: IdentityResource, Hashable {
+public struct SeasonIdentity: KurozoraItem, IdentityResource, Hashable {
 	// MARK: - Properties
-	public let id: String
+	public let id: KurozoraItemID
 
 	public let type: String
 
 	public let href: String
 
 	// MARK: - Initializers
-	public init(id: String) {
+	public init(id: KurozoraItemID) {
 		self.id = id
 		self.type = "seasons"
 		self.href = ""

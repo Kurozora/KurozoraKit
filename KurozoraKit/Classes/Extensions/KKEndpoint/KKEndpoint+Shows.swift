@@ -12,6 +12,9 @@ extension KKEndpoint.Shows {
 	/// The set of available Seasons API endpoints.
 	internal enum Seasons {
 		// MARK: - Cases
+		/// The endpoint to the index of seasons.
+		case index
+
 		/// The endpoint to the details of a season.
 		case details(_ seasonIdentity: SeasonIdentity)
 
@@ -25,6 +28,8 @@ extension KKEndpoint.Shows {
 		/// The endpoint value of the Seasons API type.
 		var endpointValue: String {
 			switch self {
+			case .index:
+				return "seasons"
 			case .details(let seasonIdentity):
 				return "seasons/\(seasonIdentity.id)"
 			case .episodes(let seasonIdentity):

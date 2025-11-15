@@ -8,16 +8,16 @@
 import Foundation
 
 /// A root object that stores information about a character identity resource.
-public struct CharacterIdentity: IdentityResource, Hashable {
+public struct CharacterIdentity: KurozoraItem, IdentityResource, Hashable {
 	// MARK: - Properties
-	public let id: String
+	public let id: KurozoraItemID
 
 	public let type: String
 
 	public let href: String
 
 	// MARK: - Initializers
-	public init(id: String) {
+	public init(id: KurozoraItemID) {
 		self.id = id
 		self.type = "characters"
 		self.href = ""

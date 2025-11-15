@@ -8,9 +8,9 @@
 import Foundation
 
 /// A root object that stores information about an explore category resource.
-public struct ExploreCategory: IdentityResource, Hashable {
+public struct ExploreCategory: KurozoraItem, IdentityResource, Hashable {
 	// MARK: - Properties
-	public let id: String
+	public let id: KurozoraItemID
 
 	public let type: String
 
