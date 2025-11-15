@@ -13,3 +13,6 @@ public struct ThemeResponse: Codable, Sendable {
 	/// The data included in the response for a theme object request.
 	public let data: [Theme]
 }
+
+// MARK: - KurozoraRequestable
+extension ThemeResponse: KurozoraRequestable {}

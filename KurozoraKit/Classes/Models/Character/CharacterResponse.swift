@@ -8,8 +8,11 @@
 public struct CharacterResponse: Codable, Sendable {
 	// MARK: - Properties
 	/// The data included in the response for a character object request.
-    public let data: [Character]
+	public let data: [Character]
 
 	/// The relative URL to the next page in the paginated response.
 	public let next: String?
 }
+
+// MARK: - KurozoraRequestable
+extension CharacterResponse: KurozoraRequestable {}

@@ -13,3 +13,6 @@ public struct GenreResponse: Codable, Sendable {
 	/// The data included in the response for a genre object request.
 	public let data: [Genre]
 }
+
+// MARK: - KurozoraRequestable
+extension GenreResponse: KurozoraRequestable {}
