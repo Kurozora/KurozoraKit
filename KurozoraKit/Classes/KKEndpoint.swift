@@ -8,7 +8,7 @@
 import Foundation
 
 /// The namespace that contains the Kurozora API endpoints.
-internal enum KKEndpoint { }
+internal enum KKEndpoint {}
 
 // MARK: - Explore
 extension KKEndpoint {
@@ -63,11 +63,20 @@ extension KKEndpoint {
 	/// The set of available Cast API endpoints.
 	internal enum Cast {
 		// MARK: - Cases
+		/// The endpoint to the show cast index.
+		case showCastIndex
+
 		/// The endpoint to the details of a show cast.
 		case showCast(_ castIdentity: CastIdentity)
 
+		/// The endpoint to the literature cast index.
+		case literatureCastIndex
+
 		/// The endpoint to the details of a literature cast.
 		case literatureCast(_ castIdentity: CastIdentity)
+
+		/// The endpoint to the game cast index.
+		case gameCastIndex
 
 		/// The endpoint to the details of a game cast.
 		case gameCast(_ castIdentity: CastIdentity)
@@ -76,10 +85,16 @@ extension KKEndpoint {
 		/// The endpoint value of the Cast API type.
 		var endpointValue: String {
 			switch self {
+			case .showCastIndex:
+				return "show-cast"
 			case .showCast(let castIdentity):
 				return "show-cast/\(castIdentity.id)"
+			case .literatureCastIndex:
+				return "literature-cast"
 			case .literatureCast(let castIdentity):
 				return "literature-cast/\(castIdentity.id)"
+			case .gameCastIndex:
+				return "game-cast"
 			case .gameCast(let castIdentity):
 				return "game-cast/\(castIdentity.id)"
 			}

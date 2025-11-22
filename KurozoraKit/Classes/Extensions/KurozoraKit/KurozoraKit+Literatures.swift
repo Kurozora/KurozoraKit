@@ -130,9 +130,19 @@ public extension KurozoraKit {
 		} else if (identities as? [GenreIdentity]) != nil {
 			KKEndpoint.Genres.index.endpointValue
 		} else if (identities as? [ThemeIdentity]) != nil {
-			KKEndpoint.Themes.index.endpointValue
+            KKEndpoint.Themes.index.endpointValue
+        } else if let identity = (identities as? [CastIdentity])?.first {
+            if identity.type == "show-cast" {
+                KKEndpoint.Cast.showCastIndex.endpointValue
+            } else if identity.type == "literature-cast" {
+                KKEndpoint.Cast.literatureCastIndex.endpointValue
+            } else if identity.type == "game-cast" {
+                KKEndpoint.Cast.gameCastIndex.endpointValue
+            } else {
+                fatalError("❌ Unsupported cast identity type: \(identity.type)")
+            }
 		} else {
-			fatalError("❌ Unsupported identity type: \(type(of: identities))")
+            fatalError("❌ Unsupported identity type: \(type(of: identities.self))")
 		}
 		let request: APIRequest<I, KKAPIError> = tron.codable.request(indexEndpoint)
 			.method(.get)
