@@ -16,3 +16,6 @@ public struct SeasonResponse: Codable, Sendable {
 	/// The relative URL to the next page in the paginated response.
 	public let next: String?
 }
+
+// MARK: - KurozoraRequestable
+extension SeasonResponse: KurozoraRequestable {}
