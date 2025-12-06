@@ -805,6 +805,9 @@ extension KKEndpoint {
 	/// The set of available Users API endpoint types.
 	internal enum Users {
 		// MARK: - Cases
+		/// The endpoint to the index of users.
+		case index
+
 		/// The endpoint to sign up a user.
 		case signUp
 
@@ -857,6 +860,8 @@ extension KKEndpoint {
 		/// The endpoint value of the Users API type.
 		var endpointValue: String {
 			switch self {
+			case .index:
+				return "users"
 			case .signUp:
 				return "users"
 			case .signIn:

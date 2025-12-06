@@ -141,7 +141,11 @@ public extension KurozoraKit {
             } else {
                 fatalError("❌ Unsupported cast identity type: \(identity.type)")
             }
-		} else {
+        } else if (identities as? [SongIdentity]) != nil {
+            KKEndpoint.Songs.index.endpointValue
+        } else if (identities as? [UserIdentity]) != nil {
+            KKEndpoint.Users.index.endpointValue
+        } else {
             fatalError("❌ Unsupported identity type: \(type(of: identities.self))")
 		}
 		let request: APIRequest<I, KKAPIError> = tron.codable.request(indexEndpoint)
