@@ -8,7 +8,7 @@
 import Foundation
 
 /// A root object that stores information about a session identity resource.
-public struct SessionIdentity: Codable, Hashable, Sendable {
+public struct SessionIdentity: KurozoraItem, IdentityResource, Hashable {
 	// MARK: - Properties
 	public let id: KurozoraItemID
 
