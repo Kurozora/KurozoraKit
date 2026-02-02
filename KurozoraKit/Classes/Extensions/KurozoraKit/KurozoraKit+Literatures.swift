@@ -76,15 +76,45 @@ public extension KurozoraKit {
 		}
 
 		// Prepare request
-		let detailsEndpoint = if let identity = identity as? ShowIdentity {
-			KKEndpoint.Shows.details(identity).endpointValue
-		} else if let identity = identity as? LiteratureIdentity {
-			KKEndpoint.Literatures.details(identity).endpointValue
-		} else if let identity = identity as? GameIdentity {
-			KKEndpoint.Games.details(identity).endpointValue
-		} else {
-			fatalError("❌ Unsupported identity type: \(type(of: identity))")
-		}
+        let detailsEndpoint = if let identity = identity as? CharacterIdentity {
+            KKEndpoint.Characters.details(identity).endpointValue
+        } else if let identity = identity as? EpisodeIdentity {
+            KKEndpoint.Episodes.details(identity).endpointValue
+        } else if let identity = identity as? GameIdentity {
+            KKEndpoint.Games.details(identity).endpointValue
+        } else if let identity = identity as? LiteratureIdentity {
+            KKEndpoint.Literatures.details(identity).endpointValue
+        } else if let identity = identity as? PersonIdentity {
+            KKEndpoint.People.details(identity).endpointValue
+        } else if let identity = identity as? SeasonIdentity {
+            KKEndpoint.Shows.Seasons.details(identity).endpointValue
+        } else if let identity = identity as? ShowIdentity {
+            KKEndpoint.Shows.details(identity).endpointValue
+        } else if let identity = identity as? StudioIdentity {
+            KKEndpoint.Studios.details(identity).endpointValue
+        } else if let identity = identity as? GenreIdentity {
+            KKEndpoint.Genres.details(identity).endpointValue
+        } else if let identity = identity as? ThemeIdentity {
+            KKEndpoint.Themes.details(identity).endpointValue
+        } else if let identity = identity as? CastIdentity {
+            if identity.type == "show-cast" {
+                KKEndpoint.Cast.showCast(identity).endpointValue
+            } else if identity.type == "literature-cast" {
+                KKEndpoint.Cast.literatureCast(identity).endpointValue
+            } else if identity.type == "game-cast" {
+                KKEndpoint.Cast.gameCast(identity).endpointValue
+            } else {
+                fatalError("❌ Unsupported cast identity type: \(identity.type)")
+            }
+        } else if let identity = identity as? SongIdentity {
+            KKEndpoint.Songs.details(identity).endpointValue
+        } else if let identity = identity as? UserIdentity {
+            KKEndpoint.Users.profile(identity).endpointValue
+        } else if let identity = identity as? SessionIdentity {
+            KKEndpoint.Me.Sessions.details(identity).endpointValue
+        } else {
+            fatalError("❌ Unsupported identity type: \(type(of: identity.self))")
+        }
 		let request: APIRequest<I, KKAPIError> = tron.codable.request(detailsEndpoint)
 			.method(.get)
 			.parameters(parameters)
