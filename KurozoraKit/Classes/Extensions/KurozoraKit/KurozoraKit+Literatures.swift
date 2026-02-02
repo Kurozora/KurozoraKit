@@ -145,6 +145,8 @@ public extension KurozoraKit {
             KKEndpoint.Songs.index.endpointValue
         } else if (identities as? [UserIdentity]) != nil {
             KKEndpoint.Users.index.endpointValue
+        } else if (identities as? [SessionIdentity]) != nil {
+            KKEndpoint.Me.Sessions.index.endpointValue
         } else {
             fatalError("❌ Unsupported identity type: \(type(of: identities.self))")
 		}
