@@ -1,0 +1,19 @@
+//
+//  SessionIdentityResponse.swift
+//  KurozoraKit
+//
+//  Created by Khoren Katklian on 21/07/2022.
+//  MIT License
+//
+
+import Foundation
+
+/// A root object that stores information about a collection of session identities.
+public struct SessionIdentityResponse: Codable, Sendable {
+	// MARK: - Properties
+	/// The data included in the response for a session identity object request.
+	public let data: [SessionIdentity]
+
+	/// The relative URL to the next page in the paginated response.
+	public let next: String?
+}

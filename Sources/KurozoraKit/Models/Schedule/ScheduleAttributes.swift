@@ -1,0 +1,18 @@
+//
+//  ScheduleAttributes.swift
+//  KurozoraKit
+//
+//  Created by Khoren Katklian on 09/12/2024.
+//  MIT License
+//
+
+import Foundation
+
+extension Schedule {
+	/// A root object that stores information about a single schedule, such as the schedule's date.
+	public struct Attributes: Codable, Sendable {
+		// MARK: - Properties
+		/// The date of the schedule.
+		public let date: Date
+	}
+}

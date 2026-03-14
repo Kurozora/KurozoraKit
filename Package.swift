@@ -20,17 +20,19 @@ let package = Package(
 	],
 	dependencies: [
 		.package(url: "https://github.com/kishikawakatsumi/KeychainAccess.git", from: "4.2.2"),
-		.package(url: "https://github.com/MLSDev/TRON.git", from: "5.5.0-beta.1"),
 	],
 	targets: [
 		.target(
 			name: "KurozoraKit",
 			dependencies: [
 				.product(name: "KeychainAccess", package: "KeychainAccess"),
-				.product(name: "TRON", package: "TRON"),
 			],
-			path: "KurozoraKit",
-			resources: [.copy("Assets/PrivacyInfo.xcprivacy")]
+			resources: [.copy("Resources/PrivacyInfo.xcprivacy")]
+		),
+		.testTarget(
+			name: "KurozoraKitTests",
+			dependencies: ["KurozoraKit"],
+			path: "Tests/KurozoraKitTests"
 		),
 	],
 	swiftLanguageModes: [.v5, .v6]

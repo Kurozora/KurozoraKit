@@ -1,0 +1,16 @@
+//
+//  EpisodeUpdateResponse.swift
+//  KurozoraKit
+//
+//  Created by Khoren Katklian on 13/08/2020.
+//  MIT License
+//
+
+import Foundation
+
+/// A root object that stores information about an episode's update.
+public struct EpisodeUpdateResponse: Codable, Sendable {
+	// MARK: - Properties
+	/// The data included in the response for an episode update object request.
+	public let data: EpisodeUpdate
+}
