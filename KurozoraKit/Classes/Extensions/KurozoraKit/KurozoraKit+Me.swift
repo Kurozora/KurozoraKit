@@ -96,17 +96,16 @@ extension KurozoraKit {
 			switch profileUpdateRequest.profileImageRequest {
 			case .update(url: let profileImageURL):
 				if let profileImageURL = profileImageURL, let profileImageData = try? Data(contentsOf: profileImageURL) {
-					let pathExtension = profileImageURL.pathExtension
 					var uploadImage: Data!
 
-					switch pathExtension {
-					case "jpeg", "jpg", "png":
-						uploadImage = UIImage(data: profileImageData)?.jpegData(compressionQuality: 0.1) ?? profileImageData
-					default:
+					if let image = UIImage(data: profileImageData) {
+						let resizedImage = image.resized(maxWidth: 400, maxHeight: 400)
+						uploadImage = resizedImage.jpegData(compressionQuality: 0.8) ?? profileImageData
+					} else {
 						uploadImage = profileImageData
 					}
 
-					formData.append(uploadImage, withName: "profileImage", fileName: profileImageURL.lastPathComponent, mimeType: "image/\(pathExtension)")
+					formData.append(uploadImage, withName: "profileImage", fileName: "profile.jpg", mimeType: "image/jpeg")
 				}
 			case .delete: break
 			case .none: break
@@ -115,17 +114,16 @@ extension KurozoraKit {
 			switch profileUpdateRequest.bannerImageRequest {
 			case .update(url: let bannerImageURL):
 				if let bannerImageURL = bannerImageURL, let bannerImageData = try? Data(contentsOf: bannerImageURL) {
-					let pathExtension = bannerImageURL.pathExtension
 					var uploadImage: Data!
 
-					switch pathExtension {
-					case "jpeg", "jpg", "png":
-						uploadImage = UIImage(data: bannerImageData)?.jpegData(compressionQuality: 0.1) ?? bannerImageData
-					default:
+					if let image = UIImage(data: bannerImageData) {
+						let resizedImage = image.resized(maxWidth: 1500, maxHeight: 500)
+						uploadImage = resizedImage.jpegData(compressionQuality: 0.8) ?? bannerImageData
+					} else {
 						uploadImage = bannerImageData
 					}
 
-					formData.append(uploadImage, withName: "bannerImage", fileName: bannerImageURL.lastPathComponent, mimeType: "image/\(pathExtension)")
+					formData.append(uploadImage, withName: "bannerImage", fileName: "banner.jpg", mimeType: "image/jpeg")
 				}
 			case .delete: break
 			case .none: break
