@@ -5,6 +5,7 @@
 //  Created by Khoren Katklian on 06/04/2020.
 //
 
+#if !os(watchOS)
 import UIKit
 
 // MARK: - Model
@@ -190,3 +191,4 @@ extension UIDevice {
 		}
 	}()
 }
+#endif

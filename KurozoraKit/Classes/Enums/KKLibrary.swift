@@ -5,7 +5,7 @@
 //  Created by Khoren Katklian on 16/03/2019.
 //
 
-import UIKit
+import Foundation
 
 /// The set of available enums for managing the user's library.
 ///

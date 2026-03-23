@@ -5,6 +5,7 @@
 //  Created by Khoren Katklian on 13/03/2026.
 //
 
+#if !os(watchOS)
 import UIKit
 
 extension UIImage {
@@ -164,3 +165,4 @@ extension URL {
 		return image.saveToTemporaryFile(width: width, height: height, compressionQuality: compressionQuality)
 	}
 }
+#endif

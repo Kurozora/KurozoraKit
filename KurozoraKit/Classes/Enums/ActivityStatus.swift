@@ -5,7 +5,10 @@
 //  Created by Khoren Katklian on 20/04/2020.
 //
 
+import Foundation
+#if !os(watchOS)
 import UIKit
+#endif
 
 /// The set of available activity status types.
 ///
@@ -50,6 +53,7 @@ public enum ActivityStatus: String, Codable, Sendable {
 		}
 	}
 
+	#if !os(watchOS)
 	/// The color value of an activity status type.
 	public var colorValue: UIColor {
 		switch self {
@@ -61,4 +65,5 @@ public enum ActivityStatus: String, Codable, Sendable {
 			return .systemRed
 		}
 	}
+	#endif
 }

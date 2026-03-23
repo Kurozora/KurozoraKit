@@ -6,8 +6,11 @@
 //
 
 import Alamofire
+import Foundation
 import TRON
+#if !os(watchOS)
 import UIKit
+#endif
 
 extension KurozoraKit {
 	/// Fetches the authenticated user's profile details.
@@ -39,6 +42,7 @@ extension KurozoraKit {
 		}
 	}
 
+	#if !os(watchOS)
 	/// Updates the authenticated user's profile information.
 	///
 	/// Send `nil` if an information shouldn't be updated, otherwise send an empty instance to unset an information.
@@ -136,6 +140,7 @@ extension KurozoraKit {
 		// Send request
 		return request.sender()
 	}
+	#endif
 
 	/// Fetch the followers or following list for the authenticated user.
 	///

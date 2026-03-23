@@ -5,7 +5,10 @@
 //  Created by Khoren Katklian on 29/01/2022.
 //
 
+import Foundation
+#if !os(watchOS)
 import UIKit
+#endif
 
 ///  List of available song types.
 ///
@@ -46,6 +49,7 @@ public enum SongType: Int, CaseIterable, Codable, Sendable {
 		}
 	}
 
+	#if !os(watchOS)
 	/// The background color of the song type.
 	public var backgroundColorValue: UIColor {
 		switch self {
@@ -57,4 +61,5 @@ public enum SongType: Int, CaseIterable, Codable, Sendable {
 			return .systemYellow
 		}
 	}
+	#endif
 }

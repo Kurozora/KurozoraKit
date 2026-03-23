@@ -13,6 +13,7 @@ let package = Package(
 	platforms: [
 		.macOS(.v12),
 		.iOS(.v15),
+		.watchOS(.v10),
 	],
 	products: [
 		.library(name: "KurozoraKit", targets: ["KurozoraKit"]),

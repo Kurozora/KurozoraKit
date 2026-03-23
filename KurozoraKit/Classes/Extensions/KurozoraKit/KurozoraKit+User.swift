@@ -6,10 +6,14 @@
 //
 
 import Alamofire
+import Foundation
+#if !os(watchOS)
 import UIKit
+#endif
 import TRON
 
 public extension KurozoraKit {
+	#if !os(watchOS)
 	/// Sign up a new account with the given details.
 	///
 	/// - Parameters:
@@ -47,7 +51,9 @@ public extension KurozoraKit {
 		// Send request
 		return request.sender()
 	}
+	#endif
 
+	#if !os(watchOS)
 	/// Sign in with the given `email` and `password`.
 	///
 	/// This endpoint is used for signing in a user to their account.
@@ -136,6 +142,7 @@ public extension KurozoraKit {
 			throw error
 		}
 	}
+	#endif
 
 	/// Request a password reset link for the given email address.
 	///
