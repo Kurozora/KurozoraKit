@@ -7,6 +7,7 @@
 
 import Alamofire
 import TRON
+import Foundation
 
 /// `KurozoraKit` is a root object that serves as a provider for single API endpoint. It is used to send and get data from [Kurozora](https://kurozora.app).
 ///
@@ -17,6 +18,75 @@ import TRON
 /// - Tag: KurozoraKit
 public class KurozoraKit {
 	// MARK: - Properties
+	/// The User-Agent string derived from the main app bundle, even when running in an extension.
+	///
+	/// Extensions (widgets, Watch apps) have their own bundle IDs and executable names. The API
+	/// validates the User-Agent against the registered app client, so the User-Agent must always
+	/// reflect the main app's identity. This property resolves the containing `.app` bundle by
+	/// navigating up from `.appex` paths and reads its info dictionary.
+	private static let mainAppUserAgent: String = {
+		let mainAppBundle: Bundle = {
+			let mainBundle = Bundle.main
+			let bundlePath = mainBundle.bundlePath
+
+			// Extensions live inside App.app/PlugIns/Extension.appex (or deeper for Watch)
+			// Navigate up to find the .app bundle
+			if !bundlePath.hasSuffix(".app") {
+				var url = mainBundle.bundleURL
+				while url.pathExtension != "app" && url.path != "/" {
+					url = url.deletingLastPathComponent()
+				}
+				if url.pathExtension == "app", let appBundle = Bundle(url: url) {
+					return appBundle
+				}
+			}
+			return mainBundle
+		}()
+
+		let info = mainAppBundle.infoDictionary
+		let executable = (info?["CFBundleExecutable"] as? String) ??
+			(ProcessInfo.processInfo.arguments.first?.split(separator: "/").last.map(String.init)) ??
+			"Unknown"
+
+		// On watchOS the app is a standalone .app bundle so the navigation above
+		// won't find the companion. Use WKCompanionAppBundleIdentifier instead.
+		let bundle: String = {
+			#if os(watchOS)
+			if let companionID = info?["WKCompanionAppBundleIdentifier"] as? String {
+				return companionID
+			}
+			#endif
+			return info?["CFBundleIdentifier"] as? String ?? "Unknown"
+		}()
+		let appVersion = info?["CFBundleShortVersionString"] as? String ?? "Unknown"
+		let appBuild = info?["CFBundleVersion"] as? String ?? "Unknown"
+
+		let osNameVersion: String = {
+			let version = ProcessInfo.processInfo.operatingSystemVersion
+			let versionString = "\(version.majorVersion).\(version.minorVersion).\(version.patchVersion)"
+			#if os(iOS)
+			#if targetEnvironment(macCatalyst)
+			return "macOS(Catalyst) \(versionString)"
+			#else
+			return "iOS \(versionString)"
+			#endif
+			#elseif os(watchOS)
+			return "watchOS \(versionString)"
+			#elseif os(tvOS)
+			return "tvOS \(versionString)"
+			#elseif os(macOS)
+			return "macOS \(versionString)"
+			#elseif os(visionOS)
+			return "visionOS \(versionString)"
+			#else
+			return "Unknown \(versionString)"
+			#endif
+		}()
+
+		let kurozoraKitVersion = "1.0.0"
+		return "\(executable)/\(appVersion) (\(bundle); build:\(appBuild); \(osNameVersion)) KurozoraKit/\(kurozoraKitVersion)"
+	}()
+
 	/// Storage of the app's api key.
 	internal var _apiKey: String = ""
 	/// The current app's api key.
@@ -79,7 +149,8 @@ public class KurozoraKit {
 		self.headers = [
 			.contentType("application/x-www-form-urlencoded"),
 			.accept("application/json"),
-			.init(name: "X-API-Key", value: apiKey)
+			.init(name: "X-API-Key", value: apiKey),
+			.userAgent(Self.mainAppUserAgent)
 		]
 
 		self.apiEndpoint(apiEndpoint ?? .v1)
