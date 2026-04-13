@@ -41,6 +41,25 @@ extension KKEndpoint.Me {
 	}
 }
 
+// MARK: - Episodes
+extension KKEndpoint.Me {
+	/// The set of available Episodes API endpoint types.
+	internal enum Episodes {
+		// MARK: - Cases
+		/// The endpoint to the authenticated user's up next episodes.
+		case upNext
+
+		// MARK: - Properties
+		/// The endpoint value of the Episodes API type.
+		var endpointValue: String {
+			switch self {
+			case .upNext:
+				return "me/episodes/up-next"
+			}
+		}
+	}
+}
+
 // MARK: - Favorites
 extension KKEndpoint.Me {
 	/// The set of available Favorites API endpoint types.

@@ -167,4 +167,28 @@ extension KurozoraKit {
 		// Send request
 		return request.sender()
 	}
+
+	public func getUpNextEpisodes(for showIdentity: ShowIdentity? = nil, next: String? = nil, limit: Int = 25) -> RequestSender<EpisodeIdentityResponse, KKAPIError> {
+		// Prepare headers
+		var headers = self.headers
+		headers.add(.authorization(bearerToken: self.authenticationKey))
+
+		var parameters: [String: Any] = [
+			"limit": limit
+		]
+
+		if let showIdentity = showIdentity {
+			parameters["model_id"] = showIdentity.id
+		}
+
+		// Prepare request
+		let upNextEpisodesEndpoint = next ?? KKEndpoint.Me.Episodes.upNext.endpointValue
+		let request: APIRequest<EpisodeIdentityResponse, KKAPIError> = tron.codable.request(upNextEpisodesEndpoint).buildURL(.relativeToBaseURL)
+			.method(.get)
+			.parameters(parameters)
+			.headers(headers)
+
+		// Send request
+		return request.sender()
+	}
 }
