@@ -26,42 +26,42 @@ extension KurozoraKit {
 	// MARK: Typed-Relationship Overloads
 	/// Creates a detail request for a show with typed relationships.
 	public func detail(_ identity: ShowIdentity, including relationships: [Show.Relationship] = []) -> DetailRequest<ShowIdentity> {
-		self.detail(identity).including(relationships.map(\.rawValue))
+		DetailRequest(context: RequestContext(from: self), identity: identity).including(relationships.map(\.rawValue))
 	}
 
 	/// Creates a detail request for a game with typed relationships.
 	public func detail(_ identity: GameIdentity, including relationships: [Game.Relationship] = []) -> DetailRequest<GameIdentity> {
-		self.detail(identity).including(relationships.map(\.rawValue))
+		DetailRequest(context: RequestContext(from: self), identity: identity).including(relationships.map(\.rawValue))
 	}
 
 	/// Creates a detail request for a literature with typed relationships.
 	public func detail(_ identity: LiteratureIdentity, including relationships: [Literature.Relationship] = []) -> DetailRequest<LiteratureIdentity> {
-		self.detail(identity).including(relationships.map(\.rawValue))
+		DetailRequest(context: RequestContext(from: self), identity: identity).including(relationships.map(\.rawValue))
 	}
 
 	/// Creates a detail request for a character with typed relationships.
 	public func detail(_ identity: CharacterIdentity, including relationships: [Character.Relationship] = []) -> DetailRequest<CharacterIdentity> {
-		self.detail(identity).including(relationships.map(\.rawValue))
+		DetailRequest(context: RequestContext(from: self), identity: identity).including(relationships.map(\.rawValue))
 	}
 
 	/// Creates a detail request for a person with typed relationships.
 	public func detail(_ identity: PersonIdentity, including relationships: [Person.Relationship] = []) -> DetailRequest<PersonIdentity> {
-		self.detail(identity).including(relationships.map(\.rawValue))
+		DetailRequest(context: RequestContext(from: self), identity: identity).including(relationships.map(\.rawValue))
 	}
 
 	/// Creates a detail request for an episode with typed relationships.
 	public func detail(_ identity: EpisodeIdentity, including relationships: [Episode.Relationship] = []) -> DetailRequest<EpisodeIdentity> {
-		self.detail(identity).including(relationships.map(\.rawValue))
+		DetailRequest(context: RequestContext(from: self), identity: identity).including(relationships.map(\.rawValue))
 	}
 
 	/// Creates a detail request for a studio with typed relationships.
 	public func detail(_ identity: StudioIdentity, including relationships: [Studio.Relationship] = []) -> DetailRequest<StudioIdentity> {
-		self.detail(identity).including(relationships.map(\.rawValue))
+		DetailRequest(context: RequestContext(from: self), identity: identity).including(relationships.map(\.rawValue))
 	}
 
 	/// Creates a detail request for a song with typed relationships.
 	public func detail(_ identity: SongIdentity, including relationships: [Song.Relationship] = []) -> DetailRequest<SongIdentity> {
-		self.detail(identity).including(relationships.map(\.rawValue))
+		DetailRequest(context: RequestContext(from: self), identity: identity).including(relationships.map(\.rawValue))
 	}
 }
 
