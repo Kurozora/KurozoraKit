@@ -8,11 +8,11 @@
 
 import Foundation
 
-/// A request that updates a library entry for the authenticated user.
+/// A request that updates one or more library entries for the authenticated user.
 ///
 /// ```swift
 /// let response = try await kurozoraKit
-///     .updateInLibrary(.shows, itemID: show.id)
+///     .updateInLibrary(.shows, itemIDs: [show.id])
 ///     .rewatchCount(3)
 ///     .hidden(true)
 ///     .response()
@@ -21,15 +21,15 @@ public struct LibraryUpdateRequest: Sendable {
 	// MARK: - Properties
 	private let context: RequestContext
 	private let kind: LibraryKind
-	private let itemID: KurozoraItemID
+	private let itemIDs: [KurozoraItemID]
 	private var _rewatchCount: Int?
 	private var _isHidden: Bool?
 
 	// MARK: - Initializers
-	internal init(context: RequestContext, kind: LibraryKind, itemID: KurozoraItemID) {
+	internal init(context: RequestContext, kind: LibraryKind, itemIDs: [KurozoraItemID]) {
 		self.context = context
 		self.kind = kind
-		self.itemID = itemID
+		self.itemIDs = itemIDs
 		self._rewatchCount = nil
 		self._isHidden = nil
 	}
@@ -52,9 +52,26 @@ public struct LibraryUpdateRequest: Sendable {
 	// MARK: - Execution
 	/// Executes the request and returns the decoded response.
 	public func response() async throws -> LibraryUpdateResponse {
+		precondition(!self.itemIDs.isEmpty, "LibraryUpdateRequest requires at least one itemID.")
+
+		let chunks = self.itemIDs.chunked(by: 25)
+		var iterator = chunks.makeIterator()
+
+		guard let firstChunk = iterator.next() else {
+			fatalError("Unreachable — itemIDs is non-empty.")
+		}
+
+		var lastResponse = try await self.send(chunk: firstChunk)
+		while let chunk = iterator.next() {
+			lastResponse = try await self.send(chunk: chunk)
+		}
+		return lastResponse
+	}
+
+	private func send(chunk: [KurozoraItemID]) async throws -> LibraryUpdateResponse {
 		var parameters: [String: Any] = [
 			"library": self.kind.rawValue,
-			"model_id": self.itemID,
+			"model_ids": chunk.map { $0.rawValue },
 		]
 		if let rewatchCount = self._rewatchCount {
 			parameters["rewatch_count"] = rewatchCount

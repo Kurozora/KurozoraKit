@@ -395,19 +395,19 @@ extension KurozoraKit {
 		LibraryRequest(context: RequestContext(from: self), kind: kind, status: status)
 	}
 
-	/// Creates a request to add an item to the library.
-	public func addToLibrary(_ kind: LibraryKind, status: LibraryStatus, itemID: KurozoraItemID) -> LibraryAddRequest {
-		LibraryAddRequest(context: RequestContext(from: self), kind: kind, status: status, itemID: itemID)
+	/// Creates a request to add one or more items to the library.
+	public func addToLibrary(_ kind: LibraryKind, status: LibraryStatus, itemIDs: [KurozoraItemID]) -> LibraryAddRequest {
+		LibraryAddRequest(context: RequestContext(from: self), kind: kind, status: status, itemIDs: itemIDs)
 	}
 
-	/// Creates a request to update a library entry.
-	public func updateInLibrary(_ kind: LibraryKind, itemID: KurozoraItemID) -> LibraryUpdateRequest {
-		LibraryUpdateRequest(context: RequestContext(from: self), kind: kind, itemID: itemID)
+	/// Creates a request to update one or more library entries.
+	public func updateInLibrary(_ kind: LibraryKind, itemIDs: [KurozoraItemID]) -> LibraryUpdateRequest {
+		LibraryUpdateRequest(context: RequestContext(from: self), kind: kind, itemIDs: itemIDs)
 	}
 
-	/// Creates a request to remove an item from the library.
-	public func removeFromLibrary(_ kind: LibraryKind, itemID: KurozoraItemID) -> LibraryRemoveRequest {
-		LibraryRemoveRequest(context: RequestContext(from: self), kind: kind, itemID: itemID)
+	/// Creates a request to remove one or more items from the library.
+	public func removeFromLibrary(_ kind: LibraryKind, itemIDs: [KurozoraItemID]) -> LibraryRemoveRequest {
+		LibraryRemoveRequest(context: RequestContext(from: self), kind: kind, itemIDs: itemIDs)
 	}
 }
 
@@ -456,14 +456,14 @@ extension KurozoraKit {
 
 // MARK: - Favorite & Reminder
 extension KurozoraKit {
-	/// Creates a request to toggle the favorite status for a library item.
-	public func toggleFavorite(inLibrary kind: LibraryKind, itemID: KurozoraItemID) -> FavoriteRequest {
-		FavoriteRequest(context: RequestContext(from: self), kind: kind, itemID: itemID)
+	/// Creates a request to toggle the favorite status for one or more library items.
+	public func toggleFavorite(inLibrary kind: LibraryKind, itemIDs: [KurozoraItemID]) -> FavoriteRequest {
+		FavoriteRequest(context: RequestContext(from: self), kind: kind, itemIDs: itemIDs)
 	}
 
-	/// Creates a request to toggle the reminder status for a library item.
-	public func toggleReminder(inLibrary kind: LibraryKind, itemID: KurozoraItemID) -> ReminderRequest {
-		ReminderRequest(context: RequestContext(from: self), kind: kind, itemID: itemID)
+	/// Creates a request to toggle the reminder status for one or more library items.
+	public func toggleReminder(inLibrary kind: LibraryKind, itemIDs: [KurozoraItemID]) -> ReminderRequest {
+		ReminderRequest(context: RequestContext(from: self), kind: kind, itemIDs: itemIDs)
 	}
 
 	/// The reminder subscription URL for the authenticated user.

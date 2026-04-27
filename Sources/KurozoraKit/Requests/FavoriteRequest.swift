@@ -8,32 +8,49 @@
 
 import Foundation
 
-/// A request that toggles the favorite status for a library item.
+/// A request that toggles the favorite status for one or more library items.
 ///
 /// ```swift
 /// let response = try await kurozoraKit
-///     .toggleFavorite(inLibrary: .shows, itemID: show.id)
+///     .toggleFavorite(inLibrary: .shows, itemIDs: [show.id])
 ///     .response()
 /// ```
 public struct FavoriteRequest: Sendable {
 	// MARK: - Properties
 	private let context: RequestContext
 	private let kind: LibraryKind
-	private let itemID: KurozoraItemID
+	private let itemIDs: [KurozoraItemID]
 
 	// MARK: - Initializers
-	internal init(context: RequestContext, kind: LibraryKind, itemID: KurozoraItemID) {
+	internal init(context: RequestContext, kind: LibraryKind, itemIDs: [KurozoraItemID]) {
 		self.context = context
 		self.kind = kind
-		self.itemID = itemID
+		self.itemIDs = itemIDs
 	}
 
 	// MARK: - Execution
 	/// Executes the request and returns the decoded response.
 	public func response() async throws -> FavoriteResponse {
+		precondition(!self.itemIDs.isEmpty, "FavoriteRequest requires at least one itemID.")
+
+		let chunks = self.itemIDs.chunked(by: 25)
+		var iterator = chunks.makeIterator()
+
+		guard let firstChunk = iterator.next() else {
+			fatalError("Unreachable — itemIDs is non-empty.")
+		}
+
+		var lastResponse = try await self.send(chunk: firstChunk)
+		while let chunk = iterator.next() {
+			lastResponse = try await self.send(chunk: chunk)
+		}
+		return lastResponse
+	}
+
+	private func send(chunk: [KurozoraItemID]) async throws -> FavoriteResponse {
 		let parameters: [String: Any] = [
 			"library": self.kind.rawValue,
-			"model_id": self.itemID,
+			"model_ids": chunk.map { $0.rawValue },
 		]
 
 		let request = KKRequest<FavoriteResponse>(
