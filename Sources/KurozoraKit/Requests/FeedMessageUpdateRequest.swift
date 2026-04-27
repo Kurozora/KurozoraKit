@@ -7,7 +7,7 @@
 //
 
 /// A root object that stores information about a feed message update request.
-public struct FeedMessageUpdateRequest {
+public struct FeedMessageUpdateRequest: Sendable {
 	// MARK: - Properties
 	/// The identity of the feed message being updated.
 	public let feedMessageIdentity: FeedMessageIdentity

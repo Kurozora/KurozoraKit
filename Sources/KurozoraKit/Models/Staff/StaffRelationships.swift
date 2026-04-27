@@ -13,6 +13,6 @@ extension Staff {
 	public struct Relationships: Codable, Sendable {
 		// MARK: - Properties
 		/// The person who is a part of the staff.
-		public let person: PersonResponse
+		public let person: ResourceCollection<Person>
 	}
 }

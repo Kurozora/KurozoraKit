@@ -13,9 +13,9 @@ extension Song {
 	public struct Relationships: Codable, Sendable {
 		// MARK: - Properties
 		/// The shows belonging to the song.
-		public let shows: ShowIdentityResponse?
+		public let shows: ResourceCollection<ShowIdentity>?
 
 		/// The games belonging to the song.
-		public let games: GameIdentityResponse?
+		public let games: ResourceCollection<GameIdentity>?
 	}
 }

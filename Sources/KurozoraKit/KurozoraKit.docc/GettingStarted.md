@@ -40,7 +40,7 @@ let services = KKServices(keychain: keychain)
 let kurozoraKit = KurozoraKit(authenticationKey: bearer_token).services(services)
 ```
 
-You can also be chain desired methods instead of passing data as parameter.
+You can also chain desired methods instead of passing data as a parameter.
 
 ```swift
 let services = KKServices().keychainDefaults(keychain)
@@ -51,39 +51,41 @@ let kurozoraKit = KurozoraKit()
 
 ## Making API Requests
 
-Once KurozoraKit is initialized, you can start making API requests.
+Once KurozoraKit is initialized, you can start making API requests. Every endpoint returns a request object that you configure with builder methods and execute by calling `response()`.
 
-### Retrieve Explore Data
+### Retrieve a Show
 
-To retrieve data for the explore page, use the getExplore method with a specified genre ID:
+To retrieve the details for a show, including its cast and seasons:
 
 ```swift
-let genreID = "1234"
+let showIdentity = ShowIdentity(id: "1234")
 
 do {
-	let exploreCategoryResponse = try await kurozoraKit.getExplore(genreID: genreID).value
-	print(exploreCategoryResponse.data)
+	let showResponse = try await kurozoraKit
+		.detail(showIdentity, including: [.cast, .seasons])
+		.response()
+	print(showResponse.data)
 } catch {
-	print("Failed to fetch explore: \(error)")
-	// Handle error case…
+	print("Failed to fetch show: \(error)")
 }
 ```
 
-### Retrieve User Profile
+### Browse the Catalog
 
-To retrieve a user's profile using their ID, you can use the following:
-
-- NOTE: You don't usually need to create a ``UserIdentity`` object directly; you can get it from other API calls, such as when using ``KurozoraKit/KurozoraKit/getFollowList(forUser:_:next:limit:)``.
+To retrieve a paginated list of shows:
 
 ```swift
-let userIdentity = UserIdentity(id: "12345")
-
 do {
-	let userProfileResponse = try await kurozoraKit.getDetails(forUser: userIdentity).value
-	print(userProfileResponse.data)
+	let page1 = try await kurozoraKit.shows().limit(25).response()
+	print(page1.data)
+
+	// Fetch the next page using the cursor.
+	if let cursor = page1.nextCursor {
+		let page2 = try await kurozoraKit.shows().cursor(cursor).response()
+		print(page2.data)
+	}
 } catch {
-	print("Failed to fetch user profile: \(error)")
-	// Handle error case…
+	print("Failed to fetch shows: \(error)")
 }
 ```
 
@@ -92,15 +94,37 @@ do {
 KurozoraKit provides a search API to find anime, manga, games, and more based on keywords:
 
 ```swift
-let searchQuery = "Re:Zero"
-let scope = KKSearchScope.kurozora
-let types = [KKSearchType.show]
+let query = "Re:Zero"
 
 do {
-	let searchResponse = try await kurozoraKit.search(scope, of: types, for: query).value
+	let searchResponse = try await kurozoraKit
+		.search(.kurozora, types: [.shows], query: query)
+		.limit(10)
+		.response()
 	print(searchResponse.data)
 } catch {
 	print("Search failed: \(error)")
-	// Handle error case…
+}
+```
+
+### Manage Your Library
+
+To fetch and update your library:
+
+```swift
+do {
+	// Fetch the library.
+	let library = try await kurozoraKit
+		.library(.shows, status: .inProgress)
+		.sorted(by: .alphabetically, .ascending)
+		.response()
+	print(library.data)
+
+	// Add a show to the library.
+	_ = try await kurozoraKit
+		.addToLibrary(.shows, status: .planning, itemID: showIdentity.id)
+		.response()
+} catch {
+	print("Library operation failed: \(error)")
 }
 ```

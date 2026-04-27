@@ -13,9 +13,9 @@ extension Cast {
 	public struct Relationships: Codable, Sendable {
 		// MARK: - Properties
 		/// The people belonging to the cast.
-		public let people: PersonResponse?
+		public let people: ResourceCollection<Person>?
 
 		/// The characters belonging to the cast.
-		public let characters: CharacterResponse
+		public let characters: ResourceCollection<Character>
 	}
 }

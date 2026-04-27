@@ -93,7 +93,7 @@ final class KKNetworkClientTests: XCTestCase {
 		XCTAssertEqual(captured?.url?.absoluteString, "https://api.example.test/v1/echo")
 	}
 
-	func testThrowsKKAPIErrorOnNon2xxResponseWithDecodedPayload() async throws {
+	func testThrowsAPIErrorOnNon2xxResponseWithDecodedPayload() async throws {
 		MockURLProtocol.requestHandler = { request in
 			let url = try XCTUnwrap(request.url)
 			let response = try XCTUnwrap(HTTPURLResponse(url: url, statusCode: 422, httpVersion: "HTTP/1.1", headerFields: nil))
@@ -110,12 +110,12 @@ final class KKNetworkClientTests: XCTestCase {
 
 		do {
 			_ = try await client.send(request)
-			XCTFail("Expected KKAPIError but send succeeded")
-		} catch let error as KKAPIError {
+			XCTFail("Expected APIError but send succeeded")
+		} catch let error as APIError {
 			XCTAssertEqual(error.statusCode, 422)
 			XCTAssertEqual(error.message, "Invalid password")
 		} catch {
-			XCTFail("Expected KKAPIError but got \(error)")
+			XCTFail("Expected APIError but got \(error)")
 		}
 	}
 

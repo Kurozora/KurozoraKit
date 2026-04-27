@@ -58,7 +58,7 @@ public struct CharacterFilter {
 
 // MARK: - Filterable
 extension CharacterFilter: Filterable {
-	func toFilterArray() -> [String: Any?] {
+	public func toFilterArray() -> [String: Any?] {
 		return [
 			"age": self.age,
 			"astrological_sign": self.astrologicalSign,

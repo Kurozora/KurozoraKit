@@ -13,12 +13,12 @@ extension Schedule {
 	public struct Relationships: Codable, Sendable {
 		// MARK: - Properties
 		/// The shows related to the schedule.
-		public let shows: ShowResponse?
+		public let shows: ResourceCollection<Show>?
 
 		/// The games related to the schedule.
-		public let games: GameResponse?
+		public let games: ResourceCollection<Game>?
 
 		/// The literatures related to the schedule.
-		public let literatures: LiteratureResponse?
+		public let literatures: ResourceCollection<Literature>?
 	}
 }

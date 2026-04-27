@@ -36,7 +36,7 @@ public struct LibraryAttributes: Codable, Sendable {
 	public var _hiddenStatus: HiddenStatus?
 
 	/// The library status of the item.
-	public var status: KKLibrary.Status?
+	public var status: LibraryStatus?
 
 	/// The rewatch count of the item.
 	public var rewatchCount: Int?

@@ -7,7 +7,7 @@
 //
 
 /// A type that can convert its properties into a dictionary suitable for API filter parameters.
-internal protocol Filterable {
+public protocol Filterable: Sendable {
 	/// Return a dictionary mapping API parameter names to their filter values.
 	func toFilterArray() -> [String: Any?]
 }

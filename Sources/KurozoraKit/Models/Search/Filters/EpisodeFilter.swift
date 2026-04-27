@@ -66,7 +66,7 @@ public struct EpisodeFilter {
 
 // MARK: - Filterable
 extension EpisodeFilter: Filterable {
-	func toFilterArray() -> [String: Any?] {
+	public func toFilterArray() -> [String: Any?] {
 		return [
 			"duration": self.duration,
 			"is_filler": self.isFiller,

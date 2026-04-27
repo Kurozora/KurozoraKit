@@ -49,7 +49,7 @@ public struct StudioFilter {
 
 // MARK: - Filterable
 extension StudioFilter: Filterable {
-	func toFilterArray() -> [String: Any?] {
+	public func toFilterArray() -> [String: Any?] {
 		return [
 			"type": self.type,
 			"tv_rating_id": self.tvRating,

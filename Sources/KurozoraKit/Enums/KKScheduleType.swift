@@ -13,7 +13,7 @@
 /// - `games`: the fetched schedule should be of the `games` type.
 ///
 /// - Tag: KKScheduleType
-public enum KKScheduleType: Int, CaseIterable {
+public enum KKScheduleType: Int, CaseIterable, Sendable {
 	/// Indicates the fetched schedule should be of the `shows` type.
 	///
 	/// - Tag: KKScheduleType-shows

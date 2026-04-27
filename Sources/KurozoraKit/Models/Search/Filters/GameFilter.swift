@@ -74,7 +74,7 @@ public struct GameFilter {
 
 // MARK: - Filterable
 extension GameFilter: Filterable {
-	func toFilterArray() -> [String: Any?] {
+	public func toFilterArray() -> [String: Any?] {
 		return [
 			"publication_day": self.publicationDay,
 			"publication_season": self.publicationSeason,

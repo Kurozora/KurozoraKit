@@ -18,7 +18,7 @@ public struct UserFilter {
 
 // MARK: - Filterable
 extension UserFilter: Filterable {
-	func toFilterArray() -> [String: Any?] {
+	public func toFilterArray() -> [String: Any?] {
 		return [:]
 	}
 }

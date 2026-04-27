@@ -18,7 +18,7 @@ public struct SongFilter {
 
 // MARK: - Filterable
 extension SongFilter: Filterable {
-	func toFilterArray() -> [String: Any?] {
+	public func toFilterArray() -> [String: Any?] {
 		return [:]
 	}
 }

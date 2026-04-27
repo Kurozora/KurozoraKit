@@ -13,30 +13,30 @@ extension RecapItem {
 	public struct Relationships: Codable, Sendable {
 		// MARK: - Properties
 		/// The shows belonging to the recap.
-		public let shows: ShowIdentityResponse?
+		public let shows: ResourceCollection<ShowIdentity>?
 
 		/// The games belonging to the recap.
-		public let games: GameIdentityResponse?
+		public let games: ResourceCollection<GameIdentity>?
 
 		/// The literature belonging to the recap.
-		public let literatures: LiteratureIdentityResponse?
+		public let literatures: ResourceCollection<LiteratureIdentity>?
 
 		/// The episodes belonging to the recap.
-		public let episodes: EpisodeIdentityResponse?
+		public let episodes: ResourceCollection<EpisodeIdentity>?
 
 		/// The shows belonging to the recap.
-		public let showSongs: ShowSongResponse?
+		public let showSongs: ResourceCollection<ShowSong>?
 
 		/// The genres belonging to the recap.
-		public let genres: GenreIdentityResponse?
+		public let genres: ResourceCollection<GenreIdentity>?
 
 		/// The themes belonging to the recap.
-		public let themes: ThemeIdentityResponse?
+		public let themes: ResourceCollection<ThemeIdentity>?
 
 		/// The characters belonging to the recap.
-		public let characters: CharacterIdentityResponse?
+		public let characters: ResourceCollection<CharacterIdentity>?
 
 		/// The people belonging to the recap.
-		public let people: PersonIdentityResponse?
+		public let people: ResourceCollection<PersonIdentity>?
 	}
 }

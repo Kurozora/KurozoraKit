@@ -13,18 +13,18 @@ extension Studio {
 	public struct Relationships: Codable, Sendable {
 		// MARK: - Properties
 		/// The studio' predecessors.
-		public let predecessors: StudioIdentityResponse?
+		public let predecessors: ResourceCollection<StudioIdentity>?
 
 		/// The studio's successors.
-		public let successors: StudioIdentityResponse?
+		public let successors: ResourceCollection<StudioIdentity>?
 
 		/// The shows created by the studio.
-		public let shows: ShowIdentityResponse?
+		public let shows: ResourceCollection<ShowIdentity>?
 
 		/// The games created by the studio.
-		public let games: GameIdentityResponse?
+		public let games: ResourceCollection<GameIdentity>?
 
 		/// The literatures created by the studio.
-		public let literatures: LiteratureIdentityResponse?
+		public let literatures: ResourceCollection<LiteratureIdentity>?
 	}
 }

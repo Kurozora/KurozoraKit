@@ -13,15 +13,15 @@ extension Character {
 	public struct Relationships: Codable, Sendable {
 		// MARK: - Properties
 		/// The people that played the character.
-		public let people: PersonIdentityResponse?
+		public let people: ResourceCollection<PersonIdentity>?
 
 		/// The shows in which the character showed up.
-		public let shows: ShowIdentityResponse?
+		public let shows: ResourceCollection<ShowIdentity>?
 
 		/// The games in which the character showed up.
-		public let games: GameIdentityResponse?
+		public let games: ResourceCollection<GameIdentity>?
 
 		/// The literatures in which the character showed up.
-		public let literatures: LiteratureIdentityResponse?
+		public let literatures: ResourceCollection<LiteratureIdentity>?
 	}
 }

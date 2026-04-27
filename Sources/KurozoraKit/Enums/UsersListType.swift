@@ -14,7 +14,7 @@ import Foundation
 /// - `following`: the list is of the `following` type.
 ///
 /// - Tag: UsersListType
-public enum UsersListType: String {
+public enum UsersListType: String, Sendable {
 	// MARK: - Cases
 	/// Indicates the list is of the `followers` type.
 	///

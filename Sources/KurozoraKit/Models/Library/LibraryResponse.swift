@@ -19,4 +19,12 @@ public struct LibraryResponse: Codable, Sendable {
 
 	/// The total number of available library items.
 	public let total: Int?
+
+	/// The opaque cursor representing the next page, derived from ``next``.
+	///
+	/// Pass this into ``LibraryRequest/cursor(_:)`` or ``UserLibraryRequest/cursor(_:)``
+	/// to load the next page, matching the pagination shape used by ``ResourceCollection/nextCursor``.
+	public var nextCursor: PageCursor? {
+		self.next.map { PageCursor(urlString: $0) }
+	}
 }

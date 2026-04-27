@@ -13,30 +13,30 @@ extension Review {
 	public struct Relationships: Codable, Sendable {
 		// MARK: - Properties
 		/// The shows belonging to the rating.
-		public let shows: ShowIdentityResponse?
+		public let shows: ResourceCollection<ShowIdentity>?
 
 		/// The games belonging to the rating.
-		public let games: GameIdentityResponse?
+		public let games: ResourceCollection<GameIdentity>?
 
 		/// The literature belonging to the rating.
-		public let literatures: LiteratureIdentityResponse?
+		public let literatures: ResourceCollection<LiteratureIdentity>?
 
 		/// The episodes belonging to the rating.
-		public let episodes: EpisodeIdentityResponse?
+		public let episodes: ResourceCollection<EpisodeIdentity>?
 
 		/// The songs belonging to the rating.
-		public let songs: SongIdentityResponse?
+		public let songs: ResourceCollection<SongIdentity>?
 
 		/// The characters belonging to the rating.
-		public let characters: CharacterIdentityResponse?
+		public let characters: ResourceCollection<CharacterIdentity>?
 
 		/// The people belonging to the rating.
-		public let people: PersonIdentityResponse?
+		public let people: ResourceCollection<PersonIdentity>?
 
 		/// The studios belonging to the rating.
-		public let studios: StudioIdentityResponse?
+		public let studios: ResourceCollection<StudioIdentity>?
 
 		/// The users belonging to the review.
-		public let users: UserResponse?
+		public let users: ResourceCollection<User>?
 	}
 }

@@ -30,7 +30,7 @@ public struct PersonFilter {
 
 // MARK: - Filterable
 extension PersonFilter: Filterable {
-	func toFilterArray() -> [String: Any?] {
+	public func toFilterArray() -> [String: Any?] {
 		return [
 			"astrological_sign": self.astrologicalSign,
 			"birthdate": self.birthDate,

@@ -7,7 +7,7 @@
 //
 
 /// A root object that stores information about a feed message request.
-public struct FeedMessageRequest {
+public struct FeedMessageRequest: Sendable {
 	// MARK: - Properties
 	/// The content of the feed message.
 	public let content: String

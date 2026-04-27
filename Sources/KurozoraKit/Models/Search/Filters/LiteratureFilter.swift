@@ -94,7 +94,7 @@ public struct LiteratureFilter {
 
 // MARK: - Filterable
 extension LiteratureFilter: Filterable {
-	func toFilterArray() -> [String: Any?] {
+	public func toFilterArray() -> [String: Any?] {
 		return [
 			"publication_day": self.publicationDay,
 			"publication_season": self.publicationSeason,

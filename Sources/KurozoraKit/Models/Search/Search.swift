@@ -12,32 +12,32 @@ import Foundation
 public struct Search: Codable, Sendable {
 	// MARK: - Properties
 	/// A collection of characters.
-	public let characters: CharacterIdentityResponse?
+	public let characters: ResourceCollection<CharacterIdentity>?
 
 	/// A collection of episodes.
-	public let episodes: EpisodeIdentityResponse?
+	public let episodes: ResourceCollection<EpisodeIdentity>?
 
 	/// A collection of games.
-	public let games: GameIdentityResponse?
+	public let games: ResourceCollection<GameIdentity>?
 
 	/// A collection of literatures.
-	public let literatures: LiteratureIdentityResponse?
+	public let literatures: ResourceCollection<LiteratureIdentity>?
 
 	/// A collection of people.
-	public let people: PersonIdentityResponse?
+	public let people: ResourceCollection<PersonIdentity>?
 
 	/// A collection of seasons.
-	public let seasons: SeasonIdentityResponse?
+	public let seasons: ResourceCollection<SeasonIdentity>?
 
 	/// A collection of shows.
-	public let shows: ShowIdentityResponse?
+	public let shows: ResourceCollection<ShowIdentity>?
 
 	/// A collection of songs.
-	public let songs: SongIdentityResponse?
+	public let songs: ResourceCollection<SongIdentity>?
 
 	/// A collection of studios.
-	public let studios: StudioIdentityResponse?
+	public let studios: ResourceCollection<StudioIdentity>?
 
 	/// A collection of users.
-	public let users: UserIdentityResponse?
+	public let users: ResourceCollection<UserIdentity>?
 }

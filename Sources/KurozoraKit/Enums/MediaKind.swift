@@ -14,7 +14,7 @@
 /// - `shows`: the media is of the `shows` kind.
 ///
 /// - Tag: MediaKind
-public enum MediaKind: String {
+public enum MediaKind: String, Sendable {
 	// MARK: - Cases
 	/// Indicates the media is of the `episodes` kind.
 	///

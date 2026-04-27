@@ -13,9 +13,9 @@ extension AccessToken {
 	public struct Relationships: Codable, Sendable {
 		// MARK: - Properties
 		/// The platform object on which the access token was created.
-		public let platform: PlatformResponse
+		public let platform: ResourceCollection<Platform>
 
 		/// The location object for where the access token was created.
-		public let location: LocationResponse
+		public let location: ResourceCollection<Location>
 	}
 }

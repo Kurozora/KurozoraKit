@@ -16,4 +16,9 @@ public struct ReminderLibraryResponse: Codable, Sendable {
 
 	/// The relative URL to the next page in the paginated response.
 	public let next: String?
+
+	/// The opaque cursor representing the next page, derived from ``next``.
+	public var nextCursor: PageCursor? {
+		self.next.map { PageCursor(urlString: $0) }
+	}
 }

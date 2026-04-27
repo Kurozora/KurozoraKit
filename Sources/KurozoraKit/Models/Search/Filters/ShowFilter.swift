@@ -89,7 +89,7 @@ public struct ShowFilter {
 
 // MARK: - Filterable
 extension ShowFilter: Filterable {
-	func toFilterArray() -> [String: Any?] {
+	public func toFilterArray() -> [String: Any?] {
 		return [
 			"air_day": self.airDay,
 			"air_season": self.airSeason,

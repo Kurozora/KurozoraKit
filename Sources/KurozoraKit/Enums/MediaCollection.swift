@@ -17,7 +17,7 @@
 /// - `symbol`: the collection is of the `symbol` type.
 ///
 /// - Tag: MediaCollection
-public enum MediaCollection: String {
+public enum MediaCollection: String, Sendable {
 	// MARK: - Cases
 	/// Indicates the collection is of the `artwork` type.
 	///

@@ -30,7 +30,7 @@ public struct AppThemeFilter: Equatable {
 
 // MARK: - Filterable
 extension AppThemeFilter: Filterable {
-	func toFilterArray() -> [String: Any?] {
+	public func toFilterArray() -> [String: Any?] {
 		return [
 			"download_count": self.downloadCount,
 			"ui_status_bar_style": self.uiStatusBarStyle,

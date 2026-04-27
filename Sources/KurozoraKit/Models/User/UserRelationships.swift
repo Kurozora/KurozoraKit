@@ -13,9 +13,9 @@ extension User {
 	public struct Relationships: Codable, Sendable {
 		// MARK: - Properties
 		/// The access tokens belonging to the user.
-		public let accessTokens: AccessTokenResponse?
+		public let accessTokens: ResourceCollection<AccessToken>?
 
 		/// The achievements belonging to the user.
-		public let achievements: AchievementResponse?
+		public let achievements: ResourceCollection<Achievement>?
 	}
 }

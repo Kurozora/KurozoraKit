@@ -13,15 +13,15 @@ extension Episode {
 	public struct Relationships: Codable, Sendable {
 		// MARK: - Properties
 		/// The seasons belonging to the episode.
-		public let seasons: SeasonIdentityResponse?
+		public let seasons: ResourceCollection<SeasonIdentity>?
 
 		/// The shows belonging to the episode.
-		public let shows: ShowIdentityResponse?
+		public let shows: ResourceCollection<ShowIdentity>?
 
 		/// The previous episodes belonging to the episode.
-		public let previousEpisodes: EpisodeIdentityResponse?
+		public let previousEpisodes: ResourceCollection<EpisodeIdentity>?
 
 		/// The next episodes belonging to the episode.
-		public let nextEpisodes: EpisodeIdentityResponse?
+		public let nextEpisodes: ResourceCollection<EpisodeIdentity>?
 	}
 }

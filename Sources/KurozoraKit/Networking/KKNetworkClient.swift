@@ -11,7 +11,7 @@ import Foundation
 /// The networking client that executes HTTP requests for KurozoraKit.
 ///
 /// Wraps a `URLSession` and exposes a single ``send(_:)`` method that decodes
-/// success responses or throws a ``KKAPIError`` for any failure.
+/// success responses or throws a ``APIError`` for any failure.
 internal struct KKNetworkClient: Sendable {
 	// MARK: - Properties
 	private let baseURL: URL
@@ -51,8 +51,10 @@ internal struct KKNetworkClient: Sendable {
 	/// Executes the given request and decodes its response.
 	///
 	/// - Parameter request: The request descriptor.
+	///
 	/// - Returns: A decoded value of type `Response`.
-	/// - Throws: ``KKAPIError`` for any failure — server, transport, or decoding.
+	///
+	/// - Throws: ``APIError`` for any failure — server, transport, or decoding.
 	func send<Response: Decodable & Sendable>(_ request: KKRequest<Response>) async throws -> Response {
 		let urlRequest = try self.buildURLRequest(from: request)
 		self.logger.logRequest(urlRequest)
@@ -60,27 +62,27 @@ internal struct KKNetworkClient: Sendable {
 		let data: Data
 		let response: URLResponse
 		do {
-			(data, response) = try await self.session.data(for: urlRequest)
+			(data, response) = try await self.fetchData(for: urlRequest)
 		} catch {
 			self.logger.logError(error, request: urlRequest)
-			throw KKAPIError(transport: error, request: urlRequest)
+			throw APIError(transport: error, request: urlRequest)
 		}
 
 		self.logger.logResponse(response, data: data)
 
 		guard let http = response as? HTTPURLResponse else {
-			throw KKAPIError(message: "The server returned a non-HTTP response.", response: nil, request: urlRequest)
+			throw APIError(message: "The server returned a non-HTTP response.", response: nil, request: urlRequest)
 		}
 
 		if (200..<300).contains(http.statusCode) {
 			do {
 				return try self.decoder.decode(Response.self, from: data)
 			} catch {
-				throw KKAPIError(decoding: error, response: http, request: urlRequest)
+				throw APIError(decoding: error, response: http, request: urlRequest)
 			}
 		}
 
-		throw KKAPIError(responseData: data, response: http, request: urlRequest, decoder: self.decoder)
+		throw APIError(responseData: data, response: http, request: urlRequest, decoder: self.decoder)
 	}
 
 	// MARK: - URLRequest construction
@@ -145,5 +147,75 @@ internal struct KKNetworkClient: Sendable {
 		items.append(contentsOf: KKFormURLEncoder.queryItems(from: query))
 		components.queryItems = items
 		return components.url ?? url
+	}
+
+	// MARK: - Data fetching
+	/// Performs `urlRequest` and returns its response body and metadata.
+	///
+	/// - Parameter urlRequest: The request to perform.
+	///
+	/// - Returns: The response body and its `URLResponse`.
+	///
+	/// - Throws: Any error reported by the underlying `URLSessionDataTask`,
+	///   or `URLError(.badServerResponse)` if neither data nor an error is delivered.
+	private func fetchData(for urlRequest: URLRequest) async throws -> (Data, URLResponse) {
+		let taskHandle = URLSessionTaskHandle()
+		return try await withTaskCancellationHandler {
+			try await withCheckedThrowingContinuation { continuation in
+				let task = self.session.dataTask(with: urlRequest) { data, response, error in
+					if let error {
+						continuation.resume(throwing: error)
+					} else if let data, let response {
+						continuation.resume(returning: (data, response))
+					} else {
+						continuation.resume(throwing: URLError(.badServerResponse))
+					}
+				}
+				if taskHandle.adopt(task) {
+					task.resume()
+				}
+			}
+		} onCancel: {
+			taskHandle.cancel()
+		}
+	}
+}
+
+// MARK: - URLSessionTaskHandle
+/// Thread-safe holder for a `URLSessionTask` shared between a continuation
+/// and a task cancellation handler.
+private final class URLSessionTaskHandle: @unchecked Sendable {
+	// MARK: - Properties
+	private let lock = NSLock()
+	private var task: URLSessionTask?
+	private var isCancelled = false
+
+	// MARK: - Functions
+	/// Stores the task and reports whether the caller should resume it.
+	///
+	/// - Parameter task: The task to adopt.
+	///
+	/// - Returns: `true` if the caller should resume the task; `false` if the
+	///   handle has already been cancelled, in which case the task has been
+	///   cancelled in place.
+	func adopt(_ task: URLSessionTask) -> Bool {
+		self.lock.lock()
+		defer { self.lock.unlock() }
+		if self.isCancelled {
+			task.cancel()
+			return false
+		}
+		self.task = task
+		return true
+	}
+
+	/// Cancels the held task, or arms the handle so the next ``adopt(_:)``
+	/// cancels its task before returning.
+	func cancel() {
+		self.lock.lock()
+		let task = self.task
+		self.isCancelled = true
+		self.lock.unlock()
+		task?.cancel()
 	}
 }

@@ -7,7 +7,7 @@
 //
 
 /// A root object that stores information about a profile update request.
-public struct ProfileUpdateRequest {
+public struct ProfileUpdateRequest: Sendable {
 	// MARK: - Properties
 	/// The username of the user.
 	public let username: String?

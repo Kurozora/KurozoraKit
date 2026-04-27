@@ -11,7 +11,7 @@ import Foundation
 /// The list of available profile update image request types.
 ///
 /// - Tag: ProfileUpdateImageRequest
-public enum ProfileUpdateImageRequest {
+public enum ProfileUpdateImageRequest: Sendable {
 	/// Indicates the request should update the image with the specified URL.
 	///
 	/// - Parameters:

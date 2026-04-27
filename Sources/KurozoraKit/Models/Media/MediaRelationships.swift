@@ -13,15 +13,15 @@ extension Media {
 	public struct Relationships: Codable, Sendable {
 		// MARK: - Properties
 		/// The episodes belonging to the media.
-		public let episodes: EpisodeIdentityResponse?
+		public let episodes: ResourceCollection<EpisodeIdentity>?
 
 		/// The games belonging to the media.
-		public let games: GameIdentityResponse?
+		public let games: ResourceCollection<GameIdentity>?
 
 		/// The literatures belonging to the media.
-		public let literatures: LiteratureIdentityResponse?
+		public let literatures: ResourceCollection<LiteratureIdentity>?
 
 		/// The shows belonging to the media.
-		public let shows: ShowIdentityResponse?
+		public let shows: ResourceCollection<ShowIdentity>?
 	}
 }

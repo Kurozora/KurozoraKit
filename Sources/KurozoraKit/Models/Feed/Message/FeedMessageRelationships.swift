@@ -13,12 +13,12 @@ extension FeedMessage {
 	public struct Relationships: Codable, Sendable {
 		// MARK: - Properties
 		/// The user object the feed message belongs to.
-		public let users: UserResponse
+		public let users: ResourceCollection<User>
 
 		/// The parent message object the feed message belongs to.
-		public let parent: FeedMessageResponse?
+		public let parent: ResourceCollection<FeedMessage>?
 
 		/// The message object the feed message belongs to.
-		public let messages: FeedMessageResponse?
+		public let messages: ResourceCollection<FeedMessage>?
 	}
 }
