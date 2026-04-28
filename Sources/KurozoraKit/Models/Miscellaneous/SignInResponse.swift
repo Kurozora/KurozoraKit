@@ -14,6 +14,6 @@ public struct SignInResponse: Codable, Sendable {
 	/// The data included in the response for a sign in object request.
 	public let data: [User]
 
-	/// The authentication token included in the response for a sign in object request.
+	/// The authentication token to use for subsequent requests.
 	public let authenticationToken: String
 }

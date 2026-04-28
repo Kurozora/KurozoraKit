@@ -11,14 +11,27 @@ import Foundation
 import UIKit
 #endif
 
-/// A request that signs a user in with their email and password.
+/// A request that signs a user in with an email address and password.
 public struct SignInRequest: Sendable {
 	// MARK: - Properties
+	/// The request context that carries the configuration shared with the
+	/// originating ``KurozoraKit`` instance.
 	private let context: RequestContext
+
+	/// The email address used to sign in.
 	private let email: String
+
+	/// The password used to sign in.
 	private let password: String
 
 	// MARK: - Initializers
+	/// Creates a request that signs a user in with the specified credentials.
+	///
+	/// - Parameters:
+	///   - context: The request context that carries the configuration shared
+	///     with the originating ``KurozoraKit`` instance.
+	///   - email: The email address used to sign in.
+	///   - password: The password used to sign in.
 	internal init(context: RequestContext, email: String, password: String) {
 		self.context = context
 		self.email = email
@@ -26,18 +39,24 @@ public struct SignInRequest: Sendable {
 	}
 
 	// MARK: - Execution
-	/// Executes the request and returns the decoded response.
+	/// Performs the request and returns either an authenticated session or a
+	/// two-factor authentication challenge.
+	///
+	/// - Returns: A ``SignInResult`` describing the outcome of the attempt.
+	/// - Throws: An ``APIError`` if the request fails or the response cannot be interpreted.
 	@MainActor
-	public func response() async throws -> SignInResponse {
+	public func response() async throws -> SignInResult {
 		#if os(watchOS)
 		let parameters: [String: Any] = [
 			"email": self.email,
-			"password": self.password
+			"password": self.password,
+			"client_supports_2fa": 1
 		]
 		#else
 		let parameters: [String: Any] = [
 			"email": self.email,
 			"password": self.password,
+			"client_supports_2fa": 1,
 			"platform": UIDevice.commonSystemName,
 			"platform_version": UIDevice.current.systemVersion,
 			"device_vendor": "Apple",
@@ -45,14 +64,28 @@ public struct SignInRequest: Sendable {
 		]
 		#endif
 
-		let request = KKRequest<SignInResponse>(
+		let request = KKRequest<SignInAttemptResponse>(
 			path: KKEndpoint.Users.signIn.endpointValue,
 			method: .post,
 			headers: self.context.headers,
 			body: .formURLEncoded(parameters)
 		)
 		let response = try await self.context.client.send(request)
-		self.context.applySignIn(token: response.authenticationToken, user: response.data.first)
-		return response
+
+		if response.twoFactor == true, let challengeToken = response.challengeToken {
+			return .requiresTwoFactor(challengeToken: challengeToken)
+		}
+
+		if let token = response.authenticationToken, let users = response.data {
+			let signInResponse = SignInResponse(data: users, authenticationToken: token)
+			self.context.applySignIn(token: token, user: users.first)
+			return .signedIn(signInResponse)
+		}
+
+		throw APIError(
+			message: "The service returned an unexpected sign-in response.",
+			response: nil,
+			request: nil
+		)
 	}
 }

@@ -818,7 +818,10 @@ extension KKEndpoint {
 		/// The endpoint to sign in a user using Sign in with Apple.
 		case siwaSignIn
 
-		/// The edpoint to reset a user's password.
+		/// The endpoint for resolving a two-factor authentication challenge.
+		case twoFactorChallenge
+
+		/// The endpoint to reset a user's password.
 		case resetPassword
 
 		/// The endpoint to block or unblock a user.
@@ -869,6 +872,8 @@ extension KKEndpoint {
 				return "users/signin"
 			case .siwaSignIn:
 				return "users/siwa/signin"
+			case .twoFactorChallenge:
+				return "users/two-factor-challenge"
 			case .resetPassword:
 				return "users/reset-password"
 			case .block(let userIdentity):

@@ -1,3 +1,50 @@
+
+# Migrating to KurozoraKit 2.1
+
+KurozoraKit 2.1 adds two-factor authentication enforcement to the sign-in flow. Email/password sign-in now has two possible successful outcomes:
+
+1. the existing token-issuing path
+2. a 2FA challenge path that must be completed before a session is granted
+
+## Breaking change: `SignInRequest.response()` return type
+
+```swift
+// Before (2.0)
+let response: SignInResponse = try await KService.signIn(email: email, password: password).response()
+// `User.current` is set, app navigates to the signed-in state.
+
+// After (2.1)
+let result: SignInResult = try await KService.signIn(email: email, password: password).response()
+switch result {
+case .signedIn(let response):
+    // Same behavior as 2.0: session is recorded, `User.current` is set.
+case .requiresTwoFactor(let challengeToken):
+    // Account requires 2FA: present a code-entry UI and call:
+    let response = try await KService
+        .submitTwoFactorChallenge(token: challengeToken)
+        .otp("123456") // or .recoveryCode("abcde12345-fghij67890")
+        .response()
+    // Now `User.current` is set, navigate to the signed-in state.
+}
+```
+
+`SignInResponse` itself is unchanged. It is now wrapped in `SignInResult.signedIn(_:)` for the no-2FA path, and returned directly from `TwoFactorChallengeRequest.response()` after a successful redemption.
+
+## New: `submitTwoFactorChallenge(token:)`
+
+Resolves a challenge token issued by step 1. Configure with exactly one of:
+
+- `.otp("123456")`: 6-digit TOTP code from the user's authenticator app.
+- `.recoveryCode("abcde12345-fghij67890")`: single-use recovery code from enrollment.
+
+Calling `response()` without a credential, or with both, throws an `APIError` synchronously.
+
+## New: a capability flag is sent automatically
+
+`SignInRequest` now sends `client_supports_2fa=1` on every sign-in attempt. No consumer action is required. Older clients without this flag are blocked server-side with a 403 + `KKError.id == 40003` when the account has 2FA enabled.
+
+Sign in with Apple is unchanged. Apple enforces 2FA at the OS level, so `signIn(withAppleIDToken:)` continues to return a token directly.
+
 # Migrating to KurozoraKit 2.0
 
 KurozoraKit 2.0 is a breaking release that drops `TRON` and `Alamofire` for `URLSession`, and replaces the free-method API with typed request objects. There are is no backwards compatibility, so every call site must be updated.
@@ -162,9 +209,9 @@ Non-standard responses are unchanged, although these will be unified at some poi
 
 Identity types now conform to ``Fetchable``, which exposes:
 
-- `detailEndpoint` — the URL path for a single-resource fetch.
-- `indexEndpoint` — the URL path for a batch fetch.
-- `Response` — the associated response type, typically `ResourceCollection<T>`.
+- `detailEndpoint`: the URL path for a single-resource fetch.
+- `indexEndpoint`: the URL path for a batch fetch.
+- `Response`: the associated response type, typically `ResourceCollection<T>`.
 
 ## Deployment targets
 

@@ -488,6 +488,15 @@ extension KurozoraKit {
 		SignInWithAppleRequest(context: RequestContext(from: self), token: token)
 	}
 
+	/// Returns a request that resolves a two-factor authentication challenge.
+	///
+	/// - Parameter token: The challenge token issued by ``SignInRequest``.
+	///
+	/// - Returns: A configured ``TwoFactorChallengeRequest`` ready to be executed.
+	public func submitTwoFactorChallenge(token: String) -> TwoFactorChallengeRequest {
+		TwoFactorChallengeRequest(context: RequestContext(from: self), challengeToken: token)
+	}
+
 	#if !os(watchOS)
 	/// Creates a request to register a new user account.
 	public func signUp(username: String, emailAddress: String, password: String, profileImage: UIImage? = nil) -> SignUpRequest {
