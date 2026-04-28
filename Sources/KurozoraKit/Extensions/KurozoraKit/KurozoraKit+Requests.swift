@@ -1087,6 +1087,13 @@ extension KurozoraKit {
 
 // MARK: - User Relations
 extension KurozoraKit {
+	/// Returns a request that fetches the global user index.
+	///
+	/// - Returns: A configured ``UserIndexRequest`` ready to be executed.
+	public func userIndex() -> UserIndexRequest {
+		UserIndexRequest(context: RequestContext(from: self))
+	}
+
 	/// Returns a request that fetches a user's followers or following list.
 	///
 	/// - Parameters:
