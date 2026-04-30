@@ -919,8 +919,11 @@ extension KKEndpoint {
 		/// The endpoint to the authenticated user's followers list.
 		case followers
 
-		/// The endpoint tothe authenticated user's following list.
+		/// The endpoint to the authenticated user's following list.
 		case following
+
+		/// The endpoint to the authenticated user's blocked users list.
+		case blocked
 
 		// MARK: - Properties
 		/// The endpoint value of the Me API type.
@@ -934,6 +937,8 @@ extension KKEndpoint {
 				return "me/followers"
 			case .following:
 				return "me/following"
+			case .blocked:
+				return "me/blocked"
 			}
 		}
 	}

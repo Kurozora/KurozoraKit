@@ -14,6 +14,9 @@ public struct BlockUpdate: Codable, Sendable {
 	/// Whether the user is blocked or not.
 	fileprivate var isBlocked: Bool?
 
+	/// Whether the current user is blocked by the target user.
+	public var isBlockedBy: Bool?
+
 	/// The block status of the user.
 	fileprivate var _blockStatus: BlockStatus?
 }

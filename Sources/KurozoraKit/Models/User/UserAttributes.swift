@@ -110,6 +110,9 @@ public extension User {
 		/// Whether the user is blocked by the current user.
 		fileprivate var isBlocked: Bool?
 
+		/// Whether the current user is blocked by this user.
+		public var isBlockedBy: Bool?
+
 		/// The follow status of the user.
 		fileprivate var _blockStatus: BlockStatus?
 
@@ -150,6 +153,7 @@ public extension User.Attributes {
 	/// - Parameter blockUpdate: The `BlockUpdate` object used to update the attributes.
 	mutating func update(using blockUpdate: BlockUpdate) {
 		self.blockStatus = blockUpdate.blockStatus
+		self.isBlockedBy = blockUpdate.isBlockedBy
 	}
 
 	/// Returns a copy of the object with the updated attributes from the given `BlockUpdate` object.
@@ -160,6 +164,7 @@ public extension User.Attributes {
 	mutating func updated(using blockUpdate: BlockUpdate) -> Self {
 		var userAttributes = self
 		userAttributes.blockStatus = blockUpdate.blockStatus
+		userAttributes.isBlockedBy = blockUpdate.isBlockedBy
 		return userAttributes
 	}
 

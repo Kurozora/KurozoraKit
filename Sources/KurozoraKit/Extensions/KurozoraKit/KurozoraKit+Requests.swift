@@ -935,6 +935,13 @@ extension KurozoraKit {
 		MyFollowListRequest(context: RequestContext(from: self), listType: listType)
 	}
 
+	/// Returns a request that fetches the authenticated user's blocked users list.
+	///
+	/// - Returns: A configured ``MyBlockListRequest`` ready to be executed.
+	public func myBlockList() -> MyBlockListRequest {
+		MyBlockListRequest(context: RequestContext(from: self))
+	}
+
 	/// Returns a request that fetches the authenticated user's up-next episodes.
 	///
 	/// - Parameter showIdentity: An optional show to scope the up-next list to.
