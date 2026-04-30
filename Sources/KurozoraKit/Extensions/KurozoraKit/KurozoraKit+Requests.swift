@@ -1419,6 +1419,15 @@ extension KurozoraKit {
 		VerifyReceiptRequest(context: RequestContext(from: self), receipt: receipt)
 	}
 
+	/// Returns a request that verifies StoreKit 2 signed JWS transactions and syncs the user's entitlements.
+	///
+	/// - Parameter transactions: The signed JWS strings produced by StoreKit 2 to submit for verification.
+	///
+	/// - Returns: A configured ``VerifyTransactionsRequest`` ready to be executed.
+	public func verifyTransactions(_ transactions: [String]) -> VerifyTransactionsRequest {
+		VerifyTransactionsRequest(context: RequestContext(from: self), transactions: transactions)
+	}
+
 	/// Returns a request that fetches the list of application themes from the theme store.
 	public func themeStore() -> ThemeStoreRequest {
 		ThemeStoreRequest(context: RequestContext(from: self))
