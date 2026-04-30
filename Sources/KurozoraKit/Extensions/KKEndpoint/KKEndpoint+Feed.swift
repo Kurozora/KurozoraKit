@@ -26,6 +26,12 @@ extension KKEndpoint.Feed {
 		/// The endpoint to the replies of a feed message.
 		case replies(_ messageIdentity: KurozoraItem)
 
+		/// The endpoint to the quote re-shares of a feed message.
+		case quotes(_ messageIdentity: KurozoraItem)
+
+		/// The endpoint to the simple re-shares of a feed message.
+		case reShares(_ messageIdentity: KurozoraItem)
+
 		/// The endpoint to delete the message details.
 		case delete(_ messageIdentity: KurozoraItem)
 
@@ -43,6 +49,10 @@ extension KKEndpoint.Feed {
 				return "feed/messages/\(messageIdentity.id)/pin"
 			case .replies(let messageIdentity):
 				return "feed/messages/\(messageIdentity.id)/replies"
+			case .quotes(let messageIdentity):
+				return "feed/messages/\(messageIdentity.id)/quotes"
+			case .reShares(let messageIdentity):
+				return "feed/messages/\(messageIdentity.id)/re-shares"
 			case .delete(let messageIdentity):
 				return "feed/messages/\(messageIdentity.id)/delete"
 			}

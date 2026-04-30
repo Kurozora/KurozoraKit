@@ -23,6 +23,12 @@ public struct FeedMessageUpdate: Codable, Sendable {
 	/// Whether the feed message is hearted by the authenticated user.
 	public var isHearted: Bool?
 
+	/// Whether the feed message has been re-shared by the authenticated user.
+	public var isReShared: Bool?
+
+	/// The identifier of the authenticated user's re-share of this message.
+	public var myReShareID: KurozoraItemID?
+
 	/// Whether the feed message is locked.
 	public let isNSFW: Bool?
 

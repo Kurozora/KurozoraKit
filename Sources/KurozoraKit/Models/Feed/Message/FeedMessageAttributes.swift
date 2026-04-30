@@ -39,8 +39,11 @@ extension FeedMessage {
 		/// Whether the feed message is a re-share.
 		public let isReShare: Bool
 
-		/// Whether the feed message is a re-shared by the authenticated user.
-		public let isReShared: Bool
+		/// Whether the feed message has been re-shared by the authenticated user.
+		public var isReShared: Bool
+
+		/// The identifier of the authenticated user's re-share of this message.
+		public var myReShareID: KurozoraItemID?
 
 		/// Whether the feed message is spoiler.
 		public var isSpoiler: Bool
@@ -72,6 +75,20 @@ extension FeedMessage.Attributes {
 			} else {
 				self.metrics.heartCount -= 1
 			}
+		}
+
+		if let isReShared = feedMessageUpdate.isReShared {
+			self.isReShared = isReShared
+
+			if isReShared {
+				self.metrics.reShareCount += 1
+			} else {
+				self.metrics.reShareCount = max(0, self.metrics.reShareCount - 1)
+			}
+		}
+
+		if let myReShareID = feedMessageUpdate.myReShareID {
+			self.myReShareID = myReShareID
 		}
 	}
 }

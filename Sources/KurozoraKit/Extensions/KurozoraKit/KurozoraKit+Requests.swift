@@ -1235,6 +1235,24 @@ extension KurozoraKit {
 		FeedMessageRepliesRequest(context: RequestContext(from: self), messageIdentity: messageIdentity)
 	}
 
+	/// Returns a request that fetches the quote re-shares of a feed message.
+	///
+	/// - Parameter messageIdentity: The identity of the feed message.
+	///
+	/// - Returns: A configured ``FeedMessageQuotesRequest`` ready to be executed.
+	public func quotes(forFeedMessage messageIdentity: FeedMessageIdentity) -> FeedMessageQuotesRequest {
+		FeedMessageQuotesRequest(context: RequestContext(from: self), messageIdentity: messageIdentity)
+	}
+
+	/// Returns a request that fetches the simple re-shares of a feed message.
+	///
+	/// - Parameter messageIdentity: The identity of the feed message.
+	///
+	/// - Returns: A configured ``FeedMessageReSharesRequest`` ready to be executed.
+	public func reShares(forFeedMessage messageIdentity: FeedMessageIdentity) -> FeedMessageReSharesRequest {
+		FeedMessageReSharesRequest(context: RequestContext(from: self), messageIdentity: messageIdentity)
+	}
+
 	/// Returns a request that updates a feed message.
 	///
 	/// - Parameter update: The update to apply to the feed message.
