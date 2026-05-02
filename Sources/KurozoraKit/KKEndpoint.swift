@@ -717,12 +717,17 @@ extension KKEndpoint {
 		/// The endpoint to verify a receipt.
 		case verify
 
+		/// The endpoint to fetch StoreKit transactions.
+		case transactions
+
 		// MARK: - Properties
 		/// The endpoint value of the Store API type.
 		var endpointValue: String {
 			switch self {
 			case .verify:
 				return "store/verify"
+			case .transactions:
+				return "store/transactions"
 			}
 		}
 	}

@@ -1428,6 +1428,11 @@ extension KurozoraKit {
 		VerifyTransactionsRequest(context: RequestContext(from: self), transactions: transactions)
 	}
 
+	/// Returns a request for the user's StoreKit transactions.
+	public func storeTransactions() -> StoreTransactionsRequest {
+		StoreTransactionsRequest(context: RequestContext(from: self))
+	}
+
 	/// Returns a request that fetches the list of application themes from the theme store.
 	public func themeStore() -> ThemeStoreRequest {
 		ThemeStoreRequest(context: RequestContext(from: self))
