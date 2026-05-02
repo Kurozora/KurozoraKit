@@ -1090,6 +1090,22 @@ extension KurozoraKit {
 	public func deleteNotification(_ identity: any KurozoraItem) -> DeleteNotificationRequest {
 		DeleteNotificationRequest(context: RequestContext(from: self), identity: identity)
 	}
+
+	/// Returns a request that deletes multiple notifications in a single call.
+	///
+	/// - Parameter identities: The identities of the notifications to delete.
+	///
+	/// - Returns: A configured ``DeleteNotificationRequest`` ready to be executed.
+	public func deleteNotifications(_ identities: [any KurozoraItem]) -> DeleteNotificationRequest {
+		DeleteNotificationRequest(context: RequestContext(from: self), identities: identities)
+	}
+
+	/// Returns a request that deletes every notification belonging to the authenticated user.
+	///
+	/// - Returns: A configured ``DeleteNotificationRequest`` ready to be executed.
+	public func deleteAllNotifications() -> DeleteNotificationRequest {
+		DeleteNotificationRequest(context: RequestContext(from: self), deleteAll: true)
+	}
 }
 
 // MARK: - User Relations

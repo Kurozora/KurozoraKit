@@ -156,11 +156,11 @@ extension KKEndpoint.Me {
 		/// The endpoint to the authenticated user's notification list.
 		case index
 
-		/// The endpoint to the detials of a notification.
+		/// The endpoint to the details of a notification.
 		case details(_ notificationIdentity: KurozoraItem)
 
-		/// The endpoint to delete a notification.
-		case delete(_ notificationIdentity: KurozoraItem)
+		/// The endpoint to delete one, multiple, or all notifications.
+		case delete
 
 		/// The endpoint to update a notification.
 		case update
@@ -173,8 +173,8 @@ extension KKEndpoint.Me {
 				return "me/notifications"
 			case .details(let notificationID):
 				return "me/notifications/\(notificationID.id)"
-			case .delete(let notificationID):
-				return "me/notifications/\(notificationID.id)/delete"
+			case .delete:
+				return "me/notifications/delete"
 			case .update:
 				return "me/notifications/update"
 			}
