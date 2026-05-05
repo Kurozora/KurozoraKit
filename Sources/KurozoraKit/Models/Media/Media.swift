@@ -35,6 +35,12 @@ public struct Media: Codable, Sendable {
 	/// The quaternary text color of the media.
 	public let textColor4: String?
 
+	/// The horizontal focal point of the media in normalized image coordinates `[0, 1]`.
+	public let focalX: Double?
+
+	/// The vertical focal point of the media in normalized image coordinates `[0, 1]`.
+	public let focalY: Double?
+
 	/// The relationships belonging to the media.
 	public let relationships: Media.Relationships?
 }
