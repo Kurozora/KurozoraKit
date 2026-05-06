@@ -284,6 +284,40 @@ extension KKEndpoint {
 	}
 }
 
+// MARK: - Parental Guide
+extension KKEndpoint {
+	/// The set of available Parental Guide API endpoints types.
+	internal enum ParentalGuide {
+		// MARK: - Cases
+		/// The endpoint to delete a parental guide entry.
+		case deleteEntry(_ entryIdentity: ParentalGuideEntryIdentity)
+
+		/// The endpoint to update a parental guide entry in place.
+		case updateEntry(_ entryIdentity: ParentalGuideEntryIdentity)
+
+		/// The endpoint to vote on a parental guide entry.
+		case voteEntry(_ entryIdentity: ParentalGuideEntryIdentity)
+
+		/// The endpoint to report a parental guide entry.
+		case reportEntry(_ entryIdentity: ParentalGuideEntryIdentity)
+
+		// MARK: - Properties
+		/// The endpoint value of the Parental Guide API type.
+		var endpointValue: String {
+			switch self {
+			case .deleteEntry(let entryIdentity):
+				return "parentalguide/entries/\(entryIdentity.id)/delete"
+			case .updateEntry(let entryIdentity):
+				return "parentalguide/entries/\(entryIdentity.id)/update"
+			case .voteEntry(let entryIdentity):
+				return "parentalguide/entries/\(entryIdentity.id)/vote"
+			case .reportEntry(let entryIdentity):
+				return "parentalguide/entries/\(entryIdentity.id)/report"
+			}
+		}
+	}
+}
+
 // MARK: - Reviews
 extension KKEndpoint {
 	/// The set of available Reviews API endpoints types.
@@ -342,6 +376,9 @@ extension KKEndpoint {
 		/// The endpoint to the people belonging to a show.
 		case people(_ showIdentity: ShowIdentity)
 
+		/// The endpoint to the parental guide stats and entries of a show.
+		case parentalGuide(_ showIdentity: ShowIdentity)
+
 		/// The endpoint to leave a rating on a show.
 		case rate(_ showIdentity: ShowIdentity)
 
@@ -386,6 +423,8 @@ extension KKEndpoint {
 				return "anime/\(showIdentity.id)/characters"
 			case .people(let showIdentity):
 				return "anime/\(showIdentity.id)/people"
+			case .parentalGuide(let showIdentity):
+				return "anime/\(showIdentity.id)/parentalguide"
 			case .rate(let showIdentity):
 				return "anime/\(showIdentity.id)/rate"
 			case .relatedShows(let showIdentity):
@@ -455,6 +494,9 @@ extension KKEndpoint {
 		/// The endpoint to the people belonging to a literature.
 		case people(_ literatureIdentity: LiteratureIdentity)
 
+		/// The endpoint to the parental guide stats and entries of a literature.
+		case parentalGuide(_ literatureIdentity: LiteratureIdentity)
+
 		/// The endpoint to leave a rating on a literature.
 		case rate(_ literatureIdentity: LiteratureIdentity)
 
@@ -493,6 +535,8 @@ extension KKEndpoint {
 				return "manga/\(literatureIdentity.id)/characters"
 			case .people(let literatureIdentity):
 				return "manga/\(literatureIdentity.id)/people"
+			case .parentalGuide(let literatureIdentity):
+				return "manga/\(literatureIdentity.id)/parentalguide"
 			case .rate(let literatureIdentity):
 				return "manga/\(literatureIdentity.id)/rate"
 			case .relatedShows(let literatureIdentity):
@@ -534,6 +578,9 @@ extension KKEndpoint {
 		/// The endpoint to the people belonging to a game.
 		case people(_ gameIdentity: GameIdentity)
 
+		/// The endpoint to the parental guide stats and entries of a game.
+		case parentalGuide(_ gameIdentity: GameIdentity)
+
 		/// The endpoint to leave a rating on a literature.
 		case rate(_ gameIdentity: GameIdentity)
 
@@ -572,6 +619,8 @@ extension KKEndpoint {
 				return "games/\(gameIdentity.id)/characters"
 			case .people(let gameIdentity):
 				return "games/\(gameIdentity.id)/people"
+			case .parentalGuide(let gameIdentity):
+				return "games/\(gameIdentity.id)/parentalguide"
 			case .rate(let gameIdentity):
 				return "games/\(gameIdentity.id)/rate"
 			case .relatedShows(let gameIdentity):

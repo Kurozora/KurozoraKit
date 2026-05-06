@@ -1472,3 +1472,109 @@ extension KurozoraKit {
 		DeleteReviewRequest(context: RequestContext(from: self), reviewIdentity: reviewIdentity)
 	}
 }
+
+// MARK: - Parental Guide
+extension KurozoraKit {
+	/// Returns a request that fetches the parental guide stats and entries for the specified show.
+	///
+	/// - Parameter show: The identity of the show whose parental guide to fetch.
+	///
+	/// - Returns: A configured ``FetchParentalGuideRequest`` ready to be executed.
+	public func parentalGuide(for show: ShowIdentity) -> FetchParentalGuideRequest {
+		FetchParentalGuideRequest(context: RequestContext(from: self), endpoint: KKEndpoint.Shows.parentalGuide(show).endpointValue)
+	}
+
+	/// Returns a request that fetches the parental guide stats and entries for the specified literature.
+	///
+	/// - Parameter literature: The identity of the literature whose parental guide to fetch.
+	///
+	/// - Returns: A configured ``FetchParentalGuideRequest`` ready to be executed.
+	public func parentalGuide(for literature: LiteratureIdentity) -> FetchParentalGuideRequest {
+		FetchParentalGuideRequest(context: RequestContext(from: self), endpoint: KKEndpoint.Literatures.parentalGuide(literature).endpointValue)
+	}
+
+	/// Returns a request that fetches the parental guide stats and entries for the specified game.
+	///
+	/// - Parameter game: The identity of the game whose parental guide to fetch.
+	///
+	/// - Returns: A configured ``FetchParentalGuideRequest`` ready to be executed.
+	public func parentalGuide(for game: GameIdentity) -> FetchParentalGuideRequest {
+		FetchParentalGuideRequest(context: RequestContext(from: self), endpoint: KKEndpoint.Games.parentalGuide(game).endpointValue)
+	}
+
+	/// Returns a request that submits (or upserts) the authenticated user's parental guide entry on a show.
+	///
+	/// - Parameters:
+	///   - show: The identity of the show to submit the entry for.
+	///   - request: The parental guide entry payload.
+	///
+	/// - Returns: A configured ``SubmitParentalGuideEntryRequest`` ready to be executed.
+	public func submitParentalGuideEntry(for show: ShowIdentity, request: ParentalGuideEntryRequest) -> SubmitParentalGuideEntryRequest {
+		SubmitParentalGuideEntryRequest(context: RequestContext(from: self), endpoint: KKEndpoint.Shows.parentalGuide(show).endpointValue, payload: request)
+	}
+
+	/// Returns a request that submits (or upserts) the authenticated user's parental guide entry on a literature.
+	///
+	/// - Parameters:
+	///   - literature: The identity of the literature to submit the entry for.
+	///   - request: The parental guide entry payload.
+	///
+	/// - Returns: A configured ``SubmitParentalGuideEntryRequest`` ready to be executed.
+	public func submitParentalGuideEntry(for literature: LiteratureIdentity, request: ParentalGuideEntryRequest) -> SubmitParentalGuideEntryRequest {
+		SubmitParentalGuideEntryRequest(context: RequestContext(from: self), endpoint: KKEndpoint.Literatures.parentalGuide(literature).endpointValue, payload: request)
+	}
+
+	/// Returns a request that submits (or upserts) the authenticated user's parental guide entry on a game.
+	///
+	/// - Parameters:
+	///   - game: The identity of the game to submit the entry for.
+	///   - request: The parental guide entry payload.
+	///
+	/// - Returns: A configured ``SubmitParentalGuideEntryRequest`` ready to be executed.
+	public func submitParentalGuideEntry(for game: GameIdentity, request: ParentalGuideEntryRequest) -> SubmitParentalGuideEntryRequest {
+		SubmitParentalGuideEntryRequest(context: RequestContext(from: self), endpoint: KKEndpoint.Games.parentalGuide(game).endpointValue, payload: request)
+	}
+
+	/// Returns a request that deletes the specified parental guide entry.
+	///
+	/// - Parameter entryIdentity: The identity of the parental guide entry to delete.
+	///
+	/// - Returns: A configured ``DeleteParentalGuideEntryRequest`` ready to be executed.
+	public func deleteParentalGuideEntry(_ entryIdentity: ParentalGuideEntryIdentity) -> DeleteParentalGuideEntryRequest {
+		DeleteParentalGuideEntryRequest(context: RequestContext(from: self), entryIdentity: entryIdentity)
+	}
+
+	/// Returns a request that casts (or clears) a helpful / unhelpful vote on a parental guide entry.
+	///
+	/// - Parameters:
+	///   - entryIdentity: The identity of the parental guide entry to vote on.
+	///   - request: The vote payload. Pass `nil` to clear the existing vote.
+	///
+	/// - Returns: A configured ``VoteOnParentalGuideEntryRequest`` ready to be executed.
+	public func voteParentalGuideEntry(_ entryIdentity: ParentalGuideEntryIdentity, request: ParentalGuideVoteRequest) -> VoteOnParentalGuideEntryRequest {
+		VoteOnParentalGuideEntryRequest(context: RequestContext(from: self), entryIdentity: entryIdentity, vote: request.vote)
+	}
+
+	/// Returns a request that updates an existing parental guide entry in place.
+	///
+	/// - Parameters:
+	///   - entryIdentity: The identity of the parental guide entry to update.
+	///   - request: The submission payload describing the new values.
+	///
+	/// - Returns: A configured ``UpdateParentalGuideEntryRequest`` ready to be executed.
+	public func updateParentalGuideEntry(_ entryIdentity: ParentalGuideEntryIdentity, request: ParentalGuideEntryRequest) -> UpdateParentalGuideEntryRequest {
+		UpdateParentalGuideEntryRequest(context: RequestContext(from: self), entryIdentity: entryIdentity, payload: request)
+	}
+
+	/// Returns a request that files a report against a parental guide entry.
+	///
+	/// - Parameters:
+	///   - entryIdentity: The identity of the parental guide entry to report.
+	///   - reason: The reason for the report.
+	///   - details: The free-text details. Required when `reason` is ``ParentalGuideReportReason/other``.
+	///
+	/// - Returns: A configured ``ReportParentalGuideEntryRequest`` ready to be executed.
+	public func reportParentalGuideEntry(_ entryIdentity: ParentalGuideEntryIdentity, reason: ParentalGuideReportReason, details: String?) -> ReportParentalGuideEntryRequest {
+		ReportParentalGuideEntryRequest(context: RequestContext(from: self), entryIdentity: entryIdentity, reason: reason, details: details)
+	}
+}
