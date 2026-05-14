@@ -54,7 +54,7 @@ internal struct KKNetworkClient: Sendable {
 	///
 	/// - Returns: A decoded value of type `Response`.
 	///
-	/// - Throws: ``APIError`` for any failure — server, transport, or decoding.
+	/// - Throws: ``APIError`` on any server, transport, or decoding failure.
 	func send<Response: Decodable & Sendable>(_ request: KKRequest<Response>) async throws -> Response {
 		let urlRequest = try self.buildURLRequest(from: request)
 		self.logger.logRequest(urlRequest)
@@ -80,6 +80,97 @@ internal struct KKNetworkClient: Sendable {
 			} catch {
 				throw APIError(decoding: error, response: http, request: urlRequest)
 			}
+		}
+
+		throw APIError(responseData: data, response: http, request: urlRequest, decoder: self.decoder)
+	}
+
+	// MARK: - Download
+	/// Executes a binary download and returns the raw response body.
+	///
+	/// - Parameters:
+	///    - path: The request path, relative to the client's base URL, or an absolute URL.
+	///    - headers: HTTP headers to apply on top of the client's base headers.
+	///
+	/// - Returns: The response body as raw bytes.
+	func download(path: String, headers: [String: String]) async throws -> Data {
+		var urlRequest = URLRequest(url: Self.resolveURL(path: path, base: self.baseURL))
+		urlRequest.httpMethod = KKHTTPMethod.get.rawValue
+
+		for (key, value) in self.additionalHeaders {
+			urlRequest.setValue(value, forHTTPHeaderField: key)
+		}
+		for (key, value) in headers {
+			urlRequest.setValue(value, forHTTPHeaderField: key)
+		}
+
+		self.logger.logRequest(urlRequest)
+
+		let data: Data
+		let response: URLResponse
+		do {
+			(data, response) = try await self.fetchData(for: urlRequest)
+		} catch {
+			self.logger.logError(error, request: urlRequest)
+			throw APIError(transport: error, request: urlRequest)
+		}
+
+		self.logger.logResponse(response, data: data)
+
+		guard let http = response as? HTTPURLResponse else {
+			throw APIError(message: "The server returned a non-HTTP response.", response: nil, request: urlRequest)
+		}
+
+		if (200..<300).contains(http.statusCode) {
+			return data
+		}
+
+		throw APIError(responseData: data, response: http, request: urlRequest, decoder: self.decoder)
+	}
+
+	/// Executes a binary download and returns the raw response body, reporting byte progress.
+	///
+	/// - Parameters:
+	///    - path: The request path, relative to the client's base URL, or an absolute URL.
+	///    - headers: HTTP headers to apply on top of the client's base headers.
+	///    - onProgress: A closure invoked on the main actor with values in `0...1` as bytes arrive.
+	///      Not called when the server omits a content length.
+	///
+	/// - Returns: The response body as raw bytes.
+	///
+	/// - Throws: ``APIError`` on any server or transport failure.
+	func download(path: String, headers: [String: String], onProgress: @escaping @MainActor @Sendable (Double) -> Void) async throws -> Data {
+		var urlRequest = URLRequest(url: Self.resolveURL(path: path, base: self.baseURL))
+		urlRequest.httpMethod = KKHTTPMethod.get.rawValue
+
+		for (key, value) in self.additionalHeaders {
+			urlRequest.setValue(value, forHTTPHeaderField: key)
+		}
+
+		for (key, value) in headers {
+			urlRequest.setValue(value, forHTTPHeaderField: key)
+		}
+
+		self.logger.logRequest(urlRequest)
+
+		let data: Data
+		let response: URLResponse
+
+		do {
+			(data, response) = try await self.fetchDownload(for: urlRequest, onProgress: onProgress)
+		} catch {
+			self.logger.logError(error, request: urlRequest)
+			throw APIError(transport: error, request: urlRequest)
+		}
+
+		self.logger.logResponse(response, data: data)
+
+		guard let http = response as? HTTPURLResponse else {
+			throw APIError(message: "The server returned a non-HTTP response.", response: nil, request: urlRequest)
+		}
+
+		if (200..<300).contains(http.statusCode) {
+			return data
 		}
 
 		throw APIError(responseData: data, response: http, request: urlRequest, decoder: self.decoder)
@@ -160,6 +251,7 @@ internal struct KKNetworkClient: Sendable {
 	///   or `URLError(.badServerResponse)` if neither data nor an error is delivered.
 	private func fetchData(for urlRequest: URLRequest) async throws -> (Data, URLResponse) {
 		let taskHandle = URLSessionTaskHandle()
+
 		return try await withTaskCancellationHandler {
 			try await withCheckedThrowingContinuation { continuation in
 				let task = self.session.dataTask(with: urlRequest) { data, response, error in
@@ -171,6 +263,29 @@ internal struct KKNetworkClient: Sendable {
 						continuation.resume(throwing: URLError(.badServerResponse))
 					}
 				}
+
+				if taskHandle.adopt(task) {
+					task.resume()
+				}
+			}
+		} onCancel: {
+			taskHandle.cancel()
+		}
+	}
+
+	/// Performs `urlRequest` as a download task and returns its response body and metadata.
+	private func fetchDownload(
+		for urlRequest: URLRequest,
+		onProgress: @escaping @MainActor @Sendable (Double) -> Void
+	) async throws -> (Data, URLResponse) {
+		let taskHandle = URLSessionTaskHandle()
+
+		return try await withTaskCancellationHandler {
+			try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<(Data, URLResponse), Error>) in
+				let delegate = ProgressDownloadDelegate(onProgress: onProgress, continuation: continuation)
+				let task = self.session.downloadTask(with: urlRequest)
+				task.delegate = delegate
+
 				if taskHandle.adopt(task) {
 					task.resume()
 				}
@@ -195,9 +310,8 @@ private final class URLSessionTaskHandle: @unchecked Sendable {
 	///
 	/// - Parameter task: The task to adopt.
 	///
-	/// - Returns: `true` if the caller should resume the task; `false` if the
-	///   handle has already been cancelled, in which case the task has been
-	///   cancelled in place.
+	/// - Returns: `true` if the caller should resume the task, or `false` if the handle
+	///   has already been cancelled. When `false`, the task has been cancelled in place.
 	func adopt(_ task: URLSessionTask) -> Bool {
 		self.lock.lock()
 		defer { self.lock.unlock() }
@@ -217,5 +331,69 @@ private final class URLSessionTaskHandle: @unchecked Sendable {
 		self.isCancelled = true
 		self.lock.unlock()
 		task?.cancel()
+	}
+}
+
+// MARK: - ProgressDownloadDelegate
+/// A `URLSessionDownloadDelegate` that resumes a continuation with the downloaded bytes and forwards byte progress on the main actor.
+private final class ProgressDownloadDelegate: NSObject, URLSessionDownloadDelegate, @unchecked Sendable {
+	// MARK: - Properties
+	private let onProgress: @MainActor @Sendable (Double) -> Void
+	private let continuation: CheckedContinuation<(Data, URLResponse), Error>
+	private let lock = NSLock()
+	private var data: Data?
+	private var readError: Error?
+	private var didResume = false
+
+	// MARK: - Initializers
+	init(onProgress: @escaping @MainActor @Sendable (Double) -> Void, continuation: CheckedContinuation<(Data, URLResponse), Error>) {
+		self.onProgress = onProgress
+		self.continuation = continuation
+	}
+
+	// MARK: - URLSessionDownloadDelegate
+	func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
+		guard totalBytesExpectedToWrite > 0 else { return }
+		let fraction = Double(totalBytesWritten) / Double(totalBytesExpectedToWrite)
+
+		Task { @MainActor [onProgress] in
+			onProgress(fraction)
+		}
+	}
+
+	func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
+		do {
+			self.data = try Data(contentsOf: location)
+		} catch {
+			self.readError = error
+		}
+	}
+
+	func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
+		self.lock.lock()
+		defer {
+			self.lock.unlock()
+		}
+
+		guard !self.didResume else { return }
+
+		self.didResume = true
+
+		if let error {
+			self.continuation.resume(throwing: error)
+			return
+		}
+
+		if let readError = self.readError {
+			self.continuation.resume(throwing: readError)
+			return
+		}
+
+		guard let data = self.data, let response = task.response else {
+			self.continuation.resume(throwing: URLError(.badServerResponse))
+			return
+		}
+
+		self.continuation.resume(returning: (data, response))
 	}
 }

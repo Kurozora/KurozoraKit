@@ -12,10 +12,10 @@ import Foundation
 public struct ThemeStoreDetailRequest: Sendable {
 	// MARK: - Properties
 	private let context: RequestContext
-	private let appThemeID: String
+	private let appThemeID: KurozoraItemID
 
 	// MARK: - Initializers
-	internal init(context: RequestContext, appThemeID: String) {
+	internal init(context: RequestContext, appThemeID: KurozoraItemID) {
 		self.context = context
 		self.appThemeID = appThemeID
 	}

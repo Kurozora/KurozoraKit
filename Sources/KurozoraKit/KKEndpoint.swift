@@ -840,7 +840,10 @@ extension KKEndpoint {
 		case index
 
 		/// The endpoint to the details of a theme store item.
-		case details(_ appThemeID: String)
+		case details(_ appThemeID: KurozoraItemID)
+
+		/// The endpoint to download a theme store item.
+		case download(_ appThemeID: KurozoraItemID)
 
 		// MARK: - Properties
 		/// The endpoint value of the Theme Store API type.
@@ -850,6 +853,8 @@ extension KKEndpoint {
 				return "theme-store"
 			case .details(let appThemeID):
 				return "theme-store/\(appThemeID)"
+			case .download(let appThemeID):
+				return "theme-store/\(appThemeID)/download"
 			}
 		}
 	}

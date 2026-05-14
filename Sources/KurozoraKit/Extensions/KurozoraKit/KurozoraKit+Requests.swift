@@ -1459,8 +1459,17 @@ extension KurozoraKit {
 	/// - Parameter appThemeID: The identifier of the application theme.
 	///
 	/// - Returns: A configured ``ThemeStoreDetailRequest`` ready to be executed.
-	public func themeStoreDetail(_ appThemeID: String) -> ThemeStoreDetailRequest {
+	public func themeStoreDetail(_ appThemeID: KurozoraItemID) -> ThemeStoreDetailRequest {
 		ThemeStoreDetailRequest(context: RequestContext(from: self), appThemeID: appThemeID)
+	}
+
+	/// Returns a request that downloads the binary file for the specified application theme.
+	///
+	/// - Parameter appThemeID: The identifier of the application theme.
+	///
+	/// - Returns: A configured ``ThemeDownloadRequest`` ready to be executed.
+	public func themeDownload(_ appThemeID: KurozoraItemID) -> ThemeDownloadRequest {
+		ThemeDownloadRequest(context: RequestContext(from: self), appThemeID: appThemeID)
 	}
 
 	/// Returns a request that deletes a review.
