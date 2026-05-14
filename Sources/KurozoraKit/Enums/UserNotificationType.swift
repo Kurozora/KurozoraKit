@@ -12,6 +12,7 @@
 /// - `follower`: the notification has a `follower` type and thus has the follower style.
 /// - `feedMessageReply`: the notification has a `feedMessageReply` type and thus has the message style.
 /// - `feedMessageReShare`: the notification has a `feedMessageReShare` type and thus has the message style.
+/// - `userMention`: the notification has a `userMention` type and thus has the mention style.
 /// - `libraryImportFinished`: the notification has a `libraryImportFinished` type and thus has the import style.
 /// - `subscriptionStatus`: the notification has a `subscriptionStatus` type and thus the subscription style.
 /// - `other`: the notification has no specific type and thus has the default style.
@@ -30,6 +31,9 @@ public enum UserNotificationType: String, Codable, Sendable {
 
 	/// Indicates that the notification has a `feedMessageReShare` type and thus has the message style.
 	case feedMessageReShare = "NewFeedMessageReShare"
+
+	/// Indicates that the notification has a `userMention` type and thus has the mention style.
+	case userMention = "NewUserMention"
 
 	/// Indicates that the notification has a `libraryImportFinished` type and thus thas the import style.
 	case libraryImportFinished = "LibraryImportFinished"

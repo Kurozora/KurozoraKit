@@ -32,5 +32,15 @@ extension UserNotification {
 		// Feed Message
 		/// The id of a feed message.
 		public let feedMessageID: KurozoraItemID?
+
+		// Mention
+		/// The body of a mention notification.
+		public let message: String?
+
+		/// The title of a mention notification.
+		public let title: String?
+
+		/// A link associated with a mention notification.
+		public let link: String?
 	}
 }
