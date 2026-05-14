@@ -43,4 +43,11 @@ public enum UserNotificationType: String, Codable, Sendable {
 
 	/// Indicates that the notification has no specific type and thus has the default style.
 	case other
+
+	// MARK: - Initializers
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.singleValueContainer()
+		let rawValue = try container.decode(String.self)
+		self = UserNotificationType(rawValue: rawValue) ?? .other
+	}
 }
