@@ -142,6 +142,7 @@ public class KurozoraKit {
 	///
 	/// - Parameters:
 	///    - apiEndpoint: The ``KurozoraAPI`` endpoint to be used.
+	///    - apiKey: The application's API key.
 	///    - authenticationKey: The current signed in user's authentication key.
 	///    - services: The desired ``KKServices`` to be used.
 	public init(apiEndpoint: KurozoraAPI? = nil, apiKey: String = "", authenticationKey: String = "", services: KKServices = KKServices()) {
@@ -157,6 +158,7 @@ public class KurozoraKit {
 		]
 		self.client = KKNetworkClient(baseURL: endpoint.baseURL, options: endpoint.options)
 		self.services = services
+		services._bind(to: self)
 	}
 
 	// MARK: - Functions
@@ -202,6 +204,28 @@ public class KurozoraKit {
 	@discardableResult
 	public func services(_ services: KKServices) -> Self {
 		self.services = services
+		services._bind(to: self)
 		return self
+	}
+
+	/// A stream of typed user notification events received via the realtime channel.
+	///
+	/// Returns an immediately-finished stream when no `webSocketAppKey` was configured on ``services``.
+	///
+	/// - Returns: An asynchronous sequence of ``UserNotification/Event`` values.
+	public func userNotificationEvents() -> AsyncStream<UserNotification.Event> {
+		guard let webSocket = self.services._webSocket else {
+			return AsyncStream { $0.finish() }
+		}
+
+		return AsyncStream { continuation in
+			let task = Task {
+				for await event in await webSocket.userNotificationEvents() {
+					continuation.yield(event)
+				}
+				continuation.finish()
+			}
+			continuation.onTermination = { _ in task.cancel() }
+		}
 	}
 }

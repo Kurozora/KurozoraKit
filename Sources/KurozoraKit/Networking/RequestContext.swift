@@ -13,7 +13,7 @@ import Foundation
 /// A `RequestContext` is created at request construction time and captures the current
 /// authentication state, ensuring in-flight requests are unaffected by subsequent
 /// credential changes. It also retains a weak reference to the originating
-/// ``KurozoraKit`` instance so that authentication requests can update the kurozora kit's
+/// ``KurozoraKit`` instance so that authentication requests can update the ``KurozoraKit``'s
 /// session state and the shared ``User/current`` value when they complete successfully.
 internal struct RequestContext: @unchecked Sendable {
 	// MARK: - Properties
@@ -40,11 +40,24 @@ internal struct RequestContext: @unchecked Sendable {
 		self.kurozoraKit = kurozoraKit
 	}
 
+	// MARK: - Headers
+	/// Returns the request headers with the current realtime socket identifier appended.
+	///
+	/// - Returns: The request headers with the current realtime socket identifier appended.
+	internal func headersWithSocketID() async -> [String: String] {
+		var resolved = self.headers
+
+		if let webSocket = self.kurozoraKit?.services._webSocket {
+			if let socketID = await webSocket.socketID, !socketID.isEmpty {
+				resolved["X-Socket-Id"] = socketID
+			}
+		}
+
+		return resolved
+	}
+
 	// MARK: - Authentication state
 	/// Records a successful sign in.
-	///
-	/// Updates ``KurozoraKit/authenticationKey`` and the shared ``User/current`` value,
-	/// then posts a `KUserIsSignedInDidChange` notification.
 	///
 	/// - Parameters:
 	///    - token: The authentication token returned by the server.
@@ -57,9 +70,6 @@ internal struct RequestContext: @unchecked Sendable {
 	}
 
 	/// Records a successful sign out.
-	///
-	/// Clears ``KurozoraKit/authenticationKey`` and ``User/current``, then posts a
-	/// `KUserIsSignedInDidChange` notification.
 	@MainActor
 	func applySignOut() {
 		self.kurozoraKit?.authenticationKey = ""
@@ -68,9 +78,6 @@ internal struct RequestContext: @unchecked Sendable {
 	}
 
 	/// Records a refreshed profile.
-	///
-	/// Updates the shared ``User/current`` value and posts a `KUserIsSignedInDidChange`
-	/// notification.
 	///
 	/// - Parameter user: The current user returned by the server, if available.
 	@MainActor

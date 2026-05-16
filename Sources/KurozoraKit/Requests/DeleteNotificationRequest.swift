@@ -44,7 +44,7 @@ public struct DeleteNotificationRequest: Sendable {
 		let request = KKRequest<KKSuccess>(
 			path: KKEndpoint.Me.Notifications.delete.endpointValue,
 			method: .post,
-			headers: self.context.headers,
+			headers: await self.context.headersWithSocketID(),
 			body: .formURLEncoded(parameters)
 		)
 		return try await self.context.client.send(request)

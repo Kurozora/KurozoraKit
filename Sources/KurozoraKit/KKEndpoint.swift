@@ -35,6 +35,25 @@ extension KKEndpoint {
 	}
 }
 
+// MARK: - Broadcasting
+extension KKEndpoint {
+	/// The set of available Broadcasting API endpoints.
+	internal enum Broadcasting {
+		// MARK: - Cases
+		/// The endpoint that signs a private-channel subscription for the authenticated user.
+		case auth
+
+		// MARK: - Properties
+		/// The endpoint value of the Broadcasting API type.
+		var endpointValue: String {
+			switch self {
+			case .auth:
+				return "broadcasting/auth"
+			}
+		}
+	}
+}
+
 // MARK: - Misc
 extension KKEndpoint {
 	/// The set of available Misc API endpoints types.

@@ -1055,6 +1055,16 @@ extension KurozoraKit {
 	}
 }
 
+// MARK: - Broadcasting
+extension KurozoraKit {
+	/// Returns a request that signs the authenticated user's private realtime channel for the given socket identifier.
+	///
+	/// - Parameter socketID: The socket identifier issued during the realtime handshake.
+	public func broadcastingAuth(socketID: String) -> BroadcastingAuthRequest {
+		BroadcastingAuthRequest(context: RequestContext(from: self), socketID: socketID)
+	}
+}
+
 // MARK: - Notifications
 extension KurozoraKit {
 	/// Returns a request that fetches the authenticated user's notifications.

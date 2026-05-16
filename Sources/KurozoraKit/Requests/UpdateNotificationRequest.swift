@@ -33,7 +33,7 @@ public struct UpdateNotificationRequest: Sendable {
 		let request = KKRequest<UserNotificationUpdateResponse>(
 			path: KKEndpoint.Me.Notifications.update.endpointValue,
 			method: .post,
-			headers: self.context.headers,
+			headers: await self.context.headersWithSocketID(),
 			body: .formURLEncoded(parameters)
 		)
 		return try await self.context.client.send(request)

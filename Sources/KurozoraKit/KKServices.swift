@@ -8,7 +8,7 @@
 
 import KeychainAccess
 
-/// A services provider for ``KurozoraKit/KurozoraKit`` that manages Keychain access.
+/// A services provider for ``KurozoraKit/KurozoraKit`` that manages Keychain access and the realtime client.
 ///
 /// Provide a custom `Keychain` instance to control how secrets are stored.
 ///
@@ -23,12 +23,20 @@ public class KKServices {
 		}
 	}
 
+	/// Provides access to the Kurozora WebSocket for realtime functionality.
+	internal let _webSocket: KKWebSocket?
+
 	// MARK: - Initializers
-	/// Creates a services provider with the given Keychain instance.
+	/// Creates a services provider.
 	///
-	/// - Parameter keychain: The `Keychain` instance to use for managing secrets.
-	public init(keychain: Keychain = Keychain()) {
+	/// - Parameters:
+	///    - keychain: The `Keychain` instance to use for managing secrets.
+	///    - webSocketAppKey: The public realtime app key. Pass `nil` to disable the realtime channel.
+	public init(keychain: Keychain = Keychain(), webSocketAppKey: String? = nil) {
 		self._keychainDefaults = keychain
+		self._webSocket = webSocketAppKey.flatMap { key in
+			key.isEmpty ? nil : KKWebSocket(appKey: key)
+		}
 	}
 
 	// MARK: - Functions
@@ -40,5 +48,18 @@ public class KKServices {
 	func keychainDefaults(_ keychain: Keychain) -> Self {
 		self._keychainDefaults = keychain
 		return self
+	}
+}
+
+// MARK: - Binding
+extension KKServices {
+	/// Binds the realtime WebSocket to its owning ``KurozoraKit/KurozoraKit``.
+	internal func _bind(to kurozoraKit: KurozoraKit) {
+		guard let webSocket = self._webSocket else { return }
+		let reference = KurozoraKitReference(kurozoraKit)
+
+		Task {
+			await webSocket._bind(to: reference)
+		}
 	}
 }
