@@ -375,6 +375,25 @@ extension KKEndpoint {
 	}
 }
 
+// MARK: - BrowseSeason
+extension KKEndpoint {
+	/// The set of available BrowseSeason API endpoints types.
+	internal enum BrowseSeason {
+		// MARK: - Cases
+		/// The endpoint to the seasonal browse page for a given kind.
+		case index(kind: BrowseSeasonType)
+
+		// MARK: - Properties
+		/// The endpoint value of the BrowseSeason API type.
+		var endpointValue: String {
+			switch self {
+			case .index(let browseSeasonType):
+				return "\(browseSeasonType.pathPrefix)/seasons"
+			}
+		}
+	}
+}
+
 // MARK: - Shows
 extension KKEndpoint {
 	/// The set of available Shows API endpoints types.

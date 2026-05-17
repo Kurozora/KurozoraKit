@@ -1373,6 +1373,19 @@ extension KurozoraKit {
 		ScheduleRequest(context: RequestContext(from: self), type: type, date: date)
 	}
 
+	/// Returns a request that fetches the seasonal browse listing for the specified kind, year and season.
+	///
+	/// - Parameters:
+	///   - kind: The kind of items to browse (shows, literatures or games).
+	///   - year: The year of the season.
+	///   - season: The season of the year.
+	///   - mediaTypeIDs: An optional list of media type identifiers to filter by.
+	///
+	/// - Returns: A configured ``BrowseSeasonRequest`` ready to be executed.
+	public func browseSeason(_ kind: BrowseSeasonType, year: Int, season: SeasonOfYear, mediaTypeIDs: [Int] = []) -> BrowseSeasonRequest {
+		BrowseSeasonRequest(context: RequestContext(from: self), kind: kind, year: year, season: season, mediaTypeIDs: mediaTypeIDs)
+	}
+
 	/// Returns a request that fetches the list of available recaps.
 	public func recaps() -> RecapsRequest {
 		RecapsRequest(context: RequestContext(from: self))

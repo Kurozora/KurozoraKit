@@ -68,4 +68,13 @@ public enum ExploreCategoryType: String, Codable, Sendable {
 
 	/// Indicates that the explore category is of the `recap` type.
 	case recap
+
+	/// Indicates that the explore category is of the `showsSeason` type.
+	case showsSeason = "anime-season"
+
+	/// Indicates that the explore category is of the `literaturesSeason` type.
+	case literaturesSeason = "literatures-season"
+
+	/// Indicates that the explore category is of the `gamesSeason` type.
+	case gamesSeason = "games-season"
 }
