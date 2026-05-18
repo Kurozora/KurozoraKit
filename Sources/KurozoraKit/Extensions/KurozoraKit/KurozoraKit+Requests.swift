@@ -795,6 +795,28 @@ extension KurozoraKit {
 	}
 }
 
+// MARK: - Stickers
+extension KurozoraKit {
+	/// The Kuro-chan sticker pack URL for Signal.
+	public var signalStickerURL: URL {
+		return URL(string: "https://signal.art/addstickers/#pack_id=a132f9a6b200d8978a5f5396decefdde&pack_key=db8680ea74e6f0fcb294bbad8dee75b9f27735a3cf81eb98f9c362a322df3177")
+			?? URL(fileURLWithPath: "")
+	}
+
+	/// The Kuro-chan sticker pack URL for Telegram.
+	public var telegramStickerURL: URL {
+		return URL(string: "https://t.me/addstickers/KuroChanVT")
+			?? URL(fileURLWithPath: "")
+	}
+
+	/// Returns a request that downloads the Kuro-chan WhatsApp sticker pack pasteboard bundle.
+	///
+	/// - Returns: A configured ``WhatsAppStickerBundleRequest`` ready to be executed.
+	public func whatsAppStickerBundle() -> WhatsAppStickerBundleRequest {
+		WhatsAppStickerBundleRequest(context: RequestContext(from: self))
+	}
+}
+
 // MARK: - Favorite & Reminder
 extension KurozoraKit {
 	/// The reminder subscription URL for the authenticated user.

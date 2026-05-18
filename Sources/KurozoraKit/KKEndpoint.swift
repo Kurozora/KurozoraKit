@@ -1041,6 +1041,12 @@ extension KKEndpoint {
 	}
 }
 
+// MARK: - Stickers
+extension KKEndpoint {
+	/// The set of available Stickers API endpoint types.
+	internal enum Stickers {}
+}
+
 // MARK: - Legal
 extension KKEndpoint {
 	/// The set of available Legal API endpoint types.
