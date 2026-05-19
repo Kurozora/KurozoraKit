@@ -37,9 +37,6 @@ public extension User {
 		/// The biography Markdown text of the user.
 		public var biographyMarkdown: String?
 
-		/// The activity status of the user.
-		public let activityStatus: ActivityStatus
-
 		/// The profile image of the user.
 		public var profile: Media?
 

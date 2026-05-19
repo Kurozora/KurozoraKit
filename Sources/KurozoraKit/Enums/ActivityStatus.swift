@@ -18,16 +18,16 @@ import UIKit
 /// case seenRecently
 /// case offline
 /// ```
-public enum ActivityStatus: String, Codable, Sendable {
+public enum ActivityStatus: Int, Sendable, Codable {
 	// MARK: - Cases
 	/// The user is currently online.
-	case online = "Online"
+	case online = 0
 
 	/// The user was recently online.
-	case seenRecently = "Seen Recently"
+	case seenRecently = 1
 
 	/// The user is offline.
-	case offline = "Offline"
+	case offline = 2
 
 	// MARK: - Properties
 	/// The string value of an activity status type.

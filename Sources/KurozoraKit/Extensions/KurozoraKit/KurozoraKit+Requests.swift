@@ -1631,4 +1631,28 @@ extension KurozoraKit {
 	public func reportParentalGuideEntry(_ entryIdentity: ParentalGuideEntryIdentity, reason: ParentalGuideReportReason, details: String?) -> ReportParentalGuideEntryRequest {
 		ReportParentalGuideEntryRequest(context: RequestContext(from: self), entryIdentity: entryIdentity, reason: reason, details: details)
 	}
+
+	// MARK: - Realtime
+	/// A stream of typed activity-status events for the given user received via the realtime channel.
+	///
+	/// - Parameter userID: The identifier of the user to observe.
+	///
+	/// - Returns: An asynchronous sequence of ``UserStatus/Event`` values.
+	public func userStatusEvents(for userID: Int) -> AsyncStream<UserStatus.Event> {
+		guard let webSocket = self.services._webSocket else {
+			return AsyncStream { $0.finish() }
+		}
+
+		return AsyncStream { continuation in
+			let task = Task {
+				for await event in await webSocket.userStatusEvents(for: userID) {
+					continuation.yield(event)
+				}
+
+				continuation.finish()
+			}
+
+			continuation.onTermination = { _ in task.cancel() }
+		}
+	}
 }

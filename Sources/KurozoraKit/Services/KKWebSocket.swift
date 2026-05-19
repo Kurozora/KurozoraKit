@@ -49,10 +49,20 @@ internal actor KKWebSocket {
 	private var heartbeatTask: Task<Void, Never>?
 	private var reconnectTask: Task<Void, Never>?
 	private var reconnectAttempt = 0
-	private var subscribedChannel: String?
 	private var lastInboundAt: Date = Date()
 
-	private var _isSignedIn: Bool = false
+	/// The set of channels the client wants to be subscribed to across reconnects.
+	private var desiredSubscriptions: Set<String> = []
+
+	/// The set of channels currently held open on the live socket.
+	private var activeSubscriptions: Set<String> = []
+
+	/// The per-user-status subscriber continuations keyed by user identifier.
+	private var userStatusContinuations: [Int: [UUID: AsyncStream<UserStatus.Event>.Continuation]] = [:]
+
+	/// The ephemeral visitor token used while signed out.
+	private let visitorToken: String = UUID().uuidString.lowercased()
+
 	private var _isForegrounded: Bool = true
 
 	private var userNotificationContinuations: [UUID: AsyncStream<UserNotification.Event>.Continuation] = [:]
@@ -76,7 +86,6 @@ internal actor KKWebSocket {
 	/// Binds the WebSocket to its owning ``KurozoraKit`` and starts observing auth + lifecycle notifications.
 	internal func _bind(to ref: KurozoraKitReference) {
 		self.kurozoraKit = ref.instance
-		self._isSignedIn = User.isSignedIn
 		self.startObservers()
 		self.reconcile()
 	}
@@ -90,7 +99,7 @@ internal actor KKWebSocket {
 			queue: nil
 		) { [weak self] _ in
 			Task { [weak self] in
-				await self?.handleSignInStateChange()
+				await self?.handleIdentityChange()
 			}
 		}
 		self.observerTokens.append(signInToken)
@@ -120,11 +129,30 @@ internal actor KKWebSocket {
 		#endif
 	}
 
-	private func handleSignInStateChange() async {
-		let isSignedIn = await MainActor.run { User.isSignedIn }
-		guard self._isSignedIn != isSignedIn else { return }
-		self._isSignedIn = isSignedIn
+	private func handleIdentityChange() async {
+		if self.task != nil {
+			self.disconnect()
+		}
+
+		self.tearDownPerUserState()
 		self.reconcile()
+	}
+
+	/// Finishes every per-user subscriber and drops every per-user subscription, so the new identity starts clean.
+	private func tearDownPerUserState() {
+		for (_, bucket) in self.userStatusContinuations {
+			for (_, continuation) in bucket {
+				continuation.finish()
+			}
+		}
+		self.userStatusContinuations.removeAll()
+
+		for (_, continuation) in self.userNotificationContinuations {
+			continuation.finish()
+		}
+		self.userNotificationContinuations.removeAll()
+
+		self.desiredSubscriptions.removeAll()
 	}
 
 	private func handleForegroundChange(isForegrounded: Bool) {
@@ -135,7 +163,7 @@ internal actor KKWebSocket {
 
 	// MARK: - Reconciliation
 	private func reconcile() {
-		let shouldBeConnected = self._isSignedIn && self._isForegrounded
+		let shouldBeConnected = self._isForegrounded
 
 		if shouldBeConnected, self.task == nil {
 			self.connect()
@@ -144,7 +172,7 @@ internal actor KKWebSocket {
 		}
 	}
 
-	// MARK: - Event stream
+	// MARK: - Event streams
 	/// A new stream of typed user notification events. Each call registers an independent consumer.
 	internal func userNotificationEvents() -> AsyncStream<UserNotification.Event> {
 		return AsyncStream { continuation in
@@ -158,12 +186,78 @@ internal actor KKWebSocket {
 		}
 	}
 
+	/// A new stream of typed user status events for the given user. Each call registers an independent consumer.
+	///
+	/// - Parameter userID: The identifier of the user to observe.
+	///
+	/// - Returns: An asynchronous sequence of ``UserStatus/Event`` values for the user.
+	internal func userStatusEvents(for userID: Int) -> AsyncStream<UserStatus.Event> {
+		return AsyncStream { continuation in
+			let id = UUID()
+			self.registerUserStatusContinuation(id, for: userID, continuation: continuation)
+
+			continuation.onTermination = { [weak self] _ in
+				Task { [weak self] in
+					await self?.removeUserStatusContinuation(id, for: userID)
+				}
+			}
+		}
+	}
+
+	private func registerUserStatusContinuation(_ id: UUID, for userID: Int, continuation: AsyncStream<UserStatus.Event>.Continuation) {
+		var bucket = self.userStatusContinuations[userID] ?? [:]
+		let wasEmpty = bucket.isEmpty
+		bucket[id] = continuation
+		self.userStatusContinuations[userID] = bucket
+
+		self.logger.info("register user-status continuation userID=\(userID, privacy: .public) bucketWasEmpty=\(wasEmpty, privacy: .public)")
+
+		let channel = self.userStatusChannel(for: userID)
+		self.desiredSubscriptions.insert(channel)
+
+		if wasEmpty {
+			self.sendPublicSubscribe(channel: channel)
+		} else if self.activeSubscriptions.contains(channel) {
+			self.sendUnsubscribe(channel: channel)
+			self.sendPublicSubscribe(channel: channel)
+		}
+	}
+
+	private func removeUserStatusContinuation(_ id: UUID, for userID: Int) {
+		guard var bucket = self.userStatusContinuations[userID] else { return }
+		bucket.removeValue(forKey: id)
+
+		if bucket.isEmpty {
+			self.userStatusContinuations.removeValue(forKey: userID)
+
+			let channel = self.userStatusChannel(for: userID)
+
+			self.desiredSubscriptions.remove(channel)
+			self.sendUnsubscribe(channel: channel)
+		} else {
+			self.userStatusContinuations[userID] = bucket
+		}
+	}
+
 	private func removeUserNotificationContinuation(_ id: UUID) {
 		self.userNotificationContinuations.removeValue(forKey: id)
 	}
 
 	private func yield(_ event: UserNotification.Event) {
 		for (_, continuation) in self.userNotificationContinuations {
+			continuation.yield(event)
+		}
+	}
+
+	private func yieldUserStatus(_ event: UserStatus.Event) {
+		guard let bucket = self.userStatusContinuations[event.id] else {
+			self.logger.info("yield user-status event userID=\(event.id, privacy: .public) DROPPED — no continuations")
+			return
+		}
+
+		self.logger.info("yield user-status event userID=\(event.id, privacy: .public) status=\(event.status.stringValue, privacy: .public) continuations=\(bucket.count, privacy: .public)")
+
+		for (_, continuation) in bucket {
 			continuation.yield(event)
 		}
 	}
@@ -196,11 +290,14 @@ internal actor KKWebSocket {
 
 		let webSocketTask = self.session.webSocketTask(with: request)
 		self.task = webSocketTask
-		self.subscribedChannel = nil
+
+		self.activeSubscriptions.removeAll()
+
 		self.lastInboundAt = Date()
 		webSocketTask.resume()
 
 		self.logger.info("WebSocket connecting to \(url.absoluteString, privacy: .public)")
+
 		self.startReceiveLoop()
 		self.startHeartbeatLoop()
 	}
@@ -215,7 +312,9 @@ internal actor KKWebSocket {
 		self.receiveTask = nil
 		self.task?.cancel(with: .normalClosure, reason: nil)
 		self.task = nil
-		self.subscribedChannel = nil
+
+		self.activeSubscriptions.removeAll()
+
 		self._socketID = nil
 		self.logger.info("WebSocket disconnected")
 	}
@@ -291,6 +390,10 @@ internal actor KKWebSocket {
 		case "pusher:error":
 			self.logger.error("WebSocket server error: \(envelope.data ?? "<no data>", privacy: .public)")
 		case "pusher_internal:subscription_succeeded":
+			if let channel = envelope.channel {
+				self.activeSubscriptions.insert(channel)
+			}
+
 			self.logger.info("WebSocket subscription succeeded for \(envelope.channel ?? "<unknown>", privacy: .public)")
 		default:
 			self.handleBroadcast(envelope: envelope)
@@ -317,30 +420,64 @@ internal actor KKWebSocket {
 	}
 
 	private func handleBroadcast(envelope: Frame) {
+		self.logger.info("handleBroadcast event=\(envelope.event, privacy: .public) channel=\(envelope.channel ?? "nil", privacy: .public)")
+
 		if let event = UserNotification.decodeEvent(from: envelope) {
 			self.logger.info("WebSocket broadcast \(envelope.event, privacy: .public) on \(envelope.channel ?? "<unknown>", privacy: .public)")
 			self.yield(event)
-		} else {
-			self.logger.debug("WebSocket unhandled broadcast \(envelope.event, privacy: .public)")
+			return
 		}
+
+		if let channel = envelope.channel, let userID = self.userIDForStatusChannel(channel),
+			let event = UserStatus.decodeEvent(from: envelope), event.id == userID {
+			self.logger.info("WebSocket broadcast \(envelope.event, privacy: .public) on \(channel, privacy: .public)")
+			self.yieldUserStatus(event)
+			return
+		}
+
+		self.logger.debug("WebSocket unhandled broadcast \(envelope.event, privacy: .public)")
 	}
 
 	// MARK: - Authorize + subscribe
 	private func authorizeAndSubscribe(socketID: String) async {
+		let isSignedIn = await MainActor.run { User.isSignedIn }
+
+		if isSignedIn {
+			await self.authorizePrivateSelf(socketID: socketID)
+		} else {
+			self.subscribeAppVisitor()
+		}
+
+		self.reattachDesiredSubscriptions()
+	}
+
+	private func authorizePrivateSelf(socketID: String) async {
 		guard let kurozoraKit = self.kurozoraKit else { return }
 
 		let context = RequestContext(from: kurozoraKit)
 
 		do {
 			let response = try await BroadcastingAuthRequest(context: context, socketID: socketID).response()
-			self.sendSubscription(channel: response.data.channelName, auth: response.data.auth)
+			self.sendPrivateSubscribe(channel: response.data.channelName, auth: response.data.auth)
 		} catch {
 			self.logger.error("WebSocket channel authorization failed: \(error.localizedDescription, privacy: .public)")
 		}
 	}
 
-	private func sendSubscription(channel: String, auth: String) {
-		self.subscribedChannel = channel
+	private func subscribeAppVisitor() {
+		let channel = "app-visitors.\(self.visitorToken)"
+		self.sendPublicSubscribe(channel: channel)
+	}
+
+	private func reattachDesiredSubscriptions() {
+		let pending = self.desiredSubscriptions.subtracting(self.activeSubscriptions)
+
+		for channel in pending {
+			self.sendPublicSubscribe(channel: channel)
+		}
+	}
+
+	private func sendPrivateSubscribe(channel: String, auth: String) {
 		self.logger.info("WebSocket subscribing to \(channel, privacy: .public)")
 		let frame: [String: Any] = [
 			"event": "pusher:subscribe",
@@ -350,6 +487,55 @@ internal actor KKWebSocket {
 			]
 		]
 		self.send(json: frame)
+	}
+
+	private func sendPublicSubscribe(channel: String) {
+		guard self.task != nil else {
+			self.logger.info("deferring subscribe \(channel, privacy: .public) — socket not connected, will reattach on connect")
+			return
+		}
+		guard !self.activeSubscriptions.contains(channel) else { return }
+
+		self.logger.info("WebSocket subscribing to \(channel, privacy: .public)")
+
+		let frame: [String: Any] = [
+			"event": "pusher:subscribe",
+			"data": [
+				"channel": channel
+			]
+		]
+		self.send(json: frame)
+	}
+
+	private func sendUnsubscribe(channel: String) {
+		guard self.task != nil else { return }
+		guard self.activeSubscriptions.contains(channel) else { return }
+
+		self.logger.info("WebSocket unsubscribing from \(channel, privacy: .public)")
+
+		let frame: [String: Any] = [
+			"event": "pusher:unsubscribe",
+			"data": [
+				"channel": channel
+			]
+		]
+		self.send(json: frame)
+		self.activeSubscriptions.remove(channel)
+	}
+
+	// MARK: - User-status channel helpers
+	private nonisolated func userStatusChannel(for userID: Int) -> String {
+		return "user-status.\(userID)"
+	}
+
+	private nonisolated func isUserStatusChannel(_ channel: String) -> Bool {
+		return channel.hasPrefix("user-status.")
+	}
+
+	private nonisolated func userIDForStatusChannel(_ channel: String) -> Int? {
+		let prefix = "user-status."
+		guard channel.hasPrefix(prefix) else { return nil }
+		return Int(channel.dropFirst(prefix.count))
 	}
 
 	// MARK: - Outbound
@@ -395,10 +581,13 @@ internal actor KKWebSocket {
 		self.receiveTask = nil
 		self.heartbeatTask?.cancel()
 		self.heartbeatTask = nil
-		self.subscribedChannel = nil
+
+		self.activeSubscriptions.removeAll()
+
 		self._socketID = nil
 
-		let shouldReconnect = self._isSignedIn && self._isForegrounded
+		let shouldReconnect = self._isForegrounded
+
 		if shouldReconnect {
 			self.scheduleReconnect()
 		}
@@ -423,7 +612,7 @@ internal actor KKWebSocket {
 	}
 
 	private func attemptReconnect() async {
-		guard self._isSignedIn, self._isForegrounded else { return }
+		guard self._isForegrounded else { return }
 		self.connect()
 	}
 }
