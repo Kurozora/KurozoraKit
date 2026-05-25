@@ -79,6 +79,9 @@ public extension User {
 		/// The ratings count of the user.
 		public let ratingsCount: Int
 
+		/// The number of achievements unlocked by the user.
+		public let achievementsCount: Int?
+
 		/// The preferred language of the user.
 		///
 		/// Included only for the currently signed in user.

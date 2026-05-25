@@ -927,6 +927,9 @@ extension KKEndpoint {
 		/// The endpoint to a user's blocking list.
 		case blocking(_ userIdentity: UserIdentity)
 
+		/// The endpoint to a user's achievements.
+		case achievements(_ userIdentity: UserIdentity)
+
 		/// The endpoint to the feed messages.
 		case feedMessages(_ userIdentity: UserIdentity)
 
@@ -977,6 +980,8 @@ extension KKEndpoint {
 				return "users/\(userIdentity.id)/block"
 			case .blocking(let userIdentity):
 				return "users/\(userIdentity.id)/blocking"
+			case .achievements(let userIdentity):
+				return "users/\(userIdentity.id)/achievements"
 			case .feedMessages(let userIdentity):
 				return "users/\(userIdentity.id)/feed-messages"
 			case .follow(let userIdentity):

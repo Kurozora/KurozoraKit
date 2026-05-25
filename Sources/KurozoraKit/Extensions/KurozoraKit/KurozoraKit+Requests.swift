@@ -1220,6 +1220,15 @@ extension KurozoraKit {
 		UserReviewsRequest(context: RequestContext(from: self), userIdentity: userIdentity)
 	}
 
+	/// Returns a request that fetches the achievements available to the specified user, including each achievement's locked or unlocked state.
+	///
+	/// - Parameter userIdentity: The identity of the user.
+	///
+	/// - Returns: A configured ``UserAchievementsRequest`` ready to be executed.
+	public func achievements(forUser userIdentity: UserIdentity) -> UserAchievementsRequest {
+		UserAchievementsRequest(context: RequestContext(from: self), userIdentity: userIdentity)
+	}
+
 	/// Returns a request that searches for users matching the specified username.
 	///
 	/// - Parameter username: The username to search for.

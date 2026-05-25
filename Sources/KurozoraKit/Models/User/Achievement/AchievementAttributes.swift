@@ -18,13 +18,10 @@ extension Achievement {
 		/// The description of the achievement.
 		public let description: String
 
-		/// The text color of the achievement.
-		public let textColor: String
-
-		/// The background color of the achievement.
-		public let backgroundColor: String
-
 		/// The media object of the symbol of the achievement.
 		public let symbol: Media?
+
+		/// The date on which the user unlocked the achievement.
+		public let achievedAt: Date?
 	}
 }
