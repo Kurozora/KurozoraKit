@@ -14,4 +14,9 @@ extension Notification.Name {
 	public static var KUserIsSignedInDidChange: NSNotification.Name {
 		return Notification.Name(#function)
 	}
+
+	/// Tells that a user's moderation timeout has changed.
+	public static var KUserTimeoutDidChange: NSNotification.Name {
+		return Notification.Name(#function)
+	}
 }

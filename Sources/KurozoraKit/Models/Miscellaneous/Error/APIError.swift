@@ -96,4 +96,9 @@ public extension APIError {
 
 		return "An unknown error occurred."
 	}
+
+	/// Whether the failure was caused by the user being currently suspended.
+	var isUserTimedOut: Bool {
+		return self.errors.contains(where: { $0.id == 40023 })
+	}
 }

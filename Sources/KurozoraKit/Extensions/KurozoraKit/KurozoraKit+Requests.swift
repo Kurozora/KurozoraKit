@@ -36,8 +36,8 @@ extension KurozoraKit {
 	/// including a set of related resources.
 	///
 	/// - Parameters:
-	///   - identity: The identity of the show to fetch.
-	///   - relationships: The relationships to include with the response.
+	///    - identity: The identity of the show to fetch.
+	///    - relationships: The relationships to include with the response.
 	///
 	/// - Returns: A configured ``DetailRequest`` ready to be executed.
 	public func detail(_ identity: ShowIdentity, including relationships: [Show.Relationship] = []) -> DetailRequest<ShowIdentity> {
@@ -48,8 +48,8 @@ extension KurozoraKit {
 	/// including a set of related resources.
 	///
 	/// - Parameters:
-	///   - identity: The identity of the game to fetch.
-	///   - relationships: The relationships to include with the response.
+	///    - identity: The identity of the game to fetch.
+	///    - relationships: The relationships to include with the response.
 	///
 	/// - Returns: A configured ``DetailRequest`` ready to be executed.
 	public func detail(_ identity: GameIdentity, including relationships: [Game.Relationship] = []) -> DetailRequest<GameIdentity> {
@@ -60,8 +60,8 @@ extension KurozoraKit {
 	/// including a set of related resources.
 	///
 	/// - Parameters:
-	///   - identity: The identity of the literature to fetch.
-	///   - relationships: The relationships to include with the response.
+	///    - identity: The identity of the literature to fetch.
+	///    - relationships: The relationships to include with the response.
 	///
 	/// - Returns: A configured ``DetailRequest`` ready to be executed.
 	public func detail(_ identity: LiteratureIdentity, including relationships: [Literature.Relationship] = []) -> DetailRequest<LiteratureIdentity> {
@@ -72,8 +72,8 @@ extension KurozoraKit {
 	/// including a set of related resources.
 	///
 	/// - Parameters:
-	///   - identity: The identity of the character to fetch.
-	///   - relationships: The relationships to include with the response.
+	///    - identity: The identity of the character to fetch.
+	///    - relationships: The relationships to include with the response.
 	///
 	/// - Returns: A configured ``DetailRequest`` ready to be executed.
 	public func detail(_ identity: CharacterIdentity, including relationships: [Character.Relationship] = []) -> DetailRequest<CharacterIdentity> {
@@ -84,8 +84,8 @@ extension KurozoraKit {
 	/// including a set of related resources.
 	///
 	/// - Parameters:
-	///   - identity: The identity of the person to fetch.
-	///   - relationships: The relationships to include with the response.
+	///    - identity: The identity of the person to fetch.
+	///    - relationships: The relationships to include with the response.
 	///
 	/// - Returns: A configured ``DetailRequest`` ready to be executed.
 	public func detail(_ identity: PersonIdentity, including relationships: [Person.Relationship] = []) -> DetailRequest<PersonIdentity> {
@@ -96,8 +96,8 @@ extension KurozoraKit {
 	/// including a set of related resources.
 	///
 	/// - Parameters:
-	///   - identity: The identity of the episode to fetch.
-	///   - relationships: The relationships to include with the response.
+	///    - identity: The identity of the episode to fetch.
+	///    - relationships: The relationships to include with the response.
 	///
 	/// - Returns: A configured ``DetailRequest`` ready to be executed.
 	public func detail(_ identity: EpisodeIdentity, including relationships: [Episode.Relationship] = []) -> DetailRequest<EpisodeIdentity> {
@@ -108,8 +108,8 @@ extension KurozoraKit {
 	/// including a set of related resources.
 	///
 	/// - Parameters:
-	///   - identity: The identity of the studio to fetch.
-	///   - relationships: The relationships to include with the response.
+	///    - identity: The identity of the studio to fetch.
+	///    - relationships: The relationships to include with the response.
 	///
 	/// - Returns: A configured ``DetailRequest`` ready to be executed.
 	public func detail(_ identity: StudioIdentity, including relationships: [Studio.Relationship] = []) -> DetailRequest<StudioIdentity> {
@@ -120,8 +120,8 @@ extension KurozoraKit {
 	/// including a set of related resources.
 	///
 	/// - Parameters:
-	///   - identity: The identity of the song to fetch.
-	///   - relationships: The relationships to include with the response.
+	///    - identity: The identity of the song to fetch.
+	///    - relationships: The relationships to include with the response.
 	///
 	/// - Returns: A configured ``DetailRequest`` ready to be executed.
 	public func detail(_ identity: SongIdentity, including relationships: [Song.Relationship] = []) -> DetailRequest<SongIdentity> {
@@ -642,9 +642,9 @@ extension KurozoraKit {
 	/// Returns a request that performs a search.
 	///
 	/// - Parameters:
-	///   - scope: The scope to search within.
-	///   - types: The resource types to include in the search.
-	///   - query: The text to search for.
+	///    - scope: The scope to search within.
+	///    - types: The resource types to include in the search.
+	///    - query: The text to search for.
 	///
 	/// - Returns: A configured ``SearchRequest`` ready to be executed.
 	public func search(_ scope: SearchScope, types: [SearchType], query: String) -> SearchRequest {
@@ -658,8 +658,8 @@ extension KurozoraKit {
 	/// filtered by kind and status.
 	///
 	/// - Parameters:
-	///   - kind: The kind of library to fetch.
-	///   - status: The status to filter on.
+	///    - kind: The kind of library to fetch.
+	///    - status: The status to filter on.
 	///
 	/// - Returns: A configured ``LibraryRequest`` ready to be executed.
 	public func library(_ kind: LibraryKind, status: LibraryStatus) -> LibraryRequest {
@@ -670,9 +670,9 @@ extension KurozoraKit {
 	/// user's library.
 	///
 	/// - Parameters:
-	///   - kind: The kind of library to modify.
-	///   - status: The status to assign to the items.
-	///   - itemIDs: The identifiers of the items to add.
+	///    - kind: The kind of library to modify.
+	///    - status: The status to assign to the items.
+	///    - itemIDs: The identifiers of the items to add.
 	///
 	/// - Returns: A configured ``LibraryAddRequest`` ready to be executed.
 	public func addToLibrary(_ kind: LibraryKind, status: LibraryStatus, itemIDs: [KurozoraItemID]) -> LibraryAddRequest {
@@ -683,8 +683,8 @@ extension KurozoraKit {
 	/// user's library.
 	///
 	/// - Parameters:
-	///   - kind: The kind of library to modify.
-	///   - itemIDs: The identifiers of the items to update.
+	///    - kind: The kind of library to modify.
+	///    - itemIDs: The identifiers of the items to update.
 	///
 	/// - Returns: A configured ``LibraryUpdateRequest`` ready to be executed.
 	public func updateInLibrary(_ kind: LibraryKind, itemIDs: [KurozoraItemID]) -> LibraryUpdateRequest {
@@ -695,8 +695,8 @@ extension KurozoraKit {
 	/// user's library.
 	///
 	/// - Parameters:
-	///   - kind: The kind of library to modify.
-	///   - itemIDs: The identifiers of the items to remove.
+	///    - kind: The kind of library to modify.
+	///    - itemIDs: The identifiers of the items to remove.
 	///
 	/// - Returns: A configured ``LibraryRemoveRequest`` ready to be executed.
 	public func removeFromLibrary(_ kind: LibraryKind, itemIDs: [KurozoraItemID]) -> LibraryRemoveRequest {
@@ -709,8 +709,8 @@ extension KurozoraKit {
 	/// Returns a request that submits a rating for the specified show.
 	///
 	/// - Parameters:
-	///   - identity: The identity of the show to rate.
-	///   - score: The rating to submit.
+	///    - identity: The identity of the show to rate.
+	///    - score: The rating to submit.
 	///
 	/// - Returns: A configured ``RateRequest`` ready to be executed.
 	public func rate(_ identity: ShowIdentity, score: Double) -> RateRequest {
@@ -720,8 +720,8 @@ extension KurozoraKit {
 	/// Returns a request that submits a rating for the specified game.
 	///
 	/// - Parameters:
-	///   - identity: The identity of the game to rate.
-	///   - score: The rating to submit.
+	///    - identity: The identity of the game to rate.
+	///    - score: The rating to submit.
 	///
 	/// - Returns: A configured ``RateRequest`` ready to be executed.
 	public func rate(_ identity: GameIdentity, score: Double) -> RateRequest {
@@ -731,8 +731,8 @@ extension KurozoraKit {
 	/// Returns a request that submits a rating for the specified literature.
 	///
 	/// - Parameters:
-	///   - identity: The identity of the literature to rate.
-	///   - score: The rating to submit.
+	///    - identity: The identity of the literature to rate.
+	///    - score: The rating to submit.
 	///
 	/// - Returns: A configured ``RateRequest`` ready to be executed.
 	public func rate(_ identity: LiteratureIdentity, score: Double) -> RateRequest {
@@ -742,8 +742,8 @@ extension KurozoraKit {
 	/// Returns a request that submits a rating for the specified character.
 	///
 	/// - Parameters:
-	///   - identity: The identity of the character to rate.
-	///   - score: The rating to submit.
+	///    - identity: The identity of the character to rate.
+	///    - score: The rating to submit.
 	///
 	/// - Returns: A configured ``RateRequest`` ready to be executed.
 	public func rate(_ identity: CharacterIdentity, score: Double) -> RateRequest {
@@ -753,8 +753,8 @@ extension KurozoraKit {
 	/// Returns a request that submits a rating for the specified person.
 	///
 	/// - Parameters:
-	///   - identity: The identity of the person to rate.
-	///   - score: The rating to submit.
+	///    - identity: The identity of the person to rate.
+	///    - score: The rating to submit.
 	///
 	/// - Returns: A configured ``RateRequest`` ready to be executed.
 	public func rate(_ identity: PersonIdentity, score: Double) -> RateRequest {
@@ -764,8 +764,8 @@ extension KurozoraKit {
 	/// Returns a request that submits a rating for the specified song.
 	///
 	/// - Parameters:
-	///   - identity: The identity of the song to rate.
-	///   - score: The rating to submit.
+	///    - identity: The identity of the song to rate.
+	///    - score: The rating to submit.
 	///
 	/// - Returns: A configured ``RateRequest`` ready to be executed.
 	public func rate(_ identity: SongIdentity, score: Double) -> RateRequest {
@@ -775,8 +775,8 @@ extension KurozoraKit {
 	/// Returns a request that submits a rating for the specified episode.
 	///
 	/// - Parameters:
-	///   - identity: The identity of the episode to rate.
-	///   - score: The rating to submit.
+	///    - identity: The identity of the episode to rate.
+	///    - score: The rating to submit.
 	///
 	/// - Returns: A configured ``RateRequest`` ready to be executed.
 	public func rate(_ identity: EpisodeIdentity, score: Double) -> RateRequest {
@@ -786,8 +786,8 @@ extension KurozoraKit {
 	/// Returns a request that submits a rating for the specified studio.
 	///
 	/// - Parameters:
-	///   - identity: The identity of the studio to rate.
-	///   - score: The rating to submit.
+	///    - identity: The identity of the studio to rate.
+	///    - score: The rating to submit.
 	///
 	/// - Returns: A configured ``RateRequest`` ready to be executed.
 	public func rate(_ identity: StudioIdentity, score: Double) -> RateRequest {
@@ -832,8 +832,8 @@ extension KurozoraKit {
 	/// library items.
 	///
 	/// - Parameters:
-	///   - kind: The kind of library that contains the items.
-	///   - itemIDs: The identifiers of the items to toggle.
+	///    - kind: The kind of library that contains the items.
+	///    - itemIDs: The identifiers of the items to toggle.
 	///
 	/// - Returns: A configured ``FavoriteRequest`` ready to be executed.
 	public func toggleFavorite(inLibrary kind: LibraryKind, itemIDs: [KurozoraItemID]) -> FavoriteRequest {
@@ -844,8 +844,8 @@ extension KurozoraKit {
 	/// library items.
 	///
 	/// - Parameters:
-	///   - kind: The kind of library that contains the items.
-	///   - itemIDs: The identifiers of the items to toggle.
+	///    - kind: The kind of library that contains the items.
+	///    - itemIDs: The identifiers of the items to toggle.
 	///
 	/// - Returns: A configured ``ReminderRequest`` ready to be executed.
 	public func toggleReminder(inLibrary kind: LibraryKind, itemIDs: [KurozoraItemID]) -> ReminderRequest {
@@ -858,8 +858,8 @@ extension KurozoraKit {
 	/// Returns a request that signs a user in with an email address and password.
 	///
 	/// - Parameters:
-	///   - email: The user's email address.
-	///   - password: The user's password.
+	///    - email: The user's email address.
+	///    - password: The user's password.
 	///
 	/// - Returns: A configured ``SignInRequest`` ready to be executed.
 	public func signIn(email: String, password: String) -> SignInRequest {
@@ -889,10 +889,10 @@ extension KurozoraKit {
 	/// Returns a request that registers a new user account.
 	///
 	/// - Parameters:
-	///   - username: The username for the new account.
-	///   - emailAddress: The email address for the new account.
-	///   - password: The password for the new account.
-	///   - profileImage: An optional profile image for the new account.
+	///    - username: The username for the new account.
+	///    - emailAddress: The email address for the new account.
+	///    - password: The password for the new account.
+	///    - profileImage: An optional profile image for the new account.
 	///
 	/// - Returns: A configured ``SignUpRequest`` ready to be executed.
 	public func signUp(username: String, emailAddress: String, password: String, profileImage: UIImage? = nil) -> SignUpRequest {
@@ -1034,8 +1034,8 @@ extension KurozoraKit {
 	/// library for the specified kind.
 	///
 	/// - Parameters:
-	///   - kind: The kind of library to clear.
-	///   - password: The user's password, used to confirm the clear.
+	///    - kind: The kind of library to clear.
+	///    - password: The user's password, used to confirm the clear.
 	///
 	/// - Returns: A configured ``ClearLibraryRequest`` ready to be executed.
 	public func clearLibrary(_ kind: LibraryKind, password: String) -> ClearLibraryRequest {
@@ -1046,10 +1046,10 @@ extension KurozoraKit {
 	/// user's library.
 	///
 	/// - Parameters:
-	///   - kind: The kind of library to import into.
-	///   - service: The source service that produced the file.
-	///   - behavior: The merge behavior to apply during import.
-	///   - filePath: The location of the file to import.
+	///    - kind: The kind of library to import into.
+	///    - service: The source service that produced the file.
+	///    - behavior: The merge behavior to apply during import.
+	///    - filePath: The location of the file to import.
 	///
 	/// - Returns: A configured ``ImportLibraryRequest`` ready to be executed.
 	public func importLibrary(_ kind: LibraryKind, service: LibraryImport.Service, behavior: LibraryImport.Behavior, filePath: URL) -> ImportLibraryRequest {
@@ -1106,8 +1106,8 @@ extension KurozoraKit {
 	/// Returns a request that updates the read status of a notification.
 	///
 	/// - Parameters:
-	///   - notificationID: The identifier of the notification to update.
-	///   - readStatus: The new read status for the notification.
+	///    - notificationID: The identifier of the notification to update.
+	///    - readStatus: The new read status for the notification.
 	///
 	/// - Returns: A configured ``UpdateNotificationRequest`` ready to be executed.
 	public func updateNotification(_ notificationID: String, readStatus: ReadStatus) -> UpdateNotificationRequest {
@@ -1152,8 +1152,8 @@ extension KurozoraKit {
 	/// Returns a request that fetches a user's followers or following list.
 	///
 	/// - Parameters:
-	///   - userIdentity: The identity of the user.
-	///   - listType: The follow list to fetch.
+	///    - userIdentity: The identity of the user.
+	///    - listType: The follow list to fetch.
 	///
 	/// - Returns: A configured ``UserFollowListRequest`` ready to be executed.
 	public func followList(forUser userIdentity: UserIdentity, _ listType: UsersListType) -> UserFollowListRequest {
@@ -1187,11 +1187,51 @@ extension KurozoraKit {
 		ToggleBlockRequest(context: RequestContext(from: self), userIdentity: userIdentity)
 	}
 
+	/// Returns a request that issues a moderation timeout against the specified user.
+	///
+	/// - Parameters:
+	///    - userIdentity: The identity of the user to time out.
+	///    - duration: The preset duration of the timeout, or ``TimeoutDuration/permanent`` for a permanent ban.
+	///    - reason: The category of the reason the timeout is being issued.
+	///    - note: An optional staff-authored note attached to the timeout.
+	///
+	/// - Returns: A configured ``IssueTimeoutRequest`` ready to be executed.
+	public func issueTimeout(_ userIdentity: UserIdentity, duration: TimeoutDuration, reason: TimeoutReason, note: String? = nil) -> IssueTimeoutRequest {
+		IssueTimeoutRequest(context: RequestContext(from: self), userIdentity: userIdentity, duration: duration, reason: reason, note: note)
+	}
+
+	/// Returns a request that revokes the currently active moderation timeout on the specified user.
+	///
+	/// - Parameter userIdentity: The identity of the user whose timeout should be revoked.
+	///
+	/// - Returns: A configured ``RevokeTimeoutRequest`` ready to be executed.
+	public func revokeTimeout(_ userIdentity: UserIdentity) -> RevokeTimeoutRequest {
+		RevokeTimeoutRequest(context: RequestContext(from: self), userIdentity: userIdentity)
+	}
+
+	/// Returns a request that files an appeal against the authenticated user's currently active timeout.
+	///
+	/// - Parameter message: The user-authored appeal message.
+	///
+	/// - Returns: A configured ``AppealTimeoutRequest`` ready to be executed.
+	public func appealTimeout(message: String) -> AppealTimeoutRequest {
+		AppealTimeoutRequest(context: RequestContext(from: self), message: message)
+	}
+
+	/// Returns a request that updates the authenticated user's existing timeout appeal.
+	///
+	/// - Parameter message: The replacement appeal message.
+	///
+	/// - Returns: A configured ``UpdateTimeoutAppealRequest`` ready to be executed.
+	public func updateAppealTimeout(message: String) -> UpdateTimeoutAppealRequest {
+		UpdateTimeoutAppealRequest(context: RequestContext(from: self), message: message)
+	}
+
 	/// Returns a request that fetches a user's favorites filtered by library kind.
 	///
 	/// - Parameters:
-	///   - userIdentity: The identity of the user.
-	///   - kind: The kind of library to fetch favorites for.
+	///    - userIdentity: The identity of the user.
+	///    - kind: The kind of library to fetch favorites for.
 	///
 	/// - Returns: A configured ``UserFavoritesRequest`` ready to be executed.
 	public func favorites(forUser userIdentity: UserIdentity, kind: LibraryKind) -> UserFavoritesRequest {
@@ -1202,9 +1242,9 @@ extension KurozoraKit {
 	/// specified filters.
 	///
 	/// - Parameters:
-	///   - userIdentity: The identity of the user.
-	///   - kind: The kind of library to fetch.
-	///   - status: The status to filter on.
+	///    - userIdentity: The identity of the user.
+	///    - kind: The kind of library to fetch.
+	///    - status: The status to filter on.
 	///
 	/// - Returns: A configured ``UserLibraryRequest`` ready to be executed.
 	public func library(forUser userIdentity: UserIdentity, kind: LibraryKind, status: LibraryStatus) -> UserLibraryRequest {
@@ -1396,8 +1436,8 @@ extension KurozoraKit {
 	/// Returns a request that fetches the schedule for the specified type and date.
 	///
 	/// - Parameters:
-	///   - type: The kind of schedule to fetch.
-	///   - date: The date to fetch the schedule for.
+	///    - type: The kind of schedule to fetch.
+	///    - date: The date to fetch the schedule for.
 	///
 	/// - Returns: A configured ``ScheduleRequest`` ready to be executed.
 	public func schedule(for type: KKScheduleType, in date: Date) -> ScheduleRequest {
@@ -1407,10 +1447,10 @@ extension KurozoraKit {
 	/// Returns a request that fetches the seasonal browse listing for the specified kind, year and season.
 	///
 	/// - Parameters:
-	///   - kind: The kind of items to browse (shows, literatures or games).
-	///   - year: The year of the season.
-	///   - season: The season of the year.
-	///   - mediaTypeIDs: An optional list of media type identifiers to filter by.
+	///    - kind: The kind of items to browse (shows, literatures or games).
+	///    - year: The year of the season.
+	///    - season: The season of the year.
+	///    - mediaTypeIDs: An optional list of media type identifiers to filter by.
 	///
 	/// - Returns: A configured ``BrowseSeasonRequest`` ready to be executed.
 	public func browseSeason(_ kind: BrowseSeasonType, year: Int, season: SeasonOfYear, mediaTypeIDs: [Int] = []) -> BrowseSeasonRequest {
@@ -1425,8 +1465,8 @@ extension KurozoraKit {
 	/// Returns a request that fetches the recap for the specified year and month.
 	///
 	/// - Parameters:
-	///   - year: The year of the recap.
-	///   - month: The month of the recap.
+	///    - year: The year of the recap.
+	///    - month: The month of the recap.
 	///
 	/// - Returns: A configured ``RecapDetailRequest`` ready to be executed.
 	public func recap(year: String, month: String) -> RecapDetailRequest {
@@ -1436,9 +1476,9 @@ extension KurozoraKit {
 	/// Returns a request that fetches search suggestions for the specified query.
 	///
 	/// - Parameters:
-	///   - scope: The scope to search within.
-	///   - types: The resource types to include in the suggestions.
-	///   - query: The text to suggest results for.
+	///    - scope: The scope to search within.
+	///    - types: The resource types to include in the suggestions.
+	///    - query: The text to suggest results for.
 	///
 	/// - Returns: A configured ``SearchSuggestionsRequest`` ready to be executed.
 	public func searchSuggestions(_ scope: SearchScope, types: [SearchType], query: String) -> SearchSuggestionsRequest {
@@ -1462,8 +1502,8 @@ extension KurozoraKit {
 	/// specified kind and collection.
 	///
 	/// - Parameters:
-	///   - kind: The kind of media.
-	///   - collection: The collection to draw images from.
+	///    - kind: The kind of media.
+	///    - collection: The collection to draw images from.
 	///
 	/// - Returns: A configured ``RandomImagesRequest`` ready to be executed.
 	public func randomImages(of kind: MediaKind, from collection: MediaCollection) -> RandomImagesRequest {
@@ -1568,8 +1608,8 @@ extension KurozoraKit {
 	/// Returns a request that submits (or upserts) the authenticated user's parental guide entry on a show.
 	///
 	/// - Parameters:
-	///   - show: The identity of the show to submit the entry for.
-	///   - request: The parental guide entry payload.
+	///    - show: The identity of the show to submit the entry for.
+	///    - request: The parental guide entry payload.
 	///
 	/// - Returns: A configured ``SubmitParentalGuideEntryRequest`` ready to be executed.
 	public func submitParentalGuideEntry(for show: ShowIdentity, request: ParentalGuideEntryRequest) -> SubmitParentalGuideEntryRequest {
@@ -1579,8 +1619,8 @@ extension KurozoraKit {
 	/// Returns a request that submits (or upserts) the authenticated user's parental guide entry on a literature.
 	///
 	/// - Parameters:
-	///   - literature: The identity of the literature to submit the entry for.
-	///   - request: The parental guide entry payload.
+	///    - literature: The identity of the literature to submit the entry for.
+	///    - request: The parental guide entry payload.
 	///
 	/// - Returns: A configured ``SubmitParentalGuideEntryRequest`` ready to be executed.
 	public func submitParentalGuideEntry(for literature: LiteratureIdentity, request: ParentalGuideEntryRequest) -> SubmitParentalGuideEntryRequest {
@@ -1590,8 +1630,8 @@ extension KurozoraKit {
 	/// Returns a request that submits (or upserts) the authenticated user's parental guide entry on a game.
 	///
 	/// - Parameters:
-	///   - game: The identity of the game to submit the entry for.
-	///   - request: The parental guide entry payload.
+	///    - game: The identity of the game to submit the entry for.
+	///    - request: The parental guide entry payload.
 	///
 	/// - Returns: A configured ``SubmitParentalGuideEntryRequest`` ready to be executed.
 	public func submitParentalGuideEntry(for game: GameIdentity, request: ParentalGuideEntryRequest) -> SubmitParentalGuideEntryRequest {
@@ -1610,8 +1650,8 @@ extension KurozoraKit {
 	/// Returns a request that casts (or clears) a helpful / unhelpful vote on a parental guide entry.
 	///
 	/// - Parameters:
-	///   - entryIdentity: The identity of the parental guide entry to vote on.
-	///   - request: The vote payload. Pass `nil` to clear the existing vote.
+	///    - entryIdentity: The identity of the parental guide entry to vote on.
+	///    - request: The vote payload. Pass `nil` to clear the existing vote.
 	///
 	/// - Returns: A configured ``VoteOnParentalGuideEntryRequest`` ready to be executed.
 	public func voteParentalGuideEntry(_ entryIdentity: ParentalGuideEntryIdentity, request: ParentalGuideVoteRequest) -> VoteOnParentalGuideEntryRequest {
@@ -1621,8 +1661,8 @@ extension KurozoraKit {
 	/// Returns a request that updates an existing parental guide entry in place.
 	///
 	/// - Parameters:
-	///   - entryIdentity: The identity of the parental guide entry to update.
-	///   - request: The submission payload describing the new values.
+	///    - entryIdentity: The identity of the parental guide entry to update.
+	///    - request: The submission payload describing the new values.
 	///
 	/// - Returns: A configured ``UpdateParentalGuideEntryRequest`` ready to be executed.
 	public func updateParentalGuideEntry(_ entryIdentity: ParentalGuideEntryIdentity, request: ParentalGuideEntryRequest) -> UpdateParentalGuideEntryRequest {
@@ -1632,9 +1672,9 @@ extension KurozoraKit {
 	/// Returns a request that files a report against a parental guide entry.
 	///
 	/// - Parameters:
-	///   - entryIdentity: The identity of the parental guide entry to report.
-	///   - reason: The reason for the report.
-	///   - details: The free-text details. Required when `reason` is ``ParentalGuideReportReason/other``.
+	///    - entryIdentity: The identity of the parental guide entry to report.
+	///    - reason: The reason for the report.
+	///    - details: The free-text details. Required when `reason` is ``ParentalGuideReportReason/other``.
 	///
 	/// - Returns: A configured ``ReportParentalGuideEntryRequest`` ready to be executed.
 	public func reportParentalGuideEntry(_ entryIdentity: ParentalGuideEntryIdentity, reason: ParentalGuideReportReason, details: String?) -> ReportParentalGuideEntryRequest {

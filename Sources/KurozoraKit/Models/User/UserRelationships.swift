@@ -14,5 +14,8 @@ extension User {
 		// MARK: - Properties
 		/// The access tokens belonging to the user.
 		public let accessTokens: ResourceCollection<AccessToken>?
+
+		/// The active moderation timeout in effect against the user.
+		public let timeout: ResourceCollection<UserTimeout>?
 	}
 }

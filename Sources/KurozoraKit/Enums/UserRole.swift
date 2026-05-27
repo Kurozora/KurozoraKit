@@ -13,7 +13,8 @@ import Foundation
 /// ```
 /// case superAdmin = 1
 /// case admin = 2
-/// case editor = 3
+/// case mod = 3
+/// case editor = 4
 /// ```
 public enum UserRole: Int, Codable, Sendable {
 	// MARK: - Cases
@@ -21,6 +22,8 @@ public enum UserRole: Int, Codable, Sendable {
 	case superAdmin = 1
 	/// Indicates the user has the admin role.
 	case admin = 2
+	/// Indicates the user has the moderator role.
+	case mod = 3
 	/// Indicates the user has the editor role.
-	case editor = 3
+	case editor = 4
 }

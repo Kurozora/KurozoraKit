@@ -960,6 +960,9 @@ extension KKEndpoint {
 		/// The endpoint to delete a user's account.
 		case delete
 
+		/// The endpoint to issue or revoke a moderation timeout on a user.
+		case timeout(_ userIdentity: UserIdentity)
+
 		// MARK: - Properties
 		/// The endpoint value of the Users API type.
 		var endpointValue: String {
@@ -1002,6 +1005,8 @@ extension KKEndpoint {
 				return "users/search/\(username)"
 			case .delete:
 				return "users/delete"
+			case .timeout(let userIdentity):
+				return "users/\(userIdentity.id)/timeout"
 			}
 		}
 	}
@@ -1027,6 +1032,12 @@ extension KKEndpoint {
 		/// The endpoint to the authenticated user's blocked users list.
 		case blocked
 
+		/// The endpoint for filing an appeal against the authenticated user's active timeout.
+		case timeoutAppeal
+
+		/// The endpoint for updating the authenticated user's existing appeal.
+		case timeoutAppealUpdate
+
 		// MARK: - Properties
 		/// The endpoint value of the Me API type.
 		var endpointValue: String {
@@ -1041,6 +1052,10 @@ extension KKEndpoint {
 				return "me/following"
 			case .blocked:
 				return "me/blocked"
+			case .timeoutAppeal:
+				return "me/timeout/appeal"
+			case .timeoutAppealUpdate:
+				return "me/timeout/appeal/update"
 			}
 		}
 	}
