@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Network
 import os.log
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
@@ -32,7 +33,11 @@ internal actor KKWebSocket {
 	private nonisolated let appKey: String
 
 	private nonisolated let logger = Logger(subsystem: KKWebSocket.logSubsystem, category: KKWebSocket.logCategory)
-	private nonisolated let session: URLSession
+	private var session: URLSession
+
+	private nonisolated let pathMonitor: NWPathMonitor
+	private nonisolated let pathMonitorQueue: DispatchQueue
+	private var lastPathStatus: NWPath.Status?
 
 	/// The socket identifier assigned during the most recent handshake.
 	private var _socketID: String?
@@ -75,11 +80,16 @@ internal actor KKWebSocket {
 	/// - Parameter appKey: The public realtime app key.
 	internal init(appKey: String) {
 		self.appKey = appKey
+		self.session = KKWebSocket.makeSession()
+		self.pathMonitor = NWPathMonitor()
+		self.pathMonitorQueue = DispatchQueue(label: "app.kurozora.KurozoraKit.WebSocket.path", qos: .utility)
+	}
 
-		let sessionConfiguration = URLSessionConfiguration.default
-		sessionConfiguration.timeoutIntervalForRequest = KKWebSocket.requestTimeout
-		sessionConfiguration.timeoutIntervalForResource = KKWebSocket.resourceTimeout
-		self.session = URLSession(configuration: sessionConfiguration)
+	private static func makeSession() -> URLSession {
+		let configuration = URLSessionConfiguration.default
+		configuration.timeoutIntervalForRequest = KKWebSocket.requestTimeout
+		configuration.timeoutIntervalForResource = KKWebSocket.resourceTimeout
+		return URLSession(configuration: configuration)
 	}
 
 	// MARK: - Binding
@@ -127,6 +137,13 @@ internal actor KKWebSocket {
 		}
 		self.observerTokens.append(foregroundToken)
 		#endif
+
+		self.pathMonitor.pathUpdateHandler = { [weak self] path in
+			Task { [weak self] in
+				await self?.handlePathChange(status: path.status)
+			}
+		}
+		self.pathMonitor.start(queue: self.pathMonitorQueue)
 	}
 
 	private func handleIdentityChange() async {
@@ -159,6 +176,31 @@ internal actor KKWebSocket {
 		guard self._isForegrounded != isForegrounded else { return }
 		self._isForegrounded = isForegrounded
 		self.reconcile()
+	}
+
+	/// Handles a network reachability transition.
+	///
+	/// - Parameter status: The newly observed path status.
+	private func handlePathChange(status: NWPath.Status) {
+		let previous = self.lastPathStatus
+		self.lastPathStatus = status
+
+		guard previous != nil else { return }
+
+		let wasUnsatisfied = previous == .unsatisfied
+		let isUnsatisfied = status == .unsatisfied
+
+		if !wasUnsatisfied, isUnsatisfied {
+			self.logger.info("WebSocket network became unsatisfied — disconnecting")
+			if self.task != nil {
+				self.disconnect()
+			}
+		} else if wasUnsatisfied, !isUnsatisfied {
+			self.logger.info("WebSocket network restored — rebuilding URLSession and reconnecting")
+			self.session.invalidateAndCancel()
+			self.session = KKWebSocket.makeSession()
+			self.reconcile()
+		}
 	}
 
 	// MARK: - Reconciliation
