@@ -45,6 +45,8 @@ extension UserNotification {
 		case "new-feed-message-re-share": return .newFeedMessageReShare(payload)
 		case "new-user-mention": return .newUserMention(payload)
 		case "subscription-status": return .subscriptionStatus(payload)
+		case "user-timed-out": return .userTimedOut(payload)
+		case "user-timeout-expired": return .userTimeoutExpired(payload)
 		case "library-import-finished": return .libraryImportFinished(payload)
 		case "library-import-unsupported": return .libraryImportUnsupported(payload)
 		case "local-library-import-finished": return .localLibraryImportFinished(payload)

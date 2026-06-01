@@ -14,7 +14,9 @@
 /// - `feedMessageReShare`: the notification has a `feedMessageReShare` type and thus has the message style.
 /// - `userMention`: the notification has a `userMention` type and thus has the mention style.
 /// - `libraryImportFinished`: the notification has a `libraryImportFinished` type and thus has the import style.
-/// - `subscriptionStatus`: the notification has a `subscriptionStatus` type and thus the subscription style.
+/// - `subscriptionStatus`: the notification has a `subscriptionStatus` type and thus has the subscription style.
+/// - `userTimedOut`: the notification has a `userTimedOut` type and thus has the moderation style.
+/// - `userTimeoutExpired`: the notification has a `userTimeoutExpired` type and thus has the moderation style.
 /// - `other`: the notification has no specific type and thus has the default style.
 ///
 /// - Tag: UserNotificationType
@@ -38,8 +40,14 @@ public enum UserNotificationType: String, Codable, Sendable {
 	/// Indicates that the notification has a `libraryImportFinished` type and thus thas the import style.
 	case libraryImportFinished = "LibraryImportFinished"
 
-	/// Indicates that the notification has a `subscriptionStatus` type and thus the subscription style.
+	/// Indicates that the notification has a `subscriptionStatus` type and thus has the subscription style.
 	case subscriptionStatus = "SubscriptionStatus"
+
+	/// Indicates that the notification has a `userTimedOut` type and thus has the moderation style.
+	case userTimedOut = "UserTimedOut"
+
+	/// Indicates that the notification has a `userTimeoutExpired` type and thus has the moderation style.
+	case userTimeoutExpired = "UserTimeoutExpired"
 
 	/// Indicates that the notification has no specific type and thus has the default style.
 	case other

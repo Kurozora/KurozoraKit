@@ -52,6 +52,12 @@ extension UserNotification {
 		/// A `subscription-status` broadcast.
 		case subscriptionStatus(UserNotification.Payload)
 
+		/// A `user-timed-out` broadcast.
+		case userTimedOut(UserNotification.Payload)
+
+		/// A `user-timeout-expired` broadcast.
+		case userTimeoutExpired(UserNotification.Payload)
+
 		/// A `library-import-finished` broadcast.
 		case libraryImportFinished(UserNotification.Payload)
 
