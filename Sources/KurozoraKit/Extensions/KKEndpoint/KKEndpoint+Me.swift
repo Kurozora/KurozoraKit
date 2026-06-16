@@ -25,6 +25,9 @@ extension KKEndpoint.Me {
 		/// The endpoint to delete an access token.
 		case delete(_ accessToken: String)
 
+		/// The endpoint to delete multiple, or all, access tokens.
+		case deleteMultiple
+
 		// MARK: - Properties
 		/// The endpoint value of the Access Tokens API type.
 		var endpointValue: String {

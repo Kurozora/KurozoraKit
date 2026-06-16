@@ -618,6 +618,15 @@ extension KurozoraKit {
 		RelationshipRequest(context: RequestContext(from: self), endpoint: KKEndpoint.Songs.reviews(song).endpointValue)
 	}
 
+	/// Returns a request that fetches the synced lyrics of the specified song.
+	///
+	/// - Parameter song: The identity of the song.
+	///
+	/// - Returns: A configured relationship request.
+	public func lyrics(for song: SongIdentity) -> RelationshipRequest<ResourceCollection<Lyrics>> {
+		RelationshipRequest(context: RequestContext(from: self), endpoint: KKEndpoint.Songs.lyrics(song).endpointValue)
+	}
+
 	/// Returns a request that fetches the reviews of the specified episode.
 	///
 	/// - Parameter episode: The identity of the episode.

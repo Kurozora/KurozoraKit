@@ -17,5 +17,8 @@ extension AccessToken {
 
 		/// The last time the access token has been validated.
 		public let lastValidatedAt: Date?
+
+		/// The source the access token was created from.
+		public let appSource: String?
 	}
 }

@@ -17,5 +17,8 @@ extension Session {
 
 		/// The last time the session has been validated.
 		public let lastValidatedAt: Date
+
+		/// The source the session was created from.
+		public let appSource: String?
 	}
 }
