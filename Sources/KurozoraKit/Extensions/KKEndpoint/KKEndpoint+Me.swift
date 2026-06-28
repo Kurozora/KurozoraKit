@@ -209,6 +209,25 @@ extension KKEndpoint.Me {
 	}
 }
 
+// MARK: - Digest
+extension KKEndpoint.Me {
+	/// The set of available Digest API endpoint types.
+	internal enum Digest {
+		// MARK: - Cases
+		/// The endpoint to the authenticated user's weekly digest.
+		case index
+
+		// MARK: - Properties
+		/// The endpoint value of the Digest API type.
+		var endpointValue: String {
+			switch self {
+			case .index:
+				return "me/digest"
+			}
+		}
+	}
+}
+
 // MARK: - Reminders
 extension KKEndpoint.Me {
 	/// The set of available Reminders API endpoint types.

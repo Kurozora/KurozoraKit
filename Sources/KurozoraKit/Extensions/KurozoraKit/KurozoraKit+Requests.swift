@@ -1482,6 +1482,11 @@ extension KurozoraKit {
 		RecapDetailRequest(context: RequestContext(from: self), year: year, month: month)
 	}
 
+	/// Returns a request that fetches the authenticated user's weekly digest.
+	public func weeklyDigest() -> WeeklyDigestRequest {
+		WeeklyDigestRequest(context: RequestContext(from: self))
+	}
+
 	/// Returns a request that fetches search suggestions for the specified query.
 	///
 	/// - Parameters:
