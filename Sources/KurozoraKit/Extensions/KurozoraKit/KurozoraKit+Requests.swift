@@ -675,6 +675,44 @@ extension KurozoraKit {
 		LibraryRequest(context: RequestContext(from: self), kind: kind, status: status)
 	}
 
+	/// Returns a request that fetches the watched-episode overlay for a bounded
+	/// set of episode identifiers belonging to the given user.
+	///
+	/// - Parameters:
+	///    - userIdentity: The user whose watched state to fetch.
+	///    - episodeIDs: The identifiers of the episodes to look up.
+	///
+	/// - Returns: A configured ``WatchedOverlayRequest`` ready to be executed.
+	public func watchedOverlay(forUser userIdentity: UserIdentity, episodes episodeIDs: [KurozoraItemID]) -> WatchedOverlayRequest {
+		WatchedOverlayRequest(context: RequestContext(from: self), userIdentity: userIdentity, episodeIDs: episodeIDs)
+	}
+
+	/// Returns a request that fetches the favorites overlay for a bounded set of
+	/// model identifiers belonging to the given user.
+	///
+	/// - Parameters:
+	///    - userIdentity: The user whose favorites state to fetch.
+	///    - kind: The kind of favorable model to look up.
+	///    - itemIDs: The identifiers of the items to look up.
+	///
+	/// - Returns: A configured ``FavoritesOverlayRequest`` ready to be executed.
+	public func favoritesOverlay(forUser userIdentity: UserIdentity, kind: FavoriteKind, itemIDs: [KurozoraItemID]) -> FavoritesOverlayRequest {
+		FavoritesOverlayRequest(context: RequestContext(from: self), userIdentity: userIdentity, kind: kind, itemIDs: itemIDs)
+	}
+
+	/// Returns a request that fetches the reviews overlay for a bounded set of
+	/// model identifiers belonging to the given user.
+	///
+	/// - Parameters:
+	///    - userIdentity: The user whose reviews state to fetch.
+	///    - kind: The kind of reviewable model to look up.
+	///    - itemIDs: The identifiers of the items to look up.
+	///
+	/// - Returns: A configured ``ReviewsOverlayRequest`` ready to be executed.
+	public func reviewsOverlay(forUser userIdentity: UserIdentity, kind: ReviewKind, itemIDs: [KurozoraItemID]) -> ReviewsOverlayRequest {
+		ReviewsOverlayRequest(context: RequestContext(from: self), userIdentity: userIdentity, kind: kind, itemIDs: itemIDs)
+	}
+
 	/// Returns a request that adds one or more items to the authenticated
 	/// user's library.
 	///

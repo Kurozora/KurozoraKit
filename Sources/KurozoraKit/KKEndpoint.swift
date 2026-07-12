@@ -954,6 +954,9 @@ extension KKEndpoint {
 		/// The endpoint to view a user's reviews.
 		case reviews(_ userIdentity: UserIdentity)
 
+		/// The endpoint to fetch the user's watched-episode overlay for a bounded set of episode IDs.
+		case watched(_ userIdentity: UserIdentity)
+
 		/// The endpoint to search for a user.
 		case search(_ username: String)
 
@@ -1001,6 +1004,8 @@ extension KKEndpoint {
 				return "users/\(userIdentity.id)/profile"
 			case .reviews(let userIdentity):
 				return "users/\(userIdentity.id)/reviews"
+			case .watched(let userIdentity):
+				return "users/\(userIdentity.id)/watched"
 			case .search(let username):
 				return "users/search/\(username)"
 			case .delete:
