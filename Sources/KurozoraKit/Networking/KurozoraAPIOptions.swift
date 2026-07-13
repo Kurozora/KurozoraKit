@@ -52,7 +52,7 @@ public struct KurozoraAPIOptions: Sendable {
 	///    - timeout: Per-request timeout in seconds. Defaults to `60`.
 	///    - additionalHeaders: Additional HTTP headers appended to every request. Defaults to an empty dictionary.
 	public init(
-		logLevel: LogLevel = .debug,
+		logLevel: LogLevel = .off,
 		timeout: TimeInterval = 60,
 		additionalHeaders: [String: String] = [:]
 	) {

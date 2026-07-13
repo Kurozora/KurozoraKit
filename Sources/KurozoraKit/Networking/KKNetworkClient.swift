@@ -85,6 +85,55 @@ internal struct KKNetworkClient: Sendable {
 		throw APIError(responseData: data, response: http, request: urlRequest, decoder: self.decoder)
 	}
 
+	/// Executes the given request with an `If-None-Match` validator.
+	///
+	/// - Parameters:
+	///    - request: The request descriptor.
+	///    - etag: The entity tag from the previous response.
+	///
+	/// - Returns: The conditional outcome of the request.
+	///
+	/// - Throws: ``APIError`` on any server, transport, or decoding failure.
+	func send<Response: Decodable & Sendable>(_ request: KKRequest<Response>, ifNoneMatch etag: String?) async throws -> KKConditionalResponse<Response> {
+		var urlRequest = try self.buildURLRequest(from: request)
+		// Bypass URLCache so the raw 304 reaches the caller.
+		urlRequest.cachePolicy = .reloadIgnoringLocalCacheData
+		if let etag {
+			urlRequest.setValue(etag, forHTTPHeaderField: "If-None-Match")
+		}
+		self.logger.logRequest(urlRequest)
+
+		let data: Data
+		let response: URLResponse
+		do {
+			(data, response) = try await self.fetchData(for: urlRequest)
+		} catch {
+			self.logger.logError(error, request: urlRequest)
+			throw APIError(transport: error, request: urlRequest)
+		}
+
+		self.logger.logResponse(response, data: data)
+
+		guard let http = response as? HTTPURLResponse else {
+			throw APIError(message: "The server returned a non-HTTP response.", response: nil, request: urlRequest)
+		}
+
+		if http.statusCode == 304 {
+			return .notModified
+		}
+
+		if (200..<300).contains(http.statusCode) {
+			do {
+				let decoded = try self.decoder.decode(Response.self, from: data)
+				return .modified(decoded, etag: http.value(forHTTPHeaderField: "ETag"))
+			} catch {
+				throw APIError(decoding: error, response: http, request: urlRequest)
+			}
+		}
+
+		throw APIError(responseData: data, response: http, request: urlRequest, decoder: self.decoder)
+	}
+
 	// MARK: - Download
 	/// Executes a binary download and returns the raw response body.
 	///
