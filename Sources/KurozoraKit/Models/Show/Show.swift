@@ -9,7 +9,7 @@
 import Foundation
 
 /// A root object that stores information about a show resource.
-public final class Show: KurozoraItem, IdentityResource, Equatable, Hashable, @unchecked Sendable {
+public struct Show: KurozoraItem, IdentityResource, Equatable, Hashable, Sendable {
 	// MARK: - Properties
 	public let id: KurozoraItemID
 
@@ -32,7 +32,4 @@ public final class Show: KurozoraItem, IdentityResource, Equatable, Hashable, @u
 		hasher.combine(self.id)
 	}
 
-	public var hashValue: Int {
-		return self.id.hashValue
-	}
 }

@@ -62,51 +62,5 @@ extension Episode {
 
 		/// Whether the episode details have been verified.
 		public let isVerified: Bool
-
-		// Authenticated Attributes
-		/// The rating given by the authenticated user.
-		public var givenRating: Double?
-
-		/// The review given to the episode.
-		public var givenReview: String?
-
-		/// Whether the authenticated user has watched the episode.
-		fileprivate let isWatched: Bool?
-
-		/// The watch status of the episode for the authenticated user.
-		fileprivate var _watchStatus: WatchStatus?
-	}
-}
-
-// MARK: - Helpers
-extension Episode.Attributes {
-	// MARK: - Properties
-	/// The watch status of the episode.
-	public var watchStatus: WatchStatus? {
-		get {
-			return self._watchStatus ?? WatchStatus(self.isWatched)
-		}
-		set {
-			self._watchStatus = newValue
-		}
-	}
-
-	// MARK: - Functions
-	/// Updates the attributes with the given `WatchStatus` object.
-	///
-	/// - Parameter watchStatus: The `WatchStatus` object used to update the attributes.
-	public mutating func update(using watchStatus: WatchStatus) {
-		self.watchStatus = watchStatus
-	}
-
-	/// Returns a copy of the object with the updated attributes from the given `WatchStatus` object.
-	///
-	/// - Parameter watchStatus: The `WatchStatus` object used to update the attributes.
-	///
-	/// - Returns: a copy of the object with the updated attributes from the given `WatchStatus` object.
-	public mutating func updated(using watchStatus: WatchStatus) -> Self {
-		var episodeAttributes = self
-		episodeAttributes.watchStatus = watchStatus
-		return episodeAttributes
 	}
 }

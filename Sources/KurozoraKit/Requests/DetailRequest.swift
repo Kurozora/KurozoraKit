@@ -23,12 +23,14 @@ public struct DetailRequest<T: Fetchable>: Sendable {
 	private let context: RequestContext
 	private let identity: T
 	private var relationships: [String]
+	private var embedded: Bool
 
 	// MARK: - Initializers
-	internal init(context: RequestContext, identity: T, relationships: [String] = []) {
+	internal init(context: RequestContext, identity: T, relationships: [String] = [], embedded: Bool = true) {
 		self.context = context
 		self.identity = identity
 		self.relationships = relationships
+		self.embedded = embedded
 	}
 
 	// MARK: - Modifiers
@@ -43,19 +45,33 @@ public struct DetailRequest<T: Fetchable>: Sendable {
 		return copy
 	}
 
+	/// Opts into the cacheable catalog variant by setting `?embedded=0`.
+	///
+	/// - Parameter embedded: Whether the response should include embedded per-user state.
+	///
+	/// - Returns: A copy of the request with the embedded flag applied.
+	public func embedded(_ embedded: Bool) -> Self {
+		var copy = self
+		copy.embedded = embedded
+		return copy
+	}
+
 	// MARK: - Execution
 	/// Executes the request and returns the decoded response.
 	public func response() async throws -> T.Response {
-		var query: [String: Any]? = nil
+		var query: [String: Any] = [:]
 		if !self.relationships.isEmpty {
-			query = ["include": self.relationships.joined(separator: ",")]
+			query["include"] = self.relationships.joined(separator: ",")
+		}
+		if !self.embedded {
+			query["embedded"] = "0"
 		}
 
 		let request = KKRequest<T.Response>(
 			path: self.identity.detailEndpoint,
 			method: .get,
 			headers: self.context.headers,
-			query: query
+			query: query.isEmpty ? nil : query
 		)
 		return try await self.context.client.send(request)
 	}

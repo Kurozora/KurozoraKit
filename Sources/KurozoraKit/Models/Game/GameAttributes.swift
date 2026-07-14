@@ -111,7 +111,5 @@ extension Game {
 		/// The game's copyright text.
 		public let copyright: String?
 
-		/// The game's library attributes.
-		public var library: LibraryAttributes?
 	}
 }

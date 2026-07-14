@@ -9,7 +9,7 @@
 import Foundation
 
 /// A root object that stores information about an episode resource.
-public final class Episode: KurozoraItem, IdentityResource, Hashable, @unchecked Sendable {
+public struct Episode: KurozoraItem, IdentityResource, Equatable, Hashable, Sendable {
 	// MARK: - Properties
 	public let id: KurozoraItemID
 

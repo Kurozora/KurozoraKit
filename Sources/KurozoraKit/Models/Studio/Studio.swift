@@ -9,7 +9,7 @@
 import Foundation
 
 /// A root object that stores information about a studio resource.
-public final class Studio: KurozoraItem, IdentityResource, Hashable, @unchecked Sendable {
+public struct Studio: KurozoraItem, IdentityResource, Equatable, Hashable, Sendable {
 	// MARK: - Properties
 	public let id: KurozoraItemID
 

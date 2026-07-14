@@ -9,7 +9,7 @@
 import Foundation
 
 /// A root object that stores information about a game resource.
-public final class Game: KurozoraItem, IdentityResource, Hashable, @unchecked Sendable {
+public struct Game: KurozoraItem, IdentityResource, Equatable, Hashable, Sendable {
 	// MARK: - Properties
 	public let id: KurozoraItemID
 

@@ -75,7 +75,5 @@ extension Studio {
 		/// The date the studio was defunct.
 		public let defunctAt: Date?
 
-		/// The library attributes of the song.
-		public var library: LibraryAttributes?
 	}
 }

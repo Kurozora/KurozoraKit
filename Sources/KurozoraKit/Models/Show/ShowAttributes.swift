@@ -147,7 +147,5 @@ extension Show {
 		/// The show's copyright text.
 		public let copyright: String?
 
-		/// The show's library attributes.
-		public var library: LibraryAttributes?
 	}
 }

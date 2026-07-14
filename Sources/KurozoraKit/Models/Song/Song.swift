@@ -9,7 +9,7 @@
 import Foundation
 
 /// A root object that stores information about a song resource.
-public final class Song: KurozoraItem, IdentityResource, Hashable, @unchecked Sendable {
+public struct Song: KurozoraItem, IdentityResource, Equatable, Hashable, Sendable {
 	// MARK: - Properties
 	public let id: KurozoraItemID
 

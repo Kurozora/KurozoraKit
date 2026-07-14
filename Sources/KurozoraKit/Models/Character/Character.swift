@@ -9,7 +9,7 @@
 import Foundation
 
 /// A root object that stores information about a character resource.
-public final class Character: KurozoraItem, IdentityResource, Hashable, @unchecked Sendable {
+public struct Character: KurozoraItem, IdentityResource, Equatable, Hashable, Sendable {
 	// MARK: - Properties
 	public let id: KurozoraItemID
 

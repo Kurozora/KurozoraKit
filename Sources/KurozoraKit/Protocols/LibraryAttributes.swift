@@ -40,6 +40,9 @@ public struct LibraryAttributes: Codable, Sendable {
 
 	/// The rewatch count of the item.
 	public var rewatchCount: Int?
+
+	/// Creates an empty library attributes value, populated later via overlay/sync.
+	public init() {}
 }
 
 // MARK: - Helpers

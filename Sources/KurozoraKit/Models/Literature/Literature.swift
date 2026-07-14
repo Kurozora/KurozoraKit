@@ -9,7 +9,7 @@
 import Foundation
 
 /// A root object that stores information about a literature resource.
-public final class Literature: KurozoraItem, IdentityResource, Hashable, @unchecked Sendable {
+public struct Literature: KurozoraItem, IdentityResource, Equatable, Hashable, Sendable {
 	// MARK: - Properties
 	public let id: KurozoraItemID
 
