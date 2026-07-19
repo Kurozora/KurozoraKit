@@ -101,4 +101,9 @@ public extension APIError {
 	var isUserTimedOut: Bool {
 		return self.errors.contains(where: { $0.id == 40023 })
 	}
+
+	/// Whether the failure indicates an expired sync cursor.
+	var isCursorExpired: Bool {
+		return self.statusCode == 410 || self.errors.contains(where: { $0.id == 40010 })
+	}
 }

@@ -124,6 +124,9 @@ extension KKEndpoint.Me {
 		/// The endpoint to clear the authenticated user's library.
 		case clear
 
+		/// The endpoint to fetch the cursor-based delta sync of the authenticated user's library.
+		case sync
+
 		/// The endpoint to import an exported MyAnimeList file into the  authenticated user's library.
 		case malImport
 
@@ -142,6 +145,8 @@ extension KKEndpoint.Me {
 				return "me/library/delete"
 			case .clear:
 				return "me/library/clear"
+			case .sync:
+				return "me/library/sync"
 			case .malImport:
 				return "me/library/mal-import"
 			case .`import`:
