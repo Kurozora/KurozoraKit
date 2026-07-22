@@ -72,6 +72,9 @@ extension UserNotification {
 
 		/// A `notification.deleted` broadcast.
 		case deleted(ids: IDs)
+
+		/// A `user.state.changed` broadcast.
+		case userStateChanged(stateVersion: Int)
 	}
 
 	/// The set of notification identifiers affected by a state change event.

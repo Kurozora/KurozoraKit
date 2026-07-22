@@ -25,6 +25,9 @@ extension UserNotification {
 		case "notification.deleted":
 			let body = (try? decoder.decode(NotificationStateChange.self, from: raw)) ?? NotificationStateChange(ids: .unknown, read: nil)
 			return .deleted(ids: body.ids.toIDs())
+		case "user.state.changed":
+			let body = (try? decoder.decode(UserStateChange.self, from: raw)) ?? UserStateChange(stateVersion: 0)
+			return .userStateChanged(stateVersion: body.stateVersion)
 		default:
 			break
 		}
@@ -66,6 +69,11 @@ private extension UserNotification {
 	struct NotificationStateChange: Decodable {
 		let ids: IDsWire
 		let read: Bool?
+	}
+
+	/// Decoded body of a `user.state.changed` event.
+	struct UserStateChange: Decodable {
+		let stateVersion: Int
 	}
 
 	/// On-wire shape of the `ids` field. This is either an array of identifiers or the literal `"all"`.
