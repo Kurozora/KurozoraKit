@@ -850,6 +850,78 @@ extension KurozoraKit {
 	public func rate(_ identity: StudioIdentity, score: Double) -> RateRequest {
 		RateRequest(context: RequestContext(from: self), endpoint: KKEndpoint.Studios.rate(identity).endpointValue, score: score)
 	}
+
+	/// Returns a request that deletes the rating for the specified show.
+	///
+	/// - Parameter identity: The identity of the show.
+	///
+	/// - Returns: A configured ``DeleteRatingRequest`` ready to be executed.
+	public func deleteRating(_ identity: ShowIdentity) -> DeleteRatingRequest {
+		DeleteRatingRequest(context: RequestContext(from: self), endpoint: KKEndpoint.Shows.rate(identity).endpointValue)
+	}
+
+	/// Returns a request that deletes the rating for the specified game.
+	///
+	/// - Parameter identity: The identity of the game.
+	///
+	/// - Returns: A configured ``DeleteRatingRequest`` ready to be executed.
+	public func deleteRating(_ identity: GameIdentity) -> DeleteRatingRequest {
+		DeleteRatingRequest(context: RequestContext(from: self), endpoint: KKEndpoint.Games.rate(identity).endpointValue)
+	}
+
+	/// Returns a request that deletes the rating for the specified literature.
+	///
+	/// - Parameter identity: The identity of the literature.
+	///
+	/// - Returns: A configured ``DeleteRatingRequest`` ready to be executed.
+	public func deleteRating(_ identity: LiteratureIdentity) -> DeleteRatingRequest {
+		DeleteRatingRequest(context: RequestContext(from: self), endpoint: KKEndpoint.Literatures.rate(identity).endpointValue)
+	}
+
+	/// Returns a request that deletes the rating for the specified character.
+	///
+	/// - Parameter identity: The identity of the character.
+	///
+	/// - Returns: A configured ``DeleteRatingRequest`` ready to be executed.
+	public func deleteRating(_ identity: CharacterIdentity) -> DeleteRatingRequest {
+		DeleteRatingRequest(context: RequestContext(from: self), endpoint: KKEndpoint.Characters.rate(identity).endpointValue)
+	}
+
+	/// Returns a request that deletes the rating for the specified person.
+	///
+	/// - Parameter identity: The identity of the person.
+	///
+	/// - Returns: A configured ``DeleteRatingRequest`` ready to be executed.
+	public func deleteRating(_ identity: PersonIdentity) -> DeleteRatingRequest {
+		DeleteRatingRequest(context: RequestContext(from: self), endpoint: KKEndpoint.People.rate(identity).endpointValue)
+	}
+
+	/// Returns a request that deletes the rating for the specified song.
+	///
+	/// - Parameter identity: The identity of the song.
+	///
+	/// - Returns: A configured ``DeleteRatingRequest`` ready to be executed.
+	public func deleteRating(_ identity: SongIdentity) -> DeleteRatingRequest {
+		DeleteRatingRequest(context: RequestContext(from: self), endpoint: KKEndpoint.Songs.rate(identity).endpointValue)
+	}
+
+	/// Returns a request that deletes the rating for the specified episode.
+	///
+	/// - Parameter identity: The identity of the episode.
+	///
+	/// - Returns: A configured ``DeleteRatingRequest`` ready to be executed.
+	public func deleteRating(_ identity: EpisodeIdentity) -> DeleteRatingRequest {
+		DeleteRatingRequest(context: RequestContext(from: self), endpoint: KKEndpoint.Episodes.rate(identity).endpointValue)
+	}
+
+	/// Returns a request that deletes the rating for the specified studio.
+	///
+	/// - Parameter identity: The identity of the studio.
+	///
+	/// - Returns: A configured ``DeleteRatingRequest`` ready to be executed.
+	public func deleteRating(_ identity: StudioIdentity) -> DeleteRatingRequest {
+		DeleteRatingRequest(context: RequestContext(from: self), endpoint: KKEndpoint.Studios.rate(identity).endpointValue)
+	}
 }
 
 // MARK: - Stickers
