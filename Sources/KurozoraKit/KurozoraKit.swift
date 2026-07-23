@@ -208,6 +208,15 @@ public class KurozoraKit {
 		return self
 	}
 
+	/// Restores the current user session from a locally cached profile.
+	///
+	/// - Parameter user: The previously cached signed-in user.
+	@MainActor
+	public func restoreSession(with user: User) {
+		User.current = user
+		NotificationCenter.default.post(name: .KUserIsSignedInDidChange, object: nil)
+	}
+
 	/// A stream of typed user notification events received via the realtime channel.
 	///
 	/// Returns an immediately-finished stream when no `webSocketAppKey` was configured on ``services``.
