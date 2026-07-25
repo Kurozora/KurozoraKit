@@ -40,6 +40,8 @@ extension KKEndpoint.Me {
 				return "me/access-tokens/\(sessionID)/update"
 			case .delete(let sessionID):
 				return "me/access-tokens/\(sessionID)/delete"
+			case .deleteMultiple:
+				return "me/access-tokens/delete"
 			}
 		}
 	}
@@ -276,6 +278,9 @@ extension KKEndpoint.Me {
 		/// The endpoint to delete a session.
 		case delete(_ sessionIdentity: SessionIdentity)
 
+		/// The endpoint to delete multiple, or all, sessions.
+		case deleteMultiple
+
 		// MARK: - Properties
 		/// The endpoint value of the Sessions API type.
 		var endpointValue: String {
@@ -286,6 +291,8 @@ extension KKEndpoint.Me {
 				return "me/sessions/\(sessionIdentity.id)"
 			case .delete(let sessionIdentity):
 				return "me/sessions/\(sessionIdentity.id)/delete"
+			case .deleteMultiple:
+				return "me/sessions/delete"
 			}
 		}
 	}

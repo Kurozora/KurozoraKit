@@ -1141,6 +1141,28 @@ extension KurozoraKit {
 		return DeleteAccessTokenRequest(context: RequestContext(from: self), accessTokenID: tokenID)
 	}
 
+	/// Returns a request that deletes the specified access tokens from the
+	/// authenticated user's active sessions.
+	///
+	/// - Parameters:
+	///    - accessTokens: The access tokens to delete.
+	///    - password: The authenticated user's password, used to confirm the action.
+	///
+	/// - Returns: A configured ``DeleteAccessTokensRequest`` ready to be executed.
+	public func deleteAccessTokens(_ accessTokens: [AccessToken], password: String) -> DeleteAccessTokensRequest {
+		DeleteAccessTokensRequest(context: RequestContext(from: self), accessTokens: accessTokens, password: password)
+	}
+
+	/// Returns a request that deletes every access token except the current one from the
+	/// authenticated user's active sessions.
+	///
+	/// - Parameter password: The authenticated user's password, used to confirm the action.
+	///
+	/// - Returns: A configured ``DeleteAccessTokensRequest`` ready to be executed.
+	public func deleteAllAccessTokens(password: String) -> DeleteAccessTokensRequest {
+		DeleteAccessTokensRequest(context: RequestContext(from: self), deleteAll: true, password: password)
+	}
+
 	/// Returns a request that fetches the authenticated user's sessions.
 	public func sessions() -> SessionsRequest {
 		SessionsRequest(context: RequestContext(from: self))
@@ -1154,6 +1176,27 @@ extension KurozoraKit {
 	/// - Returns: A configured ``DeleteSessionRequest`` ready to be executed.
 	public func deleteSession(_ sessionIdentity: SessionIdentity) -> DeleteSessionRequest {
 		DeleteSessionRequest(context: RequestContext(from: self), sessionIdentity: sessionIdentity)
+	}
+
+	/// Returns a request that deletes the specified sessions from the
+	/// authenticated user's active sessions.
+	///
+	/// - Parameters:
+	///    - sessionIdentities: The identities of the sessions to delete.
+	///    - password: The authenticated user's password, used to confirm the action.
+	///
+	/// - Returns: A configured ``DeleteSessionsRequest`` ready to be executed.
+	public func deleteSessions(_ sessionIdentities: [SessionIdentity], password: String) -> DeleteSessionsRequest {
+		DeleteSessionsRequest(context: RequestContext(from: self), identities: sessionIdentities, password: password)
+	}
+
+	/// Returns a request that deletes every session from the authenticated user's active sessions.
+	///
+	/// - Parameter password: The authenticated user's password, used to confirm the action.
+	///
+	/// - Returns: A configured ``DeleteSessionsRequest`` ready to be executed.
+	public func deleteAllSessions(password: String) -> DeleteSessionsRequest {
+		DeleteSessionsRequest(context: RequestContext(from: self), deleteAll: true, password: password)
 	}
 }
 
