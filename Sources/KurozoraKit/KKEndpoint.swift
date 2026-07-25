@@ -703,6 +703,9 @@ extension KKEndpoint {
 		/// The endpoint to the reviews belonging to a song.
 		case reviews(_ songIdentity: SongIdentity)
 
+		/// The endpoint to the lyrics of a song.
+		case lyrics(_ songIdentity: SongIdentity)
+
 		// MARK: - Properties
 		/// The endpoint value of the Songs API type.
 		var endpointValue: String {
@@ -719,6 +722,8 @@ extension KKEndpoint {
 				return "songs/\(songIdentity.id)/rate"
 			case .reviews(let songIdentity):
 				return "songs/\(songIdentity.id)/reviews"
+			case .lyrics(let songIdentity):
+				return "songs/\(songIdentity.id)/lyrics"
 			}
 		}
 	}
