@@ -7,11 +7,11 @@
 //
 
 import Foundation
-#if !os(watchOS)
+#if canImport(UIKit)
 import UIKit
 #endif
 
-#if !os(watchOS)
+#if canImport(UIKit)
 /// A request that creates a new user account.
 public struct SignUpRequest: Sendable {
 	// MARK: - Properties

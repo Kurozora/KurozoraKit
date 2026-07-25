@@ -7,7 +7,7 @@
 //
 
 import Foundation
-#if !os(watchOS)
+#if canImport(UIKit)
 import UIKit
 #endif
 
@@ -1014,7 +1014,7 @@ extension KurozoraKit {
 		TwoFactorChallengeRequest(context: RequestContext(from: self), challengeToken: token)
 	}
 
-	#if !os(watchOS)
+	#if canImport(UIKit)
 	/// Returns a request that registers a new user account.
 	///
 	/// - Parameters:
@@ -1065,7 +1065,7 @@ extension KurozoraKit {
 		ProfileDetailsRequest(context: RequestContext(from: self))
 	}
 
-	#if !os(watchOS)
+	#if canImport(UIKit)
 	/// Returns a request that updates the authenticated user's profile information.
 	///
 	/// - Parameter update: The profile fields to update.

@@ -7,11 +7,11 @@
 //
 
 import Foundation
-#if !os(watchOS)
+#if canImport(UIKit)
 import UIKit
 #endif
 
-#if !os(watchOS)
+#if canImport(UIKit)
 /// A request that updates the authenticated user's profile information.
 public struct UpdateProfileRequest: Sendable {
 	// MARK: - Properties
@@ -66,12 +66,16 @@ public struct UpdateProfileRequest: Sendable {
 		case .update(url: let profileImageURL):
 			if let profileImageURL = profileImageURL, let profileImageData = try? Data(contentsOf: profileImageURL) {
 				let uploadImage: Data
+				#if canImport(UIKit) && !os(watchOS)
 				if let image = UIImage(data: profileImageData) {
 					let resizedImage = image.resized(maxWidth: 400, maxHeight: 400)
 					uploadImage = resizedImage.jpegData(compressionQuality: 0.8) ?? profileImageData
 				} else {
 					uploadImage = profileImageData
 				}
+				#else
+				uploadImage = profileImageData
+				#endif
 				formData.append(uploadImage, withName: "profileImage", fileName: "profile.jpg", mimeType: "image/jpeg")
 			}
 		case .delete, .none:
@@ -82,12 +86,16 @@ public struct UpdateProfileRequest: Sendable {
 		case .update(url: let bannerImageURL):
 			if let bannerImageURL = bannerImageURL, let bannerImageData = try? Data(contentsOf: bannerImageURL) {
 				let uploadImage: Data
+				#if canImport(UIKit) && !os(watchOS)
 				if let image = UIImage(data: bannerImageData) {
 					let resizedImage = image.resized(maxWidth: 1500, maxHeight: 500)
 					uploadImage = resizedImage.jpegData(compressionQuality: 0.8) ?? bannerImageData
 				} else {
 					uploadImage = bannerImageData
 				}
+				#else
+				uploadImage = bannerImageData
+				#endif
 				formData.append(uploadImage, withName: "bannerImage", fileName: "banner.jpg", mimeType: "image/jpeg")
 			}
 		case .delete, .none: break

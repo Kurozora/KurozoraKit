@@ -6,7 +6,7 @@
 //  MIT License
 //
 
-#if !os(watchOS)
+#if canImport(UIKit) && !os(watchOS)
 import UIKit
 
 extension UIImage {

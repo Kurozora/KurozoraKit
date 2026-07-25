@@ -7,7 +7,7 @@
 //
 
 import Foundation
-#if !os(watchOS)
+#if canImport(UIKit)
 import UIKit
 #endif
 
@@ -54,7 +54,7 @@ public enum ActivityStatus: Int, Sendable, Codable {
 		}
 	}
 
-	#if !os(watchOS)
+	#if canImport(UIKit) && !os(watchOS)
 	/// The color value of an activity status type.
 	public var colorValue: UIColor {
 		switch self {

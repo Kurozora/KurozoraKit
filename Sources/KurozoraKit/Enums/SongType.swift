@@ -7,7 +7,7 @@
 //
 
 import Foundation
-#if !os(watchOS)
+#if canImport(UIKit)
 import UIKit
 #endif
 
@@ -50,7 +50,7 @@ public enum SongType: Int, CaseIterable, Codable, Sendable {
 		}
 	}
 
-	#if !os(watchOS)
+	#if canImport(UIKit) && !os(watchOS)
 	/// The background color of the song type.
 	public var backgroundColorValue: UIColor {
 		switch self {

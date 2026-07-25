@@ -7,7 +7,7 @@
 //
 
 import Foundation
-#if !os(watchOS)
+#if canImport(UIKit)
 import UIKit
 #endif
 
@@ -46,7 +46,7 @@ public struct SignInRequest: Sendable {
 	/// - Throws: An ``APIError`` if the request fails or the response cannot be interpreted.
 	@MainActor
 	public func response() async throws -> SignInResult {
-		#if os(watchOS)
+		#if !canImport(UIKit) || os(watchOS)
 		let parameters: [String: Any] = [
 			"email": self.email,
 			"password": self.password,

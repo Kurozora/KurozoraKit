@@ -7,7 +7,7 @@
 //
 
 import Foundation
-#if !os(watchOS)
+#if canImport(UIKit)
 import UIKit
 #endif
 
@@ -27,7 +27,7 @@ public struct SignInWithAppleRequest: Sendable {
 	/// Executes the request and returns the decoded response.
 	@MainActor
 	public func response() async throws -> OAuthResponse {
-		#if os(watchOS)
+		#if !canImport(UIKit) || os(watchOS)
 		let parameters: [String: Any] = [
 			"token": self.token
 		]
