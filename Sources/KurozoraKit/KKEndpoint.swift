@@ -1077,6 +1077,12 @@ extension KKEndpoint {
 	internal enum Stickers {}
 }
 
+// MARK: - Minigames
+extension KKEndpoint {
+	/// The set of available Minigames API endpoint types.
+	internal enum Minigames {}
+}
+
 // MARK: - Legal
 extension KKEndpoint {
 	/// The set of available Legal API endpoint types.

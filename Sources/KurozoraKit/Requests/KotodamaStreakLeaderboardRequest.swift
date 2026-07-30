@@ -1,0 +1,46 @@
+//
+//  KotodamaStreakLeaderboardRequest.swift
+//  KurozoraKit
+//
+//  Created by Khoren Katklian on 30/07/2026.
+//  MIT License
+//
+
+import Foundation
+
+/// A request that fetches the all-time Kotodama streak leaderboard.
+public struct KotodamaStreakLeaderboardRequest: Sendable {
+	// MARK: - Properties
+	private let context: RequestContext
+	private var _limit: Int
+
+	// MARK: - Initializers
+	internal init(context: RequestContext, limit: Int = 25) {
+		self.context = context
+		self._limit = limit
+	}
+
+	// MARK: - Modifiers
+	/// Sets the maximum number of entries to return.
+	///
+	/// - Parameter limit: The number of entries to fetch.
+	///
+	/// - Returns: A copy of the request with the limit applied.
+	public func limit(_ limit: Int) -> Self {
+		var copy = self
+		copy._limit = limit
+		return copy
+	}
+
+	// MARK: - Execution
+	/// Executes the request and returns the decoded response.
+	public func response() async throws -> ResourceCollection<KotodamaStreakEntry> {
+		let request = KKRequest<ResourceCollection<KotodamaStreakEntry>>(
+			path: KKEndpoint.Minigames.Kotodama.streakLeaderboard.endpointValue,
+			method: .get,
+			headers: self.context.headers,
+			query: ["limit": self._limit]
+		)
+		return try await self.context.client.send(request)
+	}
+}

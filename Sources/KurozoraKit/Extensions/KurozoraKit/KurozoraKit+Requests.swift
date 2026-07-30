@@ -1882,3 +1882,102 @@ extension KurozoraKit {
 		}
 	}
 }
+
+// MARK: - Kotodama
+extension KurozoraKit {
+	/// Returns a request that fetches today's Kotodama puzzle and the authenticated user's game for it.
+	public func kotodamaDaily() -> KotodamaDailyRequest {
+		KotodamaDailyRequest(context: RequestContext(from: self))
+	}
+
+	/// Returns a request that starts a new Kotodama practice game.
+	public func kotodamaUnlimited() -> KotodamaUnlimitedRequest {
+		KotodamaUnlimitedRequest(context: RequestContext(from: self))
+	}
+
+	/// Returns a request that fetches the Kotodama puzzles available to replay.
+	///
+	/// - Parameter limit: The number of entries to fetch per page.
+	///
+	/// - Returns: A configured ``KotodamaArchiveIndexRequest`` ready to be executed.
+	public func kotodamaArchive(limit: Int = 25) -> KotodamaArchiveIndexRequest {
+		KotodamaArchiveIndexRequest(context: RequestContext(from: self), limit: limit)
+	}
+
+	/// Returns a request that fetches a past Kotodama puzzle and the authenticated user's game for it.
+	///
+	/// - Parameter date: The date of the puzzle to replay.
+	///
+	/// - Returns: A configured ``KotodamaArchiveRequest`` ready to be executed.
+	public func kotodamaArchive(on date: Date) -> KotodamaArchiveRequest {
+		KotodamaArchiveRequest(context: RequestContext(from: self), date: date)
+	}
+
+	/// Returns a request that creates a Kotodama versus game with a shareable seed.
+	public func createKotodamaVersus() -> CreateKotodamaVersusRequest {
+		CreateKotodamaVersusRequest(context: RequestContext(from: self))
+	}
+
+	/// Returns a request that joins a Kotodama versus game.
+	///
+	/// - Parameter seed: The seed shared by the challenger.
+	///
+	/// - Returns: A configured ``JoinKotodamaVersusRequest`` ready to be executed.
+	public func joinKotodamaVersus(seed: String) -> JoinKotodamaVersusRequest {
+		JoinKotodamaVersusRequest(context: RequestContext(from: self), seed: seed)
+	}
+
+	/// Returns a request that submits a guess against a Kotodama game.
+	///
+	/// - Parameters:
+	///    - gameID: The id of the game to guess against.
+	///    - guess: The guessed word.
+	///
+	/// - Returns: A configured ``SubmitKotodamaGuessRequest`` ready to be executed.
+	public func submitKotodamaGuess(gameID: KurozoraItemID, guess: String) -> SubmitKotodamaGuessRequest {
+		SubmitKotodamaGuessRequest(context: RequestContext(from: self), gameID: gameID, guess: guess)
+	}
+
+	/// Returns a request that abandons an in-progress Kotodama game.
+	///
+	/// - Parameter gameID: The id of the game to abandon.
+	///
+	/// - Returns: A configured ``AbandonKotodamaGameRequest`` ready to be executed.
+	public func abandonKotodamaGame(gameID: KurozoraItemID) -> AbandonKotodamaGameRequest {
+		AbandonKotodamaGameRequest(context: RequestContext(from: self), gameID: gameID)
+	}
+
+	/// Returns a request that fetches the share grid of a finished Kotodama game.
+	///
+	/// - Parameter gameID: The id of the game to share.
+	///
+	/// - Returns: A configured ``KotodamaShareGridRequest`` ready to be executed.
+	public func kotodamaShareGrid(gameID: KurozoraItemID) -> KotodamaShareGridRequest {
+		KotodamaShareGridRequest(context: RequestContext(from: self), gameID: gameID)
+	}
+
+	/// Returns a request that fetches the leaderboard of a Kotodama daily puzzle.
+	///
+	/// - Parameters:
+	///    - date: The date of the puzzle, or `nil` for today.
+	///    - limit: The number of entries to fetch.
+	///
+	/// - Returns: A configured ``KotodamaDailyLeaderboardRequest`` ready to be executed.
+	public func kotodamaDailyLeaderboard(on date: Date? = nil, limit: Int = 25) -> KotodamaDailyLeaderboardRequest {
+		KotodamaDailyLeaderboardRequest(context: RequestContext(from: self), date: date, limit: limit)
+	}
+
+	/// Returns a request that fetches the all-time Kotodama streak leaderboard.
+	///
+	/// - Parameter limit: The number of entries to fetch.
+	///
+	/// - Returns: A configured ``KotodamaStreakLeaderboardRequest`` ready to be executed.
+	public func kotodamaStreakLeaderboard(limit: Int = 25) -> KotodamaStreakLeaderboardRequest {
+		KotodamaStreakLeaderboardRequest(context: RequestContext(from: self), limit: limit)
+	}
+
+	/// Returns a request that fetches the authenticated user's Kotodama stats.
+	public func myKotodamaStats() -> MyKotodamaStatsRequest {
+		MyKotodamaStatsRequest(context: RequestContext(from: self))
+	}
+}
