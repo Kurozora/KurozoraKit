@@ -394,6 +394,48 @@ extension KKEndpoint {
 	}
 }
 
+// MARK: - Museum
+extension KKEndpoint {
+	/// The set of available Museum API endpoints types.
+	internal enum Museum {
+		// MARK: - Cases
+		/// The endpoint to the museum years of a library kind.
+		case index(_ libraryKind: LibraryKind)
+
+		/// The endpoint to the museum entries of a library kind for a given year.
+		case year(_ libraryKind: LibraryKind, _ year: Int)
+
+		// MARK: - Properties
+		/// The endpoint value of the Museum API type.
+		var endpointValue: String {
+			let pathPrefix: String
+			switch self.libraryKind {
+			case .shows:
+				pathPrefix = "anime"
+			case .literatures:
+				pathPrefix = "manga"
+			case .games:
+				pathPrefix = "games"
+			}
+
+			switch self {
+			case .index:
+				return "\(pathPrefix)/museum"
+			case .year(_, let year):
+				return "\(pathPrefix)/museum/\(year)"
+			}
+		}
+
+		/// The library kind of the Museum API type.
+		private var libraryKind: LibraryKind {
+			switch self {
+			case .index(let libraryKind), .year(let libraryKind, _):
+				return libraryKind
+			}
+		}
+	}
+}
+
 // MARK: - Shows
 extension KKEndpoint {
 	/// The set of available Shows API endpoints types.

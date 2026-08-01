@@ -1981,3 +1981,26 @@ extension KurozoraKit {
 		MyKotodamaStatsRequest(context: RequestContext(from: self))
 	}
 }
+
+// MARK: - Museum
+extension KurozoraKit {
+	/// Returns a request that fetches the museum years for the specified library kind.
+	///
+	/// - Parameter libraryKind: The kind of library to fetch museum years for.
+	///
+	/// - Returns: A configured ``MuseumIndexRequest`` ready to be executed.
+	public func museum(for libraryKind: LibraryKind) -> MuseumIndexRequest {
+		MuseumIndexRequest(context: RequestContext(from: self), libraryKind: libraryKind)
+	}
+
+	/// Returns a request that fetches the museum entries for the specified library kind and year.
+	///
+	/// - Parameters:
+	///    - libraryKind: The kind of library to fetch museum entries for.
+	///    - year: The release year to fetch entries for.
+	///
+	/// - Returns: A configured ``MuseumYearRequest`` ready to be executed.
+	public func museum(for libraryKind: LibraryKind, in year: Int) -> MuseumYearRequest {
+		MuseumYearRequest(context: RequestContext(from: self), libraryKind: libraryKind, year: year)
+	}
+}
