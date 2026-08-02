@@ -436,6 +436,25 @@ extension KKEndpoint {
 	}
 }
 
+// MARK: - Charts
+extension KKEndpoint {
+	/// The set of available Charts API endpoints types.
+	internal enum Charts {
+		// MARK: - Cases
+		/// The endpoint to the top chart of a given kind.
+		case index(_ chartKind: ChartKind)
+
+		// MARK: - Properties
+		/// The endpoint value of the Charts API type.
+		var endpointValue: String {
+			switch self {
+			case .index(let chartKind):
+				return "charts/\(chartKind.pathPrefix)"
+			}
+		}
+	}
+}
+
 // MARK: - Shows
 extension KKEndpoint {
 	/// The set of available Shows API endpoints types.

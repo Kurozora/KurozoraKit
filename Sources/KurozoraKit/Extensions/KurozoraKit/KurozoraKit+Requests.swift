@@ -2004,3 +2004,62 @@ extension KurozoraKit {
 		MuseumYearRequest(context: RequestContext(from: self), libraryKind: libraryKind, year: year)
 	}
 }
+
+// MARK: - Charts
+extension KurozoraKit {
+	/// Returns a request that fetches the top ranked shows.
+	///
+	/// - Returns: A configured ``ListRequest`` ready to be executed.
+	public func topShows() -> ListRequest<ShowIdentity> {
+		ListRequest(context: RequestContext(from: self), endpoint: KKEndpoint.Charts.index(.shows).endpointValue)
+	}
+
+	/// Returns a request that fetches the top ranked characters.
+	///
+	/// - Returns: A configured ``ListRequest`` ready to be executed.
+	public func topCharacters() -> ListRequest<CharacterIdentity> {
+		ListRequest(context: RequestContext(from: self), endpoint: KKEndpoint.Charts.index(.characters).endpointValue)
+	}
+
+	/// Returns a request that fetches the top ranked episodes.
+	///
+	/// - Returns: A configured ``ListRequest`` ready to be executed.
+	public func topEpisodes() -> ListRequest<EpisodeIdentity> {
+		ListRequest(context: RequestContext(from: self), endpoint: KKEndpoint.Charts.index(.episodes).endpointValue)
+	}
+
+	/// Returns a request that fetches the top ranked games.
+	///
+	/// - Returns: A configured ``ListRequest`` ready to be executed.
+	public func topGames() -> ListRequest<GameIdentity> {
+		ListRequest(context: RequestContext(from: self), endpoint: KKEndpoint.Charts.index(.games).endpointValue)
+	}
+
+	/// Returns a request that fetches the top ranked literatures.
+	///
+	/// - Returns: A configured ``ListRequest`` ready to be executed.
+	public func topLiteratures() -> ListRequest<LiteratureIdentity> {
+		ListRequest(context: RequestContext(from: self), endpoint: KKEndpoint.Charts.index(.literatures).endpointValue)
+	}
+
+	/// Returns a request that fetches the top ranked people.
+	///
+	/// - Returns: A configured ``ListRequest`` ready to be executed.
+	public func topPeople() -> ListRequest<PersonIdentity> {
+		ListRequest(context: RequestContext(from: self), endpoint: KKEndpoint.Charts.index(.people).endpointValue)
+	}
+
+	/// Returns a request that fetches the top ranked songs.
+	///
+	/// - Returns: A configured ``ListRequest`` ready to be executed.
+	public func topSongs() -> ListRequest<SongIdentity> {
+		ListRequest(context: RequestContext(from: self), endpoint: KKEndpoint.Charts.index(.songs).endpointValue)
+	}
+
+	/// Returns a request that fetches the top ranked studios.
+	///
+	/// - Returns: A configured ``ListRequest`` ready to be executed.
+	public func topStudios() -> ListRequest<StudioIdentity> {
+		ListRequest(context: RequestContext(from: self), endpoint: KKEndpoint.Charts.index(.studios).endpointValue)
+	}
+}
