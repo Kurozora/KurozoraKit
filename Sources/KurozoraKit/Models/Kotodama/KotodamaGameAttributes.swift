@@ -39,9 +39,6 @@ extension KotodamaGame {
 		/// The guesses submitted so far.
 		public let guesses: [KotodamaGuess]
 
-		/// The signed url of the game's share grid.
-		public let shareURL: String?
-
 		// MARK: - CodingKeys
 		private enum CodingKeys: String, CodingKey {
 			case mode
@@ -53,7 +50,6 @@ extension KotodamaGame {
 			case durationMs
 			case versusSeed
 			case guesses
-			case shareURL = "shareUrl"
 		}
 	}
 }

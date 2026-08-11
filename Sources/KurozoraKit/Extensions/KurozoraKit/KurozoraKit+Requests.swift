@@ -1947,15 +1947,6 @@ extension KurozoraKit {
 		AbandonKotodamaGameRequest(context: RequestContext(from: self), gameID: gameID)
 	}
 
-	/// Returns a request that fetches the share grid of a finished Kotodama game.
-	///
-	/// - Parameter gameID: The id of the game to share.
-	///
-	/// - Returns: A configured ``KotodamaShareGridRequest`` ready to be executed.
-	public func kotodamaShareGrid(gameID: KurozoraItemID) -> KotodamaShareGridRequest {
-		KotodamaShareGridRequest(context: RequestContext(from: self), gameID: gameID)
-	}
-
 	/// Returns a request that fetches the leaderboard of a Kotodama daily puzzle.
 	///
 	/// - Parameters:

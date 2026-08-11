@@ -37,9 +37,6 @@ extension KKEndpoint.Minigames {
 		/// The endpoint to abandon a game.
 		case abandon(_ gameID: KurozoraItemID)
 
-		/// The endpoint to the share grid of a finished game.
-		case share(_ gameID: KurozoraItemID)
-
 		/// The endpoint to the leaderboard of a daily puzzle.
 		case dailyLeaderboard(_ date: String?)
 
@@ -69,8 +66,6 @@ extension KKEndpoint.Minigames {
 				return "kotodama/games/\(gameID)/guess"
 			case .abandon(let gameID):
 				return "kotodama/games/\(gameID)/abandon"
-			case .share(let gameID):
-				return "kotodama/games/\(gameID)/share"
 			case .dailyLeaderboard(let date):
 				guard let date = date else {
 					return "kotodama/leaderboards/daily"

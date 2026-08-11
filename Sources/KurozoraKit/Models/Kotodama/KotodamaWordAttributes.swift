@@ -21,6 +21,9 @@ extension KotodamaWord {
 		/// The hint describing the answer's subject.
 		public let hint: String?
 
+		/// The hint standing in for the subject's image when it has none.
+		public let secondaryHint: String?
+
 		/// The media object of the subject's image.
 		public let poster: Media?
 
