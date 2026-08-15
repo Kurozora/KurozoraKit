@@ -25,6 +25,9 @@ public struct RateRequest: Sendable {
 	private let endpoint: String
 	private let score: Double
 	private var _description: String?
+	private var _note: String?
+	private var _updatesNote: Bool
+	private var _ratingCategories: [RatingCategory]
 
 	// MARK: - Initializers
 	internal init(context: RequestContext, endpoint: String, score: Double) {
@@ -32,6 +35,9 @@ public struct RateRequest: Sendable {
 		self.endpoint = endpoint
 		self.score = score
 		self._description = nil
+		self._note = nil
+		self._updatesNote = false
+		self._ratingCategories = []
 	}
 
 	// MARK: - Modifiers
@@ -42,12 +48,57 @@ public struct RateRequest: Sendable {
 		return copy
 	}
 
+	/// Sets the private note kept on the rating.
+	///
+	/// - Parameter text: The note to store. `nil` clears it.
+	public func note(_ text: String?) -> Self {
+		var copy = self
+		copy._note = text
+		copy._updatesNote = true
+		return copy
+	}
+
+	/// Adds the scored rating categories of a detailed rating.
+	///
+	/// - Parameter ratingCategories: The rating categories to submit.
+	public func categoryScores(_ ratingCategories: [RatingCategory]) -> Self {
+		var copy = self
+		copy._ratingCategories = ratingCategories.filter { $0.attributes.score != nil }
+		return copy
+	}
+
 	// MARK: - Execution
 	/// Executes the request and returns the decoded response.
 	public func response() async throws -> KKSuccess {
-		var body: [String: Any] = ["rating": self.score]
+		var body: [String: Any] = [:]
 		if let description = self._description {
 			body["description"] = description
+		}
+		if self._updatesNote {
+			body["note"] = self._note ?? ""
+		}
+
+		if self._ratingCategories.isEmpty {
+			body["rating"] = self.score
+		} else {
+			var categoryScores: [String: Double] = [:]
+			var categoryReviews: [String: String] = [:]
+
+			for ratingCategory in self._ratingCategories {
+				guard let score = ratingCategory.attributes.score else { continue }
+
+				categoryScores[ratingCategory.id.rawValue] = score
+
+				if let review = ratingCategory.attributes.review, !review.isEmpty {
+					categoryReviews[ratingCategory.id.rawValue] = review
+				}
+			}
+
+			body["categoryScores"] = categoryScores
+
+			if !categoryReviews.isEmpty {
+				body["categoryReviews"] = categoryReviews
+			}
 		}
 
 		let request = KKRequest<KKSuccess>(

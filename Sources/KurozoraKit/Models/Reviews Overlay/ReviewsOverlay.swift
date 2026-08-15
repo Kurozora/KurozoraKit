@@ -35,6 +35,9 @@ public struct ReviewsOverlayAttributes: Codable, Sendable {
 	/// The free-form description the user wrote, or `nil` if they rated without a write-up.
 	public let description: String?
 
+	/// The private note the user kept for themselves.
+	public let note: String?
+
 	/// The timestamp at which the row was first created, in seconds since the Unix epoch.
 	public let createdAt: Int?
 

@@ -345,12 +345,17 @@ extension KKEndpoint {
 		/// The endpoint to delete a review.
 		case delete(_ reviewIdentity: ReviewIdentity)
 
+		/// The endpoint to the rating categories of a review kind.
+		case categories
+
 		// MARK: - Properties
 		/// The endpoint value of the Reviews API type.
 		var endpointValue: String {
 			switch self {
 			case .delete(let reviewIdentity):
 				return "reviews/\(reviewIdentity.id)/delete"
+			case .categories:
+				return "reviews/categories"
 			}
 		}
 	}
@@ -1094,6 +1099,12 @@ extension KKEndpoint {
 		/// The endpoint to update the authenticated user's information.
 		case update
 
+		/// The endpoint to the authenticated user's settings.
+		case settings
+
+		/// The endpoint to update the authenticated user's settings.
+		case settingsUpdate
+
 		/// The endpoint to the authenticated user's followers list.
 		case followers
 
@@ -1117,6 +1128,10 @@ extension KKEndpoint {
 				return "me"
 			case .update:
 				return "me"
+			case .settings:
+				return "me/settings"
+			case .settingsUpdate:
+				return "me/settings"
 			case .followers:
 				return "me/followers"
 			case .following:

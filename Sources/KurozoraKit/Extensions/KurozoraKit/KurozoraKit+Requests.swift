@@ -763,6 +763,15 @@ extension KurozoraKit {
 
 // MARK: - Rate
 extension KurozoraKit {
+	/// Returns a request that fetches the rating categories of the specified review kind.
+	///
+	/// - Parameter kind: The review kind to fetch the rating categories of.
+	///
+	/// - Returns: A configured ``RatingCategoriesRequest`` ready to be executed.
+	public func ratingCategories(for kind: ReviewKind) -> RatingCategoriesRequest {
+		RatingCategoriesRequest(context: RequestContext(from: self), kind: kind)
+	}
+
 	/// Returns a request that submits a rating for the specified show.
 	///
 	/// - Parameters:
@@ -1075,6 +1084,20 @@ extension KurozoraKit {
 		UpdateProfileRequest(context: RequestContext(from: self), update: update)
 	}
 	#endif
+
+	/// Returns a request that fetches the authenticated user's settings.
+	///
+	/// - Returns: A configured ``MeSettingsRequest`` ready to be executed.
+	public func mySettings() -> MeSettingsRequest {
+		MeSettingsRequest(context: RequestContext(from: self))
+	}
+
+	/// Returns a request that updates the authenticated user's settings.
+	///
+	/// - Returns: A configured ``UpdateMeSettingsRequest`` ready to be executed.
+	public func updateSettings() -> UpdateMeSettingsRequest {
+		UpdateMeSettingsRequest(context: RequestContext(from: self))
+	}
 
 	/// Returns a request that fetches the authenticated user's followers or
 	/// following list.

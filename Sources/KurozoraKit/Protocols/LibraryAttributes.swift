@@ -17,6 +17,9 @@ public struct LibraryAttributes: Codable, Sendable {
 	/// The review given to the item.
 	public var review: String?
 
+	/// The private note kept on the item.
+	public var note: String?
+
 	/// Whether the item is favorited.
 	public var isFavorited: Bool?
 
