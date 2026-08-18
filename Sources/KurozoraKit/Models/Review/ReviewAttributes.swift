@@ -27,6 +27,12 @@ extension Review {
 		/// The reviewer's recommendation.
 		public let recommendation: ReviewRecommendation?
 
+		/// The reviewer's progress through the item when the review was written.
+		public let progress: Int?
+
+		/// The item's total number of parts.
+		public let progressTotal: Int?
+
 		/// The creation date of the review.
 		public let createdAt: Date
 	}
