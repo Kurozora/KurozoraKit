@@ -159,6 +159,9 @@ public struct LibrarySyncReviewEntry: Codable, Sendable {
 	/// The optional written review accompanying the score.
 	public let description: String?
 
+	/// The user's private note on the item.
+	public let note: String?
+
 	/// The timestamp at which the review was first created.
 	public let createdAt: Int?
 

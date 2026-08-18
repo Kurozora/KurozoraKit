@@ -18,6 +18,9 @@ extension Review {
 		/// The description of the review.
 		public let description: String?
 
+		/// The private note of the review belonging stores the current user.
+		public let note: String?
+
 		/// The creation date of the review.
 		public let createdAt: Date
 	}
