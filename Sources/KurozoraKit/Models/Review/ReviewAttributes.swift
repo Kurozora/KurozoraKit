@@ -24,6 +24,9 @@ extension Review {
 		/// Whether the review contains a spoiler.
 		public let isSpoiler: Bool
 
+		/// The reviewer's recommendation.
+		public let recommendation: ReviewRecommendation?
+
 		/// The creation date of the review.
 		public let createdAt: Date
 	}

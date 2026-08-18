@@ -41,6 +41,9 @@ public struct ReviewsOverlayAttributes: Codable, Sendable {
 	/// Whether the review contains a spoiler.
 	public let isSpoiler: Bool
 
+	/// The reviewer's recommendation.
+	public let recommendation: ReviewRecommendation?
+
 	/// The timestamp at which the row was first created, in seconds since the Unix epoch.
 	public let createdAt: Int?
 

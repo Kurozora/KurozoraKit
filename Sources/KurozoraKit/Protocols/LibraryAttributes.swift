@@ -23,6 +23,9 @@ public struct LibraryAttributes: Codable, Sendable {
 	/// Whether the review contains a spoiler.
 	public var isSpoiler: Bool?
 
+	/// The reviewer's recommendation.
+	public var recommendation: ReviewRecommendation?
+
 	/// Whether the item is favorited.
 	public var isFavorited: Bool?
 

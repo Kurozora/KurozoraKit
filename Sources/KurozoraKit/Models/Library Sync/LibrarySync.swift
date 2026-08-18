@@ -165,6 +165,9 @@ public struct LibrarySyncReviewEntry: Codable, Sendable {
 	/// Whether the review contains a spoiler.
 	public let isSpoiler: Bool
 
+	/// The reviewer's recommendation.
+	public let recommendation: ReviewRecommendation?
+
 	/// The timestamp at which the review was first created.
 	public let createdAt: Int?
 

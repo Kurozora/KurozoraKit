@@ -28,6 +28,7 @@ public struct RateRequest: Sendable {
 	private var _note: String?
 	private var _updatesNote: Bool
 	private var _isSpoiler: Bool?
+	private var _recommendation: ReviewRecommendation?
 	private var _ratingCategories: [RatingCategory]
 
 	// MARK: - Initializers
@@ -39,6 +40,7 @@ public struct RateRequest: Sendable {
 		self._note = nil
 		self._updatesNote = false
 		self._isSpoiler = nil
+		self._recommendation = nil
 		self._ratingCategories = []
 	}
 
@@ -69,6 +71,15 @@ public struct RateRequest: Sendable {
 		return copy
 	}
 
+	/// Sets the reviewer's recommendation.
+	///
+	/// - Parameter recommendation: The recommendation to submit.
+	public func recommendation(_ recommendation: ReviewRecommendation) -> Self {
+		var copy = self
+		copy._recommendation = recommendation
+		return copy
+	}
+
 	/// Adds the scored rating categories of a detailed rating.
 	///
 	/// - Parameter ratingCategories: The rating categories to submit.
@@ -90,6 +101,9 @@ public struct RateRequest: Sendable {
 		}
 		if let isSpoiler = self._isSpoiler {
 			body["isSpoiler"] = isSpoiler ? 1 : 0
+		}
+		if let recommendation = self._recommendation {
+			body["recommendation"] = recommendation.rawValue
 		}
 
 		if self._ratingCategories.isEmpty {
