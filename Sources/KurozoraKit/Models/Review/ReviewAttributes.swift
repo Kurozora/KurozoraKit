@@ -21,6 +21,9 @@ extension Review {
 		/// The private note of the review belonging stores the current user.
 		public let note: String?
 
+		/// Whether the review contains a spoiler.
+		public let isSpoiler: Bool
+
 		/// The creation date of the review.
 		public let createdAt: Date
 	}

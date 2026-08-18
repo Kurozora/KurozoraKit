@@ -162,6 +162,9 @@ public struct LibrarySyncReviewEntry: Codable, Sendable {
 	/// The user's private note on the item.
 	public let note: String?
 
+	/// Whether the review contains a spoiler.
+	public let isSpoiler: Bool
+
 	/// The timestamp at which the review was first created.
 	public let createdAt: Int?
 

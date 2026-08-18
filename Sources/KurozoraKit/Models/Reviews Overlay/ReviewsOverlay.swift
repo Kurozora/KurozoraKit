@@ -38,6 +38,9 @@ public struct ReviewsOverlayAttributes: Codable, Sendable {
 	/// The private note the user kept for themselves.
 	public let note: String?
 
+	/// Whether the review contains a spoiler.
+	public let isSpoiler: Bool
+
 	/// The timestamp at which the row was first created, in seconds since the Unix epoch.
 	public let createdAt: Int?
 

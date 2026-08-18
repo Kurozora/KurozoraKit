@@ -20,6 +20,9 @@ public struct LibraryAttributes: Codable, Sendable {
 	/// The private note kept on the item.
 	public var note: String?
 
+	/// Whether the review contains a spoiler.
+	public var isSpoiler: Bool?
+
 	/// Whether the item is favorited.
 	public var isFavorited: Bool?
 
