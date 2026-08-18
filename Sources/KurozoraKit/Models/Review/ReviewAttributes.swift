@@ -33,6 +33,9 @@ extension Review {
 		/// The item's total number of parts.
 		public let progressTotal: Int?
 
+		/// Whether the review reads as a meme, art, or a one-word joke.
+		public let isLowEffort: Bool
+
 		/// The creation date of the review.
 		public let createdAt: Date
 	}
