@@ -39,7 +39,49 @@ extension Review {
 		/// Whether the staff elevated the review to Editor's Choice.
 		public let isElevated: Bool
 
+		/// The number of helpful votes the review has received.
+		public var helpfulCount: Int
+
+		/// The number of unhelpful votes the review has received.
+		public var unhelpfulCount: Int
+
+		/// Whether the authenticated user has marked the review as helpful.
+		public var isHelpful: Bool?
+
 		/// The creation date of the review.
 		public let createdAt: Date
+	}
+}
+
+// MARK: - Helpers
+extension Review.Attributes {
+	// MARK: - Functions
+	/// Applies a vote, updating the helpful and unhelpful counts.
+	///
+	/// - Parameter newHelpfulness: The new helpfulness state, or `nil` when the user has no active vote.
+	public mutating func applyVote(_ newHelpfulness: Bool?) {
+		let oldHelpfulness = self.isHelpful
+
+		if oldHelpfulness == newHelpfulness {
+			return
+		}
+
+		if let oldHelpfulness = oldHelpfulness {
+			if oldHelpfulness {
+				self.helpfulCount = max(0, self.helpfulCount - 1)
+			} else {
+				self.unhelpfulCount = max(0, self.unhelpfulCount - 1)
+			}
+		}
+
+		if let newHelpfulness = newHelpfulness {
+			if newHelpfulness {
+				self.helpfulCount += 1
+			} else {
+				self.unhelpfulCount += 1
+			}
+		}
+
+		self.isHelpful = newHelpfulness
 	}
 }

@@ -348,6 +348,9 @@ extension KKEndpoint {
 		/// The endpoint to toggle a review's Editor's Choice slot.
 		case elevate(_ reviewIdentity: ReviewIdentity)
 
+		/// The endpoint to vote on a review.
+		case vote(_ reviewIdentity: ReviewIdentity)
+
 		/// The endpoint to the rating categories of a review kind.
 		case categories
 
@@ -359,6 +362,8 @@ extension KKEndpoint {
 				return "reviews/\(reviewIdentity.id)/delete"
 			case .elevate(let reviewIdentity):
 				return "reviews/\(reviewIdentity.id)/elevate"
+			case .vote(let reviewIdentity):
+				return "reviews/\(reviewIdentity.id)/vote"
 			case .categories:
 				return "reviews/categories"
 			}

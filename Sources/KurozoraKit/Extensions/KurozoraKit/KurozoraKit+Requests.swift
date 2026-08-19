@@ -1810,6 +1810,17 @@ extension KurozoraKit {
 	public func elevateReview(_ reviewIdentity: ReviewIdentity) -> ElevateReviewRequest {
 		ElevateReviewRequest(context: RequestContext(from: self), reviewIdentity: reviewIdentity)
 	}
+
+	/// Returns a request that casts (or clears) a helpful / unhelpful vote on a review.
+	///
+	/// - Parameters:
+	///    - reviewIdentity: The identity of the review to vote on.
+	///    - request: The vote payload. Pass `nil` to clear the existing vote.
+	///
+	/// - Returns: A configured ``VoteOnReviewRequest`` ready to be executed.
+	public func voteReview(_ reviewIdentity: ReviewIdentity, request: ReviewVoteRequest) -> VoteOnReviewRequest {
+		VoteOnReviewRequest(context: RequestContext(from: self), reviewIdentity: reviewIdentity, vote: request.vote)
+	}
 }
 
 // MARK: - Parental Guide

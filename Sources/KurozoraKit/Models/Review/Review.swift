@@ -18,7 +18,7 @@ public struct Review: KurozoraItem, IdentityResource, Hashable {
 	public let href: String
 
 	/// The attributes belonging to the review.
-	public let attributes: Review.Attributes
+	public var attributes: Review.Attributes
 
 	/// The relationships belonging to the review.
 	public let relationships: Review.Relationships?
