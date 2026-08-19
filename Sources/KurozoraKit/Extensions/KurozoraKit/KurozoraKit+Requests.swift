@@ -1607,6 +1607,18 @@ extension KurozoraKit {
 	public func deleteFeedMessage(_ messageIdentity: FeedMessageIdentity) -> DeleteFeedMessageRequest {
 		DeleteFeedMessageRequest(context: RequestContext(from: self), messageIdentity: messageIdentity)
 	}
+
+	/// Returns a request that files a report against a feed message.
+	///
+	/// - Parameters:
+	///    - messageIdentity: The identity of the feed message to report.
+	///    - reason: The reason for the report.
+	///    - details: The free-text details. Required when `reason` is ``ReportReason/other``.
+	///
+	/// - Returns: A configured ``ReportFeedMessageRequest`` ready to be executed.
+	public func reportFeedMessage(_ messageIdentity: FeedMessageIdentity, reason: ReportReason, details: String?) -> ReportFeedMessageRequest {
+		ReportFeedMessageRequest(context: RequestContext(from: self), messageIdentity: messageIdentity, reason: reason, details: details)
+	}
 }
 
 // MARK: - Watch Status & Season Episodes
@@ -1820,6 +1832,18 @@ extension KurozoraKit {
 	/// - Returns: A configured ``VoteOnReviewRequest`` ready to be executed.
 	public func voteReview(_ reviewIdentity: ReviewIdentity, request: ReviewVoteRequest) -> VoteOnReviewRequest {
 		VoteOnReviewRequest(context: RequestContext(from: self), reviewIdentity: reviewIdentity, vote: request.vote)
+	}
+
+	/// Returns a request that files a report against a review.
+	///
+	/// - Parameters:
+	///    - reviewIdentity: The identity of the review to report.
+	///    - reason: The reason for the report.
+	///    - details: The free-text details. Required when `reason` is ``ReportReason/other``.
+	///
+	/// - Returns: A configured ``ReportReviewRequest`` ready to be executed.
+	public func reportReview(_ reviewIdentity: ReviewIdentity, reason: ReportReason, details: String?) -> ReportReviewRequest {
+		ReportReviewRequest(context: RequestContext(from: self), reviewIdentity: reviewIdentity, reason: reason, details: details)
 	}
 }
 

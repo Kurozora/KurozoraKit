@@ -351,6 +351,9 @@ extension KKEndpoint {
 		/// The endpoint to vote on a review.
 		case vote(_ reviewIdentity: ReviewIdentity)
 
+		/// The endpoint to file a report against a review.
+		case report(_ reviewIdentity: ReviewIdentity)
+
 		/// The endpoint to the rating categories of a review kind.
 		case categories
 
@@ -364,6 +367,8 @@ extension KKEndpoint {
 				return "reviews/\(reviewIdentity.id)/elevate"
 			case .vote(let reviewIdentity):
 				return "reviews/\(reviewIdentity.id)/vote"
+			case .report(let reviewIdentity):
+				return "reviews/\(reviewIdentity.id)/report"
 			case .categories:
 				return "reviews/categories"
 			}

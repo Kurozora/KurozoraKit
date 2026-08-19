@@ -35,6 +35,9 @@ extension KKEndpoint.Feed {
 		/// The endpoint to delete the message details.
 		case delete(_ messageIdentity: KurozoraItem)
 
+		/// The endpoint to file a report against a feed message.
+		case report(_ messageIdentity: KurozoraItem)
+
 		// MARK: - Properties
 		/// The endpoint value of the Messages API type.
 		var endpointValue: String {
@@ -55,6 +58,8 @@ extension KKEndpoint.Feed {
 				return "feed/messages/\(messageIdentity.id)/re-shares"
 			case .delete(let messageIdentity):
 				return "feed/messages/\(messageIdentity.id)/delete"
+			case .report(let messageIdentity):
+				return "feed/messages/\(messageIdentity.id)/report"
 			}
 		}
 	}
