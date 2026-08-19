@@ -29,6 +29,18 @@ public struct MediaStat: Codable, Sendable {
 	/// The collective user sentiment.
 	public let sentiment: String
 
-	/// The percentage of the highest rating compared to the total rating.
-	public let highestRatingPercentage: Double
+	/// The percentage of ratings that are positive.
+	public let positivePercentage: Double
+
+	/// The collective user sentiment of how much the model is liked next to how it is rated.
+	public let favoriteSentiment: String
+
+	/// The total count of all favorites.
+	public let favoriteCount: Int
+
+	/// The share of raters who also favorited the model.
+	public let favoriteShare: Double
+
+	/// The distance between the share of raters who favorited the model and its rating, in standard deviations.
+	public let sentimentGap: Double
 }
