@@ -203,6 +203,15 @@ extension KurozoraKit {
 		RelationshipRequest(context: RequestContext(from: self), endpoint: KKEndpoint.Shows.cast(show).endpointValue)
 	}
 
+	/// Returns a request that fetches the editorial of the specified show.
+	///
+	/// - Parameter show: The identity of the show whose editorial to fetch.
+	///
+	/// - Returns: A configured relationship request.
+	public func editorial(for show: ShowIdentity) -> RelationshipRequest<ResourceCollection<Editorial>> {
+		RelationshipRequest(context: RequestContext(from: self), endpoint: KKEndpoint.Shows.editorial(show).endpointValue)
+	}
+
 	/// Returns a request that fetches the characters of the specified show.
 	///
 	/// - Parameter show: The identity of the show whose characters to fetch.
@@ -305,6 +314,15 @@ extension KurozoraKit {
 		RelationshipRequest(context: RequestContext(from: self), endpoint: KKEndpoint.Games.cast(game).endpointValue)
 	}
 
+	/// Returns a request that fetches the editorial of the specified game.
+	///
+	/// - Parameter game: The identity of the game whose editorial to fetch.
+	///
+	/// - Returns: A configured relationship request.
+	public func editorial(for game: GameIdentity) -> RelationshipRequest<ResourceCollection<Editorial>> {
+		RelationshipRequest(context: RequestContext(from: self), endpoint: KKEndpoint.Games.editorial(game).endpointValue)
+	}
+
 	/// Returns a request that fetches the characters of the specified game.
 	///
 	/// - Parameter game: The identity of the game whose characters to fetch.
@@ -387,6 +405,15 @@ extension KurozoraKit {
 	/// - Returns: A configured relationship request.
 	public func cast(for literature: LiteratureIdentity) -> RelationshipRequest<ResourceCollection<CastIdentity>> {
 		RelationshipRequest(context: RequestContext(from: self), endpoint: KKEndpoint.Literatures.cast(literature).endpointValue)
+	}
+
+	/// Returns a request that fetches the editorial of the specified literature.
+	///
+	/// - Parameter literature: The identity of the literature whose editorial to fetch.
+	///
+	/// - Returns: A configured relationship request.
+	public func editorial(for literature: LiteratureIdentity) -> RelationshipRequest<ResourceCollection<Editorial>> {
+		RelationshipRequest(context: RequestContext(from: self), endpoint: KKEndpoint.Literatures.editorial(literature).endpointValue)
 	}
 
 	/// Returns a request that fetches the characters of the specified literature.
@@ -1773,6 +1800,15 @@ extension KurozoraKit {
 	/// - Returns: A configured ``DeleteReviewRequest`` ready to be executed.
 	public func deleteReview(_ reviewIdentity: ReviewIdentity) -> DeleteReviewRequest {
 		DeleteReviewRequest(context: RequestContext(from: self), reviewIdentity: reviewIdentity)
+	}
+
+	/// Returns a request that toggles a review's Editor's Choice slot.
+	///
+	/// - Parameter reviewIdentity: The identity of the review to elevate.
+	///
+	/// - Returns: A configured ``ElevateReviewRequest`` ready to be executed.
+	public func elevateReview(_ reviewIdentity: ReviewIdentity) -> ElevateReviewRequest {
+		ElevateReviewRequest(context: RequestContext(from: self), reviewIdentity: reviewIdentity)
 	}
 }
 

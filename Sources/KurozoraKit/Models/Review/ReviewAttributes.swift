@@ -36,6 +36,9 @@ extension Review {
 		/// Whether the review reads as a meme, art, or a one-word joke.
 		public let isLowEffort: Bool
 
+		/// Whether the staff elevated the review to Editor's Choice.
+		public let isElevated: Bool
+
 		/// The creation date of the review.
 		public let createdAt: Date
 	}

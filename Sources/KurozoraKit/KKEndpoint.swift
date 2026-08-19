@@ -345,6 +345,9 @@ extension KKEndpoint {
 		/// The endpoint to delete a review.
 		case delete(_ reviewIdentity: ReviewIdentity)
 
+		/// The endpoint to toggle a review's Editor's Choice slot.
+		case elevate(_ reviewIdentity: ReviewIdentity)
+
 		/// The endpoint to the rating categories of a review kind.
 		case categories
 
@@ -354,6 +357,8 @@ extension KKEndpoint {
 			switch self {
 			case .delete(let reviewIdentity):
 				return "reviews/\(reviewIdentity.id)/delete"
+			case .elevate(let reviewIdentity):
+				return "reviews/\(reviewIdentity.id)/elevate"
 			case .categories:
 				return "reviews/categories"
 			}
@@ -474,6 +479,9 @@ extension KKEndpoint {
 		/// The endpoint to the cast belonging to a show.
 		case cast(_ showIdentity: ShowIdentity)
 
+		/// The endpoint to the editorial belonging to a show.
+		case editorial(_ showIdentity: ShowIdentity)
+
 		/// The endpoint to the characters belonging to a show.
 		case characters(_ showIdentity: ShowIdentity)
 
@@ -523,6 +531,8 @@ extension KKEndpoint {
 				return "anime/\(showIdentity.id)"
 			case .cast(let showIdentity):
 				return "anime/\(showIdentity.id)/cast"
+			case .editorial(let showIdentity):
+				return "anime/\(showIdentity.id)/editorial"
 			case .characters(let showIdentity):
 				return "anime/\(showIdentity.id)/characters"
 			case .people(let showIdentity):
@@ -592,6 +602,9 @@ extension KKEndpoint {
 		/// The endpoint to the cast belonging to a literature.
 		case cast(_ literatureIdentity: LiteratureIdentity)
 
+		/// The endpoint to the editorial belonging to a literature.
+		case editorial(_ literatureIdentity: LiteratureIdentity)
+
 		/// The endpoint to the characters belonging to a literature.
 		case characters(_ literatureIdentity: LiteratureIdentity)
 
@@ -635,6 +648,8 @@ extension KKEndpoint {
 				return "manga/\(literatureIdentity.id)"
 			case .cast(let literatureIdentity):
 				return "manga/\(literatureIdentity.id)/cast"
+			case .editorial(let literatureIdentity):
+				return "manga/\(literatureIdentity.id)/editorial"
 			case .characters(let literatureIdentity):
 				return "manga/\(literatureIdentity.id)/characters"
 			case .people(let literatureIdentity):
@@ -675,6 +690,9 @@ extension KKEndpoint {
 
 		/// The endpoint to the cast belonging to a game.
 		case cast(_ gameIdentity: GameIdentity)
+
+		/// The endpoint to the editorial belonging to a game.
+		case editorial(_ gameIdentity: GameIdentity)
 
 		/// The endpoint to the characters belonging to a game.
 		case characters(_ gameIdentity: GameIdentity)
@@ -719,6 +737,8 @@ extension KKEndpoint {
 				return "games/\(gameIdentity.id)"
 			case .cast(let gameIdentity):
 				return "games/\(gameIdentity.id)/cast"
+			case .editorial(let gameIdentity):
+				return "games/\(gameIdentity.id)/editorial"
 			case .characters(let gameIdentity):
 				return "games/\(gameIdentity.id)/characters"
 			case .people(let gameIdentity):
