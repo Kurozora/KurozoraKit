@@ -48,6 +48,9 @@ extension Review {
 		/// Whether the authenticated user has marked the review as helpful.
 		public var isHelpful: Bool?
 
+		/// The number of superseded versions kept for the review.
+		public let revisionCount: Int?
+
 		/// The creation date of the review.
 		public let createdAt: Date
 	}

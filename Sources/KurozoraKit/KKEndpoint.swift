@@ -345,6 +345,9 @@ extension KKEndpoint {
 		/// The endpoint to delete a review.
 		case delete(_ reviewIdentity: ReviewIdentity)
 
+		/// The endpoint to the superseded versions of a review.
+		case revisions(_ reviewIdentity: ReviewIdentity)
+
 		/// The endpoint to toggle a review's Editor's Choice slot.
 		case elevate(_ reviewIdentity: ReviewIdentity)
 
@@ -363,6 +366,8 @@ extension KKEndpoint {
 			switch self {
 			case .delete(let reviewIdentity):
 				return "reviews/\(reviewIdentity.id)/delete"
+			case .revisions(let reviewIdentity):
+				return "reviews/\(reviewIdentity.id)/revisions"
 			case .elevate(let reviewIdentity):
 				return "reviews/\(reviewIdentity.id)/elevate"
 			case .vote(let reviewIdentity):

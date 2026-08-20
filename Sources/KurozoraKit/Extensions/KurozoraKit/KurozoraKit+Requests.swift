@@ -1814,6 +1814,15 @@ extension KurozoraKit {
 		DeleteReviewRequest(context: RequestContext(from: self), reviewIdentity: reviewIdentity)
 	}
 
+	/// Returns a request that fetches the superseded versions of a review.
+	///
+	/// - Parameter reviewIdentity: The identity of the review whose revisions to fetch.
+	///
+	/// - Returns: A configured ``ReviewRevisionsRequest`` ready to be executed.
+	public func revisions(for reviewIdentity: ReviewIdentity) -> ReviewRevisionsRequest {
+		ReviewRevisionsRequest(context: RequestContext(from: self), reviewIdentity: reviewIdentity)
+	}
+
 	/// Returns a request that toggles a review's Editor's Choice slot.
 	///
 	/// - Parameter reviewIdentity: The identity of the review to elevate.
