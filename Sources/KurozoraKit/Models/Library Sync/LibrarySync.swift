@@ -159,9 +159,6 @@ public struct LibrarySyncReviewEntry: Codable, Sendable {
 	/// The optional written review accompanying the score.
 	public let description: String?
 
-	/// The user's private note on the item.
-	public let note: String?
-
 	/// Whether the review contains a spoiler.
 	public let isSpoiler: Bool
 

@@ -1057,6 +1057,9 @@ extension KKEndpoint {
 		/// The endpoint to a user's profile.
 		case profile(_ userIdentity: UserIdentity)
 
+		/// The endpoint to fetch the user's notes for a bounded set of model IDs.
+		case notes(_ userIdentity: UserIdentity)
+
 		/// The endpoint to view a user's reviews.
 		case reviews(_ userIdentity: UserIdentity)
 
@@ -1108,6 +1111,8 @@ extension KKEndpoint {
 				return "users/\(userIdentity.id)/library"
 			case .profile(let userIdentity):
 				return "users/\(userIdentity.id)/profile"
+			case .notes(let userIdentity):
+				return "users/\(userIdentity.id)/notes"
 			case .reviews(let userIdentity):
 				return "users/\(userIdentity.id)/reviews"
 			case .watched(let userIdentity):
@@ -1149,6 +1154,9 @@ extension KKEndpoint {
 		/// The endpoint to the authenticated user's blocked users list.
 		case blocked
 
+		/// The endpoint to write the authenticated user's note on an item.
+		case notes
+
 		/// The endpoint for filing an appeal against the authenticated user's active timeout.
 		case timeoutAppeal
 
@@ -1173,6 +1181,8 @@ extension KKEndpoint {
 				return "me/following"
 			case .blocked:
 				return "me/blocked"
+			case .notes:
+				return "me/notes"
 			case .timeoutAppeal:
 				return "me/timeout/appeal"
 			case .timeoutAppealUpdate:

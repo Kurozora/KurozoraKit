@@ -737,6 +737,30 @@ extension KurozoraKit {
 		FavoritesOverlayRequest(context: RequestContext(from: self), userIdentity: userIdentity, kind: kind, itemIDs: itemIDs)
 	}
 
+	/// Returns a request that fetches the user's notes for a bounded set of model IDs.
+	///
+	/// - Parameters:
+	///    - userIdentity: The user whose notes to fetch.
+	///    - kind: The kind of annotated model to look up.
+	///    - itemIDs: The identifiers of the items to look up.
+	///
+	/// - Returns: A configured ``NotesOverlayRequest`` ready to be executed.
+	public func notesOverlay(forUser userIdentity: UserIdentity, kind: ReviewKind, itemIDs: [KurozoraItemID]) -> NotesOverlayRequest {
+		NotesOverlayRequest(context: RequestContext(from: self), userIdentity: userIdentity, kind: kind, itemIDs: itemIDs)
+	}
+
+	/// Returns a request that writes the authenticated user's note on an item.
+	///
+	/// - Parameters:
+	///    - itemID: The identifier of the item to annotate.
+	///    - kind: The kind of the annotated model.
+	///    - body: The note to write. Pass `nil` or an empty string to clear it.
+	///
+	/// - Returns: A configured ``SetNoteRequest`` ready to be executed.
+	public func setNote(on itemID: KurozoraItemID, kind: ReviewKind, body: String?) -> SetNoteRequest {
+		SetNoteRequest(context: RequestContext(from: self), kind: kind, itemID: itemID, body: body)
+	}
+
 	/// Returns a request that fetches the reviews overlay for a bounded set of
 	/// model identifiers belonging to the given user.
 	///
