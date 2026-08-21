@@ -38,5 +38,19 @@ extension Review {
 
 		/// The users belonging to the review.
 		public let users: ResourceCollection<User>?
+
+		// MARK: - Properties
+		/// The identifier of the reviewed item, sourced from whichever per-type key the server populated.
+		public var reviewedID: KurozoraItemID? {
+			if let id = self.shows?.data.first?.id { return id }
+			if let id = self.games?.data.first?.id { return id }
+			if let id = self.literatures?.data.first?.id { return id }
+			if let id = self.episodes?.data.first?.id { return id }
+			if let id = self.songs?.data.first?.id { return id }
+			if let id = self.characters?.data.first?.id { return id }
+			if let id = self.people?.data.first?.id { return id }
+			if let id = self.studios?.data.first?.id { return id }
+			return nil
+		}
 	}
 }

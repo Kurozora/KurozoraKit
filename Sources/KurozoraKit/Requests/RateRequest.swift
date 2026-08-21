@@ -25,8 +25,6 @@ public struct RateRequest: Sendable {
 	private let endpoint: String
 	private let score: Double
 	private var _description: String?
-	private var _note: String?
-	private var _updatesNote: Bool
 	private var _isSpoiler: Bool?
 	private var _recommendation: ReviewRecommendation?
 	private var _ratingCategories: [RatingCategory]
@@ -37,8 +35,6 @@ public struct RateRequest: Sendable {
 		self.endpoint = endpoint
 		self.score = score
 		self._description = nil
-		self._note = nil
-		self._updatesNote = false
 		self._isSpoiler = nil
 		self._recommendation = nil
 		self._ratingCategories = []
@@ -49,16 +45,6 @@ public struct RateRequest: Sendable {
 	public func description(_ text: String?) -> Self {
 		var copy = self
 		copy._description = text
-		return copy
-	}
-
-	/// Sets the private note kept on the rating.
-	///
-	/// - Parameter text: The note to store. `nil` clears it.
-	public func note(_ text: String?) -> Self {
-		var copy = self
-		copy._note = text
-		copy._updatesNote = true
 		return copy
 	}
 
@@ -90,14 +76,13 @@ public struct RateRequest: Sendable {
 	}
 
 	// MARK: - Execution
-	/// Executes the request and returns the decoded response.
-	public func response() async throws -> KKSuccess {
+	/// Executes the request and returns the identity of the submitted review.
+	///
+	/// The collection is empty when the submission cleared the rating instead of storing one.
+	public func response() async throws -> ResourceCollection<ReviewIdentity> {
 		var body: [String: Any] = [:]
 		if let description = self._description {
 			body["description"] = description
-		}
-		if self._updatesNote {
-			body["note"] = self._note ?? ""
 		}
 		if let isSpoiler = self._isSpoiler {
 			body["isSpoiler"] = isSpoiler ? 1 : 0
@@ -129,7 +114,7 @@ public struct RateRequest: Sendable {
 			}
 		}
 
-		let request = KKRequest<KKSuccess>(
+		let request = KKRequest<ResourceCollection<ReviewIdentity>>(
 			path: self.endpoint,
 			method: .post,
 			headers: self.context.headers,

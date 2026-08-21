@@ -342,6 +342,9 @@ extension KKEndpoint {
 	/// The set of available Reviews API endpoints types.
 	internal enum Reviews {
 		// MARK: - Cases
+		/// The endpoint to a single review.
+		case details(_ reviewIdentity: ReviewIdentity)
+
 		/// The endpoint to delete a review.
 		case delete(_ reviewIdentity: ReviewIdentity)
 
@@ -364,6 +367,8 @@ extension KKEndpoint {
 		/// The endpoint value of the Reviews API type.
 		var endpointValue: String {
 			switch self {
+			case .details(let reviewIdentity):
+				return "reviews/\(reviewIdentity.id)"
 			case .delete(let reviewIdentity):
 				return "reviews/\(reviewIdentity.id)/delete"
 			case .revisions(let reviewIdentity):

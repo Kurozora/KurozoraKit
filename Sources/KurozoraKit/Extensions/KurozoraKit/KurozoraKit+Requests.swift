@@ -1838,6 +1838,15 @@ extension KurozoraKit {
 		DeleteReviewRequest(context: RequestContext(from: self), reviewIdentity: reviewIdentity)
 	}
 
+	/// Returns a request that fetches a single review.
+	///
+	/// - Parameter reviewIdentity: The identity of the review to fetch.
+	///
+	/// - Returns: A configured ``ReviewDetailsRequest`` ready to be executed.
+	public func review(_ reviewIdentity: ReviewIdentity) -> ReviewDetailsRequest {
+		ReviewDetailsRequest(context: RequestContext(from: self), reviewIdentity: reviewIdentity)
+	}
+
 	/// Returns a request that fetches the superseded versions of a review.
 	///
 	/// - Parameter reviewIdentity: The identity of the review whose revisions to fetch.

@@ -21,9 +21,11 @@ public struct DeleteRatingRequest: Sendable {
 	}
 
 	// MARK: - Execution
-	/// Executes the request and returns the decoded response.
-	public func response() async throws -> KKSuccess {
-		let request = KKRequest<KKSuccess>(
+	/// Executes the request and returns the identity of the deleted review.
+	///
+	/// The collection is empty when the user had no rating to delete.
+	public func response() async throws -> ResourceCollection<ReviewIdentity> {
+		let request = KKRequest<ResourceCollection<ReviewIdentity>>(
 			path: self.endpoint,
 			method: .delete,
 			headers: self.context.headers
