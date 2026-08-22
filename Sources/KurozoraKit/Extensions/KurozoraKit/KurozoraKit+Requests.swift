@@ -2204,3 +2204,24 @@ extension KurozoraKit {
 		ListRequest(context: RequestContext(from: self), endpoint: KKEndpoint.Charts.index(.studios).endpointValue)
 	}
 }
+
+// MARK: - Trailers
+extension KurozoraKit {
+	/// Returns a request that fetches the shows that have a trailer.
+	///
+	/// - Parameter sort: The order the trailers are returned in.
+	///
+	/// - Returns: A configured ``TrailersRequest`` ready to be executed.
+	public func showTrailers(sortedBy sort: TrailerSort = .justAdded) -> TrailersRequest<ShowIdentity> {
+		TrailersRequest(context: RequestContext(from: self), endpoint: KKEndpoint.Shows.trailers.endpointValue, sort: sort)
+	}
+
+	/// Returns a request that fetches the games that have a trailer.
+	///
+	/// - Parameter sort: The order the trailers are returned in.
+	///
+	/// - Returns: A configured ``TrailersRequest`` ready to be executed.
+	public func gameTrailers(sortedBy sort: TrailerSort = .justAdded) -> TrailersRequest<GameIdentity> {
+		TrailersRequest(context: RequestContext(from: self), endpoint: KKEndpoint.Games.trailers.endpointValue, sort: sort)
+	}
+}

@@ -541,6 +541,9 @@ extension KKEndpoint {
 		/// The endpoint to upcoming shows.
 		case upcoming
 
+		/// The endpoint to shows that have a trailer.
+		case trailers
+
 		// MARK: - Properties
 		/// The endpoint value of the Shows API type.
 		var endpointValue: String {
@@ -579,6 +582,8 @@ extension KKEndpoint {
 				return "anime/\(showIdentity.id)/more-by-studio"
 			case .upcoming:
 				return "anime/upcoming"
+			case .trailers:
+				return "anime/trailers"
 			}
 		}
 	}
@@ -755,6 +760,9 @@ extension KKEndpoint {
 		/// The endpoint to games that have an anime adaptation.
 		case adapted(_ filter: AdaptedFilter)
 
+		/// The endpoint to games that have a trailer.
+		case trailers
+
 		// MARK: - Properties
 		/// The endpoint value of the Games API type.
 		var endpointValue: String {
@@ -791,6 +799,8 @@ extension KKEndpoint {
 				return "games/upcoming"
 			case .adapted(let filter):
 				return "games/adapted?filter=\(filter.rawValue)"
+			case .trailers:
+				return "games/trailers"
 			}
 		}
 	}

@@ -21,6 +21,9 @@ extension Game {
 		/// The game's slug.
 		public let slug: String
 
+		/// The game's video url.
+		public let videoUrl: String?
+
 		/// The game's poster's media object.
 		public let poster: Media?
 
