@@ -658,6 +658,9 @@ extension KKEndpoint {
 		/// The endpoint to upcoming literatures.
 		case upcoming
 
+		/// The endpoint to literatures that have an anime adaptation.
+		case adapted(_ filter: AdaptedFilter)
+
 		// MARK: - Properties
 		/// The endpoint value of the Literatures API type.
 		var endpointValue: String {
@@ -692,6 +695,8 @@ extension KKEndpoint {
 				return "manga/\(literatureIdentity.id)/more-by-studio"
 			case .upcoming:
 				return "manga/upcoming"
+			case .adapted(let filter):
+				return "manga/adapted?filter=\(filter.rawValue)"
 			}
 		}
 	}
@@ -747,6 +752,9 @@ extension KKEndpoint {
 		/// The endpoint to upcoming games.
 		case upcoming
 
+		/// The endpoint to games that have an anime adaptation.
+		case adapted(_ filter: AdaptedFilter)
+
 		// MARK: - Properties
 		/// The endpoint value of the Games API type.
 		var endpointValue: String {
@@ -781,6 +789,8 @@ extension KKEndpoint {
 				return "games/\(gameIdentity.id)/more-by-studio"
 			case .upcoming:
 				return "games/upcoming"
+			case .adapted(let filter):
+				return "games/adapted?filter=\(filter.rawValue)"
 			}
 		}
 	}

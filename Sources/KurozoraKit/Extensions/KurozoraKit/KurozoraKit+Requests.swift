@@ -190,6 +190,20 @@ extension KurozoraKit {
 	public func upcomingLiteratures() -> ListRequest<LiteratureIdentity> {
 		ListRequest(context: RequestContext(from: self), endpoint: KKEndpoint.Literatures.upcoming.endpointValue)
 	}
+
+	/// Returns a paginated request that fetches the index of games adapted to anime.
+	///
+	/// - Parameter filter: The airing status used to narrow the adapted games.
+	public func adaptedGames(filter: AdaptedFilter = .airing) -> ListRequest<GameIdentity> {
+		ListRequest(context: RequestContext(from: self), endpoint: KKEndpoint.Games.adapted(filter).endpointValue)
+	}
+
+	/// Returns a paginated request that fetches the index of literatures adapted to anime.
+	///
+	/// - Parameter filter: The airing status used to narrow the adapted literatures.
+	public func adaptedLiteratures(filter: AdaptedFilter = .airing) -> ListRequest<LiteratureIdentity> {
+		ListRequest(context: RequestContext(from: self), endpoint: KKEndpoint.Literatures.adapted(filter).endpointValue)
+	}
 }
 
 // MARK: - Relationships (Shows)
