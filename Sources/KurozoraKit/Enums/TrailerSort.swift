@@ -8,9 +8,6 @@
 
 /// The list of available trailer sort orders.
 ///
-/// The cases are declared in the order they are presented in. Their raw values are
-/// the wire contract with the API, so they are pinned rather than positional.
-///
 /// - Tag: TrailerSort
 public enum TrailerSort: Int, CaseIterable, Sendable {
 	/// Indicates the trailers are ordered by the most recently added title.

@@ -9,9 +9,6 @@
 import Foundation
 
 /// A root object that stores information about a trailer resource.
-///
-/// A trailer always belongs to a title, so `Parent` is the identity of whichever kind the
-/// endpoint returns.
 public struct Trailer<Parent: Codable & Hashable & Sendable>: Codable, Hashable, Sendable {
 	// MARK: - Properties
 	/// The unique identifier of the trailer.

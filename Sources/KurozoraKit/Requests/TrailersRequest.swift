@@ -10,9 +10,6 @@ import Foundation
 
 /// A request that fetches a paginated index of titles that have a trailer.
 ///
-/// The sort order is sent with every page, including cursor pages, because the
-/// cursor is only valid for the ordering it was issued under.
-///
 /// ```swift
 /// let page1 = try await kurozoraKit
 ///     .showTrailers(sortedBy: .mostPopular)
