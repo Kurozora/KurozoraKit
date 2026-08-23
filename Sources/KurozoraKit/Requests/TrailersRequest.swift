@@ -25,7 +25,7 @@ import Foundation
 ///     .cursor(page1.nextCursor)
 ///     .response()
 /// ```
-public struct TrailersRequest<T: Fetchable>: Sendable {
+public struct TrailersRequest<T: Codable & Sendable>: Sendable {
 	// MARK: - Properties
 	private let context: RequestContext
 	private let endpoint: String

@@ -2212,7 +2212,7 @@ extension KurozoraKit {
 	/// - Parameter sort: The order the trailers are returned in.
 	///
 	/// - Returns: A configured ``TrailersRequest`` ready to be executed.
-	public func showTrailers(sortedBy sort: TrailerSort = .justAdded) -> TrailersRequest<ShowIdentity> {
+	public func showTrailers(sortedBy sort: TrailerSort = .justAdded) -> TrailersRequest<Trailer<ShowIdentity>> {
 		TrailersRequest(context: RequestContext(from: self), endpoint: KKEndpoint.Shows.trailers.endpointValue, sort: sort)
 	}
 
@@ -2221,7 +2221,7 @@ extension KurozoraKit {
 	/// - Parameter sort: The order the trailers are returned in.
 	///
 	/// - Returns: A configured ``TrailersRequest`` ready to be executed.
-	public func gameTrailers(sortedBy sort: TrailerSort = .justAdded) -> TrailersRequest<GameIdentity> {
+	public func gameTrailers(sortedBy sort: TrailerSort = .justAdded) -> TrailersRequest<Trailer<GameIdentity>> {
 		TrailersRequest(context: RequestContext(from: self), endpoint: KKEndpoint.Games.trailers.endpointValue, sort: sort)
 	}
 }
