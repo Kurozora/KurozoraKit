@@ -26,7 +26,7 @@ import Foundation
 ///     .cursor(page1.nextCursor)
 ///     .response()
 /// ```
-public struct ListRequest<T: Fetchable>: Sendable {
+public struct ListRequest<T: KurozoraItem & Codable>: Sendable {
 	// MARK: - Properties
 	private let context: RequestContext
 	private let endpoint: String

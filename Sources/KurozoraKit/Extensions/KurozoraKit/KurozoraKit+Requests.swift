@@ -167,12 +167,12 @@ extension KurozoraKit {
 	}
 
 	/// Returns a paginated request that fetches the index of genres.
-	public func genres() -> ListRequest<GenreIdentity> {
+	public func genres() -> ListRequest<Genre> {
 		ListRequest(context: RequestContext(from: self), endpoint: KKEndpoint.Genres.index.endpointValue)
 	}
 
 	/// Returns a paginated request that fetches the index of themes.
-	public func themes() -> ListRequest<ThemeIdentity> {
+	public func themes() -> ListRequest<Theme> {
 		ListRequest(context: RequestContext(from: self), endpoint: KKEndpoint.Themes.index.endpointValue)
 	}
 
