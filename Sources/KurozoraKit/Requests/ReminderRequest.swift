@@ -8,7 +8,7 @@
 
 import Foundation
 
-/// A request that toggles the reminder status for one or more library items.
+/// A request that updates the reminder status of one or more library items.
 ///
 /// ```swift
 /// let response = try await kurozoraKit
@@ -20,12 +20,22 @@ public struct ReminderRequest: Sendable {
 	private let context: RequestContext
 	private let kind: LibraryKind
 	private let itemIDs: [KurozoraItemID]
+	private var _isReminded: Bool?
 
 	// MARK: - Initializers
 	internal init(context: RequestContext, kind: LibraryKind, itemIDs: [KurozoraItemID]) {
 		self.context = context
 		self.kind = kind
 		self.itemIDs = itemIDs
+		self._isReminded = nil
+	}
+
+	// MARK: - Modifiers
+	/// Sets the requested reminder state.
+	public func reminded(_ isReminded: Bool?) -> Self {
+		var copy = self
+		copy._isReminded = isReminded
+		return copy
 	}
 
 	// MARK: - Execution
@@ -48,10 +58,13 @@ public struct ReminderRequest: Sendable {
 	}
 
 	private func send(chunk: [KurozoraItemID]) async throws -> ReminderResponse {
-		let parameters: [String: Any] = [
+		var parameters: [String: Any] = [
 			"library": self.kind.rawValue,
 			"model_ids": chunk.map { $0.rawValue },
 		]
+		if let isReminded = self._isReminded {
+			parameters["is_reminded"] = isReminded
+		}
 
 		let request = KKRequest<ReminderResponse>(
 			path: KKEndpoint.Me.Reminders.update.endpointValue,

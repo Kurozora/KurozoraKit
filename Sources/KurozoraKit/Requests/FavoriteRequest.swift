@@ -8,7 +8,7 @@
 
 import Foundation
 
-/// A request that toggles the favorite status for one or more library items.
+/// A request that updates the favorite status of one or more library items.
 ///
 /// ```swift
 /// let response = try await kurozoraKit
@@ -20,12 +20,22 @@ public struct FavoriteRequest: Sendable {
 	private let context: RequestContext
 	private let kind: LibraryKind
 	private let itemIDs: [KurozoraItemID]
+	private var _isFavorited: Bool?
 
 	// MARK: - Initializers
 	internal init(context: RequestContext, kind: LibraryKind, itemIDs: [KurozoraItemID]) {
 		self.context = context
 		self.kind = kind
 		self.itemIDs = itemIDs
+		self._isFavorited = nil
+	}
+
+	// MARK: - Modifiers
+	/// Sets the requested favorite state.
+	public func favorited(_ isFavorited: Bool?) -> Self {
+		var copy = self
+		copy._isFavorited = isFavorited
+		return copy
 	}
 
 	// MARK: - Execution
@@ -48,10 +58,13 @@ public struct FavoriteRequest: Sendable {
 	}
 
 	private func send(chunk: [KurozoraItemID]) async throws -> FavoriteResponse {
-		let parameters: [String: Any] = [
+		var parameters: [String: Any] = [
 			"library": self.kind.rawValue,
 			"model_ids": chunk.map { $0.rawValue },
 		]
+		if let isFavorited = self._isFavorited {
+			parameters["is_favorited"] = isFavorited
+		}
 
 		let request = KKRequest<FavoriteResponse>(
 			path: KKEndpoint.Me.Favorites.update.endpointValue,

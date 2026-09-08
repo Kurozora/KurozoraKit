@@ -1031,24 +1031,22 @@ extension KurozoraKit {
 			?? URL(fileURLWithPath: "")
 	}
 
-	/// Returns a request that toggles the favorite status of one or more
-	/// library items.
+	/// Returns a request that updates the favorite status of one or more library items.
 	///
 	/// - Parameters:
 	///    - kind: The kind of library that contains the items.
-	///    - itemIDs: The identifiers of the items to toggle.
+	///    - itemIDs: The identifiers of the items to update.
 	///
 	/// - Returns: A configured ``FavoriteRequest`` ready to be executed.
 	public func toggleFavorite(inLibrary kind: LibraryKind, itemIDs: [KurozoraItemID]) -> FavoriteRequest {
 		FavoriteRequest(context: RequestContext(from: self), kind: kind, itemIDs: itemIDs)
 	}
 
-	/// Returns a request that toggles the reminder status of one or more
-	/// library items.
+	/// Returns a request that updates the reminder status of one or more library items.
 	///
 	/// - Parameters:
 	///    - kind: The kind of library that contains the items.
-	///    - itemIDs: The identifiers of the items to toggle.
+	///    - itemIDs: The identifiers of the items to update.
 	///
 	/// - Returns: A configured ``ReminderRequest`` ready to be executed.
 	public func toggleReminder(inLibrary kind: LibraryKind, itemIDs: [KurozoraItemID]) -> ReminderRequest {
