@@ -15,7 +15,7 @@ import Foundation
 /// submit data.
 ///
 /// - Tag: KurozoraKit
-public class KurozoraKit {
+public final class KurozoraKit: @unchecked Sendable {
 	// MARK: - Properties
 	/// The User-Agent string derived from the main app bundle, even when running in an extension.
 	///
@@ -86,39 +86,45 @@ public class KurozoraKit {
 		return "\(executable)/\(appVersion) (\(bundle); build:\(appBuild); \(osNameVersion)) KurozoraKit/\(kurozoraKitVersion)"
 	}()
 
+	/// The lock guarding the session configuration and services.
+	private let lock = NSLock()
+
 	/// Storage of the app's api key.
-	internal var _apiKey: String = ""
+	private var _apiKey: String
 	/// The current app's api key.
 	public var apiKey: String {
 		get {
-			return self._apiKey
+			return self.withLock { self._apiKey }
 		}
 		set {
-			self._apiKey = newValue
+			self.withLock { self._apiKey = newValue }
 		}
 	}
 
 	/// Storage of the current user's authentication key.
-	internal var _authenticationKey: String = ""
+	private var _authenticationKey: String
 	/// The current user's authentication key.
 	public var authenticationKey: String {
 		get {
-			return self._authenticationKey
+			return self.withLock { self._authenticationKey }
 		}
 		set {
-			self._authenticationKey = newValue
+			self.withLock { self._authenticationKey = newValue }
 		}
 	}
 
 	/// Storage of the current API endpoint.
-	internal var _apiEndpoint: KurozoraAPI = .v1
-	/// The current API Endpoint.
+	private var _apiEndpoint: KurozoraAPI
+	/// The current API Endpoint. Setting it also rebuilds the network client.
 	public var apiEndpoint: KurozoraAPI {
 		get {
-			return self._apiEndpoint
+			return self.withLock { self._apiEndpoint }
 		}
 		set {
-			self._apiEndpoint = newValue
+			self.withLock {
+				self._apiEndpoint = newValue
+				self._client = KKNetworkClient(baseURL: newValue.baseURL, options: newValue.options)
+			}
 		}
 	}
 
@@ -131,11 +137,36 @@ public class KurozoraKit {
 	/// ```
 	internal let headers: [String: String]
 
+	/// Storage of the network client.
+	private var _client: KKNetworkClient
 	/// The network client used to perform API requests.
-	internal var client: KKNetworkClient
+	internal var client: KKNetworkClient {
+		get {
+			return self.withLock { self._client }
+		}
+		set {
+			self.withLock { self._client = newValue }
+		}
+	}
 
+	/// Storage of the services.
+	private var _services: KKServices
 	/// The ``KKServices`` object used to perform API requests.
-	public var services: KKServices
+	public var services: KKServices {
+		get {
+			return self.withLock { self._services }
+		}
+		set {
+			self.withLock { self._services = newValue }
+		}
+	}
+
+	/// The client and credentials a request captures when it is built, read in one locked step.
+	internal var requestSnapshot: RequestSnapshot {
+		return self.withLock {
+			RequestSnapshot(client: self._client, authenticationKey: self._authenticationKey)
+		}
+	}
 
 	// MARK: - Initializers
 	/// Initializes `KurozoraKit` with the given API endpoint, user authentication key and services.
@@ -156,8 +187,8 @@ public class KurozoraKit {
 			"X-API-Key": apiKey,
 			"User-Agent": Self.mainAppUserAgent
 		]
-		self.client = KKNetworkClient(baseURL: endpoint.baseURL, options: endpoint.options)
-		self.services = services
+		self._client = KKNetworkClient(baseURL: endpoint.baseURL, options: endpoint.options)
+		self._services = services
 		services._bind(to: self)
 	}
 
@@ -170,7 +201,6 @@ public class KurozoraKit {
 	@discardableResult
 	public func apiEndpoint(_ apiEndpoint: KurozoraAPI) -> Self {
 		self.apiEndpoint = apiEndpoint
-		self.client = KKNetworkClient(baseURL: apiEndpoint.baseURL, options: apiEndpoint.options)
 		return self
 	}
 
@@ -236,5 +266,29 @@ public class KurozoraKit {
 			}
 			continuation.onTermination = { _ in task.cancel() }
 		}
+	}
+
+	/// Runs the given work while holding the configuration lock.
+	///
+	/// - Parameter body: The work to run.
+	///
+	/// - Returns: The value returned by `body`.
+	private func withLock<Value>(_ body: () throws -> Value) rethrows -> Value {
+		self.lock.lock()
+		defer { self.lock.unlock() }
+
+		return try body()
+	}
+}
+
+// MARK: - RequestSnapshot
+internal extension KurozoraKit {
+	/// A consistent copy of the values a request captures when it is built.
+	struct RequestSnapshot: Sendable {
+		/// The network client used to perform the request.
+		let client: KKNetworkClient
+
+		/// The current user's authentication key.
+		let authenticationKey: String
 	}
 }

@@ -670,7 +670,7 @@ internal extension KKWebSocket {
 }
 
 /// A Sendable wrapper holding a weak reference to a ``KurozoraKit/KurozoraKit`` instance.
-internal struct KurozoraKitReference: @unchecked Sendable {
+internal struct KurozoraKitReference: Sendable {
 	weak var instance: KurozoraKit?
 
 	init(_ kurozoraKit: KurozoraKit) {

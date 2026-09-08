@@ -15,7 +15,7 @@ import Foundation
 /// credential changes. It also retains a weak reference to the originating
 /// ``KurozoraKit`` instance so that authentication requests can update the ``KurozoraKit``'s
 /// session state and the shared ``User/current`` value when they complete successfully.
-internal struct RequestContext: @unchecked Sendable {
+internal struct RequestContext: Sendable {
 	// MARK: - Properties
 	/// The network client used to perform the request.
 	let client: KKNetworkClient
@@ -31,10 +31,11 @@ internal struct RequestContext: @unchecked Sendable {
 	///
 	/// - Parameter kurozoraKit: The ``KurozoraKit`` instance from which to capture the network client and headers.
 	init(from kurozoraKit: KurozoraKit) {
-		self.client = kurozoraKit.client
+		let snapshot = kurozoraKit.requestSnapshot
+		self.client = snapshot.client
 		var resolved = kurozoraKit.headers
-		if !kurozoraKit.authenticationKey.isEmpty {
-			resolved["Authorization"] = "Bearer \(kurozoraKit.authenticationKey)"
+		if !snapshot.authenticationKey.isEmpty {
+			resolved["Authorization"] = "Bearer \(snapshot.authenticationKey)"
 		}
 		self.headers = resolved
 		self.kurozoraKit = kurozoraKit
