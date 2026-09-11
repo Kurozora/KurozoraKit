@@ -19,12 +19,13 @@ internal actor KKWebSocket {
 	private static let client = "kurozora-kit"
 	private static let protocolVersion = "7"
 	private static let clientVersion = "1.0"
-	private static let activityTimeout: TimeInterval = 120
-	private static let heartbeatCheckInterval: TimeInterval = 30
+	private static let defaultActivityTimeout: TimeInterval = 120
+	private static let pongTimeout: TimeInterval = 30
+	private static let maxHeartbeatCheckInterval: TimeInterval = 30
+	private static let minHeartbeatCheckInterval: TimeInterval = 5
 	private static let maxReconnectDelay: TimeInterval = 30
 	private static let maxReconnectAttempts = 16
-	private static let requestTimeout: TimeInterval = 30
-	private static let resourceTimeout: TimeInterval = 60
+	private static let requestTimeout: TimeInterval = 300
 	private static let logSubsystem = "app.kurozora.KurozoraKit"
 	private static let logCategory = "WebSocket"
 
@@ -55,6 +56,12 @@ internal actor KKWebSocket {
 	private var reconnectTask: Task<Void, Never>?
 	private var reconnectAttempt = 0
 	private var lastInboundAt: Date = Date()
+
+	/// The idle period before a ping.
+	private var activityTimeout: TimeInterval = KKWebSocket.defaultActivityTimeout
+
+	/// When the outstanding ping was sent.
+	private var pingSentAt: Date?
 
 	/// The set of channels the client wants to be subscribed to across reconnects.
 	private var desiredSubscriptions: Set<String> = []
@@ -88,7 +95,6 @@ internal actor KKWebSocket {
 	private static func makeSession() -> URLSession {
 		let configuration = URLSessionConfiguration.default
 		configuration.timeoutIntervalForRequest = KKWebSocket.requestTimeout
-		configuration.timeoutIntervalForResource = KKWebSocket.resourceTimeout
 		return URLSession(configuration: configuration)
 	}
 
@@ -336,6 +342,8 @@ internal actor KKWebSocket {
 		self.activeSubscriptions.removeAll()
 
 		self.lastInboundAt = Date()
+		self.pingSentAt = nil
+		self.activityTimeout = KKWebSocket.defaultActivityTimeout
 		webSocketTask.resume()
 
 		self.logger.info("WebSocket connecting to \(url.absoluteString, privacy: .public)")
@@ -397,6 +405,7 @@ internal actor KKWebSocket {
 			do {
 				let message = try await task.receive()
 				self.lastInboundAt = Date()
+				self.pingSentAt = nil
 				self.handle(message: message)
 			} catch {
 				self.logger.error("WebSocket receive failed: \(error.localizedDescription, privacy: .public)")
@@ -455,6 +464,10 @@ internal actor KKWebSocket {
 
 		self.reconnectAttempt = 0
 		self._socketID = connection.socketID
+
+		if let activityTimeout = connection.activityTimeout, activityTimeout > 0 {
+			self.activityTimeout = activityTimeout
+		}
 
 		Task { [weak self] in
 			await self?.authorizeAndSubscribe(socketID: connection.socketID)
@@ -603,14 +616,26 @@ internal actor KKWebSocket {
 	}
 
 	private func runHeartbeatLoop() async {
-		let interval = KKWebSocket.heartbeatCheckInterval
-		let timeout = KKWebSocket.activityTimeout
-
 		while !Task.isCancelled {
+			let interval = min(max(self.activityTimeout / 2, KKWebSocket.minHeartbeatCheckInterval), KKWebSocket.maxHeartbeatCheckInterval)
 			try? await Task.sleep(nanoseconds: UInt64(interval * 1_000_000_000))
-			guard self.task != nil else { return }
-			let elapsed = Date().timeIntervalSince(self.lastInboundAt)
-			if elapsed >= timeout {
+			guard let task = self.task else { return }
+
+			let now = Date()
+
+			if let pingSentAt = self.pingSentAt {
+				if now.timeIntervalSince(pingSentAt) >= KKWebSocket.pongTimeout {
+					self.logger.error("WebSocket pong overdue after \(KKWebSocket.pongTimeout, privacy: .public)s, dropping the connection")
+					task.cancel(with: .abnormalClosure, reason: nil)
+					self.handleDisconnect(for: task)
+					return
+				}
+
+				continue
+			}
+
+			if now.timeIntervalSince(self.lastInboundAt) >= self.activityTimeout {
+				self.pingSentAt = now
 				self.send(json: ["event": "pusher:ping"])
 			}
 		}
@@ -683,8 +708,12 @@ private extension KKWebSocket {
 	struct ConnectionEstablished: Decodable {
 		let socketID: String
 
+		/// The idle period before the server expects a ping.
+		let activityTimeout: TimeInterval?
+
 		private enum CodingKeys: String, CodingKey {
 			case socketID = "socket_id"
+			case activityTimeout = "activity_timeout"
 		}
 	}
 }
