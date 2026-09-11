@@ -28,6 +28,9 @@ extension UserNotification {
 		case "user.state.changed":
 			let body = (try? decoder.decode(UserStateChange.self, from: raw)) ?? UserStateChange(stateVersion: 0)
 			return .userStateChanged(stateVersion: body.stateVersion)
+		case "library.import.progressed":
+			guard let body = try? decoder.decode(LibraryImportProgress.self, from: raw) else { return nil }
+			return .libraryImportProgressed(processedCount: body.processedCount, totalCount: body.totalCount)
 		default:
 			break
 		}
@@ -74,6 +77,12 @@ private extension UserNotification {
 	/// Decoded body of a `user.state.changed` event.
 	struct UserStateChange: Decodable {
 		let stateVersion: Int
+	}
+
+	/// Decoded body of a `library.import.progressed` broadcast.
+	struct LibraryImportProgress: Decodable {
+		let processedCount: Int
+		let totalCount: Int
 	}
 
 	/// On-wire shape of the `ids` field. This is either an array of identifiers or the literal `"all"`.

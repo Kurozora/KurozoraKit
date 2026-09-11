@@ -75,6 +75,9 @@ extension UserNotification {
 
 		/// A `user.state.changed` broadcast.
 		case userStateChanged(stateVersion: Int)
+
+		/// A `library.import.progressed` broadcast.
+		case libraryImportProgressed(processedCount: Int, totalCount: Int)
 	}
 
 	/// The set of notification identifiers affected by a state change event.
