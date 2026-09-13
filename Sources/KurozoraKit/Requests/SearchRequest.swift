@@ -74,20 +74,7 @@ public struct SearchRequest: Sendable {
 			parameters["query"] = self.query
 
 			if let filter = self._filter {
-				var filters: [String: Any] = [:]
-				switch filter {
-				case .appTheme(let f as Filterable),
-					 .character(let f as Filterable),
-					 .episode(let f as Filterable),
-					 .game(let f as Filterable),
-					 .literature(let f as Filterable),
-					 .person(let f as Filterable),
-					 .show(let f as Filterable),
-					 .song(let f as Filterable),
-					 .studio(let f as Filterable),
-					 .user(let f as Filterable):
-					filters = f.toFilterArray().compactMapValues { $0 }
-				}
+				let filters = filter.toFilterArray().compactMapValues { $0 }
 
 				if !filters.isEmpty {
 					if let filterData = try? JSONSerialization.data(withJSONObject: filters) {
