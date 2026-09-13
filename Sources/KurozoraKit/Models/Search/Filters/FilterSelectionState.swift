@@ -7,7 +7,7 @@
 //
 
 /// The states a filter value cycles through.
-public enum FilterSelectionState: Sendable {
+public enum FilterSelectionState: Hashable, Sendable {
 	/// Indicates the value does not take part in the filter.
 	case neutral
 
