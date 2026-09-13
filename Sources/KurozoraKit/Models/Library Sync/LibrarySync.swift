@@ -145,6 +145,42 @@ public struct LibrarySyncEntry: Codable, Sendable {
 
 	/// The public average rating used for the rating sort axis.
 	public let publicRating: Double?
+
+	/// The identifier of the trackable's media type.
+	public let mediaTypeID: Int?
+
+	/// The identifier of the trackable's airing or publishing status.
+	public let statusID: Int?
+
+	/// The identifier of the trackable's TV rating.
+	public let tvRatingID: Int?
+
+	/// The identifier of the trackable's adaptation source.
+	public let sourceID: Int?
+
+	/// The two-letter code of the trackable's country of origin.
+	public let countryOfOrigin: String?
+
+	/// Whether the trackable is marked not safe for work.
+	public let isNSFW: Bool?
+
+	/// The weekday the trackable airs or publishes on.
+	public let scheduleDay: Int?
+
+	/// The season of the year the trackable airs or publishes in.
+	public let scheduleSeason: Int?
+
+	/// The number of episodes, chapters or editions the trackable has.
+	public let episodeCount: Int?
+
+	/// The number of seasons or volumes the trackable has.
+	public let seasonCount: Int?
+
+	/// The date the trackable first aired or published.
+	public let firstAired: Int?
+
+	/// The date the trackable last aired or published.
+	public let lastAired: Int?
 }
 
 /// The authenticated user's review attached to a library entry.
