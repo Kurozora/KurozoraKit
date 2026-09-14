@@ -8,38 +8,29 @@
 
 import Foundation
 
-/// A request that fetches the authenticated user's library delta since a given cursor.
-///
-/// ```swift
-/// let response = try await kurozoraKit
-///     .librarySync(.shows)
-///     .since(cachedCursor)
-///     .response()
-/// ```
+/// A request that fetches the authenticated user's library delta since the given cursors.
 public struct LibrarySyncRequest: Sendable {
 	// MARK: - Properties
 	private let context: RequestContext
-	private let kind: LibraryKind
-	private var _since: SyncCursor?
+	private var _cursors: [LibrarySyncStream: SyncCursor]
 	private var _limit: Int
 
 	// MARK: - Initializers
-	internal init(context: RequestContext, kind: LibraryKind) {
+	internal init(context: RequestContext) {
 		self.context = context
-		self.kind = kind
-		self._since = nil
+		self._cursors = [:]
 		self._limit = 10000
 	}
 
 	// MARK: - Modifiers
-	/// Sets the resume cursor returned by the previous sync batch.
-	public func since(_ cursor: SyncCursor?) -> Self {
+	/// Sets the resume cursors returned by the previous sync round.
+	public func since(_ cursors: [LibrarySyncStream: SyncCursor]) -> Self {
 		var copy = self
-		copy._since = cursor
+		copy._cursors = cursors
 		return copy
 	}
 
-	/// Sets the maximum number of rows the server should return in this batch.
+	/// Sets the maximum number of rows the server should return per stream.
 	public func limit(_ limit: Int) -> Self {
 		var copy = self
 		copy._limit = limit
@@ -49,16 +40,15 @@ public struct LibrarySyncRequest: Sendable {
 	// MARK: - Execution
 	/// Executes the request and returns the decoded response.
 	public func response() async throws -> LibrarySyncResponse {
-		var parameters: [String: Any] = [
-			"kind": self.kind.rawValue,
-			"limit": self._limit,
-		]
-		if let since = self._since {
-			// `updatedAt` is opaque — echo the server's microsecond timestamp verbatim.
-			parameters["since[updated_at]"] = since.updatedAt
-			parameters["since[id]"] = since.id
-			if let syncedAt = since.syncedAt {
-				parameters["since[synced_at]"] = syncedAt
+		var parameters: [String: Any] = ["limit": self._limit]
+
+		for (stream, cursor) in self._cursors {
+			// `updatedAt` is opaque and echoed back verbatim.
+			parameters["since[\(stream.rawValue)][updated_at]"] = cursor.updatedAt
+			parameters["since[\(stream.rawValue)][id]"] = cursor.id
+
+			if let syncedAt = cursor.syncedAt {
+				parameters["since[\(stream.rawValue)][synced_at]"] = syncedAt
 			}
 		}
 

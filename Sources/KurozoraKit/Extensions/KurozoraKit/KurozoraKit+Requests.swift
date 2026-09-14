@@ -716,14 +716,11 @@ extension KurozoraKit {
 		LibraryRequest(context: RequestContext(from: self), kind: kind, status: status)
 	}
 
-	/// Returns a request that fetches the cursor-based delta sync of the
-	/// authenticated user's library for the given kind.
-	///
-	/// - Parameter kind: The kind of library to sync.
+	/// Returns a request that fetches the authenticated user's library delta.
 	///
 	/// - Returns: A configured ``LibrarySyncRequest`` ready to be executed.
-	public func librarySync(_ kind: LibraryKind) -> LibrarySyncRequest {
-		LibrarySyncRequest(context: RequestContext(from: self), kind: kind)
+	public func librarySync() -> LibrarySyncRequest {
+		LibrarySyncRequest(context: RequestContext(from: self))
 	}
 
 	/// Returns a request that fetches the watched-episode overlay for a bounded
