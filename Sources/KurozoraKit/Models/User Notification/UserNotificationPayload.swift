@@ -33,6 +33,22 @@ extension UserNotification {
 		/// The id of a feed message.
 		public let feedMessageID: KurozoraItemID?
 
+		// New Episode
+		/// The id of an episode.
+		public let episodeID: KurozoraItemID?
+
+		/// The number of an episode within its series.
+		public let number: Int?
+
+		/// The slug of the anime an episode belongs to.
+		public let animeSlug: String?
+
+		/// The title of the anime an episode belongs to.
+		public let animeTitle: String?
+
+		/// The poster image of the anime an episode belongs to.
+		public let posterImageURL: String?
+
 		// Mention
 		/// The body of a mention notification.
 		public let message: String?

@@ -38,7 +38,9 @@ extension UserNotification {
 		let payload = (try? decoder.decode(UserNotification.Payload.self, from: raw))
 			?? UserNotification.Payload(
 				ip: nil, sessionID: nil, userID: nil, username: nil,
-				profileImageURL: nil, feedMessageID: nil, message: nil, title: nil, link: nil
+				profileImageURL: nil, feedMessageID: nil, episodeID: nil, number: nil,
+				animeSlug: nil, animeTitle: nil, posterImageURL: nil,
+				message: nil, title: nil, link: nil
 			)
 
 		let typeMarker = (try? decoder.decode(TypeMarker.self, from: raw))?.type

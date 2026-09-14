@@ -13,6 +13,8 @@
 /// - `feedMessageReply`: the notification has a `feedMessageReply` type and thus has the message style.
 /// - `feedMessageReShare`: the notification has a `feedMessageReShare` type and thus has the message style.
 /// - `userMention`: the notification has a `userMention` type and thus has the mention style.
+/// - `newEpisode`: the notification has a `newEpisode` type and thus has the episode style.
+/// - `newEpisodes`: the notification has a `newEpisodes` type and thus has the episode style.
 /// - `libraryImportFinished`: the notification has a `libraryImportFinished` type and thus has the import style.
 /// - `subscriptionStatus`: the notification has a `subscriptionStatus` type and thus has the subscription style.
 /// - `userTimedOut`: the notification has a `userTimedOut` type and thus has the moderation style.
@@ -36,6 +38,12 @@ public enum UserNotificationType: String, Codable, Sendable {
 
 	/// Indicates that the notification has a `userMention` type and thus has the mention style.
 	case userMention = "NewUserMention"
+
+	/// Indicates that the notification has a `newEpisode` type and thus has the episode style.
+	case newEpisode = "NewEpisode"
+
+	/// Indicates that the notification has a `newEpisodes` type and thus has the episode style.
+	case newEpisodes = "NewEpisodes"
 
 	/// Indicates that the notification has a `libraryImportFinished` type and thus thas the import style.
 	case libraryImportFinished = "LibraryImportFinished"
