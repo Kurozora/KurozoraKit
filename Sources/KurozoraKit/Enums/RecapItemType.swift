@@ -7,7 +7,7 @@
 //
 
 /// The set of available recap item resource types.
-public enum RecapItemType: String {
+public enum RecapItemType: String, Sendable {
 	// MARK: - Cases
 	/// Indicates that the recap item is of the `shows` type.
 	case shows
@@ -23,4 +23,16 @@ public enum RecapItemType: String {
 
 	/// Indicates that the recap item is of the `themes` type.
 	case themes
+
+	/// Indicates that the recap item is of the `studios` type.
+	case studios
+
+	/// Indicates that the recap item is of the `characters` type.
+	case characters
+
+	/// Indicates that the recap item is of the `voices` type.
+	case voices
+
+	/// Indicates that the recap item is of the `creators` type.
+	case creators
 }

@@ -1740,6 +1740,17 @@ extension KurozoraKit {
 		RecapDetailRequest(context: RequestContext(from: self), year: year, month: month)
 	}
 
+	/// Returns a request that fetches the recap stats for the specified year and month.
+	///
+	/// - Parameters:
+	///    - year: The year of the recap.
+	///    - month: The month of the recap.
+	///
+	/// - Returns: A configured ``RecapStatsRequest`` ready to be executed.
+	public func recapStats(year: String, month: String) -> RecapStatsRequest {
+		RecapStatsRequest(context: RequestContext(from: self), year: year, month: month)
+	}
+
 	/// Returns a request that fetches the authenticated user's weekly digest.
 	public func weeklyDigest() -> WeeklyDigestRequest {
 		WeeklyDigestRequest(context: RequestContext(from: self))

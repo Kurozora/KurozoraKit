@@ -203,6 +203,9 @@ extension KKEndpoint.Me {
 		/// The endpoint to the details of a recap page.
 		case details(_ year: String, _ month: String)
 
+		/// The endpoint to the stats of a recap page.
+		case stats(_ year: String, _ month: String)
+
 		// MARK: - Properties
 		/// The endpoint value of the Recap API type.
 		var endpointValue: String {
@@ -211,6 +214,8 @@ extension KKEndpoint.Me {
 				return "me/recap"
 			case .details(let year, let month):
 				return "me/recap/\(year)/\(month)"
+			case .stats(let year, let month):
+				return "me/recap/\(year)/\(month)/stats"
 			}
 		}
 	}

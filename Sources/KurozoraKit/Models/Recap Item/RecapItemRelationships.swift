@@ -38,5 +38,11 @@ extension RecapItem {
 
 		/// The people belonging to the recap.
 		public let people: ResourceCollection<PersonIdentity>?
+
+		/// The studios belonging to the recap.
+		public let studios: ResourceCollection<StudioIdentity>?
+
+		/// The ranked entries of the recap.
+		public let items: ResourceCollection<RecapEntry>?
 	}
 }
