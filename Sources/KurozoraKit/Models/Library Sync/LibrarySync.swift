@@ -174,6 +174,9 @@ public struct LibrarySyncTrackable: Codable, Sendable {
 	/// The next broadcast or publication timestamp in seconds since the Unix epoch.
 	public let airingDate: Int?
 
+	/// The time of day the trackable airs or publishes in Japan.
+	public let airTime: String?
+
 	/// The countdown duration in seconds.
 	public let durationCount: Int?
 
