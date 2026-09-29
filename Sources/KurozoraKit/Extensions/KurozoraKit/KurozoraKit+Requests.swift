@@ -217,6 +217,15 @@ extension KurozoraKit {
 		RelationshipRequest(context: RequestContext(from: self), endpoint: KKEndpoint.Shows.cast(show).endpointValue)
 	}
 
+	/// Returns a request that fetches the languages of the specified show.
+	///
+	/// - Parameter show: The identity of the show whose languages to fetch.
+	///
+	/// - Returns: A configured relationship request.
+	public func languages(for show: ShowIdentity) -> RelationshipRequest<ResourceCollection<SupportedLanguage>> {
+		RelationshipRequest(context: RequestContext(from: self), endpoint: KKEndpoint.Shows.languages(show).endpointValue)
+	}
+
 	/// Returns a request that fetches the editorial of the specified show.
 	///
 	/// - Parameter show: The identity of the show whose editorial to fetch.
@@ -328,6 +337,15 @@ extension KurozoraKit {
 		RelationshipRequest(context: RequestContext(from: self), endpoint: KKEndpoint.Games.cast(game).endpointValue)
 	}
 
+	/// Returns a request that fetches the languages of the specified game.
+	///
+	/// - Parameter game: The identity of the game whose languages to fetch.
+	///
+	/// - Returns: A configured relationship request.
+	public func languages(for game: GameIdentity) -> RelationshipRequest<ResourceCollection<SupportedLanguage>> {
+		RelationshipRequest(context: RequestContext(from: self), endpoint: KKEndpoint.Games.languages(game).endpointValue)
+	}
+
 	/// Returns a request that fetches the editorial of the specified game.
 	///
 	/// - Parameter game: The identity of the game whose editorial to fetch.
@@ -419,6 +437,15 @@ extension KurozoraKit {
 	/// - Returns: A configured relationship request.
 	public func cast(for literature: LiteratureIdentity) -> RelationshipRequest<ResourceCollection<CastIdentity>> {
 		RelationshipRequest(context: RequestContext(from: self), endpoint: KKEndpoint.Literatures.cast(literature).endpointValue)
+	}
+
+	/// Returns a request that fetches the languages of the specified literature.
+	///
+	/// - Parameter literature: The identity of the literature whose languages to fetch.
+	///
+	/// - Returns: A configured relationship request.
+	public func languages(for literature: LiteratureIdentity) -> RelationshipRequest<ResourceCollection<SupportedLanguage>> {
+		RelationshipRequest(context: RequestContext(from: self), endpoint: KKEndpoint.Literatures.languages(literature).endpointValue)
 	}
 
 	/// Returns a request that fetches the editorial of the specified literature.

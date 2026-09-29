@@ -57,8 +57,8 @@ extension Game {
 		/// The game's studio.
 		public let studio: String?
 
-		/// The game's languages.
-		public let languages: [Language]
+		/// The language the game leads with.
+		public let languageSupport: LanguageSupport?
 
 		/// The game's country of origin.
 		public let countryOfOrigin: Country?

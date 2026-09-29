@@ -67,8 +67,8 @@ extension Literature {
 		/// The literature's studio.
 		public let studio: String?
 
-		/// The literature's languages.
-		public let languages: [Language]
+		/// The language the literature leads with.
+		public let languageSupport: LanguageSupport?
 
 		/// The literature's country of origin.
 		public let countryOfOrigin: Country?

@@ -84,8 +84,8 @@ extension Show {
 		/// The show's studio.
 		public let studio: String?
 
-		/// The show's languages.
-		public let languages: [Language]
+		/// The language the show leads with.
+		public let languageSupport: LanguageSupport?
 
 		/// The show's country of origin.
 		public let countryOfOrigin: Country?

@@ -499,6 +499,9 @@ extension KKEndpoint {
 		/// The endpoint to the cast belonging to a show.
 		case cast(_ showIdentity: ShowIdentity)
 
+		/// The endpoint to the languages belonging to a show.
+		case languages(_ showIdentity: ShowIdentity)
+
 		/// The endpoint to the editorial belonging to a show.
 		case editorial(_ showIdentity: ShowIdentity)
 
@@ -554,6 +557,8 @@ extension KKEndpoint {
 				return "anime/\(showIdentity.id)"
 			case .cast(let showIdentity):
 				return "anime/\(showIdentity.id)/cast"
+			case .languages(let showIdentity):
+				return "anime/\(showIdentity.id)/languages"
 			case .editorial(let showIdentity):
 				return "anime/\(showIdentity.id)/editorial"
 			case .characters(let showIdentity):
@@ -627,6 +632,9 @@ extension KKEndpoint {
 		/// The endpoint to the cast belonging to a literature.
 		case cast(_ literatureIdentity: LiteratureIdentity)
 
+		/// The endpoint to the languages belonging to a literature.
+		case languages(_ literatureIdentity: LiteratureIdentity)
+
 		/// The endpoint to the editorial belonging to a literature.
 		case editorial(_ literatureIdentity: LiteratureIdentity)
 
@@ -676,6 +684,8 @@ extension KKEndpoint {
 				return "manga/\(literatureIdentity.id)"
 			case .cast(let literatureIdentity):
 				return "manga/\(literatureIdentity.id)/cast"
+			case .languages(let literatureIdentity):
+				return "manga/\(literatureIdentity.id)/languages"
 			case .editorial(let literatureIdentity):
 				return "manga/\(literatureIdentity.id)/editorial"
 			case .characters(let literatureIdentity):
@@ -720,6 +730,9 @@ extension KKEndpoint {
 
 		/// The endpoint to the cast belonging to a game.
 		case cast(_ gameIdentity: GameIdentity)
+
+		/// The endpoint to the languages belonging to a game.
+		case languages(_ gameIdentity: GameIdentity)
 
 		/// The endpoint to the editorial belonging to a game.
 		case editorial(_ gameIdentity: GameIdentity)
@@ -773,6 +786,8 @@ extension KKEndpoint {
 				return "games/\(gameIdentity.id)"
 			case .cast(let gameIdentity):
 				return "games/\(gameIdentity.id)/cast"
+			case .languages(let gameIdentity):
+				return "games/\(gameIdentity.id)/languages"
 			case .editorial(let gameIdentity):
 				return "games/\(gameIdentity.id)/editorial"
 			case .characters(let gameIdentity):
