@@ -1328,13 +1328,13 @@ extension KurozoraKit {
 	/// user's library.
 	///
 	/// - Parameters:
-	///    - kind: The kind of library to import into.
+	///    - kind: The kind of library to import into. Use `nil` to identify from the file.
 	///    - service: The source service that produced the file.
 	///    - behavior: The merge behavior to apply during import.
 	///    - filePath: The location of the file to import.
 	///
 	/// - Returns: A configured ``ImportLibraryRequest`` ready to be executed.
-	public func importLibrary(_ kind: LibraryKind, service: LibraryImport.Service, behavior: LibraryImport.Behavior, filePath: URL) -> ImportLibraryRequest {
+	public func importLibrary(_ kind: LibraryKind? = nil, service: LibraryImport.Service, behavior: LibraryImport.Behavior, filePath: URL) -> ImportLibraryRequest {
 		ImportLibraryRequest(context: RequestContext(from: self), kind: kind, service: service, behavior: behavior, filePath: filePath)
 	}
 
