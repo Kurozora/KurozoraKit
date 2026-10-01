@@ -22,7 +22,7 @@ public enum FilterKey: String, CaseIterable, Hashable, Sendable {
 
 	case countryOfOrigin
 	case duration
-	case isFiller
+	case fillerKind
 	case isNSFW
 	case isSpecial
 	case isPremiere
@@ -86,7 +86,7 @@ public enum FilterKey: String, CaseIterable, Hashable, Sendable {
 		case .weight: return "weight"
 		case .countryOfOrigin: return "country_id"
 		case .duration: return "duration"
-		case .isFiller: return "is_filler"
+		case .fillerKind: return "filler_kind"
 		case .isNSFW: return "is_nsfw"
 		case .isSpecial: return "is_special"
 		case .isPremiere: return "is_premiere"

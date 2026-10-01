@@ -57,8 +57,8 @@ extension Episode {
 		/// The view count of the episode.
 		public let viewCount: Int
 
-		/// Whether the episode is a filler.
-		public let isFiller: Bool
+		/// The canon standing of the episode.
+		public let fillerKind: EpisodeFillerKind
 
 		/// Whether the episode details have been verified.
 		public let isVerified: Bool
