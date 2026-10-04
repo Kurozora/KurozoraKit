@@ -275,6 +275,9 @@ extension KKEndpoint {
 		/// The endpoint to the reviews belonging to a studio.
 		case reviews(_ personIdentity: PersonIdentity)
 
+		/// The endpoint to the relationships belonging to a person.
+		case relationships(_ personIdentity: PersonIdentity)
+
 		/// The endpoint to leave a rating on a person.
 		case rate(_ personIdentity: PersonIdentity)
 
@@ -296,6 +299,8 @@ extension KKEndpoint {
 				return "people/\(personIdentity.id)/anime"
 			case .reviews(let personIdentity):
 				return "people/\(personIdentity.id)/reviews"
+			case .relationships(let personIdentity):
+				return "people/\(personIdentity.id)/relationships"
 			case .rate(let personIdentity):
 				return "people/\(personIdentity.id)/rate"
 			}

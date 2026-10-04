@@ -623,6 +623,15 @@ extension KurozoraKit {
 		RelationshipRequest(context: RequestContext(from: self), endpoint: KKEndpoint.People.reviews(person).endpointValue)
 	}
 
+	/// Returns a request that fetches the relationships of the specified person.
+	///
+	/// - Parameter person: The identity of the person.
+	///
+	/// - Returns: A configured relationship request.
+	public func relationships(for person: PersonIdentity) -> RelationshipRequest<ResourceCollection<PersonRelationship>> {
+		RelationshipRequest(context: RequestContext(from: self), endpoint: KKEndpoint.People.relationships(person).endpointValue)
+	}
+
 	/// Returns a request that fetches the shows associated with the specified studio.
 	///
 	/// - Parameter studio: The identity of the studio.
