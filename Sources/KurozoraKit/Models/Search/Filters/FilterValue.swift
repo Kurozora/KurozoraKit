@@ -29,6 +29,9 @@ public enum FilterValue: Hashable, Sendable {
 	/// Indicates free text.
 	case text(String)
 
+	/// Indicates a star rating.
+	case rating(Double)
+
 	// MARK: - Properties
 	/// Whether the value narrows the results.
 	public var isEmpty: Bool {
@@ -39,6 +42,7 @@ public enum FilterValue: Hashable, Sendable {
 		case .boolean: return false
 		case .date: return false
 		case .text(let text): return text.isEmpty
+		case .rating: return false
 		}
 	}
 
@@ -51,6 +55,7 @@ public enum FilterValue: Hashable, Sendable {
 		case .boolean(let boolean): return boolean
 		case .date(let date): return date
 		case .text(let text): return text.isEmpty ? nil : text
+		case .rating(let rating): return rating
 		}
 	}
 }

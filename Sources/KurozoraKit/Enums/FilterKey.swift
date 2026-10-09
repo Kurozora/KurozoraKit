@@ -6,7 +6,7 @@
 //  MIT License
 //
 
-/// The attributes a search can be filtered on.
+/// The attributes a search or list can be filtered on.
 public enum FilterKey: String, CaseIterable, Hashable, Sendable {
 	// MARK: - Cases
 	case age
@@ -66,6 +66,9 @@ public enum FilterKey: String, CaseIterable, Hashable, Sendable {
 	case uiStatusBarStyle
 	case version
 
+	case hasReview
+	case rating
+
 	// MARK: - Functions
 	/// The name the API gives the attribute.
 	///
@@ -123,6 +126,8 @@ public enum FilterKey: String, CaseIterable, Hashable, Sendable {
 		case .name: return "name"
 		case .uiStatusBarStyle: return "ui_status_bar_style"
 		case .version: return "version"
+		case .hasReview: return "has_review"
+		case .rating: return "rating"
 		}
 	}
 }
