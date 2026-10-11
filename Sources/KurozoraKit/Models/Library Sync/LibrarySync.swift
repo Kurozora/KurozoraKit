@@ -159,6 +159,9 @@ public struct LibrarySyncTrackable: Codable, Sendable {
 	/// The trackable's genres pre-joined into a localized display string.
 	public let genresLocalized: String?
 
+	/// The name of the trackable's studio, publisher or developer.
+	public let studioName: String?
+
 	/// The identifier of the trackable's media type.
 	public let mediaTypeID: Int?
 
@@ -188,6 +191,9 @@ public struct LibrarySyncTrackable: Codable, Sendable {
 
 	/// The identifier of the trackable's TV rating.
 	public let tvRatingID: Int?
+
+	/// The name of the trackable's TV rating.
+	public let tvRatingName: String?
 
 	/// The identifier of the trackable's adaptation source.
 	public let sourceID: Int?
